@@ -1,0 +1,12 @@
+- platform: mqtt
+  name: "Floor Humidity"
+  state_topic: "floor/humidity"
+  payload_available: "online"
+  payload_not_available: "offline"
+  icon: 'mdi:water-percent'
+- platform: mqtt
+  name: "Floor Temperature"
+  state_topic: "floor/temperature"
+  payload_available: "online"
+  payload_not_available: "offline"
+  icon: 'mdi:thermometer'

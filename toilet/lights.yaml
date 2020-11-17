@@ -1,0 +1,5 @@
+- platform: group
+  name: Toilet Lights
+  entities:
+  - light.hue_ambiance_candle_1
+  - light.hue_ambiance_candle_2

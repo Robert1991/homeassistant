@@ -1,0 +1,6 @@
+- platform: mqtt
+  name: "Living Room Motion Detector"
+  state_topic: "living_room/closet_motion"
+  payload_on: "on"
+  payload_off: "off"
+  off_delay: 0

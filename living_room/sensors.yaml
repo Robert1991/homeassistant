@@ -1,0 +1,12 @@
+- platform: mqtt
+  name: "Living Room Temperature"
+  state_topic: "living_room/closet_temperature"
+  payload_available: "online"
+  payload_not_available: "offline"
+  icon: 'mdi:thermometer'
+- platform: mqtt
+  name: "Living Room Humidity"
+  state_topic: "living_room/closet_humidity"
+  payload_available: "online"
+  payload_not_available: "offline"
+  icon: 'mdi:water-percent'

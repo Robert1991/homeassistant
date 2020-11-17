@@ -1,9 +1,24 @@
 
-# Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
 tts:
   - platform: google_translate
+
+light balcony: !include balcony/lights.yaml
+light toilet: !include toilet/lights.yaml
+light floor: !include floor/lights.yaml
+light living_room: !include living_room/lights.yaml
+light kitchen: !include kitchen/lights.yaml
+  
+sensor balcony: !include balcony/sensors.yaml
+sensor floor: !include floor/sensors.yaml
+sensor living_room: !include living_room/sensors.yaml
+sensor kitchen: !include kitchen/sensors.yaml
+  
+binary_sensor toilet: !include toilet/binary_sensors.yaml
+binary_sensor floor: !include floor/binary_sensors.yaml
+binary_sensor living_room: !include living_room/binary_sensors.yaml
+binary_sensor kitchen: !include kitchen/binary_sensors.yaml
 
 group: !include groups.yaml
 automation: !include automations.yaml
@@ -19,130 +34,3 @@ media_player:
     name: "TV LivingRoom"
     adb_server_ip: 127.0.0.1
     adb_server_port: 5037
-
-light:
-  - platform: mqtt
-    name: "Kitchen Ceiling Light"
-    state_topic: "kitchen/ceiling_light/status"
-    command_topic: "kitchen/ceiling_light/set"
-  - platform: mqtt
-    name: "Kitchen Techno Light"
-    state_topic: "kitchen/relais_light/status"
-    command_topic: "kitchen/relais_light/set"
-    retain: true
-  - platform: mqtt
-    name: "Kitchen RGB Light Strip"
-    state_topic: "kitchen/light1/status"
-    command_topic: "kitchen/light1/switch"
-    brightness_command_topic: "kitchen/light1/brightness/set"
-    brightness_state_topic: "kitchen/light1/brightness/status"
-    rgb_state_topic: "kitchen/light1/color/status"
-    rgb_command_topic: "kitchen/light1/color/set"
-    state_value_template: "{{ value_json.state }}"
-    rgb_value_template: "{{ value_json.rgb | join(',') }}"
-    payload_on: "ON"
-    payload_off: "OFF"
-    retain: true
-  - platform: mqtt
-    name: "Floor Lightstrip"
-    state_topic: "floor/light_strip/status"
-    command_topic: "floor/light_strip/switch"
-    brightness_command_topic: "floor/light_strip/brightness/set"
-    brightness_state_topic: "floor/light_strip/brightness/status"
-    rgb_state_topic: "floor/light_strip/color/status"
-    rgb_command_topic: "floor/light_strip/color/set"
-    state_value_template: "{{ value_json.state }}"
-    rgb_value_template: "{{ value_json.rgb | join(',') }}"
-    payload_on: "ON"
-    payload_off: "OFF"
-    retain: true
-  - platform: mqtt
-    name: "Balcony Light 1"
-    state_topic: "balcony/relais_light_1/status"
-    command_topic: "balcony/relais_light_1/switch"
-    retain: true
-  - platform: mqtt
-    name: "Balcony Light 2"
-    state_topic: "balcony/relais_light_2/status"
-    command_topic: "balcony/relais_light_2/switch"
-    retain: true
-  - platform: mqtt
-    name: "Living Room Closet Light"
-    state_topic: "living_room/closet_light/status"
-    command_topic: "living_room/closet_light/switch"
-    brightness_command_topic: "living_room/closet_light/brightness/set"
-    brightness_state_topic: "living_room/closet_light/brightness/status"
-    rgb_state_topic: "living_room/closet_light/color/status"
-    rgb_command_topic: "living_room/closet_light/color/set"
-    state_value_template: "{{ value_json.state }}"
-    rgb_value_template: "{{ value_json.rgb | join(',') }}"
-    payload_on: "ON"
-    payload_off: "OFF"
-    retain: true
-
-sensor:
-  - platform: mqtt
-    name: "Kitchen Temperature"
-    state_topic: "kitchen/temperature"
-    payload_available: "online"
-    payload_not_available: "offline"
-  - platform: mqtt
-    name: "Kitchen Humidity"
-    state_topic: "kitchen/humidity"
-    payload_available: "online"
-    payload_not_available: "offline"
-  - platform: mqtt
-    name: "Kitchen Outside Light Intensity"
-    state_topic: "kitchen/outside_light_intensity"
-    payload_available: "online"
-    payload_not_available: "offline"
-  - platform: mqtt
-    name: "Floor Humidity"
-    state_topic: "floor/humidity"
-    payload_available: "online"
-    payload_not_available: "offline"
-  - platform: mqtt
-    name: "Floor Temperature"
-    state_topic: "floor/temperature"
-    payload_available: "online"
-    payload_not_available: "offline"
-  - platform: mqtt
-    name: "Balcony Humidity"
-    state_topic: "balcony/humidity"
-    payload_available: "online"
-    payload_not_available: "offline"
-  - platform: mqtt
-    name: "Balcony Temperature"
-    state_topic: "balcony/temperature"
-    payload_available: "online"
-    payload_not_available: "offline"
-  - platform: mqtt
-    name: "Living Room Temperature"
-    state_topic: "living_room/closet_temperature"
-    payload_available: "online"
-    payload_not_available: "offline"
-  - platform: mqtt
-    name: "Living Room Humidity"
-    state_topic: "living_room/closet_humidity"
-    payload_available: "online"
-    payload_not_available: "offline"
-
-binary_sensor:
-  - platform: mqtt
-    name: "Kitchen Motion Detector"
-    state_topic: "kitchen/motion"
-    off_delay: 0
-    payload_on: "on"
-    payload_off: "off"
-  - platform: mqtt
-    name: "Floor Motion Detector"
-    state_topic: "floor/motion"
-    payload_on: "on"
-    payload_off: "off"
-    off_delay: 0
-  - platform: mqtt
-    name: "Living Room Motion Detector"
-    state_topic: "living_room/closet_motion"
-    payload_on: "on"
-    payload_off: "off"
-    off_delay: 0
