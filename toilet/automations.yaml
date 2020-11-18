@@ -1,0 +1,23 @@
+- alias: Turn on Toilet lights when there is movement
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.toilet_motion_detector
+      to: 'on'
+  condition:
+    - condition: state
+      entity_id: light.toilet_lights
+      state: 'off'
+  action:
+    - service: light.turn_on
+      entity_id: light.toilet_lights
+
+- alias: Turn off Toilet lights when there is no movement
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.toilet_motion_detector
+      to: 'off'
+      for:
+        seconds: 60
+  action:
+    - service: light.turn_off
+      entity_id: light.toilet_lights

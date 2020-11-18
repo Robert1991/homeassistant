@@ -22,6 +22,7 @@ binary_sensor kitchen: !include kitchen/binary_sensors.yaml
 
 group: !include groups.yaml
 automation: !include automations.yaml
+automation toilet: !include toilet/automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 
