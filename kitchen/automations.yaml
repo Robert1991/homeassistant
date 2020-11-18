@@ -1,0 +1,32 @@
+- alias: Turn on kitchen lights on smart button toggle
+  trigger:
+    - platform: state
+      entity_id: sensor.ikea_kitchen_smart_button_action
+      to: 'toggle'
+  action:
+    - service: light.toggle
+      entity_id: light.kitchen_lights
+
+- alias: Turn on kitchen lights when there is movement
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.kitchen_motion_detector
+      to: 'on'
+  condition:
+    - condition: numeric_state
+      entity_id: sensor.kitchen_outside_light_intensity
+      below: 750
+  action:
+    - service: light.turn_on
+      entity_id: light.kitchen_lights
+
+- alias: Turn off kitchen lights when there is no movement
+  trigger:
+    platform: state
+    entity_id: binary_sensor.kitchen_motion_detector
+    to: 'off'
+    for:
+      seconds: 100
+  action:
+    - service: light.turn_off
+      entity_id: light.kitchen_lights

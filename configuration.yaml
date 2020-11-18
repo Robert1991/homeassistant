@@ -21,8 +21,11 @@ binary_sensor living_room: !include living_room/binary_sensors.yaml
 binary_sensor kitchen: !include kitchen/binary_sensors.yaml
 
 group: !include groups.yaml
+automation floor: !include floor/automations.yaml
+automation living_room: !include living_room/automations.yaml
 automation: !include automations.yaml
 automation toilet: !include toilet/automations.yaml
+automation kitchen: !include kitchen/automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 

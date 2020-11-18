@@ -1,0 +1,40 @@
+- alias: 'Turn off TV when its in paused state for several minutes'
+  trigger:
+    entity_id: media_player.tv_livingroom
+    platform: state
+    to: 'paused'
+    for:
+      minutes: 5
+  action:
+    - service: media_player.turn_off
+      data:
+        entity_id: media_player.tv_livingroom
+- alias: Turn on living room lights when there is movement
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.living_room_motion_detector
+      to: 'on'
+  condition:
+    - condition: numeric_state
+      entity_id: sensor.kitchen_outside_light_intensity
+      below: 750
+  action:
+    - service: light.turn_on
+      entity_id: light.living_room_lights
+            
+- alias: Turn off living room light after no movement
+  trigger:
+    platform: state
+    entity_id: binary_sensor.living_room_motion_detector
+    to: 'off'
+    for:
+      seconds: 120
+  condition:
+    - condition: not
+      conditions:  
+        - condition: state
+          entity_id: media_player.tv_livingroom
+          state: 'playing'
+  action:
+    - service: light.turn_off
+      entity_id: light.living_room_lights
