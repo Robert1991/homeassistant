@@ -9,11 +9,13 @@ light toilet: !include toilet/lights.yaml
 light floor: !include floor/lights.yaml
 light living_room: !include living_room/lights.yaml
 light kitchen: !include kitchen/lights.yaml
+light bedroom: !include bedroom/lights.yaml
   
 sensor balcony: !include balcony/sensors.yaml
 sensor floor: !include floor/sensors.yaml
 sensor living_room: !include living_room/sensors.yaml
 sensor kitchen: !include kitchen/sensors.yaml
+sensor toilet: !include toilet/sensors.yaml
   
 binary_sensor toilet: !include toilet/binary_sensors.yaml
 binary_sensor floor: !include floor/binary_sensors.yaml
@@ -23,11 +25,30 @@ binary_sensor kitchen: !include kitchen/binary_sensors.yaml
 group: !include groups.yaml
 automation floor: !include floor/automations.yaml
 automation living_room: !include living_room/automations.yaml
-automation: !include automations.yaml
 automation toilet: !include toilet/automations.yaml
+automation bedroom: !include bedroom/automations.yaml
 automation kitchen: !include kitchen/automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
+scene bedroom: !include bedroom/scenes.yaml
+
+input_number:
+  bedroom_light_brightness:
+    name: Bedroom Brightness Slider
+    initial: 39
+    min: 39
+    max: 255
+    step: 36
+
+input_select:
+  bedroom_light_scene:
+    options:
+      - 'scene.bedroom_romantic'
+      - 'scene.bedroom_relaxed'
+      - 'scene.bedroom_bright'
+      - 'scene.bedroom_dimmed'
+      - 'scene.bedroom_night_light'
+    initial: 'scene.bedroom_bright'
 
 mqtt:
   broker: 127.0.0.1

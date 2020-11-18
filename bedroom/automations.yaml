@@ -1,0 +1,58 @@
+- alias: Notify Bedroom Smart Button Was Pressed
+  trigger:
+    - platform: state
+      entity_id: 'sensor.hue_smart_button_1_action'
+      to: 'press'
+  action:
+    service: script.turn_on
+    entity_id: script.notify_smart_button_pressed
+    data:
+      variables:
+        smart_button_id: 'sensor.hue_smart_button_1_action'
+
+- alias: Toggle Bedroom Room Lights on Smart Button Release
+  trigger:
+    - platform: event
+      event_type: SMART_HOME_BUTTON_RELEASE
+  action:
+    - service: light.toggle
+      entity_id: light.bedroom_lights
+
+- alias: Toggle Bedroom Scene on Smart Button Press
+  trigger:
+    - platform: event
+      event_type: SMART_HOME_BUTTON_PRESS
+  action:
+    - service: input_select.select_next
+      entity_id: input_select.bedroom_light_scene
+    - service: scene.turn_on
+      data_template:
+        entity_id: "{{ states('input_select.bedroom_light_scene') }}"
+
+- alias: Apply Smart Button Dim Operation Increase to Bedroom Lights
+  trigger:
+    - platform: state
+      entity_id: 'sensor.hue_smart_button_1_action'
+      to: 'skip_forward'
+  action:
+    - service: input_number.increment
+      entity_id: input_number.bedroom_light_brightness
+
+- alias: Apply Smart Button Dim Operation Decrease to Bedroom Lights
+  trigger:
+    - platform: state
+      entity_id: 'sensor.hue_smart_button_1_action'
+      to: 'skip_backward'
+  action:
+    - service: input_number.decrement
+      entity_id: input_number.bedroom_light_brightness
+
+- alias: Apply Brightness to Bedroom Lights
+  trigger:
+    - platform: state
+      entity_id: input_number.bedroom_light_brightness
+  action:
+    - service: light.turn_on
+      entity_id: light.bedroom_lights
+      data_template:
+        brightness: "{{ states('input_number.bedroom_light_brightness') | int }}"

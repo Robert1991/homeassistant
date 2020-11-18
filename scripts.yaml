@@ -1,0 +1,39 @@
+notify_smart_button_pressed:
+  alias: Notify smart button pressed
+  variables:
+    smart_button_id: ''
+  sequence:
+    - wait_template: "{{ is_state(smart_button_id, 'release') }}"
+      timeout:
+        milliseconds: 200
+    - choose:
+      - conditions:
+        - condition: template
+          value_template: "{{ not wait.completed }}"
+        sequence:
+          - wait_template: "{{ is_state(smart_button_id, 'hold') }}"
+            timeout:
+              milliseconds: 600
+          - choose:
+            - conditions:
+              - condition: template
+                value_template: "{{ not wait.completed }}"
+              sequence:
+                  - event: SMART_HOME_BUTTON_PRESS
+                    event_data:
+                      entity_id: "{{ smart_button_id }}"
+            - conditions:
+              - condition: template
+                value_template: "{{ wait.completed }}"
+              sequence:
+                  - event: SMART_HOME_BUTTON_HOLD
+                    event_data:
+                      entity_id: "{{ smart_button_id }}"
+      - conditions:
+        - condition: template
+          value_template: "{{ wait.completed }}"
+        sequence:
+          - event: SMART_HOME_BUTTON_RELEASE
+            event_data:
+              entity_id: "{{ smart_button_id }}"
+  
