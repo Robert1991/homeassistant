@@ -5,15 +5,19 @@
     light.bedroom_ceiling_1:
       state: "on"
       xy_color: [0.636, 0.335]
-      brigtness: 111
+      brightness: 111
     light.bedroom_ceiling_2:
       state: "on"
       xy_color: [0.38, 0.391]
-      brigtness: 111
+      brightness: 111
     light.bedroom_ceiling_3:
       state: "on"
       xy_color: [0.586, 0.353]
-      brigtness: 111
+      brightness: 111
+    light.bedroom_workdesk:
+      state: "on"
+      xy_color: [0.636, 0.335]
+      brightness: 200
     light.bedroom_closet_led_power_supply_light:
       state: "on"
       brightness: 80
@@ -32,6 +36,10 @@
       state: "on"
       xy_color: [0.502, 0.414]
       brigtness: 145
+    light.bedroom_workdesk:
+      state: "on"
+      xy_color: [0.502, 0.414]
+      brightness: 120
     light.bedroom_closet_led_power_supply_light:
       state: "on"
       brightness: 120
@@ -41,15 +49,19 @@
     light.bedroom_ceiling_1:
       state: "on"
       xy_color: [0.457, 0.41]
-      brigtness: 145
+      brightness: 145
     light.bedroom_ceiling_2:
       state: "on"
       xy_color: [0.457, 0.41]
-      brigtness: 145
+      brightness: 145
     light.bedroom_ceiling_3:
       state: "on"
       xy_color: [0.457, 0.41]
-      brigtness: 145
+      brightness: 145
+    light.bedroom_workdesk:
+      state: "on"
+      xy_color: [0.457, 0.41]
+      brightness: 200
     light.bedroom_closet_led_power_supply_light:
       state: "off"
 
@@ -58,18 +70,22 @@
     light.bedroom_ceiling_1:
       state: "on"
       xy_color: [0.457, 0.41]
-      brigtness: 77
+      brightness: 77
     light.bedroom_ceiling_2:
       state: "on"
       xy_color: [0.457, 0.41]
-      brigtness: 77
+      brightness: 77
     light.bedroom_ceiling_3:
       state: "on"
       xy_color: [0.457, 0.41]
-      brigtness: 77
+      brightness: 77
+    light.bedroom_workdesk:
+      state: "on"
+      xy_color: [0.457, 0.41]
+      brightness: 50
     light.bedroom_closet_led_power_supply_light:
       state: "on"
-      brigtness: 77
+      brightness: 77
 
 - name: bedroom_night_light
   entities:
@@ -85,6 +101,8 @@
       state: "on"
       xy_color: [0.561, 0.404]
       brigtness: 10
+    light.bedroom_workdesk:
+      state: "off"
     light.bedroom_closet_led_power_supply_light:
       state: "on"
       brightness: 20
