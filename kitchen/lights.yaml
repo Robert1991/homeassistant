@@ -23,10 +23,8 @@
 - platform: group
   name: Kitchen Dimmable Lights
   entities:
-    - light.kitchen_ceiling_light
     - light.kitchen_rgb_light_strip
     - light.kitchen_led_spots_light
-    - light.kitchen_techno_light
 - platform: group
   name: Kitchen Lights
   entities:

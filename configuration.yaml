@@ -34,11 +34,17 @@ scene bedroom: !include bedroom/scenes.yaml
 
 input_number:
   bedroom_light_brightness:
-    name: Bedroom Brightness Slider
+    name: Bedroom Light Brightness Slider
     initial: 39
     min: 39
     max: 255
     step: 36
+  kitchen_light_brightness:
+    name: Kitchen Light Brightness Slider
+    initial: 120
+    min: 0
+    max: 255
+    step: 15
 
 input_select:
   bedroom_light_scene:

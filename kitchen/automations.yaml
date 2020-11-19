@@ -7,6 +7,33 @@
     - service: light.toggle
       entity_id: light.kitchen_lights
 
+- alias: Increase/Decrease Kitchen Light Brightness On Smart Button Event
+  trigger:
+    - platform: state
+      entity_id: sensor.ikea_kitchen_smart_button_action
+      to: 'brightness_up_click'
+    - platform: state
+      entity_id: sensor.ikea_kitchen_smart_button_action
+      to: 'brightness_down_click'
+  action:
+    - choose:
+      - conditions:
+          - condition: template
+            value_template: "{{ trigger.to_state.state == 'brightness_up_click'}}"
+        sequence:
+          - service: input_number.increment
+            entity_id: input_number.kitchen_light_brightness
+      - conditions:
+          - condition: template
+            value_template: "{{ trigger.to_state.state == 'brightness_down_click'}}"
+        sequence:
+          - service: input_number.decrement
+            entity_id: input_number.kitchen_light_brightness
+    - service: light.turn_on
+      entity_id: light.kitchen_dimmable_lights
+      data_template:
+        brightness: "{{ states('input_number.kitchen_light_brightness') | int }}"
+
 - alias: Turn on kitchen lights when there is movement
   trigger:
     - platform: state
@@ -16,6 +43,9 @@
     - condition: numeric_state
       entity_id: sensor.kitchen_outside_light_intensity
       below: 750
+    - condition: state
+      entity_id: light.kitchen_lights
+      state: 'off'
   action:
     - service: light.turn_on
       entity_id: light.kitchen_lights
