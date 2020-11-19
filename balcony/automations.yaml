@@ -1,0 +1,28 @@
+- alias: Toggle Balcony Lights on Smart Button Release
+  trigger:
+    - platform: event
+      event_type: SMART_HOME_BUTTON_RELEASE
+  condition:
+    - condition: template
+      value_template: "{{ trigger.event.data.entity_id ==  'sensor.hue_smart_button_2_action'}}"
+  action:
+    service: script.turn_on
+    entity_id: script.toggle_light_scene
+    data:
+      variables:
+        light_group_id: 'light.balcony_lights'
+        scene_input_select_id: 'input_select.balcony_light_scene'
+
+- alias: Toggle Balcony Scene on Smart Button Press
+  trigger:
+    - platform: event
+      event_type: SMART_HOME_BUTTON_PRESS
+  condition:
+    - condition: template
+      value_template: "{{ trigger.event.data.entity_id ==  'sensor.hue_smart_button_2_action'}}"
+  action:
+    - service: input_select.select_next
+      entity_id: input_select.balcony_light_scene
+    - service: scene.turn_on
+      data_template:
+        entity_id: "{{ states('input_select.balcony_light_scene') }}"

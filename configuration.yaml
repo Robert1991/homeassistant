@@ -27,10 +27,12 @@ automation floor: !include floor/automations.yaml
 automation living_room: !include living_room/automations.yaml
 automation toilet: !include toilet/automations.yaml
 automation bedroom: !include bedroom/automations.yaml
+automation balcony: !include balcony/automations.yaml
 automation kitchen: !include kitchen/automations.yaml
 script: !include scripts.yaml
 scene: !include scenes.yaml
 scene bedroom: !include bedroom/scenes.yaml
+scene balcony: !include balcony/scenes.yaml
 
 input_number:
   bedroom_light_brightness:
@@ -52,9 +54,15 @@ input_select:
       - 'scene.bedroom_romantic'
       - 'scene.bedroom_relaxed'
       - 'scene.bedroom_bright'
+      - 'scene.bedroom_work_1'
       - 'scene.bedroom_dimmed'
       - 'scene.bedroom_night_light'
     initial: 'scene.bedroom_bright'
+  balcony_light_scene:
+    options:
+      - 'scene.balcony_bright'
+      - 'scene.balcony_indirect'
+    initial: 'scene.balcony_indirect'
 
 mqtt:
   broker: 127.0.0.1

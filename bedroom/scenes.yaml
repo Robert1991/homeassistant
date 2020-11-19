@@ -65,6 +65,27 @@
     light.bedroom_closet_led_power_supply_light:
       state: "off"
 
+- name: bedroom_work_1
+  entities:
+    light.bedroom_ceiling_1:
+      state: "on"
+      xy_color: [0.39, 0.373]
+      brightness: 200
+    light.bedroom_ceiling_2:
+      state: "on"
+      xy_color: [0.39, 0.373]
+      brightness: 200
+    light.bedroom_ceiling_3:
+      state: "on"
+      xy_color: [0.39, 0.373]
+      brightness: 200
+    light.bedroom_workdesk:
+      state: "on"
+      xy_color: [0.429, 0.396]
+      brightness: 220
+    light.bedroom_closet_led_power_supply_light:
+      state: "off"
+
 - name: bedroom_dimmed
   entities:
     light.bedroom_ceiling_1:
