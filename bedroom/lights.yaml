@@ -1,5 +1,16 @@
 - platform: group
-  name: Bedroom Lights
+  name: Bedroom Indirect Lights
+  entities:
+    - light.bedroom_workdesk
+    - light.bedroom_closet_led_power_supply_light
+- platform: group
+  name: Bedroom Ceiling Lights
+  entities:
+    - light.bedroom_ceiling_1
+    - light.bedroom_ceiling_2
+    - light.bedroom_ceiling_3
+- platform: group
+  name: All Bedroom Lights
   entities:
     - light.bedroom_ceiling_1
     - light.bedroom_ceiling_2

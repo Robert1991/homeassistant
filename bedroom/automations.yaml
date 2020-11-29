@@ -25,7 +25,7 @@
     entity_id: script.toggle_light_scene
     data:
       variables:
-        light_group_id: 'light.bedroom_lights'
+        light_group_id: 'light.all_bedroom_lights'
         scene_input_select_id: 'input_select.bedroom_light_scene'
 
 - alias: Toggle Bedroom Scene on Smart Button Press
