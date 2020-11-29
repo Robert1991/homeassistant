@@ -4,11 +4,12 @@
     platform: state
     to: 'paused'
     for:
-      minutes: 5
+      minutes: 7
   action:
     - service: media_player.turn_off
       data:
         entity_id: media_player.tv_livingroom
+
 - alias: Turn on living room lights when there is movement
   trigger:
     - platform: state
@@ -18,6 +19,9 @@
     - condition: numeric_state
       entity_id: sensor.kitchen_outside_light_intensity
       below: 750
+    - condition: state
+      entity_id: light.living_room_lights
+      state: 'off'
   action:
     - service: light.turn_on
       entity_id: light.living_room_lights
