@@ -57,6 +57,7 @@ input_select:
       - 'scene.bedroom_work_1'
       - 'scene.bedroom_dimmed'
       - 'scene.bedroom_night_light'
+      - 'scene.bedroom_1313'
     initial: 'scene.bedroom_bright'
   balcony_light_scene:
     options:

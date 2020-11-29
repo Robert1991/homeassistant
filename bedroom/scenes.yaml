@@ -127,3 +127,70 @@
     light.bedroom_closet_led_power_supply_light:
       state: "on"
       brightness: 20
+
+- name: bedroom_1313
+  entities:
+    light.bedroom_ceiling_1:
+      min_mireds: 153
+      max_mireds: 500
+      brightness: 157
+      hs_color:
+      - 49.061
+      - 70.98
+      rgb_color:
+      - 255
+      - 222
+      - 74
+      xy_color:
+      - 0.468
+      - 0.46
+      state: 'on'
+    light.bedroom_ceiling_2:
+      min_mireds: 153
+      max_mireds: 500
+      brightness: 157
+      hs_color:
+      - 309.677
+      - 72.941
+      rgb_color:
+      - 255
+      - 69
+      - 225
+      xy_color:
+      - 0.418
+      - 0.189
+      state: 'on'
+    light.bedroom_ceiling_3:
+      min_mireds: 153
+      max_mireds: 500
+      brightness: 157
+      hs_color:
+      - 113.333
+      - 74.118
+      rgb_color:
+      - 87
+      - 255
+      - 65
+      xy_color:
+      - 0.216
+      - 0.666
+      state: 'on'
+    light.bedroom_workdesk:
+      min_mireds: 153
+      max_mireds: 500
+      brightness: 142
+      hs_color:
+      - 11.625
+      - 62.745
+      rgb_color:
+      - 255
+      - 126
+      - 95
+      xy_color:
+      - 0.562
+      - 0.337
+      friendly_name: Bedroom Workdesk
+      state: 'on'
+    light.bedroom_closet_led_power_supply_light:
+      brightness: 80
+      state: 'on'
