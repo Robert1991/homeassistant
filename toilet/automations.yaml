@@ -8,8 +8,9 @@
       entity_id: light.toilet_lights
       state: 'off'
   action:
-    - service: light.turn_on
-      entity_id: light.toilet_lights
+    - service: scene.turn_on
+      data_template:
+        entity_id: "{{ states('input_select.toilet_light_scene') }}"
 
 - alias: Turn off Toilet lights when there is no movement
   trigger:
@@ -21,3 +22,23 @@
   action:
     - service: light.turn_off
       entity_id: light.toilet_lights
+
+- alias: Set Night Light Scene in Toilet After 11 PM
+  trigger:
+    - platform: time
+      at: "23:00:00"
+  action:
+    - service: input_select.select_option
+      entity_id: input_select.toilet_light_scene
+      data:
+        option: 'scene.toilet_night_light'
+
+- alias: Set Day Light Scene in Toilet After 8 AM
+  trigger:
+    - platform: time
+      at: "08:00:00"
+  action:
+    - service: input_select.select_option
+      entity_id: input_select.toilet_light_scene
+      data:
+        option: 'scene.toilet_day_light'

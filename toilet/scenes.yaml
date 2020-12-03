@@ -1,0 +1,14 @@
+- name: Toilet Night Light
+  icon: "mdi:weather-night"
+  entities:
+    light.toilet_lights:
+      state: "on"
+      brightness: 61
+      color_temp: 447
+- name: Toilet Day Light
+  icon: "mdi:weather-sunny"
+  entities:
+    light.toilet_lights:
+      state: "on"
+      brightness: 255
+      color_temp: 349

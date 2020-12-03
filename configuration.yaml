@@ -67,6 +67,7 @@ scene: !include scenes.yaml
 scene bedroom: !include bedroom/scenes.yaml
 scene balcony: !include balcony/scenes.yaml
 scene kitchen: !include kitchen/scenes.yaml
+scene toilet: !include toilet/scenes.yaml
 
 input_number:
   bedroom_light_brightness:
@@ -106,6 +107,11 @@ input_select:
       - 'scene.kitchen_indirect_light_2'
       - 'scene.kitchen_night_light_1'
     initial: 'scene.kitchen_cooking_1'
+  toilet_light_scene:
+    options:
+      - 'scene.toilet_night_light'
+      - 'scene.toilet_day_light'
+    initial: 'scene.toilet_night_light'
 
 
 

@@ -1,0 +1,6 @@
+all_toilet_scenes:
+  name: "All Toilet Scenes"
+  icon: 'mdi:string-lights'
+  entities:
+    - scene.toilet_night_light
+    - scene.toilet_day_light
