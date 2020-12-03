@@ -20,3 +20,14 @@ bedroom_indirect_lights:
   entities:
     - light.bedroom_workdesk
     - light.bedroom_closet_led_power_supply_light
+all_bedroom_scenes:
+  name: "All Bedroom Scenes"
+  icon: 'mdi:string-lights'
+  entities:
+    - scene.bedroom_romantic
+    - scene.bedroom_relaxed
+    - scene.bedroom_bright
+    - scene.bedroom_work_1
+    - scene.bedroom_dimmed
+    - scene.bedroom_night_light
+    - scene.bedroom_1313
