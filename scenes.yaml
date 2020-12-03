@@ -1,0 +1,16 @@
+- id: '1606512491923'
+  name: floor_blue_pink
+  entities:
+    light.floor_light:
+      brightness: 255
+      hs_color:
+      - 300.55
+      - 42.745
+      state: 'on'
+    light.floor_lightstrip:
+      rgb_color:
+      - 63
+      - 0
+      - 255
+      friendly_name: Floor Lightstrip
+      state: 'on'
