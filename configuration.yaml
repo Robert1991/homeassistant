@@ -4,6 +4,28 @@ default_config:
 tts:
   - platform: google_translate
 
+input_boolean:
+  bedroom_sensor_1_is_online:
+    initial: false
+
+notify ios:
+  - name: iOS
+    platform: group
+    services:
+      - service: mobile_app_iphone_von_robert
+
+alert:
+  bedroom_sensor_1_is_offline:
+    name: Bedroom Sensor 1 offline
+    done_message: Bedroom Sensor 1 online again
+    entity_id: binary_sensor.bedroom_sensor_1_device_status
+    state: 'off'
+    repeat: 30
+    can_acknowledge: true
+    skip_first: false
+    notifiers:
+      - ios
+
 light balcony: !include balcony/lights.yaml
 light toilet: !include toilet/lights.yaml
 light floor: !include floor/lights.yaml
@@ -19,6 +41,7 @@ sensor toilet: !include toilet/sensors.yaml
   
 binary_sensor toilet: !include toilet/binary_sensors.yaml
 binary_sensor floor: !include floor/binary_sensors.yaml
+binary_sensor bedroom: !include bedroom/binary_sensors.yaml
 binary_sensor living_room: !include living_room/binary_sensors.yaml
 binary_sensor kitchen: !include kitchen/binary_sensors.yaml
 
