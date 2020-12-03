@@ -1,3 +1,14 @@
+- alias: Turn off bedroom lights when there is no movement
+  trigger:
+    platform: state
+    entity_id: binary_sensor.bedroom_sensor_1_motion_detected
+    to: 'off'
+    for:
+      seconds: 300
+  action:
+    - service: light.turn_off
+      entity_id: light.all_bedroom_lights
+
 - alias: Notify Smart Button Was Pressed
   trigger:
     - platform: state
