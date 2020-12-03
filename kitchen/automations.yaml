@@ -7,6 +7,30 @@
     - service: light.toggle
       entity_id: light.kitchen_lights
 
+- alias: Change To Previous Kitchen Scene On Smart Button Event
+  trigger:
+    - platform: state
+      entity_id: sensor.ikea_kitchen_smart_button_action
+      to: 'arrow_left_click'
+  action:
+    - service: input_select.select_previous
+      entity_id: input_select.kitchen_light_scene
+    - service: scene.turn_on
+      data_template:
+        entity_id: "{{ states('input_select.kitchen_light_scene') }}"
+
+- alias: Change To Next Kitchen Scene On Smart Button Event
+  trigger:
+    - platform: state
+      entity_id: sensor.ikea_kitchen_smart_button_action
+      to: 'arrow_right_click'
+  action:
+    - service: input_select.select_next
+      entity_id: input_select.kitchen_light_scene
+    - service: scene.turn_on
+      data_template:
+        entity_id: "{{ states('input_select.kitchen_light_scene') }}"
+
 - alias: Increase/Decrease Kitchen Light Brightness On Smart Button Event
   trigger:
     - platform: state
@@ -47,8 +71,9 @@
       entity_id: light.kitchen_lights
       state: 'off'
   action:
-    - service: light.turn_on
-      entity_id: light.kitchen_lights
+    - service: scene.turn_on
+      data_template:
+        entity_id: "{{ states('input_select.kitchen_light_scene') }}"
 
 - alias: Turn off kitchen lights when there is no movement
   trigger:

@@ -1,0 +1,97 @@
+- name: kitchen_cooking_1
+  entities:
+    light.kitchen_ceiling_light:
+      friendly_name: Kitchen Ceiling Light
+      state: 'on'
+    light.kitchen_rgb_light_strip:
+      brightness: 255
+      rgb_color:
+      - 255
+      - 0
+      - 63
+      friendly_name: Kitchen RGB Light Strip
+      state: 'on'
+    light.kitchen_led_spots_light:
+      brightness: 254
+      state: 'on'
+    light.kitchen_techno_light:
+      friendly_name: Kitchen Techno Light
+      state: 'on'
+- name: kitchen_cooking_2
+  entities:
+    light.kitchen_ceiling_light:
+      friendly_name: Kitchen Ceiling Light
+      state: 'on'
+    light.kitchen_rgb_light_strip:
+      brightness: 255
+      rgb_color:
+      - 190
+      - 255
+      - 0
+      friendly_name: Kitchen RGB Light Strip
+      state: 'on'
+    light.kitchen_led_spots_light:
+      brightness: 254
+      state: 'on'
+    light.kitchen_techno_light:
+      friendly_name: Kitchen Techno Light
+      state: 'off'
+- name: kitchen_night_light_1
+  entities:
+    light.kitchen_ceiling_light:
+      friendly_name: Kitchen Ceiling Light
+      state: 'off'
+    light.kitchen_rgb_light_strip:
+      brightness: 43
+      rgb_color:
+      - 255
+      - 126
+      - 0
+      friendly_name: Kitchen RGB Light Strip
+      state: 'on'
+    light.kitchen_led_spots_light:
+      brightness: 115
+      state: 'on'
+    light.kitchen_techno_light:
+      friendly_name: Kitchen Techno Light
+      state: 'on'
+- name: kitchen_indirect_light_1
+  entities:
+    light.kitchen_ceiling_light:
+      friendly_name: Kitchen Ceiling Light
+      state: 'off'
+    light.kitchen_rgb_light_strip:
+      brightness: 250
+      rgb_color:
+      - 255
+      - 255
+      - 255
+      friendly_name: Kitchen RGB Light Strip
+      state: 'on'
+    light.kitchen_led_spots_light:
+      brightness: 190
+      state: 'on'
+    light.kitchen_techno_light:
+      friendly_name: Kitchen Techno Light
+      state: 'on'
+- name: kitchen_indirect_light_2
+  entities:
+    light.kitchen_ceiling_light:
+      friendly_name: Kitchen Ceiling Light
+      state: 'off'
+    light.kitchen_rgb_light_strip:
+      brightness: 250
+      rgb_color:
+      - 255
+      - 0
+      - 126
+      friendly_name: Kitchen RGB Light Strip
+      state: 'on'
+    light.kitchen_led_spots_light:
+      brightness: 210
+      state: 'on'
+    light.kitchen_techno_light:
+      friendly_name: Kitchen Techno Light
+      state: 'on'
+
+

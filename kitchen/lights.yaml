@@ -21,10 +21,11 @@
   payload_off: "OFF"
   retain: true
 - platform: group
-  name: Kitchen Dimmable Lights
+  name: Kitchen Indirect Lights
   entities:
     - light.kitchen_rgb_light_strip
     - light.kitchen_led_spots_light
+    - light.kitchen_techno_light
 - platform: group
   name: Kitchen Lights
   entities:

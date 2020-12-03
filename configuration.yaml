@@ -33,6 +33,7 @@ script: !include scripts.yaml
 scene: !include scenes.yaml
 scene bedroom: !include bedroom/scenes.yaml
 scene balcony: !include balcony/scenes.yaml
+scene kitchen: !include kitchen/scenes.yaml
 
 input_number:
   bedroom_light_brightness:
@@ -64,6 +65,16 @@ input_select:
       - 'scene.balcony_bright'
       - 'scene.balcony_indirect'
     initial: 'scene.balcony_indirect'
+  kitchen_light_scene:
+    options:
+      - 'scene.kitchen_cooking_1'
+      - 'scene.kitchen_cooking_2'
+      - 'scene.kitchen_indirect_light_1'
+      - 'scene.kitchen_indirect_light_2'
+      - 'scene.kitchen_night_light_1'
+    initial: 'scene.kitchen_cooking_1'
+
+
 
 mqtt:
   broker: 127.0.0.1
