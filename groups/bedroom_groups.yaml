@@ -7,6 +7,7 @@ all_bedroom_lights:
     - light.bedroom_ceiling_3
     - light.bedroom_workdesk
     - light.bedroom_closet_led_power_supply_light
+    - light.bedroom_bed_light
 bedroom_ceiling_lights:
   name: "Bedroom Ceiling Lights"
   icon: "mdi:lightbulb-group-outline"
@@ -20,6 +21,7 @@ bedroom_indirect_lights:
   entities:
     - light.bedroom_workdesk
     - light.bedroom_closet_led_power_supply_light
+    - light.bedroom_bed_light
 all_bedroom_scenes:
   name: "All Bedroom Scenes"
   icon: 'mdi:string-lights'
