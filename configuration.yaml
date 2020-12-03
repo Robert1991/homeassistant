@@ -25,6 +25,16 @@ alert:
     skip_first: false
     notifiers:
       - ios
+  living_room_sensor_actor_1_is_offline:
+    name: Living Room Sensor/Actor 1 offline
+    done_message: Living Room Sensor/Actor 1 online again
+    entity_id: binary_sensor.former_ikea_light_ping
+    state: 'off'
+    repeat: 30
+    can_acknowledge: true
+    skip_first: false
+    notifiers:
+      - ios
 
 light balcony: !include balcony/lights.yaml
 light toilet: !include toilet/lights.yaml
