@@ -80,23 +80,3 @@
       entity_id: light.all_bedroom_lights
       data_template:
         brightness: "{{ states('input_number.bedroom_light_brightness') | int }}"
-
-- alias: 'Toggle alarm when sensor 1 is offline'
-  trigger:
-    platform: state
-    entity_id: binary_sensor.bedroom_sensor_1_ping
-    to: 'off'
-    for:
-      seconds: 20
-  action:
-    service: input_boolean.turn_off
-    entity_id: input_boolean.bedroom_sensor_1_is_online
-
-- alias: 'Reset alarm when sensor 1 is online'
-  trigger:
-    platform: state
-    entity_id: binary_sensor.bedroom_sensor_1_ping
-    to: 'on'
-  action:
-    service: input_boolean.turn_on
-    entity_id: input_boolean.bedroom_sensor_1_is_online
