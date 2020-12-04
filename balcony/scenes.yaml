@@ -1,14 +1,14 @@
 - name: balcony_bright
   icon: "mdi:flower-tulip"
   entities:
-    light.balcony_light_1:
+    light.balcony_sensor_actor_1_relais_light_1:
       state: "on"
-    light.balcony_light_2:
+    light.balcony_sensor_actor_1_relais_light_2:
       state: "on"
 
 - name: balcony_indirect
   entities:
-    light.balcony_light_1:
+    light.balcony_sensor_actor_1_relais_light_1:
       state: "on"
-    light.balcony_light_2:
+    light.balcony_sensor_actor_1_relais_light_2:
       state: "off"

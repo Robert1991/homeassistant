@@ -1,15 +1,5 @@
-- platform: mqtt
-  name: "Balcony Light 1"
-  state_topic: "balcony/relais_light_1/status"
-  command_topic: "balcony/relais_light_1/switch"
-  retain: true
-- platform: mqtt
-  name: "Balcony Light 2"
-  state_topic: "balcony/relais_light_2/status"
-  command_topic: "balcony/relais_light_2/switch"
-  retain: true
 - platform: group
   name: Balcony Lights
   entities:
-  - light.balcony_light_1
-  - light.balcony_light_2
+  - light.balcony_sensor_actor_1_relais_light_1
+  - light.balcony_sensor_actor_1_relais_light_2

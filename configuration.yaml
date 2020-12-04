@@ -35,6 +35,16 @@ alert:
     skip_first: false
     notifiers:
       - ios
+  balcony_sensor_actor_1_is_offline:
+    name: Balcony Sensor/Actor 1 offline
+    done_message: Balcony Sensor/Actor 1 online again
+    entity_id: binary_sensor.balcony_sensor_actor_1_ping
+    state: 'off'
+    repeat: 30
+    can_acknowledge: true
+    skip_first: false
+    notifiers:
+      - ios
 
 light balcony: !include balcony/lights.yaml
 light toilet: !include toilet/lights.yaml
@@ -42,8 +52,7 @@ light floor: !include floor/lights.yaml
 light living_room: !include living_room/lights.yaml
 light kitchen: !include kitchen/lights.yaml
 light bedroom: !include bedroom/lights.yaml
-  
-sensor balcony: !include balcony/sensors.yaml
+
 sensor floor: !include floor/sensors.yaml
 sensor living_room: !include living_room/sensors.yaml
 sensor kitchen: !include kitchen/sensors.yaml
