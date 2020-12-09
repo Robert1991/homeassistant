@@ -4,9 +4,6 @@ default_config:
 tts:
   - platform: google_translate
 
-input_boolean:
-    initial: false
-
 notify ios:
   - name: iOS
     platform: group
@@ -24,9 +21,9 @@ alert:
     skip_first: false
     notifiers:
       - ios
-  living_room_sensor_actor_1_is_offline:
-    name: Living Room Sensor/Actor 1 offline
-    done_message: Living Room Sensor/Actor 1 online again
+  living_room_ikea_light_1_is_offline:
+    name: Living Room Ikea Light 1 offline
+    done_message: Living Room Ikea Light 1 online again
     entity_id: binary_sensor.former_ikea_light_ping
     state: 'off'
     repeat: 30
@@ -44,6 +41,37 @@ alert:
     skip_first: false
     notifiers:
       - ios
+  floor_sensor_actor_1_is_offline:
+    name: Floor Sensor/Actor 1 offline
+    done_message: Floor Sensor/Actor 1 online again
+    entity_id: binary_sensor.floor_sensor_actor_1_ping
+    state: 'off'
+    repeat: 30
+    can_acknowledge: true
+    skip_first: false
+    notifiers:
+      - ios
+  living_room_sensor_actor_1_is_offline:
+    name: Living Room Sensor/Actor 1 offline
+    done_message: Living Room Sensor/Actor 1 online again
+    entity_id: binary_sensor.living_room_sensor_actor_1_ping
+    state: 'off'
+    repeat: 30
+    can_acknowledge: true
+    skip_first: false
+    notifiers:
+      - ios
+  kitchen_actor_1_is_offline:
+    name: Kitchen Actor 1 offline
+    done_message: Kitchen Actor 1 online again
+    entity_id: binary_sensor.kitchen_actor_1_ping
+    state: 'off'
+    repeat: 30
+    can_acknowledge: true
+    skip_first: false
+    notifiers:
+      - ios
+
 
 light balcony: !include balcony/lights.yaml
 light toilet: !include toilet/lights.yaml
@@ -52,17 +80,14 @@ light living_room: !include living_room/lights.yaml
 light kitchen: !include kitchen/lights.yaml
 light bedroom: !include bedroom/lights.yaml
 
-sensor floor: !include floor/sensors.yaml
-sensor living_room: !include living_room/sensors.yaml
 sensor kitchen: !include kitchen/sensors.yaml
 sensor toilet: !include toilet/sensors.yaml
   
 binary_sensor toilet: !include toilet/binary_sensors.yaml
-binary_sensor floor: !include floor/binary_sensors.yaml
-binary_sensor living_room: !include living_room/binary_sensors.yaml
 binary_sensor kitchen: !include kitchen/binary_sensors.yaml
 
 group: !include_dir_merge_named groups/
+
 automation living_room: !include living_room/automations.yaml
 automation toilet: !include toilet/automations.yaml
 automation bedroom: !include bedroom/automations.yaml

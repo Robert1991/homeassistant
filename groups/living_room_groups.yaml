@@ -3,7 +3,7 @@ living_room_indirect_lights:
   icon: "mdi:lightbulb-group-outline"
   entities:
     - light.living_room_philips_hue_iris_light
-    - light.living_room_closet_light
+    - light.living_room_sensor_actor_1_rgb
     - light.living_room_standing_light
     - light.former_ikea_light_relais_switch
 living_room_ceiling_lights:

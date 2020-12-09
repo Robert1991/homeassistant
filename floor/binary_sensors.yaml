@@ -1,6 +1,0 @@
-- platform: mqtt
-  name: "Floor Motion Detector"
-  state_topic: "floor/motion"
-  payload_on: "on"
-  payload_off: "off"
-  off_delay: 0

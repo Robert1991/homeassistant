@@ -2,34 +2,16 @@
   name: "Kitchen Ceiling Light"
   state_topic: "kitchen/ceiling_light/status"
   command_topic: "kitchen/ceiling_light/set"
-- platform: mqtt
-  name: "Kitchen Techno Light"
-  state_topic: "kitchen/relais_light/status"
-  command_topic: "kitchen/relais_light/set"
-  retain: true
-- platform: mqtt
-  name: "Kitchen RGB Light Strip"
-  state_topic: "kitchen/light1/status"
-  command_topic: "kitchen/light1/switch"
-  brightness_command_topic: "kitchen/light1/brightness/set"
-  brightness_state_topic: "kitchen/light1/brightness/status"
-  rgb_state_topic: "kitchen/light1/color/status"
-  rgb_command_topic: "kitchen/light1/color/set"
-  state_value_template: "{{ value_json.state }}"
-  rgb_value_template: "{{ value_json.rgb | join(',') }}"
-  payload_on: "ON"
-  payload_off: "OFF"
-  retain: true
 - platform: group
   name: Kitchen Indirect Lights
   entities:
-    - light.kitchen_rgb_light_strip
+    - light.kitchen_actor_1_rgb
     - light.kitchen_led_spots_light
-    - light.kitchen_techno_light
+    - light.kitchen_actor_1_relais_switch
 - platform: group
   name: Kitchen Lights
   entities:
     - light.kitchen_ceiling_light
-    - light.kitchen_rgb_light_strip
+    - light.kitchen_actor_1_rgb
     - light.kitchen_led_spots_light
-    - light.kitchen_techno_light
+    - light.kitchen_actor_1_relais_switch

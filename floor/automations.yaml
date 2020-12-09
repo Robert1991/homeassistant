@@ -1,7 +1,7 @@
 - alias: Turn on floor light when there is movement
   trigger:
     - platform: state
-      entity_id: binary_sensor.floor_motion_detector
+      entity_id: binary_sensor.floor_sensor_actor_1_motion_detected
       to: 'on'
   condition:
     - condition: numeric_state
@@ -14,11 +14,10 @@
 - alias: Turn off floor lights when there is no movement
   trigger:
     platform: state
-    entity_id: binary_sensor.floor_motion_detector
+    entity_id: binary_sensor.floor_sensor_actor_1_motion_detected
     to: 'off'
     for:
       seconds: 45
   action:
     - service: light.turn_off
       entity_id: light.floor_lights
-    

@@ -1,18 +1,5 @@
-- platform: mqtt
-  name: "Floor Lightstrip"
-  state_topic: "floor/light_strip/status"
-  command_topic: "floor/light_strip/switch"
-  brightness_command_topic: "floor/light_strip/brightness/set"
-  brightness_state_topic: "floor/light_strip/brightness/status"
-  rgb_state_topic: "floor/light_strip/color/status"
-  rgb_command_topic: "floor/light_strip/color/set"
-  state_value_template: "{{ value_json.state }}"
-  rgb_value_template: "{{ value_json.rgb | join(',') }}"
-  payload_on: "ON"
-  payload_off: "OFF"
-  retain: true
 - platform: group
   name: Floor Lights
   entities:
     - light.floor_light
-    - light.floor_lightstrip
+    - light.floor_sensor_actor_1_i2c_rgb

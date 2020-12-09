@@ -13,7 +13,7 @@
 - alias: Turn on living room lights when there is movement
   trigger:
     - platform: state
-      entity_id: binary_sensor.living_room_motion_detector
+      entity_id: binary_sensor.living_room_sensor_actor_1_motion_detected
       to: 'on'
   condition:
     - condition: numeric_state
@@ -29,7 +29,7 @@
 - alias: Turn off living room light after no movement
   trigger:
     platform: state
-    entity_id: binary_sensor.living_room_motion_detector
+    entity_id: binary_sensor.living_room_sensor_actor_1_motion_detected
     to: 'off'
     for:
       seconds: 120
