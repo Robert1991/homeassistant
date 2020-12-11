@@ -1,6 +1,9 @@
 
 default_config:
 
+homeassistant:
+  customize: !include customize.yaml
+
 tts:
   - platform: google_translate
 
@@ -13,7 +16,20 @@ notify ios:
 input_boolean:
   bedroom_closet_light_was_turned_off_before:
     initial: false
+  fride_door_was_left_open:
+    initial: false
+
 alert:
+  fridge_was_left_open_alert:
+    name: Kühlschrank wurde offen gelassen!
+    done_message: Kühlschrank wieder geschlossen
+    entity_id: binary_sensor.fride_door_open_to_long
+    state: 'on'
+    repeat: 1
+    can_acknowledge: true
+    skip_first: false
+    notifiers:
+      - ios
   bedroom_sensor_1_is_offline:
     name: Bedroom Sensor 1 offline
     done_message: Bedroom Sensor 1 online again
@@ -74,6 +90,16 @@ alert:
     skip_first: false
     notifiers:
       - ios
+  kitchen_sensor_1_is_offline:
+    name: Kitchen Sensor 1 offline
+    done_message: Kitchen Sensor 1 online again
+    entity_id: binary_sensor.kitchen_actor_1_ping
+    state: 'off'
+    repeat: 30
+    can_acknowledge: true
+    skip_first: false
+    notifiers:
+      - ios
 
 
 light balcony: !include balcony/lights.yaml
@@ -83,9 +109,9 @@ light living_room: !include living_room/lights.yaml
 light kitchen: !include kitchen/lights.yaml
 light bedroom: !include bedroom/lights.yaml
 
-sensor kitchen: !include kitchen/sensors.yaml
+sensor bedroom: !include bedroom/sensors.yaml 
 sensor toilet: !include toilet/sensors.yaml
-  
+
 binary_sensor toilet: !include toilet/binary_sensors.yaml
 binary_sensor kitchen: !include kitchen/binary_sensors.yaml
 
@@ -97,8 +123,10 @@ automation bedroom: !include bedroom/automations.yaml
 automation balcony: !include balcony/automations.yaml
 automation kitchen: !include kitchen/automations.yaml
 automation floor: !include floor/automations.yaml
+
 script: !include scripts.yaml
 scene: !include scenes.yaml
+
 scene bedroom: !include bedroom/scenes.yaml
 scene balcony: !include balcony/scenes.yaml
 scene kitchen: !include kitchen/scenes.yaml
@@ -146,9 +174,13 @@ input_select:
     options:
       - 'scene.toilet_night_light'
       - 'scene.toilet_day_light'
-    initial: 'scene.toilet_night_light'
+    initial: 'scene.toilet_day_light'
 
 
+logger:
+  default: warning
+  logs:
+    homeassistant.components.mqtt: info
 
 mqtt:
   broker: 127.0.0.1

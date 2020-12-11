@@ -1,3 +1,31 @@
+- alias: Set Alarm when Fridge is open
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.kitchen_sensor_1_door_open
+      to: 'on'
+      for:
+        seconds: 45
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.fride_door_was_left_open
+    - service: script.turn_on
+      entity_id: script.let_light_blink
+      data:
+        variables:
+          light_entity_id: light.kitchen_ceiling_light
+          observed_input_boolean: input_boolean.fride_door_was_left_open
+
+- alias: Reset Alarm when Fridge is closed
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.kitchen_sensor_1_door_open
+      to: 'off'
+  action:
+    - service: input_boolean.turn_off
+      entity_id: input_boolean.fride_door_was_left_open
+    - service: script.turn_off
+      entity_id: script.let_light_blink
+
 - alias: Turn on kitchen lights on smart button toggle
   trigger:
     - platform: state
@@ -61,12 +89,12 @@
 - alias: Turn on kitchen lights when there is movement
   trigger:
     - platform: state
-      entity_id: binary_sensor.kitchen_motion_detector
+      entity_id: binary_sensor.kitchen_sensor_1_motion_detected
       to: 'on'
   condition:
     - condition: numeric_state
-      entity_id: sensor.kitchen_outside_light_intensity
-      below: 750
+      entity_id: sensor.kitchen_sensor_1_light_intensity
+      below: 3.0
     - condition: state
       entity_id: light.kitchen_lights
       state: 'off'
@@ -78,7 +106,7 @@
 - alias: Turn off kitchen lights when there is no movement
   trigger:
     platform: state
-    entity_id: binary_sensor.kitchen_motion_detector
+    entity_id: binary_sensor.kitchen_sensor_1_motion_detected
     to: 'off'
     for:
       seconds: 100

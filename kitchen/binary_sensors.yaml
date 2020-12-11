@@ -1,13 +1,6 @@
-- platform: mqtt
-  name: "Kitchen Motion Detector 1"
-  state_topic: "kitchen/motion"
-  off_delay: 0
-  payload_on: "on"
-  payload_off: "off"
 - platform: template
   sensors:
-    kitchen_motion_detector:
-      device_class: motion
-      friendly_name: "Kitchen Motion Detector"
+    fride_door_open_to_long:
+      friendly_name: "Fride door is open to long"
       value_template: >-
-        {{ is_state("binary_sensor.kitchen_motion_detector_1", "on") }}
+        {{ is_state('input_boolean.fride_door_was_left_open', 'on') }}

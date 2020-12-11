@@ -13,7 +13,6 @@ all_kitchen_lights:
     - light.kitchen_actor_1_rgb
     - light.kitchen_led_spots_light
     - light.kitchen_actor_1_relais_switch
-
 all_kitchen_scenes:
   name: "All Kitchen Scenes"
   icon: "mdi:lightbulb-group-outline"
