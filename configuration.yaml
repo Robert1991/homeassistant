@@ -10,6 +10,9 @@ notify ios:
     services:
       - service: mobile_app_iphone_von_robert
 
+input_boolean:
+  bedroom_closet_light_was_turned_off_before:
+    initial: false
 alert:
   bedroom_sensor_1_is_offline:
     name: Bedroom Sensor 1 offline
