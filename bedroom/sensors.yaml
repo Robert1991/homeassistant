@@ -1,0 +1,8 @@
+- platform: template
+  sensors:
+    bedroom_light_intensity_percent:
+      friendly_name: "Bedroom Light Intensity %"
+      icon_template: mdi:brightness-percent
+      unit_of_measurement: "%"
+      value_template: >-
+        {{ ((states('sensor.bedroom_sensor_1_light_intensity') | float / 3.3) | float* 100) | round(0) }}
