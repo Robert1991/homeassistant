@@ -17,8 +17,8 @@
       to: 'on'
   condition:
     - condition: numeric_state
-      entity_id: sensor.kitchen_outside_light_intensity
-      below: 750
+      entity_id: sensor.former_ikea_light_light_intensity
+      below: 2.5
     - condition: state
       entity_id: light.living_room_lights
       state: 'off'
