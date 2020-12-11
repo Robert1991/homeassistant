@@ -3,6 +3,11 @@
   state_topic: "kitchen/ceiling_light/status"
   command_topic: "kitchen/ceiling_light/set"
 - platform: group
+  name: Kitchen Dimmable Lights
+  entities:
+    - light.kitchen_actor_1_rgb
+    - light.kitchen_led_spots_light
+- platform: group
   name: Kitchen Indirect Lights
   entities:
     - light.kitchen_actor_1_rgb
