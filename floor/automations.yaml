@@ -5,8 +5,8 @@
       to: 'on'
   condition:
     - condition: numeric_state
-      entity_id: sensor.kitchen_outside_light_intensity
-      below: 800
+      entity_id: sensor.kitchen_sensor_1_light_intensity
+      below: 3.5
   action:
     - service: light.turn_on
       entity_id: light.floor_lights
