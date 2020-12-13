@@ -147,36 +147,7 @@ input_number:
     max: 255
     step: 15
 
-input_select:
-  bedroom_light_scene:
-    options:
-      - 'Colorful 1'
-      - 'Colorful 2'
-      - 'Relaxed 1'
-      - 'Relaxed 2'
-      - 'Relaxed 3'
-      - 'Work 1'
-      - 'Night Light 1'
-    initial: 'Work 1'
-  balcony_light_scene:
-    options:
-      - 'scene.balcony_bright'
-      - 'scene.balcony_indirect'
-    initial: 'scene.balcony_indirect'
-  kitchen_light_scene:
-    options:
-      - 'scene.kitchen_cooking_1'
-      - 'scene.kitchen_cooking_2'
-      - 'scene.kitchen_indirect_light_1'
-      - 'scene.kitchen_indirect_light_2'
-      - 'scene.kitchen_night_light_1'
-    initial: 'scene.kitchen_cooking_1'
-  toilet_light_scene:
-    options:
-      - 'scene.toilet_night_light'
-      - 'scene.toilet_day_light'
-    initial: 'scene.toilet_day_light'
-
+input_select: !include_dir_merge_named input_select/
 
 logger:
   default: warning

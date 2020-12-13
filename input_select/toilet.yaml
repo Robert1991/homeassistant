@@ -1,0 +1,5 @@
+toilet_light_scene:
+  options:
+    - 'scene.toilet_night_light'
+    - 'scene.toilet_day_light'
+  initial: 'scene.toilet_day_light'
