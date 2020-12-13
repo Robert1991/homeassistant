@@ -35,14 +35,16 @@
       to: 'on'
   condition:
     - condition: state
+      entity_id: input_boolean.bedroom_light_automation_is_enabled
+      state: 'on'
+    - condition: state
       entity_id: light.all_bedroom_lights
       state: 'off'
     - condition: time
       after: "10:00:00"
       before: "23:00:00"
-    - condition: numeric_state
-      entity_id: sensor.bedroom_light_intensity_percent
-      below: 45
+    - condition: template
+      value_template: "{{ states('sensor.bedroom_light_intensity_percent') | float < states('input_number.bedroom_light_toogle_intensity_threshold') | float }}"
   action:
     - service: script.turn_on
       entity_id: script.toggle_scene_from_input_select
@@ -52,12 +54,14 @@
 
 - alias: Turn off bedroom lights when light is sufficient
   trigger:
-    - platform: numeric_state
-      entity_id: sensor.bedroom_light_intensity_percent
-      above: 45
+    - platform: template
+      value_template: "{{ states('sensor.bedroom_light_intensity_percent') | float > states('input_number.bedroom_light_toogle_intensity_threshold') | float }}"
       for:
         seconds: 60
   condition:
+    - condition: state
+      entity_id: input_boolean.bedroom_light_automation_is_enabled
+      state: 'on'
     - condition: state
       entity_id: light.all_bedroom_lights
       state: 'on'
@@ -71,8 +75,11 @@
     entity_id: binary_sensor.activity_detected_in_bedroom
     to: 'off'
     for:
-      seconds: 240
+      seconds: "{{ states('input_number.bedroom_light_turn_off_timeout') | float }}"
   condition:
+    - condition: state
+      entity_id: input_boolean.bedroom_light_automation_is_enabled
+      state: 'on'
     - condition: state
       entity_id: light.all_bedroom_lights
       state: 'on'

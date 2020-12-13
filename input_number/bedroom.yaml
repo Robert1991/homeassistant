@@ -4,3 +4,20 @@ bedroom_light_brightness:
   min: 39
   max: 255
   step: 36
+bedroom_light_turn_off_timeout:
+  name: Bedroom Light Turn Off Automation Timeout
+  initial: 10
+  min: 10
+  max: 500
+  step: 10
+  unit_of_measurement: "s"
+  icon: 'mdi:clock-in'
+bedroom_light_toogle_intensity_threshold:
+  name: Bedroom Light Toogle Light Intensity Threshold
+  initial: 45
+  min: 10
+  max: 100
+  step: 5
+  unit_of_measurement: "%"
+  icon: 'mdi:brightness-auto'
+  
