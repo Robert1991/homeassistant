@@ -1,0 +1,6 @@
+kitchen_light_brightness:
+  name: Kitchen Light Brightness Slider
+  initial: 120
+  min: 0
+  max: 255
+  step: 15
