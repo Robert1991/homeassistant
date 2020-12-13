@@ -30,3 +30,13 @@ binary_sensor.bedroom_sensor_1_ping:
 switch.bedroom_sensor_1_reset_switch:
   friendly_name: "Bedroom Sensor 1 Reset Switch"
   icon: mdi:restart
+
+# Robert PC
+binary_sensor.private_laptop_activity:
+  friendly_name: "Robert PC is occupied"
+  icon: mdi:account-cog
+
+# Work PC
+binary_sensor.work_laptop_activity:
+  friendly_name: "Work PC is occupied"
+  icon: mdi:account-cog

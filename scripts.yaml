@@ -1,3 +1,12 @@
+toggle_scene_from_input_select:
+  alias: Toggle scene from input select
+  variables:
+    input_select_entity: 'input_select.bedroom_light_scene'
+  sequence:
+    - service: scene.turn_on
+      data_template:
+        entity_id: "{{ 'scene.bedroom_' + states(input_select_entity) | string | lower | regex_replace(find=' ', replace='_', ignorecase=False) }}"
+
 let_light_blink:
   alias: Let ceiling light in kitchen blink
   mode: restart
@@ -38,9 +47,11 @@ toggle_light_scene:
           condition: template
           value_template: "{{ is_state(light_group_id, 'off') }}"
         sequence:
-          - service: scene.turn_on
+          - service: script.turn_on
+            entity_id: script.toggle_scene_from_input_select
             data_template:
-              entity_id: "{{ states(scene_input_select_id) }}"
+              variables:
+                input_select_entity: "{{ scene_input_select_id }}"
 
 notify_smart_button_pressed:
   alias: Notify smart button pressed

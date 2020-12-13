@@ -112,6 +112,7 @@ light bedroom: !include bedroom/lights.yaml
 sensor bedroom: !include bedroom/sensors.yaml 
 sensor toilet: !include toilet/sensors.yaml
 
+binary_sensor bedroom: !include bedroom/binary_sensors.yaml
 binary_sensor toilet: !include toilet/binary_sensors.yaml
 binary_sensor kitchen: !include kitchen/binary_sensors.yaml
 
@@ -149,14 +150,14 @@ input_number:
 input_select:
   bedroom_light_scene:
     options:
-      - 'scene.bedroom_romantic'
-      - 'scene.bedroom_relaxed'
-      - 'scene.bedroom_bright'
-      - 'scene.bedroom_work_1'
-      - 'scene.bedroom_dimmed'
-      - 'scene.bedroom_night_light'
-      - 'scene.bedroom_1313'
-    initial: 'scene.bedroom_bright'
+      - 'Colorful 1'
+      - 'Colorful 2'
+      - 'Relaxed 1'
+      - 'Relaxed 2'
+      - 'Relaxed 3'
+      - 'Work 1'
+      - 'Night Light 1'
+    initial: 'Work 1'
   balcony_light_scene:
     options:
       - 'scene.balcony_bright'

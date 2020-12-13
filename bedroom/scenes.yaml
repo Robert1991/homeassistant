@@ -1,4 +1,4 @@
-- name: bedroom_romantic
+- name: Bedroom Colorful 1
   icon: "mdi:flower-tulip"
   entities:
     light.bedroom_ceiling_1:
@@ -25,7 +25,7 @@
       brightness: 51
       color_temp: 475
 
-- name: bedroom_relaxed
+- name: Bedroom Relaxed 1
   entities:
     light.bedroom_ceiling_1:
       state: "on"
@@ -51,7 +51,7 @@
       brightness: 51
       color_temp: 475
 
-- name: bedroom_bright
+- name: Bedroom Relaxed 2
   entities:
     light.bedroom_ceiling_1:
       state: "on"
@@ -74,7 +74,7 @@
     light.bedroom_bed_light:
       state: "off"
 
-- name: bedroom_work_1
+- name: Bedroom Work 1
   entities:
     light.bedroom_ceiling_1:
       state: "on"
@@ -97,7 +97,7 @@
     light.bedroom_bed_light:
       state: "off"
 
-- name: bedroom_dimmed
+- name: Bedroom Relaxed 3
   entities:
     light.bedroom_ceiling_1:
       state: "on"
@@ -123,7 +123,7 @@
       brightness: 51
       color_temp: 475
 
-- name: bedroom_night_light
+- name: Bedroom Night Light 1
   entities:
     light.bedroom_ceiling_1:
       state: "on"
@@ -147,7 +147,7 @@
       brightness: 25
       color_temp: 500
 
-- name: bedroom_1313
+- name: Bedroom Colorful 2
   entities:
     light.bedroom_ceiling_1:
       brightness: 157
