@@ -5,8 +5,10 @@ sensor.balcony_sensor_actor_1_temperature:
   friendly_name: "Balcony Temperature"
 light.balcony_sensor_actor_1_relais_light_1:
   friendly_name: "Balcony Small Light"
+  icon: "mdi:string-lights"
 light.balcony_sensor_actor_1_relais_light_2:
   friendly_name: "Balcony Ceiling Light"
+  icon: "mdi:string-lights"
 binary_sensor.balcony_sensor_actor_1_ping:
   friendly_name: "Balcony Sensor/Actor 1 Connection Status"
 switch.balcony_sensor_actor_1_reset_switch:
@@ -31,6 +33,20 @@ switch.bedroom_sensor_1_reset_switch:
   friendly_name: "Bedroom Sensor 1 Reset Switch"
   icon: mdi:restart
 
+# floor_sensor_actor 1
+sensor.floor_sensor_actor_1_humidity:
+  friendly_name: "Floor Humidity"
+sensor.floor_sensor_actor_1_temperature:
+  friendly_name: "Floor Temperature"
+binary_sensor.floor_sensor_actor_1_motion_detected:
+  friendly_name: "Floor Motion Detected"
+light.floor_sensor_actor_1_i2c_rgb:
+  friendly_name: "Floor RGB Lightstrip"
+  icon: mdi:led-strip-variant
+binary_sensor.floor_sensor_actor_1_ping:
+  friendly_name: "Floor Sensor/Actor 1 Ping"
+switch.floor_sensor_actor_1_reset_switch:
+  friendly_name: "Floor Sensor/Actor 1 Reset Switch"
 
 # former_ikea_light
 sensor.former_ikea_light_light_intensity:
@@ -113,12 +129,26 @@ light.couch_rgb_i2c_platine_i2c_rgb:
   icon: mdi:sofa
 
 # lights
+light.floor_light:
+  friendly_name: "Floor Ceiling Light"
+  icon: mdi:wall-sconce-round
+
 light.living_room_standing_light:
   friendly_name: "Living Room Standing Light"
   icon: mdi:floor-lamp
 light.living_room_philips_hue_iris_light:
   friendly_name: "TV Philips Hue Bubble Light"
   icon: mdi:wall-sconce-round-variant
+
+light.bedroom_workdesk:
+  friendly_name: "Bedroom Workdesk Light"
+  icon: mdi:desk-lamp
+light.bedroom_bed_light:
+  icon: mdi:outdoor-lamp
+light.bedroom_closet_led_power_supply_light:
+  friendly_name: "Bedroom Closet Light"
+  icon: mdi:led-strip
+
 
 # Robert PC
 binary_sensor.private_laptop_activity:

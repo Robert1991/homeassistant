@@ -6,7 +6,7 @@ bedroom_light_brightness:
   step: 36
 bedroom_light_turn_off_timeout:
   name: Bedroom Light Turn Off Automation Timeout
-  initial: 10
+  initial: 180
   min: 10
   max: 500
   step: 10
