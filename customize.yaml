@@ -70,6 +70,16 @@ switch.kitchen_ceiling_light_1_reset_switch:
 light.kitchen_ceiling_light_1_relais_light_1:
   friendly_name: "Kitchen Ceiling Light"
   icon: mdi:ceiling-light
+
+# couch_rgb_i2c_platine
+binary_sensor.couch_rgb_i2c_platine_ping:
+  friendly_name: "Couch RGB Light Connection Status"
+switch.couch_rgb_i2c_platine_reset_switch:
+  friendly_name: "Couch RGB Light Reset Switch"
+  icon: mdi:restart
+light.couch_rgb_i2c_platine_i2c_rgb:
+  friendly_name: "Couch RGB Light"
+  icon: mdi:sofa
 # Robert PC
 binary_sensor.private_laptop_activity:
   friendly_name: "Robert PC is occupied"

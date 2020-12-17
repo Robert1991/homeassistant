@@ -104,6 +104,16 @@ alert:
     skip_first: false
     notifiers:
       - ios
+  couch_rgb_i2c_platine_is_offline:
+    name: Couch Light is offline
+    done_message: Couch Light is online again
+    entity_id: binary_sensor.couch_rgb_i2c_platine_ping
+    state: 'off'
+    repeat: 30
+    can_acknowledge: true
+    skip_first: false
+    notifiers:
+      - ios
 
 light balcony: !include balcony/lights.yaml
 light toilet: !include toilet/lights.yaml
