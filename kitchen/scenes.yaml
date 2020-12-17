@@ -1,7 +1,6 @@
 - name: kitchen_cooking_1
   entities:
-    light.kitchen_ceiling_light:
-      friendly_name: Kitchen Ceiling Light
+    light.kitchen_ceiling_light_1_relais_light_1:
       state: 'on'
     light.kitchen_actor_1_rgb:
       brightness: 255
@@ -17,8 +16,7 @@
       state: 'on'
 - name: kitchen_cooking_2
   entities:
-    light.kitchen_ceiling_light:
-      friendly_name: Kitchen Ceiling Light
+    light.kitchen_ceiling_light_1_relais_light_1:
       state: 'on'
     light.kitchen_actor_1_rgb:
       brightness: 255
@@ -34,8 +32,7 @@
       state: 'off'
 - name: kitchen_night_light_1
   entities:
-    light.kitchen_ceiling_light:
-      friendly_name: Kitchen Ceiling Light
+    light.kitchen_ceiling_light_1_relais_light_1:
       state: 'off'
     light.kitchen_actor_1_rgb:
       brightness: 43
@@ -51,8 +48,7 @@
       state: 'on'
 - name: kitchen_indirect_light_1
   entities:
-    light.kitchen_ceiling_light:
-      friendly_name: Kitchen Ceiling Light
+    light.kitchen_ceiling_light_1_relais_light_1:
       state: 'off'
     light.kitchen_actor_1_rgb:
       brightness: 250
@@ -68,8 +64,7 @@
       state: 'on'
 - name: kitchen_indirect_light_2
   entities:
-    light.kitchen_ceiling_light:
-      friendly_name: Kitchen Ceiling Light
+    light.kitchen_ceiling_light_1_relais_light_1:
       state: 'off'
     light.kitchen_actor_1_rgb:
       brightness: 250

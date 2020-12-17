@@ -31,6 +31,45 @@ switch.bedroom_sensor_1_reset_switch:
   friendly_name: "Bedroom Sensor 1 Reset Switch"
   icon: mdi:restart
 
+# kitchen_actor_1
+light.kitchen_actor_1_rgb:
+  friendly_name: "Kitchen RGB Light Strip"
+  icon: mdi:led-strip-variant
+light.kitchen_actor_1_relais_switch:
+  friendly_name: "Kitchen Techno Light"
+  icon: mdi:desk-lamp
+binary_sensor.kitchen_actor_1_ping:
+  friendly_name: "Kitchen Actor 1 Connection Status"
+switch.kitchen_actor_1_reset_switch:
+  friendly_name: "Kitchen Actor 1 Reset Switch"
+  icon: mdi:restart
+
+# kitchen_sensor_1
+binary_sensor.kitchen_sensor_1_door_open:
+  friendly_name: "Fride Door Sensor"
+sensor.kitchen_sensor_1_humidity:
+  friendly_name: "Kitchen Humidity"
+sensor.kitchen_sensor_1_temperature:
+  friendly_name: "Kitchen Temperature"
+sensor.kitchen_sensor_1_light_intensity:
+  friendly_name: "Kitchen Light Intensity"
+  icon: mdi:brightness-4
+binary_sensor.kitchen_sensor_1_motion_detected:
+  friendly_name: "Kitchen Motion Detector"
+binary_sensor.kitchen_sensor_1_ping:
+  friendly_name: "Kitchen Sensor 1 Connection Status"
+switch.kitchen_sensor_1_reset_switch:
+  friendly_name: "Kitchen Sensor 1 Reset Switch"
+  icon: mdi:restart
+# kitchen_ceiling_light_1
+binary_sensor.kitchen_ceiling_light_1_ping:
+  friendly_name: "Kitchen Ceiling Light Connection Status"
+switch.kitchen_ceiling_light_1_reset_switch:
+  friendly_name: "Kitchen Ceiling Light Reset Switch"
+  icon: mdi:restart
+light.kitchen_ceiling_light_1_relais_light_1:
+  friendly_name: "Kitchen Ceiling Light"
+  icon: mdi:ceiling-light
 # Robert PC
 binary_sensor.private_laptop_activity:
   friendly_name: "Robert PC is occupied"

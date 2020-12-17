@@ -94,7 +94,16 @@ alert:
     skip_first: false
     notifiers:
       - ios
-
+  kitchen_ceiling_light_1_is_offline:
+    name: Kitchen Ceiling Light is offline
+    done_message: Kitchen Ceiling Light is online again
+    entity_id: binary_sensor.kitchen_ceiling_light_1_ping
+    state: 'off'
+    repeat: 30
+    can_acknowledge: true
+    skip_first: false
+    notifiers:
+      - ios
 
 light balcony: !include balcony/lights.yaml
 light toilet: !include toilet/lights.yaml

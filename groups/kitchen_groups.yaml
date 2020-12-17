@@ -9,7 +9,7 @@ all_kitchen_lights:
   name: "All Kitchen Lights"
   icon: "mdi:lightbulb-group-outline"
   entities:
-    - light.kitchen_ceiling_light
+    - light.kitchen_ceiling_light_1_relais_light_1
     - light.kitchen_actor_1_rgb
     - light.kitchen_led_spots_light
     - light.kitchen_actor_1_relais_switch
