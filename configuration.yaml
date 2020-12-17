@@ -126,6 +126,7 @@ sensor bedroom: !include bedroom/sensors.yaml
 sensor toilet: !include toilet/sensors.yaml
 sensor living_room: !include living_room/sensors.yaml
 
+binary_sensor general: !include general/binary_sensors.yaml 
 binary_sensor bedroom: !include bedroom/binary_sensors.yaml
 binary_sensor toilet: !include toilet/binary_sensors.yaml
 binary_sensor kitchen: !include kitchen/binary_sensors.yaml
