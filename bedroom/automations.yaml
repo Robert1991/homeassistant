@@ -50,7 +50,7 @@
       entity_id: script.toggle_scene_from_input_select
       data:
         variables:
-          input_select_entity: "input_select.bedroom_light_scene"
+          input_select_entity: "input_select.bedroom_light_scene_generated"
 
 - alias: Turn off bedroom lights when light is sufficient
   trigger:
@@ -90,13 +90,13 @@
 - alias: Apply bedroom scenes when input select changes
   trigger:
     - platform: state
-      entity_id: input_select.bedroom_light_scene
+      entity_id: input_select.bedroom_light_scene_generated
   action:
     - service: script.turn_on
       entity_id: script.toggle_scene_from_input_select
       data:
         variables:
-          input_select_entity: "input_select.bedroom_light_scene"
+          input_select_entity: "input_select.bedroom_light_scene_generated"
 
 - alias: Notify Smart Button Was Pressed
   trigger:
@@ -126,7 +126,7 @@
     data:
       variables:
         light_group_id: 'light.all_bedroom_lights'
-        scene_input_select_id: 'input_select.bedroom_light_scene'
+        scene_input_select_id: 'input_select.bedroom_light_scene_generated'
 
 - alias: Toggle Bedroom Scene on Smart Button Press
   trigger:
@@ -137,12 +137,12 @@
       value_template: "{{ trigger.event.data.entity_id ==  'sensor.hue_smart_button_1_action'}}"
   action:
     - service: input_select.select_next
-      entity_id: input_select.bedroom_light_scene
+      entity_id: input_select.bedroom_light_scene_generated
     - service: script.turn_on
       entity_id: script.toggle_scene_from_input_select
       data:
         variables:
-          input_select_entity: "bedroom_light_scene"
+          input_select_entity: "bedroom_light_scene_generated"
 
 - alias: Apply Smart Button Dim Operation Increase to Bedroom Lights
   trigger:

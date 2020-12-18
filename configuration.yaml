@@ -7,6 +7,11 @@ homeassistant:
 tts:
   - platform: google_translate
 
+shell_command:
+  truncate_file: >
+    truncate -s 0 {{ file_path }}
+  write_variable_content_to_file: >
+    /bin/bash -c "echo '{{ content }}' >> {{ target_file }}"
 notify ios:
   - name: iOS
     platform: group

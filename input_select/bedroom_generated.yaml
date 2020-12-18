@@ -1,0 +1,12 @@
+bedroom_light_scene_generated:
+  options:
+    - Colorful 1
+    - Colorful 2
+    - Colorful 3
+    - Night Light 1
+    - Relaxed 1
+    - Relaxed 2
+    - Relaxed 3
+    - Work 1
+    - Work 3
+  initial: Work 3

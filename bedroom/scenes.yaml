@@ -180,3 +180,77 @@
       state: "on"
       brightness: 100
       color_temp: 300
+
+- name: Bedroom Colorful 3
+  entities:
+    light.bedroom_bed_light:
+      brightness: 59
+      state: "on"
+    light.bedroom_ceiling_1:
+      brightness: 255
+      hs_color:
+        - 354.34
+        - 83.137
+      rgb_color:
+        - 255
+        - 43
+        - 62
+      state: "on"
+    light.bedroom_ceiling_2:
+      brightness: 184
+      hs_color:
+        - 318.028
+        - 83.529
+      rgb_color:
+        - 255
+        - 42
+        - 191
+      state: "on"
+    light.bedroom_ceiling_3:
+      brightness: 184
+      hs_color:
+        - 15.354
+        - 99.608
+      rgb_color:
+        - 255
+        - 65
+        - 0
+      state: "on"
+    light.bedroom_closet_led_power_supply_light:
+      brightness: 51
+      state: "off"
+    light.bedroom_workdesk:
+      brightness: 184
+      hs_color:
+        - 41.429
+        - 82.353
+      rgb_color:
+        - 255
+        - 190
+        - 44
+      state: "on"
+- name: Bedroom Work 3
+  entities:
+    light.bedroom_bed_light:
+      brightness: 110
+      color_temp: 156
+      state: "on"
+    light.bedroom_ceiling_1:
+      brightness: 201
+      color_temp: 156
+      state: "on"
+    light.bedroom_ceiling_2:
+      brightness: 201
+      color_temp: 156
+      state: "on"
+    light.bedroom_ceiling_3:
+      brightness: 201
+      color_temp: 156
+      state: "on"
+    light.bedroom_closet_led_power_supply_light:
+      brightness: 77
+      state: "off"
+    light.bedroom_workdesk:
+      brightness: 201
+      color_temp: 156
+      state: "on"

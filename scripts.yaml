@@ -91,4 +91,73 @@ notify_smart_button_pressed:
           - event: SMART_HOME_BUTTON_RELEASE
             event_data:
               entity_id: "{{ smart_button_id }}"
-  
+
+create_light_scene_from_group:
+  alias: Create Scene From Lights in Group
+  variables:
+    group_name: 'group.all_bedroom_lights'
+    scene_name: 'Test Scene 2'
+    scene_prefix: 'Bedroom'
+  sequence:
+    - service: system_log.write
+      data_template:
+        message: '{{ "scene." + scene_prefix | string | lower + "_" + scene_name | lower | replace(" ", "_") }}'
+        level: error
+    - choose:
+      - conditions:
+        - condition: template
+          value_template: >
+            {{ states["scene." + scene_prefix | string | lower + "_" + scene_name | lower | replace(" ", "_")] == None }}
+        sequence:
+        - service: script.turn_on
+          entity_id: script.truncate_file
+          data_template:
+            variables:
+              file_path: "input_select/{{ scene_prefix | string | lower }}_generated.yaml"
+        - service: shell_command.write_variable_content_to_file
+          data_template:
+            target_file: "input_select/{{ scene_prefix | string | lower }}_generated.yaml"
+            content: >
+              {% set new_options = (states['input_select.' + scene_prefix | string | lower + '_light_scene'].attributes.options | sort | join (",")) | string + "," + scene_name %}
+              {% set input_select_output %}
+              {{ scene_prefix | string | lower }}_light_scene_generated:
+                options:{% for option in (new_options.split(",") | sort) %}
+                  - {{ option }}{% endfor %}
+                initial: {{ scene_name }}
+              {% endset %}
+              {{ input_select_output }}
+        - service: shell_command.write_variable_content_to_file
+          data_template:
+            target_file: "{{ scene_prefix | string | lower }}/scenes.yaml"
+            content: >
+              {% set sceneoutput %}
+
+              - name: {{ scene_prefix }} {{ scene_name }}
+                entities:{% for light in expand(group_name) %}
+                  {{ light.entity_id }}:
+                    brightness: {{ light.attributes.brightness }}{% if light.attributes.hs_color %}
+                    hs_color:
+                      - {{ light.attributes.hs_color[0] }}
+                      - {{ light.attributes.hs_color[1] }}{% endif %}{% if light.attributes.rgb_color %}
+                    rgb_color:
+                      - {{ light.attributes.rgb_color[0] }}
+                      - {{ light.attributes.rgb_color[1] }}
+                      - {{ light.attributes.rgb_color[2] }}{% endif %}{% if light.attributes.xy_color %}
+                    xy_color:
+                      - {{ light.attributes.xy_color[0] }}
+                      - {{ light.attributes.xy_color[1] }}{% endif %}{% if light.attributes.color_temp %}
+                    color_temp: {{ light.attributes.color_temp }}{% endif %}
+                    state: \"{{ light.state }}\"{% endfor %}
+              {% endset %}
+              {{ sceneoutput }}
+        - service: input_select.reload
+        - service: scene.reload
+
+truncate_file:
+  alias: Truncate File Content
+  variables:
+    file_path: ''
+  sequence:
+    - service: shell_command.truncate_file
+      data_template:
+        file_path: "{{ file_path }}"
