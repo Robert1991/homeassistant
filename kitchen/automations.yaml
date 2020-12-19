@@ -12,7 +12,7 @@
       entity_id: script.let_light_blink
       data:
         variables:
-          light_entity_id: light.kitchen_ceiling_light
+          light_entity_id: light.kitchen_ceiling_light_1_relais_light_1
           observed_input_boolean: input_boolean.fride_door_was_left_open
 
 - alias: Reset Alarm when Fridge is closed
