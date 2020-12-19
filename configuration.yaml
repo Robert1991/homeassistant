@@ -20,20 +20,12 @@ notify ios:
 
 alert: !include_dir_merge_named alerts/
 
-input_text:
-  bedroom_generated_scene_name:
-    name: Scene Name
-    initial: ''
-light balcony: !include balcony/lights.yaml
-light toilet: !include toilet/lights.yaml
-light floor: !include floor/lights.yaml
-light living_room: !include living_room/lights.yaml
-light kitchen: !include kitchen/lights.yaml
-light bedroom: !include bedroom/lights.yaml
-
-sensor bedroom: !include bedroom/sensors.yaml 
-sensor toilet: !include toilet/sensors.yaml
-sensor living_room: !include living_room/sensors.yaml
+automation living_room: !include living_room/automations.yaml
+automation toilet: !include toilet/automations.yaml
+automation bedroom: !include bedroom/automations.yaml
+automation balcony: !include balcony/automations.yaml
+automation kitchen: !include kitchen/automations.yaml
+automation floor: !include floor/automations.yaml
 
 binary_sensor general: !include general/binary_sensors.yaml 
 binary_sensor bedroom: !include bedroom/binary_sensors.yaml
@@ -42,32 +34,33 @@ binary_sensor kitchen: !include kitchen/binary_sensors.yaml
 
 group: !include_dir_merge_named groups/
 
-automation living_room: !include living_room/automations.yaml
-automation toilet: !include toilet/automations.yaml
-automation bedroom: !include bedroom/automations.yaml
-automation balcony: !include balcony/automations.yaml
-automation kitchen: !include kitchen/automations.yaml
-automation floor: !include floor/automations.yaml
-
-script: !include scripts.yaml
-scene: !include scenes.yaml
-
-scene bedroom: !include bedroom/scenes.yaml
-scene balcony: !include balcony/scenes.yaml
-scene kitchen: !include kitchen/scenes.yaml
-scene toilet: !include toilet/scenes.yaml
-
 input_boolean: !include_dir_merge_named input_boolean/
 input_number: !include_dir_merge_named input_number/
 input_select: !include_dir_merge_named input_select/
+input_text: !include_dir_merge_named input_text/
+
+light balcony: !include balcony/lights.yaml
+light toilet: !include toilet/lights.yaml
+light floor: !include floor/lights.yaml
+light living_room: !include living_room/lights.yaml
+light kitchen: !include kitchen/lights.yaml
+light bedroom: !include bedroom/lights.yaml
 
 logger:
   default: warning
   logs:
     homeassistant.components.mqtt: info
+    homeassistant.components.shell_command: debug
 
-mqtt:
-  broker: 127.0.0.1
+lovelace:
+  mode: storage
+  dashboards:
+    lovelace-yaml:
+      mode: yaml
+      title: Scene-Editor
+      icon: mdi:script
+      show_in_sidebar: true
+      filename: devices.yaml
 
 media_player:
   - platform: androidtv
@@ -75,3 +68,18 @@ media_player:
     name: "TV LivingRoom"
     adb_server_ip: 127.0.0.1
     adb_server_port: 5037
+
+mqtt:
+  broker: 127.0.0.1
+
+scene: !include scenes.yaml
+scene bedroom: !include bedroom/scenes.yaml
+scene balcony: !include balcony/scenes.yaml
+scene kitchen: !include kitchen/scenes.yaml
+scene toilet: !include toilet/scenes.yaml
+
+sensor bedroom: !include bedroom/sensors.yaml 
+sensor toilet: !include toilet/sensors.yaml
+sensor living_room: !include living_room/sensors.yaml
+
+script: !include scripts.yaml
