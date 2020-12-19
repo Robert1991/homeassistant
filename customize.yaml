@@ -149,13 +149,12 @@ light.bedroom_closet_led_power_supply_light:
   friendly_name: "Bedroom Closet Light"
   icon: mdi:led-strip
 
-
 # Robert PC
 binary_sensor.private_laptop_activity:
   friendly_name: "Robert PC is occupied"
-  icon: mdi:account-cog
+  icon: mdi:monitor-dashboard
 
 # Work PC
 binary_sensor.work_laptop_activity:
   friendly_name: "Work PC is occupied"
-  icon: mdi:account-cog
+  icon: mdi:monitor-dashboard
