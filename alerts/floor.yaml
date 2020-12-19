@@ -1,0 +1,10 @@
+floor_sensor_actor_1_is_offline:
+  name: Floor Sensor/Actor 1 offline
+  done_message: Floor Sensor/Actor 1 online again
+  entity_id: binary_sensor.floor_sensor_actor_1_ping
+  state: 'off'
+  repeat: 30
+  can_acknowledge: true
+  skip_first: false
+  notifiers:
+    - ios

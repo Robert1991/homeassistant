@@ -1,0 +1,40 @@
+fridge_was_left_open_alert:
+  name: Kühlschrank wurde offen gelassen!
+  done_message: Kühlschrank wieder geschlossen
+  entity_id: binary_sensor.fride_door_open_to_long
+  state: 'on'
+  repeat: 1
+  can_acknowledge: true
+  skip_first: false
+  notifiers:
+    - ios
+kitchen_actor_1_is_offline:
+  name: Kitchen Actor 1 offline
+  done_message: Kitchen Actor 1 online again
+  entity_id: binary_sensor.kitchen_actor_1_ping
+  state: 'off'
+  repeat: 30
+  can_acknowledge: true
+  skip_first: false
+  notifiers:
+    - ios
+kitchen_sensor_1_is_offline:
+  name: Kitchen Sensor 1 offline
+  done_message: Kitchen Sensor 1 online again
+  entity_id: binary_sensor.kitchen_actor_1_ping
+  state: 'off'
+  repeat: 30
+  can_acknowledge: true
+  skip_first: false
+  notifiers:
+    - ios
+kitchen_ceiling_light_1_is_offline:
+  name: Kitchen Ceiling Light is offline
+  done_message: Kitchen Ceiling Light is online again
+  entity_id: binary_sensor.kitchen_ceiling_light_1_ping
+  state: 'off'
+  repeat: 30
+  can_acknowledge: true
+  skip_first: false
+  notifiers:
+    - ios

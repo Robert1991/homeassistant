@@ -1,0 +1,10 @@
+bedroom_sensor_1_is_offline:
+  name: Bedroom Sensor 1 offline
+  done_message: Bedroom Sensor 1 online again
+  entity_id: binary_sensor.bedroom_sensor_1_ping
+  state: 'off'
+  repeat: 30
+  can_acknowledge: true
+  skip_first: false
+  notifiers:
+    - ios

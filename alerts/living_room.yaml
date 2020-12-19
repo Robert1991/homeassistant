@@ -1,0 +1,30 @@
+living_room_ikea_light_1_is_offline:
+  name: Living Room Ikea Light 1 offline
+  done_message: Living Room Ikea Light 1 online again
+  entity_id: binary_sensor.former_ikea_light_ping
+  state: 'off'
+  repeat: 30
+  can_acknowledge: true
+  skip_first: false
+  notifiers:
+    - ios
+living_room_sensor_actor_1_is_offline:
+  name: Living Room Sensor/Actor 1 offline
+  done_message: Living Room Sensor/Actor 1 online again
+  entity_id: binary_sensor.living_room_sensor_actor_1_ping
+  state: 'off'
+  repeat: 30
+  can_acknowledge: true
+  skip_first: false
+  notifiers:
+    - ios
+couch_rgb_i2c_platine_is_offline:
+  name: Couch Light is offline
+  done_message: Couch Light is online again
+  entity_id: binary_sensor.couch_rgb_i2c_platine_ping
+  state: 'off'
+  repeat: 30
+  can_acknowledge: true
+  skip_first: false
+  notifiers:
+    - ios
