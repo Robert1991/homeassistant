@@ -96,34 +96,35 @@ create_light_scene_from_group:
   alias: Create Scene From Lights in Group
   variables:
     group_name: 'group.all_bedroom_lights'
-    scene_name: 'Test Scene 2'
+    scene_name_input_text: 'input_text.bedroom_generated_scene_name'
     scene_prefix: 'Bedroom'
   sequence:
     - service: system_log.write
       data_template:
-        message: '{{ "scene." + scene_prefix | string | lower + "_" + scene_name | lower | replace(" ", "_") }}'
-        level: error
+        message: 'Creating scene: {{ "scene." + scene_prefix | string | lower + "_" + states(scene_name_input_text) | lower | replace(" ", "_") }}'
+        level: info
     - choose:
       - conditions:
         - condition: template
           value_template: >
-            {{ states["scene." + scene_prefix | string | lower + "_" + scene_name | lower | replace(" ", "_")] == None }}
+            {{ states["scene." + scene_prefix | string | lower + "_" +  states(scene_name_input_text) | lower | replace(" ", "_")] == None }}
+        - condition: template
+          value_template: >
+            {{ states[scene_name_input_text].state | string | length > 0}}
         sequence:
-        - service: script.turn_on
-          entity_id: script.truncate_file
+        - service: shell_command.truncate_file
           data_template:
-            variables:
-              file_path: "input_select/{{ scene_prefix | string | lower }}_generated.yaml"
+            file_path: "input_select/{{ scene_prefix | string | lower }}_generated.yaml"
         - service: shell_command.write_variable_content_to_file
           data_template:
             target_file: "input_select/{{ scene_prefix | string | lower }}_generated.yaml"
             content: >
-              {% set new_options = (states['input_select.' + scene_prefix | string | lower + '_light_scene'].attributes.options | sort | join (",")) | string + "," + scene_name %}
+              {% set new_options = (states['input_select.' + scene_prefix | string | lower + '_light_scene'].attributes.options | sort | join (",")) | string + "," + states(scene_name_input_text) %}
               {% set input_select_output %}
               {{ scene_prefix | string | lower }}_light_scene_generated:
                 options:{% for option in (new_options.split(",") | sort) %}
                   - {{ option }}{% endfor %}
-                initial: {{ scene_name }}
+                initial: {{ states(scene_name_input_text) }}
               {% endset %}
               {{ input_select_output }}
         - service: shell_command.write_variable_content_to_file
@@ -132,7 +133,7 @@ create_light_scene_from_group:
             content: >
               {% set sceneoutput %}
 
-              - name: {{ scene_prefix }} {{ scene_name }}
+              - name: {{ scene_prefix }} {{ states(scene_name_input_text) }}
                 entities:{% for light in expand(group_name) %}
                   {{ light.entity_id }}:
                     brightness: {{ light.attributes.brightness }}{% if light.attributes.hs_color %}
@@ -150,14 +151,18 @@ create_light_scene_from_group:
                     state: \"{{ light.state }}\"{% endfor %}
               {% endset %}
               {{ sceneoutput }}
-        - service: input_select.reload
         - service: scene.reload
-
-truncate_file:
-  alias: Truncate File Content
-  variables:
-    file_path: ''
-  sequence:
-    - service: shell_command.truncate_file
-      data_template:
-        file_path: "{{ file_path }}"
+        - service: input_select.reload
+        - service: persistent_notification.create
+          data:
+            message: "Scene '{{ states(scene_name_input_text) }}'' successfully created"
+            title: "Scene created for {{ scene_prefix }}"
+        - service: input_text.set_value
+          data_template:
+            entity_id: "{{ scene_name_input_text }}"
+            value: ''
+      default:
+        - service: persistent_notification.create
+          data:
+            message: "Either scene already exists or no scene name was given!"
+            title: "Scene creation failed"        

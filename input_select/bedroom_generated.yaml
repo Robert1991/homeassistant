@@ -8,5 +8,5 @@ bedroom_light_scene_generated:
     - Relaxed 2
     - Relaxed 3
     - Work 1
-    - Work 3
-  initial: Work 3
+    - Work 2
+  initial: Work 2

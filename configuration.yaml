@@ -120,6 +120,10 @@ alert:
     notifiers:
       - ios
 
+input_text:
+  bedroom_generated_scene_name:
+    name: Scene Name
+    initial: ''
 light balcony: !include balcony/lights.yaml
 light toilet: !include toilet/lights.yaml
 light floor: !include floor/lights.yaml

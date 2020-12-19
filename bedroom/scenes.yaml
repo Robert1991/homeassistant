@@ -229,28 +229,28 @@
         - 190
         - 44
       state: "on"
-- name: Bedroom Work 3
+- name: Bedroom Work 2
   entities:
     light.bedroom_bed_light:
-      brightness: 110
-      color_temp: 156
-      state: "on"
+      brightness: 51
+      color_temp: 475
+      state: "off"
     light.bedroom_ceiling_1:
-      brightness: 201
-      color_temp: 156
+      brightness: 196
+      color_temp: 244
       state: "on"
     light.bedroom_ceiling_2:
-      brightness: 201
-      color_temp: 156
+      brightness: 196
+      color_temp: 244
       state: "on"
     light.bedroom_ceiling_3:
-      brightness: 201
-      color_temp: 156
+      brightness: 196
+      color_temp: 244
       state: "on"
     light.bedroom_closet_led_power_supply_light:
-      brightness: 77
+      brightness: 80
       state: "off"
     light.bedroom_workdesk:
-      brightness: 201
-      color_temp: 156
+      brightness: 255
+      color_temp: 217
       state: "on"
