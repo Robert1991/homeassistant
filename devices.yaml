@@ -1,7 +1,310 @@
 title: Devices
 views:
-  - title: Blank
-    path: automations
+  - title: Overview
+    path: overview
     badges: []
     cards:
-     
+    - type: 'custom:auto-entities'
+      filter:
+        include:
+          - domain: binary_sensor
+            entity_id: '*_ping'
+      card:
+        type: entities
+        title: Autoconfigure Devices
+        state_color: true
+  - title: Bedroom
+    path: bedroom
+    badges: []
+    cards:
+    - type: 'custom:vertical-stack-in-card'
+      title: Bedroom Sensor 1
+      cards:
+        - type: entities
+          state_color: true
+          show_header_toggle: false
+          entities:
+            - entity: binary_sensor.bedroom_sensor_1_ping
+              name: Device Status
+              secondary_info: last-updated
+              icon: 'hass:server-network'
+            - entity: alert.bedroom_sensor_1_is_offline
+              name: Offline Alert
+            - entity: switch.bedroom_sensor_1_reset_switch
+              name: Reset
+        - type: 'custom:auto-entities'
+          filter:
+            include:
+              - domain: light
+                entity_id: '*bedroom_sensor_1*'
+              - domain: sensor
+                entity_id: '*bedroom_sensor_1*'
+              - domain: binary_sensor
+                entity_id: '*bedroom_sensor_1*'
+              - domain: switch
+                entity_id: '*bedroom_sensor_1*'
+          card:
+            type: 'custom:fold-entity-row'
+            head:
+              type: section
+              label: Entities
+  - title: Kitchen
+    path: kitchen
+    badges: []
+    cards:
+    - type: 'custom:vertical-stack-in-card'
+      title: Kitchen Actor 1
+      cards:
+        - type: entities
+          state_color: true
+          show_header_toggle: false
+          entities:
+            - entity: binary_sensor.kitchen_actor_1_ping
+              name: Device Status
+              secondary_info: last-updated
+              icon: 'hass:server-network'
+            - entity: alert.kitchen_actor_1_is_offline
+              name: Offline Alert
+            - entity: switch.kitchen_actor_1_reset_switch
+              name: Reset
+        - type: 'custom:auto-entities'
+          filter:
+            include:
+              - domain: light
+                entity_id: '*kitchen_actor_1*'
+              - domain: sensor
+                entity_id: '*kitchen_actor_1*'
+              - domain: binary_sensor
+                entity_id: '*kitchen_actor_1*'
+              - domain: switch
+                entity_id: '*kitchen_actor_1*'
+          card:
+            type: 'custom:fold-entity-row'
+            head:
+              type: section
+              label: Entities
+    - type: 'custom:vertical-stack-in-card'
+      title: Kitchen Sensor 1
+      cards:
+        - type: entities
+          state_color: true
+          show_header_toggle: false
+          entities:
+            - entity: binary_sensor.kitchen_sensor_1_ping
+              name: Device Status
+              secondary_info: last-updated
+              icon: 'hass:server-network'
+            - entity: alert.kitchen_sensor_1_is_offline
+              name: Offline Alert
+            - entity: switch.kitchen_sensor_1_reset_switch
+              name: Reset
+        - type: 'custom:auto-entities'
+          filter:
+            include:
+              - domain: light
+                entity_id: '*kitchen_sensor_1*'
+              - domain: sensor
+                entity_id: '*kitchen_sensor_1*'
+              - domain: binary_sensor
+                entity_id: '*kitchen_sensor_1*'
+              - domain: switch
+                entity_id: '*kitchen_sensor_1*'
+          card:
+            type: 'custom:fold-entity-row'
+            head:
+              type: section
+              label: Entities
+    - type: 'custom:vertical-stack-in-card'
+      title: Kitchen Ceiling Light
+      cards:
+        - type: entities
+          state_color: true
+          show_header_toggle: false
+          entities:
+            - entity: binary_sensor.kitchen_ceiling_light_1_ping
+              name: Device Status
+              secondary_info: last-updated
+              icon: 'hass:server-network'
+            - entity: alert.kitchen_ceiling_light_1_is_offline
+              name: Offline Alert
+            - entity: switch.kitchen_ceiling_light_1_reset_switch
+              name: Reset
+        - type: 'custom:auto-entities'
+          filter:
+            include:
+              - domain: light
+                entity_id: '*kitchen_ceiling_light_1*'
+              - domain: sensor
+                entity_id: '*kitchen_ceiling_light_1*'
+              - domain: binary_sensor
+                entity_id: '*kitchen_ceiling_light_1*'
+              - domain: switch
+                entity_id: '*kitchen_ceiling_light_1*'
+          card:
+            type: 'custom:fold-entity-row'
+            head:
+              type: section
+              label: Entities
+  - title: Living Room
+    path: living_room
+    badges: []
+    cards:
+    - type: 'custom:vertical-stack-in-card'
+      title: Former Ikea Light Sensor/Actor
+      cards:
+        - type: entities
+          state_color: true
+          show_header_toggle: false
+          entities:
+            - entity: binary_sensor.former_ikea_light_ping
+              name: Device Status
+              secondary_info: last-updated
+              icon: 'hass:server-network'
+            - entity: alert.living_room_ikea_light_1_is_offline
+              name: Offline Alert
+            - entity: switch.former_ikea_light_reset_switch
+              name: Reset
+        - type: 'custom:auto-entities'
+          filter:
+            include:
+              - domain: light
+                entity_id: '*former_ikea_light*'
+              - domain: sensor
+                entity_id: '*former_ikea_light*'
+              - domain: binary_sensor
+                entity_id: '*former_ikea_light*'
+              - domain: switch
+                entity_id: '*former_ikea_light*'
+          card:
+            type: 'custom:fold-entity-row'
+            head:
+              type: section
+              label: Entities
+    - type: 'custom:vertical-stack-in-card'
+      title: Living Room Sensor/Actor 1
+      cards:
+        - type: entities
+          state_color: true
+          show_header_toggle: false
+          entities:
+            - entity: binary_sensor.living_room_sensor_actor_1_ping
+              name: Device Status
+              secondary_info: last-updated
+              icon: 'hass:server-network'
+            - entity: alert.living_room_sensor_actor_1_is_offline
+              name: Offline Alert
+            - entity: switch.living_room_sensor_actor_1_reset_switch
+              name: Reset
+        - type: 'custom:auto-entities'
+          filter:
+            include:
+              - domain: light
+                entity_id: '*living_room_sensor_actor_1*'
+              - domain: sensor
+                entity_id: '*living_room_sensor_actor_1*'
+              - domain: binary_sensor
+                entity_id: '*living_room_sensor_actor_1*'
+              - domain: switch
+                entity_id: '*living_room_sensor_actor_1*'
+          card:
+            type: 'custom:fold-entity-row'
+            head:
+              type: section
+              label: Entities
+    - type: 'custom:vertical-stack-in-card'
+      title: Couch Light
+      cards:
+        - type: entities
+          state_color: true
+          show_header_toggle: false
+          entities:
+            - entity: binary_sensor.couch_rgb_i2c_platine_ping
+              name: Device Status
+              secondary_info: last-updated
+              icon: 'hass:server-network'
+            - entity: alert.couch_rgb_i2c_platine_is_offline
+              name: Offline Alert
+            - entity: switch.couch_rgb_i2c_platine_reset_switch
+              name: Reset
+        - type: 'custom:auto-entities'
+          filter:
+            include:
+              - domain: light
+                entity_id: '*couch_rgb_i2c_platine*'
+              - domain: sensor
+                entity_id: '*couch_rgb_i2c_platine*'
+              - domain: binary_sensor
+                entity_id: '*couch_rgb_i2c_platine*'
+              - domain: switch
+                entity_id: '*couch_rgb_i2c_platine*'
+          card:
+            type: 'custom:fold-entity-row'
+            head:
+              type: section
+              label: Entities
+  - title: Other
+    path: balcony
+    badges: []
+    cards:
+    - type: 'custom:vertical-stack-in-card'
+      title: Balcony Sensor/Actor 1
+      cards:
+        - type: entities
+          state_color: true
+          show_header_toggle: false
+          entities:
+            - entity: binary_sensor.balcony_sensor_actor_1_ping
+              name: Device Status
+              secondary_info: last-updated
+              icon: 'hass:server-network'
+            - entity: alert.balcony_sensor_actor_1_is_offline
+              name: Offline Alert
+            - entity: switch.balcony_sensor_actor_1_reset_switch
+              name: Reset
+        - type: 'custom:auto-entities'
+          filter:
+            include:
+              - domain: light
+                entity_id: '*balcony_sensor_actor_1*'
+              - domain: sensor
+                entity_id: '*balcony_sensor_actor_1*'
+              - domain: binary_sensor
+                entity_id: '*balcony_sensor_actor_1*'
+              - domain: switch
+                entity_id: '*balcony_sensor_actor_1*'
+          card:
+            type: 'custom:fold-entity-row'
+            head:
+              type: section
+              label: Entities
+    - type: 'custom:vertical-stack-in-card'
+      title: Floor Sensor/Actor 1
+      cards:
+        - type: entities
+          state_color: true
+          show_header_toggle: false
+          entities:
+            - entity: binary_sensor.floor_sensor_actor_1_ping
+              name: Device Status
+              secondary_info: last-updated
+              icon: 'hass:server-network'
+            - entity: alert.floor_sensor_actor_1_is_offline
+              name: Offline Alert
+            - entity: switch.floor_sensor_actor_1_reset_switch
+              name: Reset
+        - type: 'custom:auto-entities'
+          filter:
+            include:
+              - domain: light
+                entity_id: '*floor_sensor_actor_1*'
+              - domain: sensor
+                entity_id: '*floor_sensor_actor_1*'
+              - domain: binary_sensor
+                entity_id: '*floor_sensor_actor_1*'
+              - domain: switch
+                entity_id: '*floor_sensor_actor_1*'
+          card:
+            type: 'custom:fold-entity-row'
+            head:
+              type: section
+              label: Entities

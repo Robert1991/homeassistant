@@ -57,8 +57,8 @@ lovelace:
   dashboards:
     lovelace-yaml:
       mode: yaml
-      title: Scene-Editor
-      icon: mdi:script
+      title: Devices
+      icon: mdi:devices
       show_in_sidebar: true
       filename: devices.yaml
 
