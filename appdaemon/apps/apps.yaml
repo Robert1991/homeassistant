@@ -1,0 +1,12 @@
+---
+hello_world:
+  module: hello
+  class: HelloWorld
+
+dim_lights_under_threshold_in_bedroom:
+  module: light_control
+  class: DimLights
+  light_group: 'group.all_bedroom_lights'
+  light_sensor: 'sensor.bedroom_light_intensity_percent'
+  light_threshold: 'input_number.bedroom_light_toogle_intensity_threshold'
+  automation_disabled: 'input_boolean.bedroom_light_automation_is_enabled'
