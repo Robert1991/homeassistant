@@ -1,5 +1,7 @@
-*
-!*/
-!*.yaml
-!.gitignore
-!*.md
+.storage/*
+custom_components/*
+www/*
+home-assistant.*
+home-assistant_v2.*
+.vscode/*
+appdaemon/**/__pycache__/**

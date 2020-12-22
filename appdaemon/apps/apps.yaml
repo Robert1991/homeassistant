@@ -4,7 +4,7 @@ hello_world:
   class: HelloWorld
 
 dim_lights_under_threshold_in_bedroom:
-  module: light_control
+  module: lights/light_control
   class: DimLights
   light_group: 'group.all_bedroom_lights'
   light_sensor: 'sensor.bedroom_light_intensity_percent'
