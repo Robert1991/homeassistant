@@ -7,3 +7,15 @@ dim_lights_under_threshold_in_bedroom:
   light_turn_off_boundary_brightness: input_number.bedroom_automatic_dim_light_turn_of_boundary
   light_turn_off_step_size: input_number.bedroom_automatic_dim_step_size
   enable_automation_input: input_boolean.bedroom_light_automation_is_enabled
+
+turn_on_lights_when_there_is_activity_in_the_bedroom:
+  module: activity_based_light_control_automations
+  class: TurnOnAutomation
+  observed_activity_sensor: binary_sensor.activity_detected_in_bedroom
+  light_group: light.all_bedroom_lights
+  light_sensor: sensor.bedroom_light_intensity_percent
+  scene_input_select: input_select.bedroom_light_scene_generated
+  scene_group_prefix: bedroom
+  light_intensity_toggle_threshold: input_number.bedroom_light_toogle_intensity_threshold
+  light_automation_start_time: input_datetime.bedroom_light_automation_start_time
+  light_automation_end_time: input_datetime.bedroom_light_automation_end_time

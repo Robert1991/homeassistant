@@ -1,0 +1,11 @@
+bedroom_light_automation_end_time:
+    name: Light Automation End Time
+    has_date: false
+    has_time: true
+    initial: "23:00:00"
+
+bedroom_light_automation_start_time:
+    name: Light Automation Start Time
+    has_date: false
+    has_time: true
+    initial: "09:00:00"
