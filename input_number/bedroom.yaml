@@ -4,6 +4,18 @@ bedroom_light_brightness:
   min: 39
   max: 255
   step: 36
+bedroom_automatic_dim_light_turn_of_boundary:
+  name: Bedroom Automatic Dim Light Turn Off Boundary
+  initial: 25
+  min: 5
+  max: 255
+  step: 5
+bedroom_automatic_dim_step_size:
+  name: Bedroom Automatic Dim Step Size
+  initial: 10
+  min: 5
+  max: 50
+  step: 5
 bedroom_light_turn_off_timeout:
   name: Bedroom Light Turn Off Automation Timeout
   initial: 180

@@ -22,12 +22,17 @@ def dim_lights(given_that):
     given_that.passed_arg('light_threshold').is_set_to(
         'input_number.some_input_slider')
     given_that.passed_arg('light_turn_off_step_size').is_set_to(
-        20)
+        "input_number.automatic_dim_step_size")
     given_that.passed_arg('light_turn_off_boundary_brightness').is_set_to(
-        20)
+        "input_number.light_turn_off_boundary_brightness")
     given_that.passed_arg('enable_automation_input').is_set_to(
         'input_boolean.automation_enabled')
     given_that.state_of('input_boolean.automation_enabled').is_set_to('on')
+
+    given_that.state_of(
+        'input_number.light_turn_off_boundary_brightness').is_set_to('20.0')
+    given_that.state_of(
+        'input_number.automatic_dim_step_size').is_set_to('20.0')
 
 
 def test_toggle_event_when_automation_is_disabled(given_that, dim_lights, assert_that):
@@ -76,6 +81,10 @@ def test_toggle_light_when_light_intensity_is_over_threshold_light_is_dimmed(giv
         entity_name = args[0]
         len_kwargs = len(kwargs)
 
+        if entity_name == 'input_number.light_turn_off_boundary_brightness':
+            return "20.0"
+        if entity_name == 'input_number.automatic_dim_step_size':
+            return "20.0"
         if entity_name == 'input_boolean.automation_enabled':
             return 'on'
         if entity_name == 'group.some_light_group':
@@ -114,6 +123,10 @@ def test_toggle_light_stop_to_dim_when_all_lights_off(given_that, dim_lights, as
         entity_name = args[0]
         len_kwargs = len(kwargs)
 
+        if entity_name == 'input_number.light_turn_off_boundary_brightness':
+            return "20.0"
+        if entity_name == 'input_number.automatic_dim_step_size':
+            return "20.0"
         if entity_name == 'input_boolean.automation_enabled':
             return 'on'
         if entity_name == 'group.some_light_group':

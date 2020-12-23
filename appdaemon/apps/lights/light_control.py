@@ -21,19 +21,20 @@ class DimLights(hass.Hass):
             self.args["light_group"], attribute="entity_id")
         turned_off_lights = set()
         sleep(1)
+        light_turn_out_boundary = self.read_state_as_float(
+            self.args['light_turn_off_boundary_brightness'])
         while self.read_light_sensor_state() > self.read_light_threshold() and len(turned_off_lights) < len(lights_in_group):
             for light in lights_in_group:
                 if self.get_state(light) == "on":
                     new_light_brightness = self.calculate_new_light_brightness(
                         light)
-                    if new_light_brightness > self.args["light_turn_off_step_size"]:
+                    if new_light_brightness > light_turn_out_boundary:
                         self.turn_on(light, brightness=new_light_brightness)
                     else:
                         turned_off_lights.add(light)
                         self.turn_off(light)
                 else:
                     turned_off_lights.add(light)
-            self.log(turned_off_lights)
             sleep(1)
 
     def check_if_light_needs_to_be_dimmed(self, entity):
@@ -48,10 +49,11 @@ class DimLights(hass.Hass):
     def read_light_threshold(self):
         return self.read_state_as_float(self.args["light_threshold"])
 
-    def read_state_as_float(self, entity):
-        return float(self.get_state(entity))
-
     def calculate_new_light_brightness(self, light_entity_id):
         current_light_brightness = self.get_state(
             light_entity_id, attribute="brightness")
-        return float(current_light_brightness - self.args["light_turn_off_step_size"])
+        return float(current_light_brightness - self.read_state_as_float(
+            self.args["light_turn_off_step_size"]))
+
+    def read_state_as_float(self, entity):
+        return float(self.get_state(entity))
