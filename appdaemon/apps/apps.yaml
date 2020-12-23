@@ -1,5 +1,5 @@
 dim_lights_under_threshold_in_bedroom:
-  module: light_control
+  module: dim_automation
   class: DimLights
   light_group: light.all_bedroom_lights
   light_sensor: sensor.bedroom_light_intensity_percent

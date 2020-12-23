@@ -1,17 +1,7 @@
-from apps.lights.light_control import DimLights
-from appdaemon.plugins.hass.hassapi import Hass
-from mock import patch, MagicMock, Mock
-import mock
+from apps.lights.dim_automation import DimLights
+from mock import patch
 import pytest
-import unittest
 from appdaemontestframework import automation_fixture
-from appdaemontestframework import hass_mocks
-
-import pytest
-
-
-def pytest_configure():
-    pytest.LIGHT_GROUP_ARG = 'light_group'
 
 
 @automation_fixture(DimLights)
@@ -68,6 +58,8 @@ dim_light_iteration = 0
 def resetGlobals():
     globals()["called_light_sensor"] = 0
     globals()["dim_light_iteration"] = 0
+    globals()["dim_light_iteration_light_1"] = 0
+    globals()["dim_light_iteration_light_2"] = 0
 
 
 def fetch_from_globals_with_count_increase(return_args, global_key):
