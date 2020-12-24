@@ -7,12 +7,15 @@ class TurnOnAutomation(hass.Hass):
                           self.args["observed_activity_sensor"], new="on")
 
     def turn_on_lights(self, entity, attribute, old, new, kwargs):
+        if self.read_state_from_input_arg('enable_automation_input') == 'off':
+            return
         automation_start_time = self.read_state_from_input_arg(
             "light_automation_start_time")
         automation_end_time = self.read_state_from_input_arg(
             "light_automation_end_time")
-
-        if self.now_is_between(automation_start_time, automation_end_time):
+        time_dependend_control_disabled = self.read_state_from_input_arg(
+            'enable_time_depended_automation_input') == 'off'
+        if self.now_is_between(automation_start_time, automation_end_time) or time_dependend_control_disabled:
             light_sensor_state = self.read_state_as_float_from_input_arg(
                 "light_sensor")
             light_threshold = self.read_state_as_float_from_input_arg(
