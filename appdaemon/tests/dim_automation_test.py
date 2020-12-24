@@ -9,7 +9,7 @@ def dim_lights(given_that):
     given_that.passed_arg('light_group').is_set_to('group.some_light_group')
     given_that.passed_arg('light_sensor').is_set_to(
         'sensor.light_intensity_in_percent')
-    given_that.passed_arg('light_threshold').is_set_to(
+    given_that.passed_arg('light_intensity_toggle_threshold').is_set_to(
         'input_number.some_input_slider')
     given_that.passed_arg('light_turn_off_step_size').is_set_to(
         "input_number.automatic_dim_step_size")

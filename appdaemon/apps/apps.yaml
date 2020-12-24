@@ -3,7 +3,7 @@ dim_lights_under_threshold_in_bedroom:
   class: DimLights
   light_group: light.all_bedroom_lights
   light_sensor: sensor.bedroom_light_intensity_percent
-  light_threshold: input_number.bedroom_light_toogle_intensity_threshold
+  light_intensity_toggle_threshold: input_number.bedroom_light_toogle_intensity_threshold
   light_turn_off_boundary_brightness: input_number.bedroom_automatic_dim_light_turn_of_boundary
   light_turn_off_step_size: input_number.bedroom_automatic_dim_step_size
   enable_automation_input: input_boolean.bedroom_light_automation_is_enabled
