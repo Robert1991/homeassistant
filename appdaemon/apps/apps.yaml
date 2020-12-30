@@ -1,4 +1,4 @@
-input_boolean_reactivation_timer:
+reactivate_bedroom_light_automation_after_given_timeout:
   module: input_boolean
   class: ReactivationTimer
   observed_input_boolean: input_boolean.bedroom_light_automation_is_enabled
@@ -14,7 +14,7 @@ dim_lights_under_threshold_in_bedroom:
   light_turn_off_step_size: input_number.bedroom_automatic_dim_step_size
   constrain_input_boolean: input_boolean.bedroom_light_automation_is_enabled
 
-turn_off_lights_when_there_is_activity_in_the_bedroom:
+turn_off_lights_when_there_is_no_activity_in_the_bedroom:
   module: activity_based_light_control_automations
   class: TurnOffAutomation
   light_group: light.all_bedroom_lights

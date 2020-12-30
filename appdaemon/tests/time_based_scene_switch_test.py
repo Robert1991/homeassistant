@@ -69,8 +69,8 @@ def test_refresh_listeners_check_that_scene_switch_timer_are_set_check_current_s
         .is_set_to('Night Light')
     given_that.state_of('input_select.some_time_based_scenes') \
         .is_set_to('work_light_start_time/work_light_input_select',
-                   {'options': ['work_light_start_time/work_light_input_select',
-                                'night_light_start_time/night_light_input_select']})
+                   {'options': ['night_light_start_time/night_light_input_select',
+                                'work_light_start_time/work_light_input_select']})
 
     with patch('appdaemon.plugins.hass.hassapi.Hass.select_option') as mock:
         scene_switch.refresh_listeners(None, None, None, None, None)
