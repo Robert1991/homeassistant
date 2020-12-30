@@ -1,0 +1,57 @@
+title: Lights
+views:
+  - title: Overview
+    path: overview
+    badges: []
+    cards:
+    - type: 'custom:vertical-stack-in-card'
+      title: Toilet Light Control
+      cards:
+        - type: button
+          tap_action:
+            action: toggle
+          show_name: false
+          entity: light.toilet_lights
+          icon_height: 50px
+        - type: entity
+          name: Light Intensity
+          entity: sensor.toilet_light_intensity_percent
+        - type: 'custom:fold-entity-row'
+          head:
+            type: section
+            label: Automation
+          entities:
+            - type: 'custom:fold-entity-row'
+              head:
+                entity: input_boolean.toilet_light_automation_is_enabled
+                name: Enabled
+              entities:
+                - name: Reactivation Timeout
+                  entity: input_datetime.toilet_light_automation_reactivation_timeout
+            - name: Turn Off Timeout
+              entity: input_number.toilet_light_turn_off_timeout
+            - type: 'custom:fold-entity-row'
+              head:
+                entity: input_boolean.bedroom_automatic_scene_mode_enabled
+                name: Timebased Scene Mode
+              entities:
+                - name: Current Scene
+                  entity: input_select.toilet_automatic_light_scene_generated
+                - type: 'custom:fold-entity-row'
+                  head:
+                    type: section
+                    label: Day Mode
+                  entities:
+                    - name: Start Time
+                      entity: input_datetime.toilet_day_light_start_time
+                    - name: Light Scene
+                      entity: input_select.toilet_day_light_choosen_scene
+                - type: 'custom:fold-entity-row'
+                  head:
+                    type: section
+                    label: Night Mode
+                  entities:
+                    - name: Start Time
+                      entity: input_datetime.toilet_night_light_start_time
+                    - name: Light Scene
+                      entity: input_select.toilet_night_light_choosen_scene

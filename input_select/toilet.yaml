@@ -3,3 +3,9 @@ toilet_light_scene:
     - 'scene.toilet_night_light'
     - 'scene.toilet_day_light'
   initial: 'scene.toilet_day_light'
+
+toilet_time_based_scenes:
+  options:
+    - toilet_night_light_start_time/toilet_night_light_choosen_scene
+    - toilet_day_light_start_time/toilet_day_light_choosen_scene
+  initial: toilet_night_light_start_time/toilet_night_light_choosen_scene

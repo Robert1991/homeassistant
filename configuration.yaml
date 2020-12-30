@@ -21,7 +21,6 @@ notify ios:
 alert: !include_dir_merge_named alerts/
 
 automation living_room: !include living_room/automations.yaml
-automation toilet: !include toilet/automations.yaml
 automation bedroom: !include bedroom/automations.yaml
 automation balcony: !include balcony/automations.yaml
 automation kitchen: !include kitchen/automations.yaml
@@ -56,7 +55,13 @@ logger:
 lovelace:
   mode: storage
   dashboards:
-    lovelace-yaml:
+    lovelace-light:
+      mode: yaml
+      title: Lights
+      icon: mdi:ceiling-light
+      show_in_sidebar: true
+      filename: lights.yaml
+    lovelace-device:
       mode: yaml
       title: Devices
       icon: mdi:devices
