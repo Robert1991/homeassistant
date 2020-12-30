@@ -1,3 +1,9 @@
+input_boolean_reactivation_timer:
+  module: input_boolean
+  class: ReactivationTimer
+  observed_input_boolean: input_boolean.bedroom_light_automation_is_enabled
+  reactivation_timeout: input_datetime.bedroom_light_automation_reactivation_timeout
+
 dim_lights_under_threshold_in_bedroom:
   module: dim_automation
   class: DimLights
