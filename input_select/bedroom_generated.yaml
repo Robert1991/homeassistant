@@ -35,7 +35,7 @@ bedroom_night_light_choosen_scene:
     - Relaxed 3
     - Work 1
     - Work 2
-  initial: Work 1
+  initial: Night Light 1
 
 bedroom_day_light_choosen_scene:
   options:

@@ -12,9 +12,6 @@ class ReactivationTimer(hass.Hass):
         self.listen_state(self.stop_timer,
                           self.args["observed_input_boolean"], new="on")
 
-    def stop_timer(self, entity, attribute, old, new, kwargs):
-        self.cancel_timer(self.current_timer_handle)
-
     def start_timer(self, entity, attribute, old, new, kwargs):
         time_string = self.get_state(self.args["reactivation_timeout"])
         timer_interval_datetime = parser.parse(time_string)
@@ -24,6 +21,9 @@ class ReactivationTimer(hass.Hass):
 
         self.current_timer_handle = self.run_in(
             self.reactivate_input_bool, timer_interval_in_seconds)
+
+    def stop_timer(self, entity, attribute, old, new, kwargs):
+        self.cancel_timer(self.current_timer_handle)
 
     def reactivate_input_bool(self, kwargs):
         self.log("Reactivated: " + str(self.args["reactivation_timeout"]))
