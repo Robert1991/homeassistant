@@ -14,3 +14,15 @@ bedroom_light_automation_reactivation_timeout:
     has_date: false
     has_time: true
     initial: "01:00:00"
+
+bedroom_night_light_start_time:
+    name: Night Light Start Time
+    has_date: false
+    has_time: true
+    initial: "23:00:00"
+
+bedroom_day_light_start_time:
+    name: Day Light Start Time
+    has_date: false
+    has_time: true
+    initial: "08:30:00"

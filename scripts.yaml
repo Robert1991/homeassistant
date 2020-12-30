@@ -119,12 +119,24 @@ create_light_scene_from_group:
           data_template:
             target_file: "input_select/{{ scene_prefix | string | lower }}_generated.yaml"
             content: >
-              {% set new_options = (states['input_select.' + scene_prefix | string | lower + '_light_scene'].attributes.options | sort | join (",")) | string + "," + states(scene_name_input_text) %}
+              {% set new_options = (states['input_select.' + scene_prefix | string | lower + '_light_scene_generated'].attributes.options | sort | join (",")) | string + "," + states(scene_name_input_text) %}
               {% set input_select_output %}
               {{ scene_prefix | string | lower }}_light_scene_generated:
                 options:{% for option in (new_options.split(",") | sort) %}
                   - {{ option }}{% endfor %}
                 initial: {{ states(scene_name_input_text) }}
+
+              {{ scene_prefix | string | lower }}_automatic_light_scene_generated:
+                options:{% for option in (new_options.split(",") | sort) %}
+                  - {{ option }}{% endfor %}
+                initial: {{ states(scene_name_input_text) }}
+
+              {% for date_time_scene_tuple in states['input_select.bedroom_time_based_scenes'].attributes.options %}{{ date_time_scene_tuple.split('/')[0].replace("_start_time", "") + "_choosen_scene"}}:
+                options:{% for option in (new_options.split(",") | sort) %}
+                  - {{ option }}{% endfor %}
+                initial: {{ states(scene_name_input_text) }}
+
+              {% endfor %}              
               {% endset %}
               {{ input_select_output }}
         - service: shell_command.write_variable_content_to_file
