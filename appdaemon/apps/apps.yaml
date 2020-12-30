@@ -6,7 +6,7 @@ dim_lights_under_threshold_in_bedroom:
   light_intensity_toggle_threshold: input_number.bedroom_light_toogle_intensity_threshold
   light_turn_off_boundary_brightness: input_number.bedroom_automatic_dim_light_turn_of_boundary
   light_turn_off_step_size: input_number.bedroom_automatic_dim_step_size
-  enable_automation_input: input_boolean.bedroom_light_automation_is_enabled
+  constrain_input_boolean: input_boolean.bedroom_light_automation_is_enabled
 
 turn_on_lights_when_there_is_activity_in_the_bedroom:
   module: activity_based_light_control_automations

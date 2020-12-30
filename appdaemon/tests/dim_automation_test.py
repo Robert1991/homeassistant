@@ -6,6 +6,8 @@ from appdaemontestframework import automation_fixture
 
 @automation_fixture(DimLights)
 def dim_lights(given_that):
+    given_that.passed_arg('constrain_input_boolean').is_set_to(
+        'input_boolean.automation_enabled')
     given_that.passed_arg('light_group').is_set_to('group.some_light_group')
     given_that.passed_arg('light_sensor').is_set_to(
         'sensor.light_intensity_in_percent')
@@ -15,22 +17,12 @@ def dim_lights(given_that):
         "input_number.automatic_dim_step_size")
     given_that.passed_arg('light_turn_off_boundary_brightness').is_set_to(
         "input_number.light_turn_off_boundary_brightness")
-    given_that.passed_arg('enable_automation_input').is_set_to(
-        'input_boolean.automation_enabled')
     given_that.state_of('input_boolean.automation_enabled').is_set_to('on')
 
     given_that.state_of(
         'input_number.light_turn_off_boundary_brightness').is_set_to('20.0')
     given_that.state_of(
         'input_number.automatic_dim_step_size').is_set_to('20.0')
-
-
-def test_toggle_event_when_automation_is_disabled(given_that, dim_lights, assert_that):
-    given_that.state_of('group.some_light_group').is_set_to('on')
-    given_that.state_of('input_boolean.automation_enabled').is_set_to('off')
-    dim_lights.toggle_event(
-        'input_number.some_input_slider', None, None, None, None)
-    assert_that('light.some_light').was_not.turned_on()
 
 
 def test_toggle_event_when_light_group_is_off(given_that, dim_lights, assert_that):

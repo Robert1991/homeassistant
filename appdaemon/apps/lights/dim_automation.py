@@ -8,9 +8,10 @@ class DimLights(hass.Hass):
                           self.args["light_group"], new="on")
         self.listen_state(self.toggle_event,
                           self.args["light_group"], attribute="brightness")
-        self.listen_state(self.toggle_event, self.args["light_intensity_toggle_threshold"])
         self.listen_state(self.toggle_event,
-                          self.args["enable_automation_input"])
+                          self.args["light_intensity_toggle_threshold"])
+        self.listen_state(self.toggle_event,
+                          self.args["constrain_input_boolean"])
         self.listen_state(self.toggle_event,
                           self.args["light_turn_off_boundary_brightness"])
 
@@ -39,9 +40,7 @@ class DimLights(hass.Hass):
 
     def check_if_light_needs_to_be_dimmed(self, entity):
         light_group_is_on = self.get_state(self.args["light_group"]) == "on"
-        automation_is_enabled = self.get_state(
-            self.args["enable_automation_input"]) == 'on'
-        return light_group_is_on and automation_is_enabled
+        return light_group_is_on
 
     def read_light_sensor_state(self):
         return self.read_state_as_float(self.args["light_sensor"])
