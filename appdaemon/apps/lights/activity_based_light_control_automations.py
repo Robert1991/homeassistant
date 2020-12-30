@@ -7,8 +7,6 @@ class TurnOnAutomation(hass.Hass):
                           self.args["observed_activity_sensor"], new="on")
 
     def turn_on_lights(self, entity, attribute, old, new, kwargs):
-        if self.read_state_from_input_arg('enable_automation_input') == 'off':
-            return
         automation_start_time = self.read_state_from_input_arg(
             "light_automation_start_time")
         automation_end_time = self.read_state_from_input_arg(
@@ -23,7 +21,10 @@ class TurnOnAutomation(hass.Hass):
             lights_are_on = self.read_state_from_input_arg(
                 "light_group") == "on"
             if (light_sensor_state < light_threshold and not lights_are_on):
-                self.turn_on_current_scene()
+                if self.read_state_from_input_arg("enable_automatic_scene_mode") == "on":
+                    self.turn_on_current_scene()
+                else:
+                    self.turn_on(self.args["light_group"])
 
     def turn_on_current_scene(self):
         scene_prefix = self.args["scene_group_prefix"]
@@ -42,5 +43,4 @@ class TurnOnAutomation(hass.Hass):
         return float(self.read_state_from_input_arg(input_arg))
 
     def read_state_from_input_arg(self, input_arg):
-        self.log(self.args[input_arg])
         return self.get_state(self.args[input_arg])
