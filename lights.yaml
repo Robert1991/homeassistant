@@ -13,9 +13,12 @@ views:
           show_name: false
           entity: light.toilet_lights
           icon_height: 50px
-        - type: entity
-          name: Light Intensity
-          entity: sensor.toilet_light_intensity_percent
+        - type: entities
+          entities:
+          - name: Light Intensity
+            entity: sensor.toilet_light_intensity_percent
+          - name: Current Scene
+            entity: input_select.toilet_automatic_light_scene_generated
         - type: 'custom:fold-entity-row'
           head:
             type: section
@@ -55,3 +58,46 @@ views:
                       entity: input_datetime.toilet_night_light_start_time
                     - name: Light Scene
                       entity: input_select.toilet_night_light_choosen_scene
+        - type: 'custom:fold-entity-row'
+          head:
+            type: section
+            label: Scene Creation
+          entities:
+            - entity: input_text.scene_generator_scene_name
+              name: New Scene name
+            - type: 'custom:stack-in-card'
+              mode: horizontal
+              keep:
+                margins: true
+                outer_padding: true
+                background: true
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - height: 25px
+                - type: 'custom:button-card'
+                  icon: 'mdi:content-save-edit'
+                  color: 'rgb(28, 128, 199)'
+                  show_text: false
+                  styles:
+                    card:
+                      - height: 50px
+                      - width: 100px
+                  show_state: false
+                  tap_action:
+                    action: call-service
+                    service: script.turn_on
+                    service_data:
+                      entity_id: script.create_light_scene_from_group
+                      variables:
+                        group_name: group.all_toilet_lights
+                        scene_name_input_text: input_text.scene_generator_scene_name
+                        scene_prefix: Toilet
+                        timebased_scene_input_select: input_select.toilet_time_based_scenes
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - height: 25px

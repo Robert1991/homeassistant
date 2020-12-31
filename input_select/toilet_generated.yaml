@@ -1,23 +1,27 @@
 toilet_light_scene_generated:
   options:
-    - Night Light
+    - Cleaning Light
     - Day Light
+    - Night Light
   initial: Day Light
 
 toilet_automatic_light_scene_generated:
   options:
-    - Night Light
+    - Cleaning Light
     - Day Light
+    - Night Light
   initial: Day Light
 
 toilet_night_light_choosen_scene:
   options:
-    - Night Light
+    - Cleaning Light
     - Day Light
-  initial: Night Light
+    - Night Light
+  initial: Day Light
 
 toilet_day_light_choosen_scene:
   options:
-    - Night Light
+    - Cleaning Light
     - Day Light
+    - Night Light
   initial: Day Light

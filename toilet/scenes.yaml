@@ -12,3 +12,13 @@
       state: "on"
       brightness: 255
       color_temp: 349
+- name: Toilet Cleaning Light
+  entities:
+    light.hue_ambiance_candle_1:
+      brightness: 255
+      color_temp: 293
+      state: "on"
+    light.hue_ambiance_candle_2:
+      brightness: 255
+      color_temp: 293
+      state: "on"

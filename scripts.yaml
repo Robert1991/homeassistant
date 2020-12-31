@@ -98,6 +98,7 @@ create_light_scene_from_group:
     group_name: 'group.all_bedroom_lights'
     scene_name_input_text: 'input_text.bedroom_generated_scene_name'
     scene_prefix: 'Bedroom'
+    timebased_scene_input_select: 'input_select.bedroom_time_based_scenes'
   sequence:
     - service: system_log.write
       data_template:
@@ -131,7 +132,7 @@ create_light_scene_from_group:
                   - {{ option }}{% endfor %}
                 initial: {{ states(scene_name_input_text) }}
 
-              {% for date_time_scene_tuple in states['input_select.bedroom_time_based_scenes'].attributes.options %}{{ date_time_scene_tuple.split('/')[0].replace("_start_time", "") + "_choosen_scene"}}:
+              {% for date_time_scene_tuple in states[timebased_scene_input_select].attributes.options %}{{ date_time_scene_tuple.split('/')[0].replace("_start_time", "") + "_choosen_scene"}}:
                 options:{% for option in (new_options.split(",") | sort) %}
                   - {{ option }}{% endfor %}
                 initial: {{ states(scene_name_input_text) }}
@@ -147,8 +148,8 @@ create_light_scene_from_group:
 
               - name: {{ scene_prefix }} {{ states(scene_name_input_text) }}
                 entities:{% for light in expand(group_name) %}
-                  {{ light.entity_id }}:
-                    brightness: {{ light.attributes.brightness }}{% if light.attributes.hs_color %}
+                  {{ light.entity_id }}:{% if light.attributes.brightness %}
+                    brightness: {{ light.attributes.brightness }}{% endif %}{% if light.attributes.hs_color %}
                     hs_color:
                       - {{ light.attributes.hs_color[0] }}
                       - {{ light.attributes.hs_color[1] }}{% endif %}{% if light.attributes.rgb_color %}
