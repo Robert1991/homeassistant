@@ -26,7 +26,7 @@ bedroom_light_turn_off_timeout:
   icon: 'mdi:clock-in'
 bedroom_light_toogle_intensity_threshold:
   name: Bedroom Light Toogle Light Intensity Threshold
-  initial: 45
+  initial: 35
   min: 10
   max: 100
   step: 5
