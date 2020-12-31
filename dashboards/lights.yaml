@@ -5,6 +5,138 @@ views:
     badges: []
     cards:
     - type: 'custom:vertical-stack-in-card'
+      title: Kitchen Light Control
+      cards:
+        - type: 'custom:stack-in-card'
+          mode: horizontal
+          cards:
+            - type: button
+              entity: light.kitchen_lights
+              icon_height: 35px
+              name: All
+            - type: button
+              entity: light.kitchen_ceiling_light_1_relais_light_1
+              icon_height: 35px
+              name: Ceiling
+            - type: button
+              icon_height: 35px
+              entity: light.kitchen_indirect_lights
+              name: Indirect
+        - type: entities
+          entities:
+          - name: Light Intesity
+            entity: sensor.kitchen_light_intensity_percent
+          - name: Current Scene
+            entity: input_select.kitchen_automatic_light_scene_generated
+        - type: 'custom:fold-entity-row'
+          head:
+            type: section
+            label: Manual
+          entities:
+            - entity: light.kitchen_ceiling_light_1_relais_light_1
+              icon: 'mdi:ceiling-light'
+            - type: 'custom:slider-entity-row'
+              entity: light.kitchen_led_spots_light
+              name: Spots
+              toggle: true
+              hide_when_off: true
+              icon: 'mdi:lightbulb-multiple'
+            - entity: light.kitchen_actor_1_relais_switch
+            - entity: light.kitchen_actor_1_rgb
+        - type: 'custom:fold-entity-row'
+          head:
+            type: section
+            label: Automation
+          entities:
+            - type: 'custom:fold-entity-row'
+              head:
+                entity: input_boolean.kitchen_light_automation_is_enabled
+                name: Enabled
+              entities:
+                - name: Reactivation Timeout
+                  entity: input_datetime.kitchen_light_automation_reactivation_timeout
+            - name: Turn Off Timeout
+              entity: input_number.kitchen_light_turn_off_timeout
+            - name: Min. Light Intesity
+              entity: input_number.kitchen_light_toogle_intensity_threshold
+            - type: 'custom:fold-entity-row'
+              head:
+                entity: input_boolean.kitchen_automatic_scene_mode_enabled
+                name: Timebased Scene Mode
+              entities:
+                - name: Current Scene
+                  entity: input_select.kitchen_automatic_light_scene_generated
+                - type: 'custom:fold-entity-row'
+                  head:
+                    type: section
+                    label: Day Mode
+                  entities:
+                    - name: Start Time
+                      entity: input_datetime.kitchen_day_light_start_time
+                    - name: Light Scene
+                      entity: input_select.kitchen_day_light_choosen_scene
+                - type: 'custom:fold-entity-row'
+                  head:
+                    type: section
+                    label: Evening Mode
+                  entities:
+                    - name: Start Time
+                      entity: input_datetime.kitchen_relaxed_light_start_time
+                    - name: Light Scene
+                      entity: input_select.kitchen_relaxed_light_choosen_scene
+                - type: 'custom:fold-entity-row'
+                  head:
+                    type: section
+                    label: Night Mode
+                  entities:
+                    - name: Start Time
+                      entity: input_datetime.kitchen_night_light_start_time
+                    - name: Light Scene
+                      entity: input_select.kitchen_night_light_choosen_scene
+        - type: 'custom:fold-entity-row'
+          head:
+            type: section
+            label: Scene Creation
+          entities:
+            - entity: input_text.scene_generator_scene_name
+              name: New Scene name
+            - type: 'custom:stack-in-card'
+              mode: horizontal
+              keep:
+                margins: true
+                outer_padding: true
+                background: true
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - height: 25px
+                - type: 'custom:button-card'
+                  icon: 'mdi:content-save-edit'
+                  color: 'rgb(28, 128, 199)'
+                  show_text: false
+                  styles:
+                    card:
+                      - height: 50px
+                      - width: 100px
+                  show_state: false
+                  tap_action:
+                    action: call-service
+                    service: script.turn_on
+                    service_data:
+                      entity_id: script.create_light_scene_from_group
+                      variables:
+                        group_name: group.all_kitchen_lights
+                        scene_name_input_text: input_text.scene_generator_scene_name
+                        scene_prefix: Kitchen
+                        timebased_scene_input_select: input_select.kitchen_time_based_scenes
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - height: 25px
+    - type: 'custom:vertical-stack-in-card'
       title: Floor Light Control
       cards:
         - type: 'custom:stack-in-card'
@@ -13,11 +145,11 @@ views:
             - type: button
               entity: light.floor_light
               name: Ceiling
-              icon_height: 45px
+              icon_height: 30px
             - type: button
               entity: light.floor_sensor_actor_1_i2c_rgb
-              name: Light Strip
-              icon_height: 45px
+              name: Strip
+              icon_height: 30px
         - type: entities
           entities:
           - name: Current Scene

@@ -4,3 +4,29 @@ kitchen_light_brightness:
   min: 0
   max: 255
   step: 15
+
+kitchen_light_turn_off_timeout:
+  name: Kitchen Light Turn Off Automation Timeout
+  initial: 120
+  min: 10
+  max: 500
+  step: 10
+  unit_of_measurement: "s"
+  icon: 'mdi:clock-in'
+kitchen_light_toogle_intensity_threshold:
+  name: Kitchen Light Toogle Light Intensity Threshold
+  initial: 90
+  min: 10
+  max: 100
+  step: 5
+  unit_of_measurement: "%"
+  icon: 'mdi:brightness-auto'
+
+kitchen_smart_button_dim_step_size:
+  name: Kitchen Smart Button Dim Step Size
+  initial: 15
+  min: 10
+  max: 45
+  step: 5
+  unit_of_measurement: "%"
+  icon: 'mdi:brightness-auto'
