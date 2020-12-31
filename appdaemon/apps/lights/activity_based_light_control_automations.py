@@ -41,7 +41,7 @@ class TurnOnAutomation(hass.Hass):
                 "light_intensity_toggle_threshold")
             lights_are_on = self.read_state_from_input_arg(
                 "light_group") == "on"
-            if (light_sensor_state < light_threshold and not lights_are_on):
+            if (light_sensor_state <= light_threshold and not lights_are_on):
                 if self.read_state_from_input_arg("enable_automatic_scene_mode") == "on":
                     self.turn_on_current_scene()
                 else:

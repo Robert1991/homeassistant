@@ -1,0 +1,8 @@
+floor_light_automation_is_enabled:
+  initial: true
+floor_time_depended_light_automation_is_enabled:
+  initial: false
+floor_light_intensity_based_light_control_enabled:
+  initial: true
+floor_automatic_scene_mode_enabled:
+  initial: true

@@ -1,0 +1,6 @@
+all_floor_lights:
+  name: "All Floor Lights"
+  icon: "mdi:lightbulb-group-outline"
+  entities:
+    - light.floor_light
+    - light.floor_sensor_actor_1_i2c_rgb

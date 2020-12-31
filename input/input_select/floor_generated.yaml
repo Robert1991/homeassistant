@@ -1,0 +1,23 @@
+floor_light_scene_generated:
+  options:
+    - Day Light 1
+    - Night Light 1
+  initial: Night Light 1
+
+floor_automatic_light_scene_generated:
+  options:
+    - Day Light 1
+    - Night Light 1
+  initial: Night Light 1
+
+floor_night_light_choosen_scene:
+  options:
+    - Day Light 1
+    - Night Light 1
+  initial: Night Light 1
+
+floor_day_light_choosen_scene:
+  options:
+    - Day Light 1
+    - Night Light 1
+  initial: Night Light 1

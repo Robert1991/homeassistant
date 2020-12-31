@@ -13,7 +13,6 @@ automation living_room: !include living_room/automations.yaml
 automation bedroom: !include bedroom/automations.yaml
 automation balcony: !include balcony/automations.yaml
 automation kitchen: !include kitchen/automations.yaml
-automation floor: !include floor/automations.yaml
 
 binary_sensor general: !include general/binary_sensors.yaml 
 binary_sensor bedroom: !include bedroom/binary_sensors.yaml
@@ -78,6 +77,7 @@ script: !include scripts.yaml
 scene: !include scenes.yaml
 scene bedroom: !include bedroom/scenes.yaml
 scene balcony: !include balcony/scenes.yaml
+scene floor: !include floor/scenes.yaml
 scene kitchen: !include kitchen/scenes.yaml
 scene toilet: !include toilet/scenes.yaml
 
