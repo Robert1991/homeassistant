@@ -82,8 +82,9 @@ scene kitchen: !include kitchen/scenes.yaml
 scene toilet: !include toilet/scenes.yaml
 
 sensor bedroom: !include bedroom/sensors.yaml 
-sensor toilet: !include toilet/sensors.yaml
+sensor kitchen: !include kitchen/sensors.yaml
 sensor living_room: !include living_room/sensors.yaml
+sensor toilet: !include toilet/sensors.yaml
 
 shell_command:
   truncate_file: >

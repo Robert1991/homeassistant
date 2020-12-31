@@ -1,10 +1,3 @@
-all_toilet_scenes:
-  name: "All Toilet Scenes"
-  icon: 'mdi:string-lights'
-  entities:
-    - scene.toilet_night_light
-    - scene.toilet_day_light
-
 all_toilet_lights:
   name: "All Toilet Lights"
   icon: "mdi:lightbulb-group-outline"
