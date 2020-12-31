@@ -7,17 +7,6 @@ homeassistant:
 tts:
   - platform: google_translate
 
-shell_command:
-  truncate_file: >
-    truncate -s 0 {{ file_path }}
-  write_variable_content_to_file: >
-    /bin/bash -c "echo '{{ content }}' >> {{ target_file }}"
-notify ios:
-  - name: iOS
-    platform: group
-    services:
-      - service: mobile_app_iphone_von_robert
-
 alert: !include_dir_merge_named alerts/
 
 automation living_room: !include living_room/automations.yaml
@@ -78,6 +67,14 @@ media_player:
 mqtt:
   broker: 127.0.0.1
 
+notify ios:
+  - name: iOS
+    platform: group
+    services:
+      - service: mobile_app_iphone_von_robert
+
+script: !include scripts.yaml
+
 scene: !include scenes.yaml
 scene bedroom: !include bedroom/scenes.yaml
 scene balcony: !include balcony/scenes.yaml
@@ -88,4 +85,8 @@ sensor bedroom: !include bedroom/sensors.yaml
 sensor toilet: !include toilet/sensors.yaml
 sensor living_room: !include living_room/sensors.yaml
 
-script: !include scripts.yaml
+shell_command:
+  truncate_file: >
+    truncate -s 0 {{ file_path }}
+  write_variable_content_to_file: >
+    /bin/bash -c "echo '{{ content }}' >> {{ target_file }}"
