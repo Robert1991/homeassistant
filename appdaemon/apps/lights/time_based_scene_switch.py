@@ -8,14 +8,15 @@ class TimeBasedSceneSwitch(hass.Hass):
 
     def initialize(self):
         self.listen_state(self.refresh_listeners,
-                          self.args["scene_switch_input_select"])
-        self.listen_state(self.refresh_listeners,
                           self.args["light_automatic_enabled"],
                           new="on")
         self.listen_event(self.refresh_listeners,
                           "homeassistant_start")
 
     def refresh_listeners(self, entity, attribute, old, new, kwargs):
+        self.log("Received change event from: " + str(entity))
+        self.log("Setting up time depended light control for: " +
+                 self.args["toggled_scene_input_select"])
         self.reset()
         scenes_with_start_time = self.get_state(
             self.args["scene_switch_input_select"], attribute="options")
