@@ -102,32 +102,34 @@ create_light_scene_from_group:
   sequence:
     - service: system_log.write
       data_template:
-        message: 'Creating scene: {{ "scene." + scene_prefix | string | lower + "_" + states(scene_name_input_text) | lower | replace(" ", "_") }}'
+        message: 'Creating scene: {{ "scene." + scene_prefix | string | lower | replace(" ", "_") + "_" + states(scene_name_input_text) | lower | replace(" ", "_") }}'
         level: info
     - choose:
       - conditions:
         - condition: template
           value_template: >
-            {{ states["scene." + scene_prefix | string | lower + "_" +  states(scene_name_input_text) | lower | replace(" ", "_")] == None }}
+            {{ states["scene." + scene_prefix | string | lower | replace(" ", "_") + "_" +  states(scene_name_input_text) | lower | replace(" ", "_")] == None }}
         - condition: template
           value_template: >
             {{ states[scene_name_input_text].state | string | length > 0}}
         sequence:
         - service: shell_command.truncate_file
           data_template:
-            file_path: "input/input_select/{{ scene_prefix | string | lower }}_generated.yaml"
+            file_path: >
+              'input/input_select/{{ scene_prefix | string | lower | replace(" ", "_") }}_generated.yaml'
         - service: shell_command.write_variable_content_to_file
           data_template:
-            target_file: "input/input_select/{{ scene_prefix | string | lower }}_generated.yaml"
+            target_file: >
+              'input/input_select/{{ scene_prefix | string | lower | replace(" ", "_") }}_generated.yaml'
             content: >
-              {% set new_options = (states['input_select.' + scene_prefix | string | lower + '_light_scene_generated'].attributes.options | sort | join (",")) | string + "," + states(scene_name_input_text) %}
+              {% set new_options = (states['input_select.' + scene_prefix | string | lower | replace(" ", "_") + '_light_scene_generated'].attributes.options | sort | join (",")) | string + "," + states(scene_name_input_text) %}
               {% set input_select_output %}
-              {{ scene_prefix | string | lower }}_light_scene_generated:
+              {{ scene_prefix | string | lower | replace(" ", "_") }}_light_scene_generated:
                 options:{% for option in (new_options.split(",") | sort) %}
                   - {{ option }}{% endfor %}
                 initial: {{ states(scene_name_input_text) }}
 
-              {{ scene_prefix | string | lower }}_automatic_light_scene_generated:
+              {{ scene_prefix | string | lower | replace(" ", "_") }}_automatic_light_scene_generated:
                 options:{% for option in (new_options.split(",") | sort) %}
                   - {{ option }}{% endfor %}
                 initial: {{ states(scene_name_input_text) }}
@@ -142,7 +144,8 @@ create_light_scene_from_group:
               {{ input_select_output }}
         - service: shell_command.write_variable_content_to_file
           data_template:
-            target_file: "{{ scene_prefix | string | lower }}/scenes.yaml"
+            target_file: >
+              '{{ scene_prefix | string | lower | replace(" ", "_") }}/scenes.yaml'
             content: >
               {% set sceneoutput %}
 

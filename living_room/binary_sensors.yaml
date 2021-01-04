@@ -1,0 +1,8 @@
+- platform: template
+  sensors:
+    activity_detected_in_living_room:
+      friendly_name: "Activity detected in bedroom"
+      icon_template: mdi:monitor-dashboard
+      value_template: >-
+        {{ is_state('media_player.tv_livingroom', 'playing') 
+        or is_state('binary_sensor.living_room_sensor_actor_1_motion_detected', 'on') }}

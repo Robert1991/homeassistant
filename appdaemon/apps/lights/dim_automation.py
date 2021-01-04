@@ -29,11 +29,15 @@ class DimLights(hass.Hass):
                 if self.get_state(light) == "on":
                     new_light_brightness = self.calculate_new_light_brightness(
                         light)
-                    if new_light_brightness > light_turn_out_boundary:
-                        self.turn_on(light, brightness=new_light_brightness)
+                    if new_light_brightness:
+                        if new_light_brightness > light_turn_out_boundary:
+                            self.turn_on(
+                                light, brightness=new_light_brightness)
+                        else:
+                            turned_off_lights.add(light)
+                            self.turn_off(light)
                     else:
                         turned_off_lights.add(light)
-                        self.turn_off(light)
                 else:
                     turned_off_lights.add(light)
             sleep(1)
@@ -51,8 +55,10 @@ class DimLights(hass.Hass):
     def calculate_new_light_brightness(self, light_entity_id):
         current_light_brightness = self.get_state(
             light_entity_id, attribute="brightness")
-        return float(current_light_brightness - self.read_state_as_float(
-            self.args["light_turn_off_step_size"]))
+        if current_light_brightness:
+            return float(current_light_brightness - self.read_state_as_float(
+                self.args["light_turn_off_step_size"]))
+        return None
 
     def read_state_as_float(self, entity):
         return float(self.get_state(entity))

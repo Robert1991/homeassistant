@@ -164,3 +164,50 @@ turn_off_lights_when_there_is_no_activity_in_the_kitchen:
   turn_off_timeout: input_number.kitchen_light_turn_off_timeout
   observed_activity_sensor: binary_sensor.kitchen_sensor_1_motion_detected
   constrain_input_boolean: input_boolean.kitchen_light_automation_is_enabled
+
+#living room
+reactivate_living_room_light_automation_after_given_timeout:
+  module: input_boolean
+  class: ReactivationTimer
+  observed_input_boolean: input_boolean.living_room_light_automation_is_enabled
+  reactivation_timeout: input_datetime.living_room_light_automation_reactivation_timeout
+
+dim_lights_under_threshold_in_living_room:
+  module: dim_automation
+  class: DimLights
+  light_group: light.living_room_lights
+  light_sensor: sensor.living_room_light_intensity_percent
+  light_intensity_toggle_threshold: input_number.living_room_light_toogle_intensity_threshold
+  light_turn_off_boundary_brightness: input_number.living_room_automatic_dim_light_turn_of_boundary
+  light_turn_off_step_size: input_number.living_room_automatic_dim_step_size
+  constrain_input_boolean: input_boolean.living_room_light_automation_is_enabled
+
+turn_on_lights_when_there_is_activity_in_the_living_room:
+  module: activity_based_light_control_automations
+  class: TurnOnAutomation
+  observed_activity_sensor: binary_sensor.activity_detected_in_living_room
+  light_group: light.living_room_lights
+  light_sensor: sensor.living_room_light_intensity_percent
+  scene_input_select: input_select.living_room_automatic_light_scene_generated
+  scene_group_prefix: living_room
+  light_intensity_toggle_threshold: input_number.living_room_light_toogle_intensity_threshold
+  light_automation_start_time: input_datetime.living_room_light_automation_start_time
+  light_automation_end_time: input_datetime.living_room_light_automation_end_time
+  enable_time_depended_automation_input: input_boolean.living_room_time_depended_light_automation_is_enabled
+  enable_automatic_scene_mode: input_boolean.living_room_automatic_scene_mode_enabled
+  constrain_input_boolean: input_boolean.living_room_light_automation_is_enabled
+
+set_living_room_timebased_light_scene:
+  module: time_based_scene_switch
+  class: TimeBasedSceneSwitch
+  scene_switch_input_select: input_select.living_room_time_based_scenes
+  toggled_scene_input_select: input_select.living_room_automatic_light_scene_generated
+  light_automatic_enabled: input_boolean.living_room_light_automation_is_enabled
+
+turn_off_lights_when_there_is_no_activity_in_the_living_room:
+  module: activity_based_light_control_automations
+  class: TurnOffAutomation
+  light_group: light.living_room_lights
+  turn_off_timeout: input_number.living_room_light_turn_off_timeout
+  observed_activity_sensor: binary_sensor.activity_detected_in_living_room
+  constrain_input_boolean: input_boolean.living_room_light_automation_is_enabled

@@ -18,6 +18,7 @@ binary_sensor general: !include general/binary_sensors.yaml
 binary_sensor bedroom: !include bedroom/binary_sensors.yaml
 binary_sensor toilet: !include toilet/binary_sensors.yaml
 binary_sensor kitchen: !include kitchen/binary_sensors.yaml
+binary_sensor living_room: !include living_room/binary_sensors.yaml
 
 group: !include_dir_merge_named groups/
 
@@ -79,6 +80,7 @@ scene bedroom: !include bedroom/scenes.yaml
 scene balcony: !include balcony/scenes.yaml
 scene floor: !include floor/scenes.yaml
 scene kitchen: !include kitchen/scenes.yaml
+scene living_room: !include living_room/scenes.yaml
 scene toilet: !include toilet/scenes.yaml
 
 sensor bedroom: !include bedroom/sensors.yaml 

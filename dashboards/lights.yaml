@@ -5,6 +5,158 @@ views:
     badges: []
     cards:
     - type: 'custom:vertical-stack-in-card'
+      title: Living Room Light Control
+      cards:
+        - type: 'custom:stack-in-card'
+          mode: horizontal
+          cards:
+          - type: button
+            entity: light.living_room_lights
+            name: All
+          - type: button
+            entity: group.living_room_ceiling_lights
+            name: Ceiling
+          - type: button
+            entity: light.living_room_indirect_lights
+            name: Indirect
+        - type: 'custom:light-entity-card'
+          entity: light.living_room_lights
+          shorten_cards: true
+          consolidate_entities: true
+          color_wheel: false
+          persist_features: false
+          brightness: true
+          color_temp: false
+          white_value: true
+          color_picker: false
+          smooth_color_wheel: false
+          hide_header: true
+          child_card: false
+          show_slider_percent: false
+          full_width_sliders: true
+          brightness_icon: weather-sunny
+          white_icon: file-word-box
+          temperature_icon: thermometer
+          effects_list: false
+        - type: entities
+          entities:
+          - name: Light Intesity
+            entity: sensor.living_room_light_intensity_percent
+          - name: Current Scene
+            entity: input_select.living_room_automatic_light_scene_generated
+        - type: 'custom:fold-entity-row'
+          head:
+            type: section
+            label: Manual
+          entities:
+            - type: 'custom:fold-entity-row'
+              head: group.living_room_ceiling_lights
+              icon: 'mdi:bulb-group-outline'
+            - type: 'custom:fold-entity-row'
+              head: group.living_room_indirect_lights
+        - type: 'custom:fold-entity-row'
+          head:
+            type: section
+            label: Automation
+          entities:
+            - type: 'custom:fold-entity-row'
+              head:
+                entity: input_boolean.living_room_light_automation_is_enabled
+                name: Enabled
+              entities:
+                - name: Reactivation Timeout
+                  entity: input_datetime.living_room_light_automation_reactivation_timeout
+            - name: Turn Off Timeout
+              entity: input_number.living_room_light_turn_off_timeout
+            - name: Min. Light Intesity
+              entity: input_number.living_room_light_toogle_intensity_threshold
+            - type: 'custom:fold-entity-row'
+              head:
+                entity: input_boolean.living_room_light_intensity_based_light_control_enabled
+                name: Light intensity controlled light
+              entities:
+                - name: Auto. Dim Turn Off Boundary
+                  entity: input_number.living_room_automatic_dim_light_turn_of_boundary
+                - name: Auto. Dim Step
+                  entity: input_number.living_room_automatic_dim_step_size
+            - type: 'custom:fold-entity-row'
+              head:
+                entity: input_boolean.living_room_automatic_scene_mode_enabled
+                name: Timebased Scene Mode
+              entities:
+                - name: Current Scene
+                  entity: input_select.living_room_automatic_light_scene_generated
+                - type: 'custom:fold-entity-row'
+                  head:
+                    type: section
+                    label: Day Mode
+                  entities:
+                    - name: Start Time
+                      entity: input_datetime.living_room_day_light_start_time
+                    - name: Light Scene
+                      entity: input_select.living_room_day_light_choosen_scene
+                - type: 'custom:fold-entity-row'
+                  head:
+                    type: section
+                    label: Evening Mode
+                  entities:
+                    - name: Start Time
+                      entity: input_datetime.living_room_relaxed_light_start_time
+                    - name: Light Scene
+                      entity: input_select.living_room_relaxed_light_choosen_scene
+                - type: 'custom:fold-entity-row'
+                  head:
+                    type: section
+                    label: Night Mode
+                  entities:
+                    - name: Start Time
+                      entity: input_datetime.living_room_night_light_start_time
+                    - name: Light Scene
+                      entity: input_select.living_room_night_light_choosen_scene
+        - type: 'custom:fold-entity-row'
+          head:
+            type: section
+            label: Scene Creation
+          entities:
+            - entity: input_text.scene_generator_scene_name
+              name: New Scene name
+            - type: 'custom:stack-in-card'
+              mode: horizontal
+              keep:
+                margins: true
+                outer_padding: true
+                background: true
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - height: 25px
+                - type: 'custom:button-card'
+                  icon: 'mdi:content-save-edit'
+                  color: 'rgb(28, 128, 199)'
+                  show_text: false
+                  styles:
+                    card:
+                      - height: 50px
+                      - width: 100px
+                  show_state: false
+                  tap_action:
+                    action: call-service
+                    service: script.turn_on
+                    service_data:
+                      entity_id: script.create_light_scene_from_group
+                      variables:
+                        group_name: group.all_living_room_lights
+                        scene_name_input_text: input_text.scene_generator_scene_name
+                        scene_prefix: Living Room
+                        timebased_scene_input_select: input_select.living_room_time_based_scenes
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - height: 25px
+    - type: 'custom:vertical-stack-in-card'
       title: Kitchen Light Control
       cards:
         - type: 'custom:stack-in-card'

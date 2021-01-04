@@ -1,0 +1,6 @@
+living_room_time_based_scenes:
+  options:
+    - living_room_night_light_start_time/living_room_night_light_choosen_scene
+    - living_room_day_light_start_time/living_room_day_light_choosen_scene
+    - living_room_relaxed_light_start_time/living_room_relaxed_light_choosen_scene
+  initial: living_room_day_light_start_time/living_room_day_light_choosen_scene
