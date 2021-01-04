@@ -211,3 +211,9 @@ turn_off_lights_when_there_is_no_activity_in_the_living_room:
   turn_off_timeout: input_number.living_room_light_turn_off_timeout
   observed_activity_sensor: binary_sensor.activity_detected_in_living_room
   constrain_input_boolean: input_boolean.living_room_light_automation_is_enabled
+
+turn_on_touch_screen_panel_when_movement_detected:
+  module: activity_based_light_control_automations
+  class: ActivityBasedLightSwitch
+  light_group: light.touch_screen_back_light
+  observed_activity_sensor: binary_sensor.living_room_sensor_actor_1_motion_detected

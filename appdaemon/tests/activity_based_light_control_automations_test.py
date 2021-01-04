@@ -1,8 +1,28 @@
 from apps.lights.activity_based_light_control_automations import TurnOnAutomation
 from apps.lights.activity_based_light_control_automations import TurnOffAutomation
+from apps.lights.activity_based_light_control_automations import ActivityBasedLightSwitch
 from appdaemontestframework import automation_fixture
 from mock import patch
 from datetime import datetime
+
+
+@automation_fixture(ActivityBasedLightSwitch)
+def activity_based_light_switch(given_that):
+    given_that.passed_arg('observed_activity_sensor').is_set_to(
+        'binary_sensor.some_activity_sensor')
+    given_that.passed_arg('light_group').is_set_to(
+        'light.some_light_group')
+
+
+def test_turn_on_lights_light_group_is_turned_on_when_off(activity_based_light_switch, given_that, assert_that):
+    given_that.state_of('light.some_light_group').is_set_to('off')
+    activity_based_light_switch.turn_on_lights(None, None, None, None, None)
+    assert_that('light.some_light_group').was.turned_on()
+
+def test_turn_on_lights_light_group_is_not_turned_on_when_on(activity_based_light_switch, given_that, assert_that):
+    given_that.state_of('light.some_light_group').is_set_to('on')
+    activity_based_light_switch.turn_on_lights(None, None, None, None, None)
+    assert_that('light.some_light_group').was_not.turned_on()
 
 
 @automation_fixture(TurnOnAutomation)

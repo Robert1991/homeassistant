@@ -1,6 +1,16 @@
 import appdaemon.plugins.hass.hassapi as hass
 
 
+class ActivityBasedLightSwitch(hass.Hass):
+    def initialize(self):
+        self.listen_state(self.turn_on_lights,
+                          self.args["observed_activity_sensor"], new="on")
+
+    def turn_on_lights(self, entity, attribute, old, new, kwargs):
+        if self.get_state(self.args["light_group"]) == "off":
+            self.turn_on(self.args["light_group"])
+
+
 class TurnOffAutomation(hass.Hass):
     current_timer = None
 
