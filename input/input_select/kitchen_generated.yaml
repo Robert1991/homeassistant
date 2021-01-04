@@ -23,7 +23,7 @@ kitchen_night_light_choosen_scene:
     - Indirect Light 1
     - Indirect Light 2
     - Night Light 1
-  initial: Cooking 1
+  initial: Night Light 1
 
 kitchen_day_light_choosen_scene:
   options:
@@ -41,4 +41,4 @@ kitchen_relaxed_light_choosen_scene:
     - Indirect Light 1
     - Indirect Light 2
     - Night Light 1
-  initial: Cooking 1
+  initial: Indirect Light 1

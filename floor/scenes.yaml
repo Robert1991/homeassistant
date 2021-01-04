@@ -36,3 +36,31 @@
         - 0.677
         - 0.319
       state: "on"
+- name: Floor Day Light Colorful 1
+  entities:
+    light.floor_light:
+      brightness: 252
+      hs_color:
+        - 29.834
+        - 70.98
+      rgb_color:
+        - 255
+        - 163
+        - 74
+      xy_color:
+        - 0.539
+        - 0.392
+      state: "on"
+    light.floor_sensor_actor_1_i2c_rgb:
+      brightness: 224
+      hs_color:
+        - 75.205
+        - 57.255
+      rgb_color:
+        - 218
+        - 255
+        - 108
+      xy_color:
+        - 0.371
+        - 0.503
+      state: "on"

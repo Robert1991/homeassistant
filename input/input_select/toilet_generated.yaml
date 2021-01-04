@@ -17,7 +17,7 @@ toilet_night_light_choosen_scene:
     - Cleaning Light
     - Day Light
     - Night Light
-  initial: Day Light
+  initial: Night Light
 
 toilet_day_light_choosen_scene:
   options:
