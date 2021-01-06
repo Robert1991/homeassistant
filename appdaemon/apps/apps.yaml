@@ -1,3 +1,19 @@
+# balcony
+## button handler
+balcony_light_switch_button_event_hub:
+  module: button_handler
+  class: ButtonEventHub
+  observed_button: sensor.hue_smart_button_2_action
+  button_press_timeout: 0.25
+
+balcony_light_switch_button:
+  module: button_handler
+  class: SmartLightButton
+  observed_button: sensor.hue_smart_button_2_action
+  light_group: light.balcony_lights
+  scene_input_select: input_select.balcony_light_scene_switch
+  scene_prefix: balcony
+
 # bedroom
 reactivate_bedroom_light_automation_after_given_timeout:
   module: input_boolean
@@ -54,7 +70,7 @@ bedroom_scene_switch_light_button_event_hub:
 
 bedroom_scene_switch_light_button:
   module: button_handler
-  class: SmartLightButton
+  class: SmartLightButtonWithDimFunction
   observed_button: sensor.hue_smart_button_3_action
   light_group: light.all_bedroom_lights
   scene_input_select: input_select.bedroom_automatic_light_scene_generated

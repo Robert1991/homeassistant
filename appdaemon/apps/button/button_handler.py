@@ -93,6 +93,8 @@ class SmartLightButton(ButtonEventReceiver):
         else:
             self.turn_off(self.args["light_group"])
 
+
+class SmartLightButtonWithDimFunction(SmartLightButton):
     def execute_hold_up(self):
         current_light_group_brightness = self.get_current_light_group_brightness()
         new_brightness = current_light_group_brightness + self.args["light_change_step_size"]

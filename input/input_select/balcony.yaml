@@ -1,5 +1,5 @@
-balcony_light_scene:
+balcony_light_scene_switch:
   options:
-    - 'scene.balcony_bright'
-    - 'scene.balcony_indirect'
-  initial: 'scene.balcony_indirect'
+    - 'Bright'
+    - 'Indirect'
+  initial: 'Bright'
