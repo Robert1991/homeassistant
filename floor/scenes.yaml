@@ -64,3 +64,22 @@
         - 0.371
         - 0.503
       state: "on"
+- name: Floor Workout Time
+  entities:
+    light.floor_light:
+      brightness: 252
+      color_temp: 300
+      state: "on"
+    light.floor_sensor_actor_1_i2c_rgb:
+      brightness: 224
+      hs_color:
+        - 240.0
+        - 100.0
+      rgb_color:
+        - 0
+        - 0
+        - 255
+      xy_color:
+        - 0.136
+        - 0.04
+      state: "on"
