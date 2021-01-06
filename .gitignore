@@ -5,3 +5,4 @@ home-assistant.*
 home-assistant_v2.*
 .vscode/*
 appdaemon/**/__pycache__/**
+*.pyc
