@@ -6,3 +6,5 @@ living_room_light_intensity_based_light_control_enabled:
   initial: true
 living_room_automatic_scene_mode_enabled:
   initial: true
+touch_screen_back_light_automatic_enabled:
+  initial: true

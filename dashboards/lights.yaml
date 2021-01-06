@@ -113,6 +113,13 @@ views:
                       entity: input_datetime.living_room_night_light_start_time
                     - name: Light Scene
                       entity: input_select.living_room_night_light_choosen_scene
+            - type: 'custom:fold-entity-row'
+              head:
+                entity: input_boolean.touch_screen_back_light_automatic_enabled
+                name: Touchscreen Back Light Toggle
+              entities:
+                - name: Turn Off Timeout
+                  entity: input_number.living_touch_screen_back_light_turn_off_timeout
         - type: 'custom:fold-entity-row'
           head:
             type: section

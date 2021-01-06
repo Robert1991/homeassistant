@@ -13,7 +13,7 @@
       state: "on"
       xy_color: [0.416, 0.475]
       brightness: 111
-    light.bedroom_workdesk:
+    light.bedroom_workdesk_light:
       state: "on"
       xy_color: [0.606, 0.372]
       brightness: 200
@@ -39,7 +39,7 @@
       state: "on"
       xy_color: [0.502, 0.414]
       brigtness: 145
-    light.bedroom_workdesk:
+    light.bedroom_workdesk_light:
       state: "on"
       xy_color: [0.502, 0.414]
       brightness: 120
@@ -65,7 +65,7 @@
       state: "on"
       xy_color: [0.457, 0.41]
       brightness: 145
-    light.bedroom_workdesk:
+    light.bedroom_workdesk_light:
       state: "on"
       xy_color: [0.457, 0.41]
       brightness: 200
@@ -88,7 +88,7 @@
       state: "on"
       xy_color: [0.39, 0.373]
       brightness: 200
-    light.bedroom_workdesk:
+    light.bedroom_workdesk_light:
       state: "on"
       xy_color: [0.429, 0.396]
       brightness: 220
@@ -111,7 +111,7 @@
       state: "on"
       xy_color: [0.457, 0.41]
       brightness: 77
-    light.bedroom_workdesk:
+    light.bedroom_workdesk_light:
       state: "on"
       xy_color: [0.457, 0.41]
       brightness: 50
@@ -137,7 +137,7 @@
       state: "on"
       xy_color: [0.561, 0.404]
       brigtness: 10
-    light.bedroom_workdesk:
+    light.bedroom_workdesk_light:
       state: "off"
     light.bedroom_closet_led_power_supply_light:
       state: "on"
@@ -167,7 +167,7 @@
       - 0.216
       - 0.666
       state: 'on'
-    light.bedroom_workdesk:
+    light.bedroom_workdesk_light:
       brightness: 142
       xy_color:
       - 0.562
@@ -219,7 +219,7 @@
     light.bedroom_closet_led_power_supply_light:
       brightness: 51
       state: "off"
-    light.bedroom_workdesk:
+    light.bedroom_workdesk_light:
       brightness: 184
       hs_color:
         - 41.429
@@ -250,7 +250,7 @@
     light.bedroom_closet_led_power_supply_light:
       brightness: 80
       state: "off"
-    light.bedroom_workdesk:
+    light.bedroom_workdesk_light:
       brightness: 255
       color_temp: 217
       state: "on"

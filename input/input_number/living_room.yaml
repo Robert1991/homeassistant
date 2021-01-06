@@ -18,6 +18,14 @@ living_room_light_turn_off_timeout:
   step: 10
   unit_of_measurement: "s"
   icon: 'mdi:clock-in'
+living_touch_screen_back_light_turn_off_timeout:
+  name: Bedroom Touch Screen Back Light Turn Off Automation Timeout
+  initial: 180
+  min: 10
+  max: 500
+  step: 10
+  unit_of_measurement: "s"
+  icon: 'mdi:clock-in'
 living_room_light_toogle_intensity_threshold:
   name: Bedroom Light Toogle Light Intensity Threshold
   initial: 50
