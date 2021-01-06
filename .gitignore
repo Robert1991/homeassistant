@@ -7,3 +7,4 @@ home-assistant_v2.*
 appdaemon/**/__pycache__/**
 *.pyc
 blueprints/
+passwd.dat
