@@ -1,0 +1,15 @@
+bathroom_light_scene_generated:
+  options:
+    - Night Light 1
+
+bathroom_automatic_light_scene_generated:
+  options:
+    - Night Light 1
+
+bathroom_night_light_choosen_scene:
+  options:
+    - Night Light 1
+
+bathroom_day_light_choosen_scene:
+  options:
+    - Night Light 1

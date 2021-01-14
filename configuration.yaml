@@ -15,6 +15,7 @@ automation balcony: !include balcony/automations.yaml
 automation kitchen: !include kitchen/automations.yaml
 
 binary_sensor general: !include general/binary_sensors.yaml 
+binary_sensor bathroom: !include bathroom/binary_sensors.yaml
 binary_sensor bedroom: !include bedroom/binary_sensors.yaml
 binary_sensor toilet: !include toilet/binary_sensors.yaml
 binary_sensor kitchen: !include kitchen/binary_sensors.yaml
@@ -28,6 +29,7 @@ input_select: !include_dir_merge_named input/input_select/
 input_text: !include_dir_merge_named input/input_text/
 input_datetime: !include_dir_merge_named input/input_datetime/
 
+light bathroom: !include bathroom/lights.yaml
 light balcony: !include balcony/lights.yaml
 light toilet: !include toilet/lights.yaml
 light floor: !include floor/lights.yaml
@@ -76,6 +78,7 @@ notify ios:
 script: !include scripts.yaml
 
 scene: !include scenes.yaml
+scene bathroom: !include bathroom/scenes.yaml
 scene bedroom: !include bedroom/scenes.yaml
 scene balcony: !include balcony/scenes.yaml
 scene floor: !include floor/scenes.yaml
@@ -83,6 +86,7 @@ scene kitchen: !include kitchen/scenes.yaml
 scene living_room: !include living_room/scenes.yaml
 scene toilet: !include toilet/scenes.yaml
 
+sensor bathroom: !include bathroom/sensors.yaml
 sensor bedroom: !include bedroom/sensors.yaml 
 sensor kitchen: !include kitchen/sensors.yaml
 sensor living_room: !include living_room/sensors.yaml

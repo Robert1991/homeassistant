@@ -1,0 +1,5 @@
+bathroom_time_based_scenes:
+  options:
+    - bathroom_night_light_start_time/bathroom_night_light_choosen_scene
+    - bathroom_day_light_start_time/bathroom_day_light_choosen_scene
+  initial: bathroom_night_light_start_time/bathroom_night_light_choosen_scene
