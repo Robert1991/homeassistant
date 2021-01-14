@@ -4,15 +4,46 @@ views:
     path: overview
     badges: []
     cards:
-    - type: 'custom:auto-entities'
-      filter:
-        include:
-          - domain: binary_sensor
-            entity_id: '*_ping'
-      card:
-        type: entities
-        title: Autoconfigure Devices
-        state_color: true
+    - type: entities
+      entities:
+        - entity: binary_sensor.balcony_sensor_actor_1_ping
+          tap_action:
+            action: navigate
+            navigation_path: /lovelace-device/other
+        - entity: binary_sensor.bedroom_sensor_1_ping
+          tap_action:
+            action: navigate
+            navigation_path: /lovelace-device/bedroom
+        - entity: binary_sensor.couch_rgb_i2c_platine_ping
+          tap_action:
+            action: navigate
+            navigation_path: /lovelace-device/living_room
+        - entity: binary_sensor.floor_sensor_actor_1_ping
+          tap_action:
+            action: navigate
+            navigation_path: /lovelace-device/other
+        - entity: binary_sensor.former_ikea_light_ping
+          tap_action:
+            action: navigate
+            navigation_path: /lovelace-device/living_room
+        - entity: binary_sensor.kitchen_actor_1_ping
+          tap_action:
+            action: navigate
+            navigation_path: /lovelace-device/kitchen
+        - entity: binary_sensor.kitchen_ceiling_light_1_ping
+          tap_action:
+            action: navigate
+            navigation_path: /lovelace-device/kitchen
+        - entity: binary_sensor.kitchen_sensor_1_ping
+          tap_action:
+            action: navigate
+            navigation_path: /lovelace-device/kitchen
+        - entity: binary_sensor.living_room_sensor_actor_1_ping
+          tap_action:
+            action: navigate
+            navigation_path: /lovelace-device/living_room
+      title: Autoconfigure Devices
+      state_color: true
   - title: Bedroom
     path: bedroom
     badges: []
@@ -243,7 +274,7 @@ views:
               type: section
               label: Entities
   - title: Other
-    path: balcony
+    path: other
     badges: []
     cards:
     - type: 'custom:vertical-stack-in-card'
