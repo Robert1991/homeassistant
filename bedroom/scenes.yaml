@@ -152,30 +152,30 @@
     light.bedroom_ceiling_1:
       brightness: 157
       xy_color:
-      - 0.468
-      - 0.46
-      state: 'on'
+        - 0.468
+        - 0.46
+      state: "on"
     light.bedroom_ceiling_2:
       brightness: 157
       xy_color:
-      - 0.418
-      - 0.189
-      state: 'on'
+        - 0.418
+        - 0.189
+      state: "on"
     light.bedroom_ceiling_3:
       brightness: 157
       xy_color:
-      - 0.216
-      - 0.666
-      state: 'on'
+        - 0.216
+        - 0.666
+      state: "on"
     light.bedroom_workdesk_light:
       brightness: 142
       xy_color:
-      - 0.562
-      - 0.337
-      state: 'on'
+        - 0.562
+        - 0.337
+      state: "on"
     light.bedroom_closet_led_power_supply_light:
       brightness: 80
-      state: 'on'
+      state: "on"
     light.bedroom_bed_light:
       state: "on"
       brightness: 100

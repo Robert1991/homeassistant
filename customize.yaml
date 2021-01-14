@@ -156,13 +156,13 @@ binary_sensor.private_laptop_activity:
 
 # Robert PC 2
 binary_sensor.lenovo_new_gen_key_was_pressed:
-  friendly_name: "Robert PC Gen is occupied"
+  friendly_name: "Robert PC New Gen is occupied"
   icon: mdi:monitor-dashboard
 
-  binary_sensor.lenovo_new_gen_mouse_moved:
-  friendly_name: "Robert PC Gen is occupied"
+binary_sensor.lenovo_new_gen_mouse_moved:
+  friendly_name: "Robert PC New Gen is occupied"
   icon: mdi:monitor-dashboard
-  
+
 # Work PC
 binary_sensor.work_laptop_activity:
   friendly_name: "Work PC is occupied"
