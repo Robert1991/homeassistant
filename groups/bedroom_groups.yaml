@@ -24,7 +24,7 @@ bedroom_indirect_lights:
     - light.bedroom_bed_light
 all_bedroom_scenes:
   name: "All Bedroom Scenes"
-  icon: 'mdi:string-lights'
+  icon: "mdi:string-lights"
   entities:
     - scene.bedroom_romantic
     - scene.bedroom_relaxed
@@ -35,7 +35,7 @@ all_bedroom_scenes:
     - scene.bedroom_1313
 bedroom_light_automation_control_entities:
   name: "Bedroom Light Automation Control Entities"
-  icon: 'mdi:home-assistant'
+  icon: "mdi:home-assistant"
   entities:
     - input_boolean.bedroom_light_automation_is_enabled
     - input_number.bedroom_light_turn_off_timeout

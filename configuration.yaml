@@ -11,7 +11,6 @@ alert: !include_dir_merge_named alerts/
 
 automation living_room: !include living_room/automations.yaml
 automation bedroom: !include bedroom/automations.yaml
-automation balcony: !include balcony/automations.yaml
 automation kitchen: !include kitchen/automations.yaml
 
 binary_sensor general: !include general/binary_sensors.yaml 
