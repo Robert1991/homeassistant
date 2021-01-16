@@ -1,5 +1,5 @@
-all_toilet_lights:
-  name: "All Toilet Lights"
+all_bathroom_lights:
+  name: "All Bathroom Lights"
   icon: "mdi:lightbulb-group-outline"
   entities:
     - light.bath_room_sensor_actor_1_rgb

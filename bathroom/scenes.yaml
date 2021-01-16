@@ -4,3 +4,20 @@
       state: "on"
     light.bath_room_sensor_actor_1_rgb:
       state: "off"
+- name: Bathroom Blue
+  entities:
+    light.bath_room_sensor_actor_1_relais_switch:
+      state: "on"
+    light.bath_room_sensor_actor_1_rgb:
+      brightness: 255
+      hs_color:
+        - 180.0
+        - 100.0
+      rgb_color:
+        - 0
+        - 255
+        - 255
+      xy_color:
+        - 0.151
+        - 0.343
+      state: "on"
