@@ -1,15 +1,5 @@
-kitchen_light_scene:
-  options:
-    - 'scene.kitchen_cooking_1'
-    - 'scene.kitchen_cooking_2'
-    - 'scene.kitchen_indirect_light_1'
-    - 'scene.kitchen_indirect_light_2'
-    - 'scene.kitchen_night_light_1'
-  initial: 'scene.kitchen_cooking_1'
-
 kitchen_time_based_scenes:
   options:
     - kitchen_night_light_start_time/kitchen_night_light_choosen_scene
     - kitchen_day_light_start_time/kitchen_day_light_choosen_scene
     - kitchen_relaxed_light_start_time/kitchen_relaxed_light_choosen_scene
-  initial: kitchen_day_light_start_time/kitchen_day_light_choosen_scene

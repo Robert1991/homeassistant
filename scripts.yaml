@@ -64,17 +64,14 @@ create_light_scene_from_group:
               {{ scene_prefix | string | lower | replace(" ", "_") }}_light_scene_generated:
                 options:{% for option in (new_options.split(",") | sort) %}
                   - {{ option }}{% endfor %}
-                initial: {{ states(scene_name_input_text) }}
 
               {{ scene_prefix | string | lower | replace(" ", "_") }}_automatic_light_scene_generated:
                 options:{% for option in (new_options.split(",") | sort) %}
                   - {{ option }}{% endfor %}
-                initial: {{ states(scene_name_input_text) }}
 
               {% for date_time_scene_tuple in states[timebased_scene_input_select].attributes.options %}{{ date_time_scene_tuple.split('/')[0].replace("_start_time", "") + "_choosen_scene"}}:
                 options:{% for option in (new_options.split(",") | sort) %}
                   - {{ option }}{% endfor %}
-                initial: {{ states(scene_name_input_text) }}
 
               {% endfor %}              
               {% endset %}

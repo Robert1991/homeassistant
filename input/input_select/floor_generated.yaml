@@ -4,7 +4,6 @@ floor_light_scene_generated:
     - Day Light Colorful 1
     - Night Light 1
     - Workout Time
-  initial: Workout Time
 
 floor_automatic_light_scene_generated:
   options:
@@ -12,7 +11,6 @@ floor_automatic_light_scene_generated:
     - Day Light Colorful 1
     - Night Light 1
     - Workout Time
-  initial: Workout Time
 
 floor_night_light_choosen_scene:
   options:
@@ -20,7 +18,6 @@ floor_night_light_choosen_scene:
     - Day Light Colorful 1
     - Night Light 1
     - Workout Time
-  initial: Night Light 1
 
 floor_day_light_choosen_scene:
   options:
@@ -28,4 +25,3 @@ floor_day_light_choosen_scene:
     - Day Light Colorful 1
     - Night Light 1
     - Workout Time
-  initial: Day Light 1

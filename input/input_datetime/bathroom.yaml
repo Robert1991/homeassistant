@@ -20,10 +20,8 @@ bathroom_night_light_start_time:
     name: Night Light Start Time
     has_date: false
     has_time: true
-    initial: "23:00:00"
 
 bathroom_day_light_start_time:
     name: Day Light Start Time
     has_date: false
     has_time: true
-    initial: "08:30:00"

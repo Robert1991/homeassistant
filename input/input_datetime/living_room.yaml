@@ -20,16 +20,13 @@ living_room_night_light_start_time:
   name: Night Light Start Time
   has_date: false
   has_time: true
-  initial: "23:00:00"
 
 living_room_day_light_start_time:
   name: Day Light Start Time
   has_date: false
   has_time: true
-  initial: "08:30:00"
 
 living_room_relaxed_light_start_time:
   name: Day Light Start Time
   has_date: false
   has_time: true
-  initial: "21:15:00"

@@ -1,28 +1,24 @@
 bedroom_light_automation_end_time:
-    name: Light Turn On Automation End Time
-    has_date: false
-    has_time: true
-    initial: "23:00:00"
+  name: Light Turn On Automation End Time
+  has_date: false
+  has_time: true
+
 bedroom_light_automation_start_time:
-    name: Light Turn On Automation Start Time
-    has_date: false
-    has_time: true
-    initial: "09:00:00"
+  name: Light Turn On Automation Start Time
+  has_date: false
+  has_time: true
 
 bedroom_light_automation_reactivation_timeout:
-    name: Light Automation Reactivation Timeout
-    has_date: false
-    has_time: true
-    initial: "01:00:00"
+  name: Light Automation Reactivation Timeout
+  has_date: false
+  has_time: true
 
 bedroom_night_light_start_time:
-    name: Night Light Start Time
-    has_date: false
-    has_time: true
-    initial: "23:00:00"
+  name: Night Light Start Time
+  has_date: false
+  has_time: true
 
 bedroom_day_light_start_time:
-    name: Day Light Start Time
-    has_date: false
-    has_time: true
-    initial: "08:30:00"
+  name: Day Light Start Time
+  has_date: false
+  has_time: true

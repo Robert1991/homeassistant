@@ -3,32 +3,27 @@ living_room_light_scene_generated:
     - Afrika
     - Afrika 2
     - Work
-  initial: Work
 
 living_room_automatic_light_scene_generated:
   options:
     - Afrika
     - Afrika 2
     - Work
-  initial: Work
 
 living_room_night_light_choosen_scene:
   options:
     - Afrika
     - Afrika 2
     - Work
-  initial: Work
 
 living_room_day_light_choosen_scene:
   options:
     - Afrika
     - Afrika 2
     - Work
-  initial: Work
 
 living_room_relaxed_light_choosen_scene:
   options:
     - Afrika
     - Afrika 2
     - Work
-  initial: Work
