@@ -1,6 +1,5 @@
 .storage/*
 custom_components/*
-www/*
 home-assistant.*
 home-assistant_v2.*
 .vscode/*
@@ -8,3 +7,4 @@ home-assistant_v2.*
 appdaemon/
 blueprints/
 passwd.dat
+secrets.yaml
