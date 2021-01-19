@@ -2,6 +2,10 @@
 default_config:
 
 homeassistant:
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: 117
+  time_zone: Europe/Berlin
   customize: !include customize.yaml
 
 tts:
@@ -66,7 +70,9 @@ media_player:
     adb_server_port: 5037
 
 mqtt:
-  broker: 127.0.0.1
+  broker: rpn-home-server
+  username: !secret mqtt_username
+  password: !secret mqtt_password
 
 notify ios:
   - name: iOS
