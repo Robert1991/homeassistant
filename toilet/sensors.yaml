@@ -4,17 +4,17 @@
       friendly_name: "Toilet Temperature" 
       unit_of_measurement: "°C"
       value_template: >-
-        {{ states("sensor.hue_motion_sensor_temperature") }}
+        {{ states("sensor.hue_motion_sensor_1_temperature") }}
       icon_template: 'mdi:thermometer'
     toilet_light_intensity:
       friendly_name: "Toilet Light Intensity" 
       unit_of_measurement: "Lux"
       value_template: >-
-        {{ states("sensor.hue_motion_sensor_illuminance_lux") }}
+        {{ states("sensor.hue_motion_sensor_1_illuminance_lux") }}
       icon_template: 'mdi:white-balance-sunny'
     toilet_light_intensity_percent:
       friendly_name: "Toilet Light Intensity in Percent" 
       icon_template: mdi:brightness-percent
       unit_of_measurement: "%"
       value_template: >-
-          {{ states("sensor.hue_motion_sensor_illuminance_lux") | float / 100.0 | float * 100.0 }}
+          {{ states("sensor.hue_motion_sensor_1_illuminance_lux") | float / 100.0 | float * 100.0 }}
