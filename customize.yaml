@@ -1,6 +1,7 @@
 # balcony_sensor_actor_1
 sensor.balcony_sensor_actor_1_humidity:
   friendly_name: "Balcony Humidity"
+  unit_of_measurement: "%"
 sensor.balcony_sensor_actor_1_temperature:
   friendly_name: "Balcony Temperature"
 light.balcony_sensor_actor_1_relais_light_1:
@@ -20,6 +21,7 @@ binary_sensor.bedroom_sensor_1_door_open:
   friendly_name: "Bedroom Closet Door Sensor"
 sensor.bedroom_sensor_1_humidity:
   friendly_name: "Bedroom Humidity"
+  unit_of_measurement: "%"
 sensor.bedroom_sensor_1_temperature:
   friendly_name: "Bedroom Temperature"
 sensor.bedroom_sensor_1_light_intensity:
@@ -36,6 +38,7 @@ switch.bedroom_sensor_1_reset_switch:
 # floor_sensor_actor 1
 sensor.floor_sensor_actor_1_humidity:
   friendly_name: "Floor Humidity"
+  unit_of_measurement: "%"
 sensor.floor_sensor_actor_1_temperature:
   friendly_name: "Floor Temperature"
 binary_sensor.floor_sensor_actor_1_motion_detected:
@@ -79,6 +82,7 @@ binary_sensor.kitchen_sensor_1_door_open:
   friendly_name: "Fride Door Sensor"
 sensor.kitchen_sensor_1_humidity:
   friendly_name: "Kitchen Humidity"
+  unit_of_measurement: "%"
 sensor.kitchen_sensor_1_temperature:
   friendly_name: "Kitchen Temperature"
 sensor.kitchen_sensor_1_light_intensity:
@@ -95,6 +99,7 @@ switch.kitchen_sensor_1_reset_switch:
 # living_room_sensor_actor_1
 sensor.living_room_sensor_actor_1_humidity:
   friendly_name: "Living Room Humidity"
+  unit_of_measurement: "%"
 sensor.living_room_sensor_actor_1_temperature:
   friendly_name: "Living Room Temperature"
 binary_sensor.living_room_sensor_actor_1_motion_detected:
