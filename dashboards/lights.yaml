@@ -411,13 +411,13 @@ views:
               tap_action:
                 action: toggle
               name: Halogen
-              entity: light.bath_room_sensor_actor_1_relais_switch
+              entity: light.bathroom_sensor_actor_1_relais_switch
               icon_height: 50px
             - type: button
               tap_action:
                 action: toggle
               name: Strip
-              entity: light.bath_room_sensor_actor_1_rgb
+              entity: light.bathroom_sensor_actor_1_rgb
               icon_height: 50px
         - type: entities
           entities:

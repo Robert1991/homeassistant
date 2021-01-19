@@ -1,5 +1,5 @@
 - platform: group
   name: Bathroom Lights
   entities:
-  - light.bath_room_sensor_actor_1_relais_switch
-  - light.bath_room_sensor_actor_1_rgb
+  - light.bathroom_sensor_actor_1_relais_switch
+  - light.bathroom_sensor_actor_1_rgb
