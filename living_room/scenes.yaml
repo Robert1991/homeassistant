@@ -80,7 +80,7 @@
         - 0.676
         - 0.321
       state: "on"
-    light.living_room_philips_hue_iris_light:
+    light.hue_iris_light:
       brightness: 184
       hs_color:
         - 30.119
@@ -201,7 +201,7 @@
         - 0.672
         - 0.322
       state: "on"
-    light.living_room_philips_hue_iris_light:
+    light.hue_iris_light:
       brightness: 209
       hs_color:
         - 30.588
@@ -277,7 +277,7 @@
       brightness: 123
       color_temp: 360
       state: "on"
-    light.living_room_philips_hue_iris_light:
+    light.hue_iris_light:
       brightness: 30
       hs_color:
         - 42.162
