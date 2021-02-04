@@ -29,4 +29,10 @@ living_room_light_toogle_intensity_threshold:
   step: 5
   unit_of_measurement: "%"
   icon: 'mdi:brightness-auto'
-  
+tv_living_room_idle_turn_off_timeout:
+  name: TV Living Room Idle Turn Off Timeout
+  min: 10
+  max: 500
+  step: 10
+  unit_of_measurement: "s"
+  icon: 'mdi:clock-in'

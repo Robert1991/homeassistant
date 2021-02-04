@@ -13,7 +13,6 @@ tts:
 
 alert: !include_dir_merge_named alerts/
 
-automation living_room: !include living_room/automations.yaml
 automation bedroom: !include bedroom/automations.yaml
 automation kitchen: !include kitchen/automations.yaml
 
@@ -64,10 +63,8 @@ lovelace:
 
 media_player:
   - platform: androidtv
-    host: 172.22.24.187
+    host: !secret tv_living_room_ip
     name: "TV LivingRoom"
-    adb_server_ip: 127.0.0.1
-    adb_server_port: 5037
 
 mqtt:
   broker: rpn-home-server
