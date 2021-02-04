@@ -10,6 +10,10 @@ views:
           tap_action:
             action: navigate
             navigation_path: /lovelace-device/other
+        - entity: binary_sensor.bathroom_sensor_actor_1_ping
+          tap_action:
+            action: navigate
+            navigation_path: /lovelace-device/other
         - entity: binary_sensor.bedroom_sensor_1_ping
           tap_action:
             action: navigate
@@ -277,6 +281,37 @@ views:
     path: other
     badges: []
     cards:
+    - type: 'custom:vertical-stack-in-card'
+      title: Bathroom Sensor/Actor 1
+      cards:
+        - type: entities
+          state_color: true
+          show_header_toggle: false
+          entities:
+            - entity: binary_sensor.bathroom_sensor_actor_1_ping
+              name: Device Status
+              secondary_info: last-updated
+              icon: 'hass:server-network'
+            - entity: alert.bathroom_sensor_actor_1_is_offline
+              name: Offline Alert
+            - entity: switch.bathroom_sensor_actor_1_reset_switch
+              name: Reset
+        - type: 'custom:auto-entities'
+          filter:
+            include:
+              - domain: light
+                entity_id: '*bathroom_sensor_actor_1*'
+              - domain: sensor
+                entity_id: '*bathroom_sensor_actor_1*'
+              - domain: binary_sensor
+                entity_id: '*bathroom_sensor_actor_1*'
+              - domain: switch
+                entity_id: '*bathroom_sensor_actor_1*'
+          card:
+            type: 'custom:fold-entity-row'
+            head:
+              type: section
+              label: Entities
     - type: 'custom:vertical-stack-in-card'
       title: Balcony Sensor/Actor 1
       cards:
