@@ -190,3 +190,8 @@ binary_sensor.lenovo_new_gen_mouse_moved:
 binary_sensor.work_laptop_activity:
   friendly_name: "Work PC is occupied"
   icon: mdi:monitor-dashboard
+
+# panel
+light.touch_screen_back_light:
+  friendly_name: "Smart Home Panel Back Light"
+  icon: mdi:tablet-dashboard
