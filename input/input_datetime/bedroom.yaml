@@ -1,3 +1,8 @@
+bedroom_light_automation_reenable_time:
+  name: Reenable Time
+  has_date: false
+  has_time: true
+
 bedroom_light_automation_end_time:
   name: Light Turn On Automation End Time
   has_date: false

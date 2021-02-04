@@ -4,6 +4,13 @@ bedroom_light_brightness:
   min: 39
   max: 255
   step: 36
+bedroom_night_light_brightness:
+  name: Bedroom Bed Light Brightness Slider
+  initial: 125
+  min: 10
+  max: 255
+  step: 5
+  icon: mdi:brightness-7
 bedroom_automatic_dim_light_turn_of_boundary:
   name: Bedroom Automatic Dim Light Turn Off Boundary
   min: 5
