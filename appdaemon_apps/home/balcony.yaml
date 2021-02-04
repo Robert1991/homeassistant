@@ -1,0 +1,14 @@
+# balcony
+balcony_light_switch_button_event_hub:
+  module: button_handler
+  class: ButtonEventHub
+  observed_button: sensor.hue_smart_button_2_action
+  button_press_timeout: 0.25
+
+balcony_light_switch_button:
+  module: button_handler
+  class: SmartLightButtonWithSceneToggle
+  observed_button: sensor.hue_smart_button_2_action
+  light_group: light.balcony_lights
+  scene_input_select: input_select.balcony_light_scene_switch
+  scene_prefix: balcony

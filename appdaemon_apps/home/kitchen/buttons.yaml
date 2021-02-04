@@ -1,0 +1,8 @@
+kitchen_ikea_light_switch_controller:
+  module: ikea_light_switch
+  class: IkeaLightSwitch
+  light_group: light.kitchen_lights
+  light_switch_sensor: sensor.ikea_kitchen_smart_button_action
+  scene_input_select: input_select.kitchen_automatic_light_scene_generated
+  dim_step_size: input_number.kitchen_smart_button_dim_step_size
+  scene_prefix: Kitchen

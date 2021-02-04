@@ -1,0 +1,36 @@
+# toilet
+turn_on_lights_when_there_is_activity_in_the_toilet:
+  module: activity_based_light_control_automations
+  class: TurnOnAutomation
+  observed_activity_sensor: binary_sensor.toilet_motion_detector
+  light_group: light.toilet_lights
+  light_sensor: sensor.toilet_light_intensity_percent
+  scene_input_select: input_select.toilet_automatic_light_scene_generated
+  scene_group_prefix: toilet
+  light_intensity_toggle_threshold: input_number.toilet_light_toogle_intensity_threshold
+  light_automation_start_time: input_datetime.toilet_light_automation_start_time
+  light_automation_end_time: input_datetime.toilet_light_automation_end_time
+  enable_time_depended_automation_input: input_boolean.toilet_time_depended_light_automation_is_enabled
+  enable_automatic_scene_mode: input_boolean.toilet_automatic_scene_mode_enabled
+  constrain_input_boolean: input_boolean.toilet_light_automation_is_enabled
+
+set_toilet_timebased_light_scene:
+  module: time_based_scene_switch
+  class: TimeBasedSceneSwitch
+  scene_switch_input_select: input_select.toilet_time_based_scenes
+  toggled_scene_input_select: input_select.toilet_automatic_light_scene_generated
+  light_automatic_enabled: input_boolean.toilet_light_automation_is_enabled
+
+turn_off_lights_when_there_is_no_activity_in_the_toilet:
+  module: activity_based_light_control_automations
+  class: TurnOffAutomation
+  light_group: light.toilet_lights
+  turn_off_timeout: input_number.toilet_light_turn_off_timeout
+  observed_activity_sensor: binary_sensor.toilet_motion_detector
+  constrain_input_boolean: input_boolean.toilet_light_automation_is_enabled
+
+reactivate_toilet_light_automation_after_given_timeout:
+  module: input_boolean
+  class: ReactivationTimer
+  observed_input_boolean: input_boolean.toilet_light_automation_is_enabled
+  reactivation_timeout: input_datetime.toilet_light_automation_reactivation_timeout
