@@ -28,13 +28,38 @@ kitchen_sensor_1_is_offline:
   skip_first: false
   notifiers:
     - ios
+kitchen_plant_controller_is_offline:
+  name: Kitchen Plant Controller offline
+  done_message: Kitchen Plant Controller online again
+  entity_id: binary_sensor.kitchen_plant_controller_ping
+  state: 'off'
+  repeat: 30
+  can_acknowledge: true
+  skip_first: false
+  notifiers:
+    - ios
+mqtt_lcd_display_is_offline:
+  name: MQTT LCD Display offline
+  done_message: MQTT LCD Display online again
+  entity_id: binary_sensor.mqtt_lcd_display_ping
+  state: 'off'
+  repeat: 30
+  can_acknowledge: true
+  skip_first: false
+  notifiers:
+    - ios
 kitchen_ceiling_light_1_is_offline:
   name: Kitchen Ceiling Light is offline
   done_message: Kitchen Ceiling Light is online again
   entity_id: binary_sensor.kitchen_ceiling_light_1_ping
   state: 'off'
-  repeat: 30
+  repeat:
+    - 2
+    - 30
+    - 120
+    - 360
+    - 1140
   can_acknowledge: true
-  skip_first: false
+  skip_first: true
   notifiers:
     - ios

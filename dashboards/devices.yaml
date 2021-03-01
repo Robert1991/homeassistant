@@ -38,7 +38,15 @@ views:
           tap_action:
             action: navigate
             navigation_path: /lovelace-device/kitchen
+        - entity: binary_sensor.kitchen_plant_controller_ping
+          tap_action:
+            action: navigate
+            navigation_path: /lovelace-device/kitchen
         - entity: binary_sensor.kitchen_sensor_1_ping
+          tap_action:
+            action: navigate
+            navigation_path: /lovelace-device/kitchen
+        - entity: binary_sensor.mqtt_lcd_display_ping
           tap_action:
             action: navigate
             navigation_path: /lovelace-device/kitchen
@@ -144,6 +152,68 @@ views:
                 entity_id: '*kitchen_sensor_1*'
               - domain: switch
                 entity_id: '*kitchen_sensor_1*'
+          card:
+            type: 'custom:fold-entity-row'
+            head:
+              type: section
+              label: Entities
+    - type: 'custom:vertical-stack-in-card'
+      title: Kitchen Plant Controller
+      cards:
+        - type: entities
+          state_color: true
+          show_header_toggle: false
+          entities:
+            - entity: binary_sensor.kitchen_plant_controller_ping
+              name: Device Status
+              secondary_info: last-updated
+              icon: 'hass:server-network'
+            - entity: alert.kitchen_plant_controller_is_offline
+              name: Offline Alert
+            - entity: switch.kitchen_plant_controller_reset_switch
+              name: Reset
+        - type: 'custom:auto-entities'
+          filter:
+            include:
+              - domain: light
+                entity_id: '*kitchen_plant_controller*'
+              - domain: sensor
+                entity_id: '*kitchen_plant_controller*'
+              - domain: binary_sensor
+                entity_id: '*kitchen_plant_controller*'
+              - domain: switch
+                entity_id: '*kitchen_plant_controller*'
+          card:
+            type: 'custom:fold-entity-row'
+            head:
+              type: section
+              label: Entities
+    - type: 'custom:vertical-stack-in-card'
+      title: MQTT LCD Display
+      cards:
+        - type: entities
+          state_color: true
+          show_header_toggle: false
+          entities:
+            - entity: binary_sensor.mqtt_lcd_display_ping
+              name: Device Status
+              secondary_info: last-updated
+              icon: 'hass:server-network'
+            - entity: alert.mqtt_lcd_display_is_offline
+              name: Offline Alert
+            - entity: switch.mqtt_lcd_display_reset_switch
+              name: Reset
+        - type: 'custom:auto-entities'
+          filter:
+            include:
+              - domain: light
+                entity_id: '*mqtt_lcd_display*'
+              - domain: sensor
+                entity_id: '*mqtt_lcd_display*'
+              - domain: binary_sensor
+                entity_id: '*mqtt_lcd_display*'
+              - domain: switch
+                entity_id: '*mqtt_lcd_display*'
           card:
             type: 'custom:fold-entity-row'
             head:

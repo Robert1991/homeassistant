@@ -5,6 +5,38 @@ kitchen_light_brightness:
   max: 255
   step: 15
 
+kitchen_plant_ventilation_on_interval:
+  name: Kitchen Plant Ventilation On Interval
+  min: 1
+  max: 100
+  step: 1
+  unit_of_measurement: "min"
+  icon: 'mdi:clock-in'
+
+kitchen_plant_ventilation_off_interval:
+  name: Kitchen Plant Ventilation Off Interval
+  min: 1
+  max: 100
+  step: 1
+  unit_of_measurement: "min"
+  icon: 'mdi:clock-in'
+
+kitchen_plant_night_ventilation_on_interval:
+  name: Kitchen Plant Night Ventilation On Interval
+  min: 1
+  max: 100
+  step: 1
+  unit_of_measurement: "min"
+  icon: 'mdi:clock-in'
+
+kitchen_plant_night_ventilation_off_interval:
+  name: Kitchen Plant Night Ventilation Off Interval
+  min: 1
+  max: 100
+  step: 1
+  unit_of_measurement: "min"
+  icon: 'mdi:clock-in'
+
 kitchen_light_turn_off_timeout:
   name: Kitchen Light Turn Off Automation Timeout
   min: 10
