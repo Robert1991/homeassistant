@@ -23,8 +23,13 @@ couch_rgb_i2c_platine_is_offline:
   done_message: Couch Light is online again
   entity_id: binary_sensor.couch_rgb_i2c_platine_ping
   state: 'off'
-  repeat: 30
+  repeat:
+    - 2
+    - 30
+    - 120
+    - 360
+    - 1140
   can_acknowledge: true
-  skip_first: false
+  skip_first: true
   notifiers:
     - ios

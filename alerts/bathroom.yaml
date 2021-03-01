@@ -1,7 +1,7 @@
 bathroom_sensor_actor_1_is_offline:
   name: Bathroom Sensor/Actor 1 offline
   done_message: Bathroom Sensor/Actor 1 online again
-  entity_id: binary_sensor.bath_room_sensor_actor_1_ping
+  entity_id: binary_sensor.bathroom_sensor_actor_1_ping
   state: 'off'
   repeat:       
     - 5
