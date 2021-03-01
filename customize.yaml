@@ -125,6 +125,13 @@ light.living_room_sensor_actor_1_rgb:
   friendly_name: "Living Closet Lights"
   icon: mdi:lightbulb-multiple
 
+# mqtt_lcd_display
+binary_sensor.mqtt_lcd_display_ping:
+  friendly_name: "MQTT LCD Display Ping"
+switch.mqtt_lcd_display_reset_switch:
+  friendly_name: "MQTT LCD Reset Switch"
+
+
 # kitchen_ceiling_light_1
 binary_sensor.kitchen_ceiling_light_1_ping:
   friendly_name: "Kitchen Ceiling Light Connection Status"
@@ -213,3 +220,12 @@ binary_sensor.work_laptop_activity:
 light.touch_screen_back_light:
   friendly_name: "Smart Home Panel Back Light"
   icon: mdi:tablet-dashboard
+
+# plants
+switch.hue_smart_plug_1:
+  friendly_name: "Kitchen Plant Light"
+  icon: mdi:flower-tulip
+
+switch.hue_smart_plug_2:
+  friendly_name: "Kitchen Plant Ventilation"
+  icon: mdi:fan
