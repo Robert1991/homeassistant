@@ -423,3 +423,126 @@
       state: "on"
     light.touch_screen_back_light:
       state: "off"
+- name: Living Room Casa Cabron
+  entities:
+    light.couch_rgb_i2c_platine_i2c_rgb:
+      brightness: 35
+      hs_color:
+        - 15.082
+        - 71.765
+      rgb_color:
+        - 255
+        - 117
+        - 71
+      xy_color:
+        - 0.594
+        - 0.343
+      state: "on"
+    light.former_ikea_light_relais_switch:
+      state: "on"
+    light.hue_iris_light:
+      brightness: 30
+      hs_color:
+        - 315.0
+        - 84.706
+      rgb_color:
+        - 255
+        - 38
+        - 200
+      xy_color:
+        - 0.459
+        - 0.196
+      state: "on"
+    light.living_room_center_1:
+      brightness: 133
+      hs_color:
+        - 15.484
+        - 85.098
+      rgb_color:
+        - 255
+        - 94
+        - 38
+      xy_color:
+        - 0.639
+        - 0.336
+      state: "on"
+    light.living_room_center_2:
+      brightness: 133
+      hs_color:
+        - 300.28
+        - 83.922
+      rgb_color:
+        - 255
+        - 40
+        - 254
+      xy_color:
+        - 0.385
+        - 0.16
+      state: "on"
+    light.living_room_center_3:
+      brightness: 134
+      hs_color:
+        - 224.916
+        - 70.196
+      rgb_color:
+        - 76
+        - 121
+        - 255
+      xy_color:
+        - 0.167
+        - 0.137
+      state: "on"
+    light.living_room_center_4:
+      brightness: 123
+      hs_color:
+        - 134.795
+        - 57.255
+      rgb_color:
+        - 108
+        - 255
+        - 145
+      xy_color:
+        - 0.218
+        - 0.527
+      state: "on"
+    light.living_room_center_5:
+      brightness: 123
+      hs_color:
+        - 44.058
+        - 81.176
+      rgb_color:
+        - 255
+        - 200
+        - 48
+      xy_color:
+        - 0.505
+        - 0.447
+      state: "on"
+    light.living_room_sensor_actor_1_rgb:
+      brightness: 255
+      hs_color:
+        - 225.176
+        - 100.0
+      rgb_color:
+        - 0
+        - 63
+        - 255
+      xy_color:
+        - 0.137
+        - 0.065
+      state: "on"
+    light.living_room_standing_light:
+      brightness: 156
+      hs_color:
+        - 29.722
+        - 84.706
+      rgb_color:
+        - 255
+        - 145
+        - 38
+      xy_color:
+        - 0.581
+        - 0.387
+      state: "on"
+    light.touch_screen_back_light:
+      state: "on"

@@ -83,3 +83,22 @@
         - 0.136
         - 0.04
       state: "on"
+- name: Floor Casa Cabron
+  entities:
+    light.floor_light:
+      brightness: 235
+      color_temp: 290
+      state: "on"
+    light.floor_sensor_actor_1_i2c_rgb:
+      brightness: 224
+      hs_color:
+        - 255.102
+        - 57.647
+      rgb_color:
+        - 145
+        - 108
+        - 255
+      xy_color:
+        - 0.234
+        - 0.143
+      state: "on"
