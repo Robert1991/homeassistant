@@ -66,6 +66,9 @@ switch.floor_sensor_actor_1_reset_switch:
   friendly_name: "Floor Sensor/Actor 1 Reset Switch"
 
 # living_room_sensor_actor_2
+sensor.living_room_sensor_actor_2_light_intensity:
+  friendly_name: "Living Room Light Intensity"
+
 light.living_room_sensor_actor_2_light_strings:
   friendly_name: "Living Room Window Light Strings"
   icon: mdi:string-lights

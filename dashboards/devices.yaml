@@ -279,6 +279,8 @@ views:
               name: Offline Alert
             - entity: switch.living_room_sensor_actor_2_restart
               name: Restart
+            - entity: switch.living_room_sensor_actor_2_shutdown
+              name: Shutdown
         - type: 'custom:auto-entities'
           filter:
             include:

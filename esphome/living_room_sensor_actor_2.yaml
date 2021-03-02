@@ -6,6 +6,7 @@ esphome:
 wifi:
   ssid: !secret WIFI_SSID
   password: !secret WIFI_PASS
+  power_save_mode: NONE
 
   ap:
     ssid: "Living Room Sensor Actor 2"
@@ -17,11 +18,8 @@ mqtt:
   password: !secret MQTT_PASSWORD
 
 captive_portal:
-
 logger:
-
 api:
-
 ota:
 
 binary_sensor:
@@ -40,19 +38,34 @@ sensor:
     pin: A0
     name: "Living Room Sensor Actor 2 Light Intensity"
     accuracy_decimals: 2
-    update_interval: 5s
+    update_interval: 0.5s
     filters:
       - calibrate_linear:
         - 0.0 -> 0.0
-        - 3.3 -> 100.0
+        - 1.0 -> 100.0
+      - sliding_window_moving_average:
+          window_size: 5
+          send_every: 5
+
 
 text_sensor:
   - platform: version
     name: "Living Room Sensor Actor 2 OS Version"
+  - platform: wifi_info
+    ip_address:
+      name: "Living Room Sensor Actor 2 IP Address"
+    ssid:
+      name: "Living Room Sensor Actor 2 Connected SSID"
+    bssid:
+      name: "Living Room Sensor Actor 2 Connected BSSID"
+    mac_address:
+      name: "Living Room Sensor Actor 2 Mac Wifi Address"
 
 switch:
   - platform: restart
     name: "Living Room Sensor Actor 2 Restart"
+  - platform: shutdown
+    name: "Living Room Sensor Actor 2 Shutdown"
 
 output:
   - platform: gpio
