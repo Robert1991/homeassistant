@@ -70,18 +70,14 @@ light.living_room_sensor_actor_2_light_strings:
   friendly_name: "Living Room Window Light Strings"
   icon: mdi:string-lights
 
-# kitchen_actor_1
-light.kitchen_actor_1_rgb:
+# kitchen_light_controller
+light.kitchen_light_controller_light_strip:
   friendly_name: "Kitchen RGB Light Strip"
   icon: mdi:led-strip-variant
-light.kitchen_actor_1_relais_switch:
-  friendly_name: "Kitchen Techno Light"
+light.kitchen_light_controller_black_light:
+  friendly_name: "Kitchen Black Light"
   icon: mdi:desk-lamp
-binary_sensor.kitchen_actor_1_ping:
-  friendly_name: "Kitchen Actor 1 Connection Status"
-switch.kitchen_actor_1_reset_switch:
-  friendly_name: "Kitchen Actor 1 Reset Switch"
-  icon: mdi:restart
+
 
 # kitchen_sensor_1
 binary_sensor.kitchen_sensor_1_door_open:

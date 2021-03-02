@@ -2,14 +2,14 @@ kitchen_indirect_lights:
   name: "Indirect Kitchen Lights"
   icon: "mdi:lightbulb-group-outline"
   entities:
-    - light.kitchen_actor_1_rgb
+    - light.kitchen_light_controller_light_strip
     - light.kitchen_led_spots_light
-    - light.kitchen_actor_1_relais_switch
+    - light.kitchen_light_controller_black_light
 all_kitchen_lights:
   name: "All Kitchen Lights"
   icon: "mdi:lightbulb-group-outline"
   entities:
     - light.kitchen_ceiling_light_1_relais_light_1
-    - light.kitchen_actor_1_rgb
+    - light.kitchen_light_controller_light_strip
     - light.kitchen_led_spots_light
-    - light.kitchen_actor_1_relais_switch
+    - light.kitchen_light_controller_black_light

@@ -30,7 +30,7 @@ views:
           tap_action:
             action: navigate
             navigation_path: /lovelace-device/living_room
-        - entity: binary_sensor.kitchen_actor_1_ping
+        - entity: binary_sensor.kitchen_light_controller_connection_status
           tap_action:
             action: navigate
             navigation_path: /lovelace-device/kitchen
@@ -96,31 +96,37 @@ views:
     badges: []
     cards:
     - type: 'custom:vertical-stack-in-card'
-      title: Kitchen Actor 1
+      title: Kitchen Light Controller
       cards:
         - type: entities
           state_color: true
           show_header_toggle: false
           entities:
-            - entity: binary_sensor.kitchen_actor_1_ping
+            - entity: binary_sensor.kitchen_light_controller_connection_status
               name: Device Status
               secondary_info: last-updated
               icon: 'hass:server-network'
-            - entity: alert.kitchen_actor_1_is_offline
+            - entity: sensor.kitchen_light_controller_uptime
+              name: Uptime
+            - entity: sensor.kitchen_light_controller_wifi_signal
+              name: Wifi Signal
+            - entity: alert.kitchen_light_controller_is_offline
               name: Offline Alert
-            - entity: switch.kitchen_actor_1_reset_switch
-              name: Reset
+            - entity: switch.kitchen_light_controller_restart
+              name: Restart
+            - entity: switch.kitchen_light_controller_shutdown
+              name: Shutdown
         - type: 'custom:auto-entities'
           filter:
             include:
               - domain: light
-                entity_id: '*kitchen_actor_1*'
+                entity_id: '*kitchen_light_controller*'
               - domain: sensor
-                entity_id: '*kitchen_actor_1*'
+                entity_id: '*kitchen_light_controller*'
               - domain: binary_sensor
-                entity_id: '*kitchen_actor_1*'
+                entity_id: '*kitchen_light_controller*'
               - domain: switch
-                entity_id: '*kitchen_actor_1*'
+                entity_id: '*kitchen_light_controller*'
           card:
             type: 'custom:fold-entity-row'
             head:

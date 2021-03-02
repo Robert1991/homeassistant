@@ -1,0 +1,77 @@
+esphome:
+  name: kitchen_light_controller
+  platform: ESP8266
+  board: nodemcuv2
+
+wifi:
+  ssid: !secret WIFI_SSID
+  password: !secret WIFI_PASS
+  power_save_mode: NONE
+
+  ap:
+    ssid: "Kitchen Light Controller"
+    password: "7OVsabPI1Qb9"
+
+mqtt:
+  broker: !secret MQTT_BROKER
+  username: !secret MQTT_USER
+  password: !secret MQTT_PASSWORD
+
+captive_portal:
+logger:
+api:
+ota:
+
+binary_sensor:
+  - platform: status
+    name: "Kitchen Light Controller Connection Status"
+    
+sensor:
+  - platform: wifi_signal
+    name: "Kitchen Light Controller WiFi Signal"
+    update_interval: 60s
+  - platform: uptime
+    name: "Kitchen Light Controller Uptime"
+
+text_sensor:
+  - platform: version
+    name: "Kitchen Light Controller OS Version"
+  - platform: wifi_info
+    ip_address:
+      name: "Kitchen Light Controller IP Address"
+    ssid:
+      name: "Kitchen Light Controller Connected SSID"
+    bssid:
+      name: "Kitchen Light Controller Connected BSSID"
+    mac_address:
+      name: "Kitchen Light Controller Mac Wifi Address"
+
+output:
+  - platform: gpio
+    id: relay
+    pin: D1
+  - platform: esp8266_pwm
+    id: strip_red
+    pin: D5
+  - platform: esp8266_pwm
+    id: strip_green
+    pin: D2
+  - platform: esp8266_pwm
+    id: strip_blue
+    pin: D6
+
+switch:
+  - platform: restart
+    name: "Kitchen Light Controller Restart"
+  - platform: shutdown
+    name: "Kitchen Light Controller Shutdown"
+
+light:
+  - platform: binary
+    name: "Kitchen Light Controller Black Light"
+    output: relay
+  - platform: rgb
+    name: "Kitchen Light Controller Light Strip"
+    red: strip_red
+    green: strip_green
+    blue: strip_blue

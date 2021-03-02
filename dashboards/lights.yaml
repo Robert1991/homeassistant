@@ -200,8 +200,8 @@ views:
               toggle: true
               hide_when_off: true
               icon: 'mdi:lightbulb-multiple'
-            - entity: light.kitchen_actor_1_relais_switch
-            - entity: light.kitchen_actor_1_rgb
+            - entity: light.kitchen_light_controller_black_light
+            - entity: light.kitchen_light_controller_light_strip
         - type: 'custom:fold-entity-row'
           head:
             type: section

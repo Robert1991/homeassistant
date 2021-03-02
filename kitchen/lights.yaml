@@ -1,18 +1,18 @@
 - platform: group
   name: Kitchen Dimmable Lights
   entities:
-    - light.kitchen_actor_1_rgb
+    - light.kitchen_light_controller_light_strip
     - light.kitchen_led_spots_light
 - platform: group
   name: Kitchen Indirect Lights
   entities:
-    - light.kitchen_actor_1_rgb
+    - light.kitchen_light_controller_light_strip
     - light.kitchen_led_spots_light
-    - light.kitchen_actor_1_relais_switch
+    - light.kitchen_light_controller_black_light
 - platform: group
   name: Kitchen Lights
   entities:
     - light.kitchen_ceiling_light_1_relais_light_1
-    - light.kitchen_actor_1_rgb
+    - light.kitchen_light_controller_light_strip
     - light.kitchen_led_spots_light
-    - light.kitchen_actor_1_relais_switch
+    - light.kitchen_light_controller_black_light

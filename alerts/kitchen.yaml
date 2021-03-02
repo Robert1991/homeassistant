@@ -8,10 +8,10 @@ fridge_was_left_open_alert:
   skip_first: false
   notifiers:
     - ios
-kitchen_actor_1_is_offline:
-  name: Kitchen Actor 1 offline
-  done_message: Kitchen Actor 1 online again
-  entity_id: binary_sensor.kitchen_actor_1_ping
+kitchen_light_controller_is_offline:
+  name: Kitchen Light Controller offline
+  done_message: Kitchen Light Controller online again
+  entity_id: binary_sensor.kitchen_light_controller_connection_status
   state: 'off'
   repeat: 30
   can_acknowledge: true
@@ -21,7 +21,7 @@ kitchen_actor_1_is_offline:
 kitchen_sensor_1_is_offline:
   name: Kitchen Sensor 1 offline
   done_message: Kitchen Sensor 1 online again
-  entity_id: binary_sensor.kitchen_actor_1_ping
+  entity_id: binary_sensor.kitchen_sensor_1_ping
   state: 'off'
   repeat: 30
   can_acknowledge: true
