@@ -26,7 +26,7 @@ views:
           tap_action:
             action: navigate
             navigation_path: /lovelace-device/other
-        - entity: binary_sensor.former_ikea_light_ping
+        - entity: binary_sensor.living_room_sensor_actor_2_connection_status
           tap_action:
             action: navigate
             navigation_path: /lovelace-device/living_room
@@ -255,31 +255,35 @@ views:
     badges: []
     cards:
     - type: 'custom:vertical-stack-in-card'
-      title: Former Ikea Light Sensor/Actor
+      title: Living Room Sensor/Actor 2
       cards:
         - type: entities
           state_color: true
           show_header_toggle: false
           entities:
-            - entity: binary_sensor.former_ikea_light_ping
+            - entity: binary_sensor.living_room_sensor_actor_2_connection_status
               name: Device Status
               secondary_info: last-updated
               icon: 'hass:server-network'
-            - entity: alert.living_room_ikea_light_1_is_offline
+            - entity: sensor.living_room_sensor_actor_2_uptime
+              name: Uptime
+            - entity: sensor.living_room_sensor_actor_2_wifi_signal
+              name: Wifi Signal
+            - entity: alert.living_room_sensor_actor_2_offline
               name: Offline Alert
-            - entity: switch.former_ikea_light_reset_switch
-              name: Reset
+            - entity: switch.living_room_sensor_actor_2_restart
+              name: Restart
         - type: 'custom:auto-entities'
           filter:
             include:
               - domain: light
-                entity_id: '*former_ikea_light*'
+                entity_id: '*living_room_sensor_actor_2*'
               - domain: sensor
-                entity_id: '*former_ikea_light*'
+                entity_id: '*living_room_sensor_actor_2*'
               - domain: binary_sensor
-                entity_id: '*former_ikea_light*'
+                entity_id: '*living_room_sensor_actor_2*'
               - domain: switch
-                entity_id: '*former_ikea_light*'
+                entity_id: '*living_room_sensor_actor_2*'
           card:
             type: 'custom:fold-entity-row'
             head:

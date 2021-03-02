@@ -41,7 +41,7 @@ views:
         - type: entities
           entities:
           - name: Light Intesity
-            entity: sensor.living_room_light_intensity_percent
+            entity: sensor.living_room_sensor_actor_2_light_intensity
           - name: Current Scene
             entity: input_select.living_room_automatic_light_scene_generated
         - type: 'custom:fold-entity-row'

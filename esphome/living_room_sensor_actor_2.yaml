@@ -1,0 +1,65 @@
+esphome:
+  name: living_room_sensor_actor_2
+  platform: ESP8266
+  board: nodemcuv2
+
+wifi:
+  ssid: !secret WIFI_SSID
+  password: !secret WIFI_PASS
+
+  ap:
+    ssid: "Living Room Sensor Actor 2"
+    password: "6HcUr2h3UrDA"
+
+mqtt:
+  broker: !secret MQTT_BROKER
+  username: !secret MQTT_USER
+  password: !secret MQTT_PASSWORD
+
+captive_portal:
+
+logger:
+
+api:
+
+ota:
+
+binary_sensor:
+  - platform: status
+    name: "Living Room Sensor Actor 2 Connection Status"
+    
+sensor:
+  - platform: wifi_signal
+    name: "Living Room Sensor Actor 2 WiFi Signal"
+    update_interval: 60s
+  - platform: uptime
+    name: "Living Room Sensor Actor 2 Uptime"
+  - platform: adc
+    unit_of_measurement: "%"
+    icon: mdi:brightness-4
+    pin: A0
+    name: "Living Room Sensor Actor 2 Light Intensity"
+    accuracy_decimals: 2
+    update_interval: 5s
+    filters:
+      - calibrate_linear:
+        - 0.0 -> 0.0
+        - 3.3 -> 100.0
+
+text_sensor:
+  - platform: version
+    name: "Living Room Sensor Actor 2 OS Version"
+
+switch:
+  - platform: restart
+    name: "Living Room Sensor Actor 2 Restart"
+
+output:
+  - platform: gpio
+    id: relay
+    pin: D3
+
+light:
+  - platform: binary
+    name: "Living Room Sensor Actor 2 Light Strings"
+    output: relay

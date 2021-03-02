@@ -1,8 +1,0 @@
-- platform: template
-  sensors:
-    living_room_light_intensity_percent:
-      friendly_name: "Living Room Light Intensity %"
-      icon_template: mdi:brightness-percent
-      unit_of_measurement: "%"
-      value_template: >-
-        {{ ((states('sensor.former_ikea_light_light_intensity') | float / 3.3) | float* 100) | round(0) }}

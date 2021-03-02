@@ -100,7 +100,6 @@ scene toilet: !include toilet/scenes.yaml
 sensor bathroom: !include bathroom/sensors.yaml
 sensor bedroom: !include bedroom/sensors.yaml 
 sensor kitchen: !include kitchen/sensors.yaml
-sensor living_room: !include living_room/sensors.yaml
 sensor toilet: !include toilet/sensors.yaml
 
 shell_command:

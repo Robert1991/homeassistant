@@ -13,7 +13,7 @@
         - 0.157
         - 0.459
       state: "on"
-    light.former_ikea_light_relais_switch:
+    light.living_room_sensor_actor_2_light_strings:
       state: "on"
     light.living_room_center_1:
       brightness: 59
@@ -134,7 +134,7 @@
         - 0.157
         - 0.459
       state: "on"
-    light.former_ikea_light_relais_switch:
+    light.living_room_sensor_actor_2_light_strings:
       state: "on"
     light.living_room_center_1:
       brightness: 210
@@ -255,7 +255,7 @@
         - 0.677
         - 0.319
       state: "on"
-    light.former_ikea_light_relais_switch:
+    light.living_room_sensor_actor_2_light_strings:
       state: "on"
     light.living_room_center_1:
       brightness: 133
@@ -324,7 +324,7 @@
         - 0.644
         - 0.333
       state: "on"
-    light.former_ikea_light_relais_switch:
+    light.living_room_sensor_actor_2_light_strings:
       state: "on"
     light.hue_iris_light:
       brightness: 117
@@ -438,7 +438,7 @@
         - 0.594
         - 0.343
       state: "on"
-    light.former_ikea_light_relais_switch:
+    light.living_room_sensor_actor_2_light_strings:
       state: "on"
     light.hue_iris_light:
       brightness: 30

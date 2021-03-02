@@ -65,17 +65,9 @@ binary_sensor.floor_sensor_actor_1_ping:
 switch.floor_sensor_actor_1_reset_switch:
   friendly_name: "Floor Sensor/Actor 1 Reset Switch"
 
-# former_ikea_light
-sensor.former_ikea_light_light_intensity:
-  friendly_name: "Living Room Light Intensity"
-  icon: mdi:brightness-4
-binary_sensor.former_ikea_light_ping:
-  friendly_name: "Ikea Solar Light Connection Status"
-switch.former_ikea_light_reset_switch:
-  friendly_name: "Ikea Solar Light Reset Switch"
-  icon: mdi:restart
-light.former_ikea_light_relais_switch:
-  friendly_name: "Led Window Light Strings"
+# living_room_sensor_actor_2
+light.living_room_sensor_actor_2_light_strings:
+  friendly_name: "Living Room Window Light Strings"
   icon: mdi:string-lights
 
 # kitchen_actor_1
