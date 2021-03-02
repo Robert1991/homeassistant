@@ -1,8 +1,0 @@
-- platform: template
-  sensors:
-    kitchen_light_intensity_percent:
-      friendly_name: "Kitchen Light Intensity %"
-      icon_template: mdi:brightness-percent
-      unit_of_measurement: "%"
-      value_template: >-
-        {{ ((states('sensor.kitchen_sensor_1_light_intensity') | float / 3.3) | float* 100) | round(0) }}

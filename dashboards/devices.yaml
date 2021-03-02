@@ -42,7 +42,7 @@ views:
           tap_action:
             action: navigate
             navigation_path: /lovelace-device/kitchen
-        - entity: binary_sensor.kitchen_sensor_1_ping
+        - entity: binary_sensor.kitchen_sensor_connection_status
           tap_action:
             action: navigate
             navigation_path: /lovelace-device/kitchen
@@ -133,31 +133,38 @@ views:
               type: section
               label: Entities
     - type: 'custom:vertical-stack-in-card'
-      title: Kitchen Sensor 1
+      title: Kitchen Sensor
       cards:
         - type: entities
           state_color: true
           show_header_toggle: false
           entities:
-            - entity: binary_sensor.kitchen_sensor_1_ping
+            - entity: binary_sensor.kitchen_sensor_connection_status
               name: Device Status
               secondary_info: last-updated
               icon: 'hass:server-network'
-            - entity: alert.kitchen_sensor_1_is_offline
+            - entity: sensor.kitchen_sensor_uptime
+              name: Uptime
+            - entity: sensor.kitchen_sensor_wifi_signal
+              name: Wifi Signal
+            - entity: alert.kitchen_sensor_is_offline
               name: Offline Alert
-            - entity: switch.kitchen_sensor_1_reset_switch
-              name: Reset
+            - entity: switch.kitchen_sensor_restart
+              name: Restart
+            - entity: switch.kitchen_sensor_shutdown
+              name: Shutdown
+
         - type: 'custom:auto-entities'
           filter:
             include:
               - domain: light
-                entity_id: '*kitchen_sensor_1*'
+                entity_id: '*kitchen_sensor*'
               - domain: sensor
-                entity_id: '*kitchen_sensor_1*'
+                entity_id: '*kitchen_sensor*'
               - domain: binary_sensor
-                entity_id: '*kitchen_sensor_1*'
+                entity_id: '*kitchen_sensor*'
               - domain: switch
-                entity_id: '*kitchen_sensor_1*'
+                entity_id: '*kitchen_sensor*'
           card:
             type: 'custom:fold-entity-row'
             head:

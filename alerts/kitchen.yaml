@@ -18,10 +18,10 @@ kitchen_light_controller_is_offline:
   skip_first: false
   notifiers:
     - ios
-kitchen_sensor_1_is_offline:
-  name: Kitchen Sensor 1 offline
-  done_message: Kitchen Sensor 1 online again
-  entity_id: binary_sensor.kitchen_sensor_1_ping
+kitchen_sensor_is_offline:
+  name: Kitchen Sensor offline
+  done_message: Kitchen Sensor online again
+  entity_id: binary_sensor.kitchen_sensor_connection_status
   state: 'off'
   repeat: 30
   can_acknowledge: true

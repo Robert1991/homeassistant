@@ -82,23 +82,18 @@ light.kitchen_light_controller_black_light:
   icon: mdi:desk-lamp
 
 
-# kitchen_sensor_1
-binary_sensor.kitchen_sensor_1_door_open:
+# kitchen_sensor
+binary_sensor.kitchen_sensor_door_sensor:
   friendly_name: "Fride Door Sensor"
-sensor.kitchen_sensor_1_humidity:
+sensor.kitchen_sensor_humidity:
   friendly_name: "Kitchen Humidity"
-sensor.kitchen_sensor_1_temperature:
+sensor.kitchen_sensor_temperature:
   friendly_name: "Kitchen Temperature"
-sensor.kitchen_sensor_1_light_intensity:
+sensor.kitchen_sensor_light_intensity:
   friendly_name: "Kitchen Light Intensity"
   icon: mdi:brightness-4
-binary_sensor.kitchen_sensor_1_motion_detected:
+binary_sensor.kitchen_sensor_motion_detected:
   friendly_name: "Kitchen Motion Detector"
-binary_sensor.kitchen_sensor_1_ping:
-  friendly_name: "Kitchen Sensor 1 Connection Status"
-switch.kitchen_sensor_1_reset_switch:
-  friendly_name: "Kitchen Sensor 1 Reset Switch"
-  icon: mdi:restart
 
 # living_room_sensor_actor_1
 sensor.living_room_sensor_actor_1_humidity:

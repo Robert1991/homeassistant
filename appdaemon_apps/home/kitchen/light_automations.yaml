@@ -2,9 +2,9 @@
 turn_on_lights_when_there_is_activity_in_the_kitchen:
   module: activity_based_light_control_automations
   class: TurnOnAutomation
-  observed_activity_sensor: binary_sensor.kitchen_sensor_1_motion_detected
+  observed_activity_sensor: binary_sensor.kitchen_sensor_motion_detected
   light_group: light.kitchen_lights
-  light_sensor: sensor.kitchen_light_intensity_percent
+  light_sensor: sensor.kitchen_sensor_light_intensity
   scene_input_select: input_select.kitchen_automatic_light_scene_generated
   scene_group_prefix: kitchen
   light_intensity_toggle_threshold: input_number.kitchen_light_toogle_intensity_threshold
@@ -32,5 +32,5 @@ turn_off_lights_when_there_is_no_activity_in_the_kitchen:
   class: TurnOffAutomation
   light_group: light.kitchen_lights
   turn_off_timeout: input_number.kitchen_light_turn_off_timeout
-  observed_activity_sensor: binary_sensor.kitchen_sensor_1_motion_detected
+  observed_activity_sensor: binary_sensor.kitchen_sensor_motion_detected
   constrain_input_boolean: input_boolean.kitchen_light_automation_is_enabled

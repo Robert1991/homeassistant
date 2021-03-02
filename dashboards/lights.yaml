@@ -184,7 +184,7 @@ views:
         - type: entities
           entities:
           - name: Light Intesity
-            entity: sensor.kitchen_light_intensity_percent
+            entity: sensor.kitchen_sensor_light_intensity
           - name: Current Scene
             entity: input_select.kitchen_automatic_light_scene_generated
         - type: 'custom:fold-entity-row'
