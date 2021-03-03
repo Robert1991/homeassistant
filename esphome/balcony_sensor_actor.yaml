@@ -1,0 +1,77 @@
+esphome:
+  name: balcony_sensor_actor
+  platform: ESP8266
+  board: nodemcuv2
+
+wifi:
+  ssid: !secret WIFI_SSID
+  password: !secret WIFI_PASS
+  
+  ap:
+    ssid: "Balcony Sensor Actor"
+    password: "7OVsabPI1Qb9"
+
+
+mqtt:
+  broker: !secret MQTT_BROKER
+  username: !secret MQTT_USER
+  password: !secret MQTT_PASSWORD
+
+captive_portal:
+logger:
+ota:
+
+binary_sensor:
+  - platform: status
+    name: "Balcony Sensor Actor Connection Status"
+    
+sensor:
+  - platform: wifi_signal
+    name: "Balcony Sensor Actor WiFi Signal"
+    update_interval: 60s
+  - platform: uptime
+    name: "Balcony Sensor Actor Uptime"
+  - platform: dht
+    pin: D3
+    model: DHT22
+    temperature:
+      name: "Balcony Sensor Actor Temperature"
+    humidity:
+      name: "Balcony Sensor Actor Humidity"
+    update_interval: 60s
+
+
+text_sensor:
+  - platform: version
+    name: "Balcony Sensor Actor OS Version"
+  - platform: wifi_info
+    ip_address:
+      name: "Balcony Sensor Actor IP Address"
+    ssid:
+      name: "Balcony Sensor Actor Connected SSID"
+    bssid:
+      name: "Balcony Sensor Actor Connected BSSID"
+    mac_address:
+      name: "Balcony Sensor Actor Mac Wifi Address"
+
+output:
+  - platform: gpio
+    id: relay_1
+    pin: D1
+  - platform: gpio
+    id: relay_2
+    pin: D2
+
+switch:
+  - platform: restart
+    name: "Balcony Sensor Actor Restart"
+  - platform: shutdown
+    name: "Balcony Sensor Actor Shutdown"
+
+light:
+  - platform: binary
+    name: "Balcony Sensor Actor Relay Light 1"
+    output: relay_1
+  - platform: binary
+    name: "Balcony Sensor Actor Relay Light 2"
+    output: relay_2

@@ -6,7 +6,7 @@ views:
     cards:
     - type: entities
       entities:
-        - entity: binary_sensor.balcony_sensor_actor_1_ping
+        - entity: binary_sensor.balcony_sensor_actor_connection_status
           tap_action:
             action: navigate
             navigation_path: /lovelace-device/other
@@ -433,31 +433,37 @@ views:
               type: section
               label: Entities
     - type: 'custom:vertical-stack-in-card'
-      title: Balcony Sensor/Actor 1
+      title: Balcony Sensor/Actor
       cards:
         - type: entities
           state_color: true
           show_header_toggle: false
           entities:
-            - entity: binary_sensor.balcony_sensor_actor_1_ping
+            - entity: binary_sensor.balcony_sensor_actor_connection_status
               name: Device Status
               secondary_info: last-updated
               icon: 'hass:server-network'
-            - entity: alert.balcony_sensor_actor_1_is_offline
+            - entity: sensor.balcony_sensor_actor_uptime
+              name: Uptime
+            - entity: sensor.balcony_sensor_actor_wifi_signal
+              name: Wifi Signal
+            - entity: alert.balcony_sensor_actor_is_offline
               name: Offline Alert
-            - entity: switch.balcony_sensor_actor_1_reset_switch
-              name: Reset
+            - entity: switch.balcony_sensor_actor_restart
+              name: Restart
+            - entity: switch.balcony_sensor_actor_shutdown
+              name: Shutdown
         - type: 'custom:auto-entities'
           filter:
             include:
               - domain: light
-                entity_id: '*balcony_sensor_actor_1*'
+                entity_id: '*balcony_sensor_actor*'
               - domain: sensor
-                entity_id: '*balcony_sensor_actor_1*'
+                entity_id: '*balcony_sensor_actor*'
               - domain: binary_sensor
-                entity_id: '*balcony_sensor_actor_1*'
+                entity_id: '*balcony_sensor_actor*'
               - domain: switch
-                entity_id: '*balcony_sensor_actor_1*'
+                entity_id: '*balcony_sensor_actor*'
           card:
             type: 'custom:fold-entity-row'
             head:

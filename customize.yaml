@@ -1,18 +1,15 @@
-# balcony_sensor_actor_1
-sensor.balcony_sensor_actor_1_humidity:
+# balcony_sensor_actor
+sensor.balcony_sensor_actor_humidity:
   friendly_name: "Balcony Humidity"
-sensor.balcony_sensor_actor_1_temperature:
+sensor.balcony_sensor_actor_temperature:
   friendly_name: "Balcony Temperature"
-light.balcony_sensor_actor_1_relais_light_1:
+light.balcony_sensor_actor_relay_light_1:
   friendly_name: "Balcony Small Light"
   icon: "mdi:string-lights"
-light.balcony_sensor_actor_1_relais_light_2:
+light.balcony_sensor_actor_relay_light_2:
   friendly_name: "Balcony Ceiling Light"
   icon: "mdi:string-lights"
-binary_sensor.balcony_sensor_actor_1_ping:
-  friendly_name: "Balcony Sensor/Actor 1 Connection Status"
-switch.balcony_sensor_actor_1_reset_switch:
-  friendly_name: "Balcony Sensor/Actor 1 Reset Switch"
+
   icon: mdi:restart
 
 # bathroom_sensor_actor

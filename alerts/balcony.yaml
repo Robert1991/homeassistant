@@ -1,7 +1,7 @@
-balcony_sensor_actor_1_is_offline:
-  name: Balcony Sensor/Actor 1 offline
-  done_message: Balcony Sensor/Actor 1 online again
-  entity_id: binary_sensor.balcony_sensor_actor_1_ping
+balcony_sensor_actor_is_offline:
+  name: Balcony Sensor/Actor offline
+  done_message: Balcony Sensor/Actor online again
+  entity_id: binary_sensor.balcony_sensor_actor_connection_status
   state: 'off'
   repeat:       
     - 5
