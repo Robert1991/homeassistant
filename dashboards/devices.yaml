@@ -18,7 +18,7 @@ views:
           tap_action:
             action: navigate
             navigation_path: /lovelace-device/bedroom
-        - entity: binary_sensor.couch_rgb_i2c_platine_ping
+        - entity: binary_sensor.esp_couch_light_connection_status
           tap_action:
             action: navigate
             navigation_path: /lovelace-device/living_room
@@ -348,25 +348,31 @@ views:
           state_color: true
           show_header_toggle: false
           entities:
-            - entity: binary_sensor.couch_rgb_i2c_platine_ping
+            - entity: binary_sensor.esp_couch_light_connection_status
               name: Device Status
               secondary_info: last-updated
               icon: 'hass:server-network'
-            - entity: alert.couch_rgb_i2c_platine_is_offline
+            - entity: sensor.esp_couch_light_uptime
+              name: Uptime
+            - entity: sensor.esp_couch_light_wifi_signal
+              name: Wifi Signal
+            - entity: alert.esp_couch_light_is_offline
               name: Offline Alert
-            - entity: switch.couch_rgb_i2c_platine_reset_switch
-              name: Reset
+            - entity: switch.esp_couch_light_restart
+              name: Restart
+            - entity: switch.esp_couch_light_shutdown
+              name: Shutdown
         - type: 'custom:auto-entities'
           filter:
             include:
               - domain: light
-                entity_id: '*couch_rgb_i2c_platine*'
+                entity_id: '*esp_couch_light*'
               - domain: sensor
-                entity_id: '*couch_rgb_i2c_platine*'
+                entity_id: '*esp_couch_light*'
               - domain: binary_sensor
-                entity_id: '*couch_rgb_i2c_platine*'
+                entity_id: '*esp_couch_light*'
               - domain: switch
-                entity_id: '*couch_rgb_i2c_platine*'
+                entity_id: '*esp_couch_light*'
           card:
             type: 'custom:fold-entity-row'
             head:

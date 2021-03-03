@@ -1,5 +1,5 @@
 esphome:
-  name: floor_sensor_actor
+  name: esp_couch_light
   platform: ESP8266
   board: nodemcuv2
   includes:
@@ -12,7 +12,7 @@ wifi:
   password: !secret WIFI_PASS
 
   ap:
-    ssid: "Floor Sensor Actor"
+    ssid: "ESP Couch Light"
     password: "6HcUr2h3UrDA"
 
 mqtt:
@@ -31,25 +31,14 @@ i2c:
 
 binary_sensor:
   - platform: status
-    name: "Floor Sensor Actor Connection Status"
-  - platform: gpio
-    name: "Floor Sensor Actor Motion Detected"
-    device_class: motion
-    pin: D7
+    name: "ESP Couch Light Connection Status"
 
 sensor:
   - platform: wifi_signal
-    name: "Floor Sensor Actor WiFi Signal"
+    name: "ESP Couch Light WiFi Signal"
     update_interval: 60s
   - platform: uptime
-    name: "Floor Sensor Actor Uptime"
-  - platform: dht
-    pin: D3
-    temperature:
-      name: "Floor Sensor Actor Temperature"
-    humidity:
-      name: "Floor Sensor Actor Humidity"
-    update_interval: 60s
+    name: "ESP Couch Light Uptime"
 
 light:
 - platform: custom
@@ -59,24 +48,24 @@ light:
     return {light_out};
 
   lights:
-    - name: "Floor Sensor Actor RGB I2C Light"
+    - name: "ESP Couch Light RGB I2C Light"
       default_transition_length: 0.5s
 
 text_sensor:
   - platform: version
-    name: "Floor Sensor Actor OS Version"
+    name: "ESP Couch Light OS Version"
   - platform: wifi_info
     ip_address:
-      name: "Floor Sensor Actor IP Address"
+      name: "ESP Couch Light IP Address"
     ssid:
-      name: "Floor Sensor Actor Connected SSID"
+      name: "ESP Couch Light Connected SSID"
     bssid:
-      name: "Floor Sensor Actor Connected BSSID"
+      name: "ESP Couch Light Connected BSSID"
     mac_address:
-      name: "Floor Sensor Actor Mac Wifi Address"
+      name: "ESP Couch Light Mac Wifi Address"
 
 switch:
   - platform: restart
-    name: "Floor Sensor Actor Restart"
+    name: "ESP Couch Light Restart"
   - platform: shutdown
-    name: "Floor Sensor Actor Shutdown"
+    name: "ESP Couch Light Shutdown"

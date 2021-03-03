@@ -1,6 +1,6 @@
 - name: Living Room Afrika
   entities:
-    light.couch_rgb_i2c_platine_i2c_rgb:
+    light.esp_couch_light_rgb_i2c_light:
       brightness: 185
       hs_color:
         - 164.941
@@ -121,7 +121,7 @@
       state: "on"
 - name: Living Room Afrika 2
   entities:
-    light.couch_rgb_i2c_platine_i2c_rgb:
+    light.esp_couch_light_rgb_i2c_light:
       brightness: 210
       hs_color:
         - 164.706
@@ -242,7 +242,7 @@
       state: "on"
 - name: Living Room Work
   entities:
-    light.couch_rgb_i2c_platine_i2c_rgb:
+    light.esp_couch_light_rgb_i2c_light:
       brightness: 35
       hs_color:
         - 14.824
@@ -311,7 +311,7 @@
       state: "on"
 - name: Living Room TV 1
   entities:
-    light.couch_rgb_i2c_platine_i2c_rgb:
+    light.esp_couch_light_rgb_i2c_light:
       brightness: 156
       hs_color:
         - 15.068
@@ -425,7 +425,7 @@
       state: "off"
 - name: Living Room Casa Cabron
   entities:
-    light.couch_rgb_i2c_platine_i2c_rgb:
+    light.esp_couch_light_rgb_i2c_light:
       brightness: 35
       hs_color:
         - 15.082

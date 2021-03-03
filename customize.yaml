@@ -133,13 +133,8 @@ binary_sensor.kitchen_plant_controller_swim_switch:
   friendly_name: "Kitchen Plant Closet Swimmer"
   icon: mdi:water-check
 
-# couch_rgb_i2c_platine
-binary_sensor.couch_rgb_i2c_platine_ping:
-  friendly_name: "Couch RGB Light Connection Status"
-switch.couch_rgb_i2c_platine_reset_switch:
-  friendly_name: "Couch RGB Light Reset Switch"
-  icon: mdi:restart
-light.couch_rgb_i2c_platine_i2c_rgb:
+# esp_couch_light
+light.esp_couch_light_rgb_i2c_light:
   friendly_name: "Couch RGB Light"
   icon: mdi:sofa
 
