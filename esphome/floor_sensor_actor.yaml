@@ -1,0 +1,83 @@
+esphome:
+  name: floor_sensor_actor
+  platform: ESP8266
+  board: nodemcuv2
+  includes:
+    - I2CRGBLight.h
+  libraries:
+    - "Wire"
+
+wifi:
+  ssid: !secret WIFI_SSID
+  password: !secret WIFI_PASS
+
+  ap:
+    ssid: "Floor Sensor Actor"
+    password: "6HcUr2h3UrDA"
+
+mqtt:
+  broker: !secret MQTT_BROKER
+  username: !secret MQTT_USER
+  password: !secret MQTT_PASSWORD
+
+captive_portal:
+logger:
+#api:
+ota:
+
+i2c:
+  - id: i2cbus
+    sda: 4
+    scl: 5
+
+binary_sensor:
+  - platform: status
+    name: "Floor Sensor Actor Connection Status"
+  - platform: gpio
+    name: "Floor Sensor Actor Motion Detected"
+    device_class: motion
+    pin: D7
+
+sensor:
+  - platform: wifi_signal
+    name: "Floor Sensor Actor WiFi Signal"
+    update_interval: 60s
+  - platform: uptime
+    name: "Floor Sensor Actor Uptime"
+  - platform: dht
+    pin: D3
+    temperature:
+      name: "Floor Sensor Actor Temperature"
+    humidity:
+      name: "Floor Sensor Actor Humidity"
+    update_interval: 60s
+
+light:
+- platform: custom
+  lambda: |-
+    auto light_out = new I2CRGBLight();
+    App.register_component(light_out);
+    return {light_out};
+
+  lights:
+    - name: "Floor Sensor Actor RGB I2C Light"
+      default_transition_length: 0.5s
+
+text_sensor:
+  - platform: version
+    name: "Floor Sensor Actor OS Version"
+  - platform: wifi_info
+    ip_address:
+      name: "Floor Sensor Actor IP Address"
+    ssid:
+      name: "Floor Sensor Actor Connected SSID"
+    bssid:
+      name: "Floor Sensor Actor Connected BSSID"
+    mac_address:
+      name: "Floor Sensor Actor Mac Wifi Address"
+
+switch:
+  - platform: restart
+    name: "Floor Sensor Actor Restart"
+  - platform: shutdown
+    name: "Floor Sensor Actor Shutdown"

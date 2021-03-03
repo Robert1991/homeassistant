@@ -50,25 +50,20 @@ switch.bedroom_sensor_1_reset_switch:
   friendly_name: "Bedroom Sensor 1 Reset Switch"
   icon: mdi:restart
 
-# floor_sensor_actor 1
-sensor.floor_sensor_actor_1_humidity:
+# floor_sensor_actor
+sensor.floor_sensor_actor_humidity:
   friendly_name: "Floor Humidity"
-sensor.floor_sensor_actor_1_temperature:
+sensor.floor_sensor_actor_temperature:
   friendly_name: "Floor Temperature"
-binary_sensor.floor_sensor_actor_1_motion_detected:
+binary_sensor.floor_sensor_actor_motion_detected:
   friendly_name: "Floor Motion Detected"
-light.floor_sensor_actor_1_i2c_rgb:
+light.floor_sensor_actor_rgb_i2c_light:
   friendly_name: "Floor RGB Lightstrip"
   icon: mdi:led-strip-variant
-binary_sensor.floor_sensor_actor_1_ping:
-  friendly_name: "Floor Sensor/Actor 1 Ping"
-switch.floor_sensor_actor_1_reset_switch:
-  friendly_name: "Floor Sensor/Actor 1 Reset Switch"
 
 # living_room_sensor_actor_2
 sensor.living_room_sensor_actor_2_light_intensity:
   friendly_name: "Living Room Light Intensity"
-
 light.living_room_sensor_actor_2_light_strings:
   friendly_name: "Living Room Window Light Strings"
   icon: mdi:string-lights

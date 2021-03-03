@@ -4,7 +4,7 @@
       brightness: 235
       color_temp: 290
       state: "on"
-    light.floor_sensor_actor_1_i2c_rgb:
+    light.floor_sensor_actor_rgb_i2c_light:
       brightness: 224
       hs_color:
         - 254.795
@@ -23,7 +23,7 @@
       brightness: 128
       color_temp: 465
       state: "on"
-    light.floor_sensor_actor_1_i2c_rgb:
+    light.floor_sensor_actor_rgb_i2c_light:
       brightness: 41
       hs_color:
         - 14.824
@@ -51,7 +51,7 @@
         - 0.539
         - 0.392
       state: "on"
-    light.floor_sensor_actor_1_i2c_rgb:
+    light.floor_sensor_actor_rgb_i2c_light:
       brightness: 224
       hs_color:
         - 75.205
@@ -70,7 +70,7 @@
       brightness: 252
       color_temp: 300
       state: "on"
-    light.floor_sensor_actor_1_i2c_rgb:
+    light.floor_sensor_actor_rgb_i2c_light:
       brightness: 224
       hs_color:
         - 240.0
@@ -89,7 +89,7 @@
       brightness: 235
       color_temp: 290
       state: "on"
-    light.floor_sensor_actor_1_i2c_rgb:
+    light.floor_sensor_actor_rgb_i2c_light:
       brightness: 224
       hs_color:
         - 255.102

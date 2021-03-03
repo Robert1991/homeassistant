@@ -2,4 +2,4 @@
   name: Floor Lights
   entities:
     - light.floor_light
-    - light.floor_sensor_actor_1_i2c_rgb
+    - light.floor_sensor_actor_rgb_i2c_light

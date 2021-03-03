@@ -2,7 +2,7 @@
 turn_on_lights_when_there_is_activity_in_the_floor:
   module: activity_based_light_control_automations
   class: TurnOnAutomation
-  observed_activity_sensor: binary_sensor.floor_sensor_actor_1_motion_detected
+  observed_activity_sensor: binary_sensor.floor_sensor_actor_motion_detected
   light_group: light.floor_lights
   light_sensor: sensor.kitchen_sensor_light_intensity
   scene_input_select: input_select.floor_automatic_light_scene_generated
@@ -26,7 +26,7 @@ turn_off_lights_when_there_is_no_activity_in_the_floor:
   class: TurnOffAutomation
   light_group: light.floor_lights
   turn_off_timeout: input_number.floor_light_turn_off_timeout
-  observed_activity_sensor: binary_sensor.floor_sensor_actor_1_motion_detected
+  observed_activity_sensor: binary_sensor.floor_sensor_actor_motion_detected
   constrain_input_boolean: input_boolean.floor_light_automation_is_enabled
 
 reactivate_floor_light_automation_after_given_timeout:

@@ -306,7 +306,7 @@ views:
               name: Ceiling
               icon_height: 30px
             - type: button
-              entity: light.floor_sensor_actor_1_i2c_rgb
+              entity: light.floor_sensor_actor_rgb_i2c_light
               name: Strip
               icon_height: 30px
         - type: entities

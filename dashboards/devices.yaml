@@ -22,7 +22,7 @@ views:
           tap_action:
             action: navigate
             navigation_path: /lovelace-device/living_room
-        - entity: binary_sensor.floor_sensor_actor_1_ping
+        - entity: binary_sensor.floor_sensor_actor_connection_status
           tap_action:
             action: navigate
             navigation_path: /lovelace-device/other
@@ -439,25 +439,31 @@ views:
           state_color: true
           show_header_toggle: false
           entities:
-            - entity: binary_sensor.floor_sensor_actor_1_ping
+            - entity: binary_sensor.floor_sensor_actor_connection_status
               name: Device Status
               secondary_info: last-updated
               icon: 'hass:server-network'
-            - entity: alert.floor_sensor_actor_1_is_offline
+            - entity: sensor.floor_sensor_actor_uptime
+              name: Uptime
+            - entity: sensor.floor_sensor_actor_wifi_signal
+              name: Wifi Signal
+            - entity: alert.floor_sensor_actor_is_offline
               name: Offline Alert
-            - entity: switch.floor_sensor_actor_1_reset_switch
-              name: Reset
+            - entity: switch.floor_sensor_actor_restart
+              name: Restart
+            - entity: switch.floor_sensor_actor_shutdown
+              name: Shutdown
         - type: 'custom:auto-entities'
           filter:
             include:
               - domain: light
-                entity_id: '*floor_sensor_actor_1*'
+                entity_id: '*floor_sensor_actor*'
               - domain: sensor
-                entity_id: '*floor_sensor_actor_1*'
+                entity_id: '*floor_sensor_actor*'
               - domain: binary_sensor
-                entity_id: '*floor_sensor_actor_1*'
+                entity_id: '*floor_sensor_actor*'
               - domain: switch
-                entity_id: '*floor_sensor_actor_1*'
+                entity_id: '*floor_sensor_actor*'
           card:
             type: 'custom:fold-entity-row'
             head:
