@@ -2,5 +2,5 @@ all_bathroom_lights:
   name: "All Bathroom Lights"
   icon: "mdi:lightbulb-group-outline"
   entities:
-    - light.bathroom_sensor_actor_1_rgb
-    - light.bathroom_sensor_actor_1_relais_switch
+    - light.bathroom_sensor_actor_light_strip
+    - light.bathroom_sensor_actor_spots

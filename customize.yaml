@@ -15,22 +15,20 @@ switch.balcony_sensor_actor_1_reset_switch:
   friendly_name: "Balcony Sensor/Actor 1 Reset Switch"
   icon: mdi:restart
 
-# bathroom_sensor_actor_1
 binary_sensor.bathroom_sensor_actor_1_ping:
   friendly_name: "Bathroom Sensor Actor 1 Connection Status"
 light.bathroom_sensor_actor_1_relais_switch:
+# bathroom_sensor_actor
+light.bathroom_sensor_actor_spots:
   friendly_name: "Bathroom Spot Lights"
   icon: mdi:lightbulb-multiple
-light.bathroom_sensor_actor_1_rgb:
+light.bathroom_sensor_actor_light_strip:
   friendly_name: "Bathroom Light Strip"
   icon: mdi:led-strip-variant
-sensor.bathroom_sensor_actor_1_humidity:
+sensor.bathroom_sensor_actor_humidity:
   friendly_name: "Bathroom Humidity"
-sensor.bathroom_sensor_actor_1_temperature:
+sensor.bathroom_sensor_actor_temperature:
   friendly_name: "Bathroom Temperature"
-switch.bathroom_sensor_actor_1_reset_switch:
-  friendly_name: "Bathroom Sensor Actor 1 Reset Switch"
-  icon: mdi:restart
 
 # bedroom_sensor
 binary_sensor.bedroom_sensor_door_sensor:
