@@ -19,7 +19,6 @@ mqtt:
 
 captive_portal:
 logger:
-api:
 ota:
 
 binary_sensor:

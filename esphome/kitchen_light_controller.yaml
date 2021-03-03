@@ -6,8 +6,7 @@ esphome:
 wifi:
   ssid: !secret WIFI_SSID
   password: !secret WIFI_PASS
-  power_save_mode: NONE
-
+  
   ap:
     ssid: "Kitchen Light Controller"
     password: "7OVsabPI1Qb9"
@@ -19,7 +18,6 @@ mqtt:
 
 captive_portal:
 logger:
-api:
 ota:
 
 binary_sensor:

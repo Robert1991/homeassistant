@@ -2,11 +2,10 @@ esphome:
   name: living_room_sensor_actor_2
   platform: ESP8266
   board: nodemcuv2
-
+ 
 wifi:
   ssid: !secret WIFI_SSID
   password: !secret WIFI_PASS
-  power_save_mode: NONE
 
   ap:
     ssid: "Living Room Sensor Actor 2"
@@ -19,7 +18,6 @@ mqtt:
 
 captive_portal:
 logger:
-api:
 ota:
 
 binary_sensor:
