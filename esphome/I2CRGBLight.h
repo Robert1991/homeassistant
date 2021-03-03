@@ -10,9 +10,18 @@
 #define SCL_PIN 4
 
 class I2CRGBLight : public Component, public LightOutput {
+ private:
+  int sdaPin;
+  int sclPin;
+
  public:
+  I2CRGBLight(int sdaPin, int sclPin) {
+    this->sdaPin = sdaPin;
+    this->sclPin = sclPin;
+  }
+  
   void setup() override {
-    establishI2CConnectionTo(SDA_PIN, SCL_PIN, true);
+    establishI2CConnectionTo(sdaPin, sclPin, true);
 
     sendI2CCommandWithParameter(I2C_SLAVE_ADDRESS,
                                 ON_OFF_COMMAND, 1);
@@ -30,16 +39,16 @@ class I2CRGBLight : public Component, public LightOutput {
   }
 
   void write_state(LightState *state) override {
-    if (checkI2CConnection(SDA_PIN, SCL_PIN)) {
-      establishI2CConnectionTo(SDA_PIN, SCL_PIN, false);
+    if (checkI2CConnection(sdaPin, sclPin)) {
+      establishI2CConnectionTo(sdaPin, sclPin, false);
     }
 
     float red, green, blue;
     state->current_values_as_rgb(&red, &green, &blue);
 
-    ESP_LOGI("I2CRGBLight", "red value is: %i", (int)(red * 255.0));
-    ESP_LOGI("I2CRGBLight", "green value is: %i", (int)(green * 255.0));
-    ESP_LOGI("I2CRGBLight", "blue value is: %i", (int)(blue * 255.0));
+    ESP_LOGD("I2CRGBLight", "red value is: %i", (int)(red * 255.0));
+    ESP_LOGD("I2CRGBLight", "green value is: %i", (int)(green * 255.0));
+    ESP_LOGD("I2CRGBLight", "blue value is: %i", (int)(blue * 255.0));
 
     int red_value = (int) (red * 255.0);
     int green_value = (int)(green * 255.0);
@@ -68,12 +77,12 @@ class I2CRGBLight : public Component, public LightOutput {
     pinMode(sclPin, INPUT);
     if (digitalRead(sdaPin) != 1)
     {
-      ESP_LOGI("I2CRGBLight", "SDA pin is low");
+      ESP_LOGD("I2CRGBLight", "SDA pin is low");
       connectionWasLost = true;
     }
     if (digitalRead(sclPin) != 1)
     {
-      ESP_LOGI("I2CRGBLight", "SCL pin is low");
+      ESP_LOGD("I2CRGBLight", "SCL pin is low");
       connectionWasLost = true;
     }
     return connectionWasLost;
@@ -84,18 +93,18 @@ class I2CRGBLight : public Component, public LightOutput {
     int rtn = clearI2CBus(sdaPort, sclPort, startupDelay);
     if (rtn != 0)
     {
-      ESP_LOGI("I2CRGBLight", "I2C bus error. Could not clear");
+      ESP_LOGD("I2CRGBLight", "I2C bus error. Could not clear");
       if (rtn == 1)
       {
-        ESP_LOGI("I2CRGBLight", "SCL clock line held low");
+        ESP_LOGD("I2CRGBLight", "SCL clock line held low");
       }
       else if (rtn == 2)
       {
-        ESP_LOGI("I2CRGBLight", "SCL clock line held low by slave clock stretch");
+        ESP_LOGD("I2CRGBLight", "SCL clock line held low by slave clock stretch");
       }
       else if (rtn == 3)
       {
-        ESP_LOGI("I2CRGBLight", "SDA data line held low");
+        ESP_LOGD("I2CRGBLight", "SDA data line held low");
       }
     }
     else

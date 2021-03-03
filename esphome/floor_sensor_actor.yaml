@@ -55,7 +55,7 @@ sensor:
 light:
 - platform: custom
   lambda: |-
-    auto light_out = new I2CRGBLight();
+    auto light_out = new I2CRGBLight(5, 4);
     App.register_component(light_out);
     return {light_out};
 
