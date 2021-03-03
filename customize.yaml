@@ -82,12 +82,7 @@ sensor.living_room_sensor_actor_1_temperature:
   friendly_name: "Living Room Temperature"
 binary_sensor.living_room_sensor_actor_1_motion_detected:
   friendly_name: "Living Room Motion Detector"
-binary_sensor.living_room_sensor_actor_1_ping:
-  friendly_name: "Living Room Sensor/Actor 1 Connection Status"
-switch.living_room_sensor_actor_1_reset_switch:
-  friendly_name: "Living Room Sensor/Actor 1 Reset Switch"
-  icon: mdi:restart
-light.living_room_sensor_actor_1_rgb:
+light.living_room_sensor_actor_1_closet_rgb_lights:
   friendly_name: "Living Closet Lights"
   icon: mdi:lightbulb-multiple
 

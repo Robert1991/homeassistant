@@ -93,7 +93,7 @@
         - 0.61
         - 0.376
       state: "on"
-    light.living_room_sensor_actor_1_rgb:
+    light.living_room_sensor_actor_1_closet_rgb_lights:
       brightness: 185
       hs_color:
         - 210.164
@@ -214,7 +214,7 @@
         - 0.61
         - 0.376
       state: "on"
-    light.living_room_sensor_actor_1_rgb:
+    light.living_room_sensor_actor_1_closet_rgb_lights:
       brightness: 210
       hs_color:
         - 210.326
@@ -290,7 +290,7 @@
         - 0.355
         - 0.355
       state: "on"
-    light.living_room_sensor_actor_1_rgb:
+    light.living_room_sensor_actor_1_closet_rgb_lights:
       brightness: 255
       hs_color:
         - 14.824
@@ -404,7 +404,7 @@
         - 0.281
         - 0.617
       state: "on"
-    light.living_room_sensor_actor_1_rgb:
+    light.living_room_sensor_actor_1_closet_rgb_lights:
       brightness: 237
       hs_color:
         - 150.0
@@ -518,7 +518,7 @@
         - 0.505
         - 0.447
       state: "on"
-    light.living_room_sensor_actor_1_rgb:
+    light.living_room_sensor_actor_1_closet_rgb_lights:
       brightness: 255
       hs_color:
         - 225.176

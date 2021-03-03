@@ -1,0 +1,81 @@
+esphome:
+  name: living_room_sensor_actor_1
+  platform: ESP8266
+  board: nodemcuv2
+
+wifi:
+  ssid: !secret WIFI_SSID
+  password: !secret WIFI_PASS
+  power_save_mode: NONE
+
+  ap:
+    ssid: "Living Room Sensor Actor 1"
+    password: "6HcUr2h3UrDA"
+
+mqtt:
+  broker: !secret MQTT_BROKER
+  username: !secret MQTT_USER
+  password: !secret MQTT_PASSWORD
+
+captive_portal:
+logger:
+ota:
+
+binary_sensor:
+  - platform: status
+    name: "Living Room Sensor Actor 1 Connection Status"
+  - platform: gpio
+    name: "Living Room Sensor Actor 1 Motion Detected"
+    device_class: motion
+    pin: D7
+    
+sensor:
+  - platform: wifi_signal
+    name: "Living Room Sensor Actor 1 WiFi Signal"
+    update_interval: 60s
+  - platform: uptime
+    name: "Living Room Sensor Actor 1 Uptime"
+  - platform: dht
+    pin: D1
+    temperature:
+      name: "Living Room Sensor Actor 1 Temperature"
+    humidity:
+      name: "Living Room Sensor Actor 1 Humidity"
+    update_interval: 60s
+
+text_sensor:
+  - platform: version
+    name: "Living Room Sensor Actor 1 OS Version"
+  - platform: wifi_info
+    ip_address:
+      name: "Living Room Sensor Actor 1 IP Address"
+    ssid:
+      name: "Living Room Sensor Actor 1 Connected SSID"
+    bssid:
+      name: "Living Room Sensor Actor 1 Connected BSSID"
+    mac_address:
+      name: "Living Room Sensor Actor 1 Mac Wifi Address"
+
+output:
+  - platform: esp8266_pwm
+    id: strip_red
+    pin: D5
+  - platform: esp8266_pwm
+    id: strip_green
+    pin: D2
+  - platform: esp8266_pwm
+    id: strip_blue
+    pin: D6
+
+light:
+  - platform: rgb
+    name: "Living Room Sensor Actor 1 Closet RGB Lights"
+    red: strip_red
+    green: strip_green
+    blue: strip_blue
+
+switch:
+  - platform: restart
+    name: "Living Room Sensor Actor 1 Restart"
+  - platform: shutdown
+    name: "Living Room Sensor Actor 1 Shutdown"

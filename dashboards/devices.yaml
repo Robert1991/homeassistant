@@ -50,7 +50,7 @@ views:
           tap_action:
             action: navigate
             navigation_path: /lovelace-device/kitchen
-        - entity: binary_sensor.living_room_sensor_actor_1_ping
+        - entity: binary_sensor.living_room_sensor_actor_1_connection_status
           tap_action:
             action: navigate
             navigation_path: /lovelace-device/living_room
@@ -317,14 +317,20 @@ views:
           state_color: true
           show_header_toggle: false
           entities:
-            - entity: binary_sensor.living_room_sensor_actor_1_ping
+            - entity: binary_sensor.living_room_sensor_actor_1_connection_status
               name: Device Status
               secondary_info: last-updated
               icon: 'hass:server-network'
+            - entity: sensor.living_room_sensor_actor_1_uptime
+              name: Uptime
+            - entity: sensor.living_room_sensor_actor_1_wifi_signal
+              name: Wifi Signal
             - entity: alert.living_room_sensor_actor_1_is_offline
               name: Offline Alert
-            - entity: switch.living_room_sensor_actor_1_reset_switch
-              name: Reset
+            - entity: switch.living_room_sensor_actor_1_restart
+              name: Restart
+            - entity: switch.living_room_sensor_actor_1_shutdown
+              name: Shutdown
         - type: 'custom:auto-entities'
           filter:
             include:
@@ -388,19 +394,15 @@ views:
           state_color: true
           show_header_toggle: false
           entities:
-            - entity: binary_sensor.bathroom_sensor_actor_1_ping
               name: Device Status
               secondary_info: last-updated
               icon: 'hass:server-network'
-            - entity: alert.bathroom_sensor_actor_1_is_offline
               name: Offline Alert
-            - entity: switch.bathroom_sensor_actor_1_reset_switch
               name: Reset
         - type: 'custom:auto-entities'
           filter:
             include:
               - domain: light
-                entity_id: '*bathroom_sensor_actor_1*'
     - type: 'custom:vertical-stack-in-card'
       title: Bathroom Sensor/Actor 1
       cards:
