@@ -1,7 +1,7 @@
 - alias: Turn on bedroom closet light when door was opened
   trigger:
     platform: state
-    entity_id: binary_sensor.bedroom_sensor_1_door_open
+    entity_id: binary_sensor.bedroom_sensor_door_sensor
     to: 'on'
   condition:
     - condition: state
@@ -16,7 +16,7 @@
 - alias: Return to former light state when bedroom closet was closed again
   trigger:
     platform: state
-    entity_id: binary_sensor.bedroom_sensor_1_door_open
+    entity_id: binary_sensor.bedroom_sensor_door_sensor
     to: 'off'
   condition:
     - condition: state

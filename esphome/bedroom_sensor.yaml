@@ -1,0 +1,82 @@
+esphome:
+  name: bedroom_sensor
+  platform: ESP8266
+  board: d1_mini
+
+wifi:
+  ssid: !secret WIFI_SSID
+  password: !secret WIFI_PASS
+
+  ap:
+    ssid: "Bedroom Sensor"
+    password: "6HcUr2h3UrDA"
+
+mqtt:
+  broker: !secret MQTT_BROKER
+  username: !secret MQTT_USER
+  password: !secret MQTT_PASSWORD
+
+captive_portal:
+logger:
+ota:
+
+binary_sensor:
+  - platform: status
+    name: "Bedroom Sensor Connection Status"
+  - platform: gpio
+    name: "Bedroom Sensor Motion Detected"
+    device_class: motion
+    pin: D3
+  - platform: gpio
+    name: "Bedroom Sensor Door Sensor"
+    device_class: door
+    pin:
+      number: D2
+      mode: INPUT_PULLUP
+
+
+text_sensor:
+  - platform: version
+    name: "Bedroom Sensor OS Version"
+  - platform: wifi_info
+    ip_address:
+      name: "Bedroom Sensor IP Address"
+    ssid:
+      name: "Bedroom Sensor Connected SSID"
+    bssid:
+      name: "Bedroom Sensor Connected BSSID"
+    mac_address:
+      name: "Bedroom Sensor Mac Wifi Address"
+
+sensor:
+  - platform: wifi_signal
+    name: "Bedroom Sensor WiFi Signal"
+    update_interval: 60s
+  - platform: uptime
+    name: "Bedroom Sensor Uptime"
+    id: uptime_sensor
+  - platform: dht
+    pin: D4
+    model: DHT22
+    temperature:
+      name: "Bedroom Sensor Temperature"
+    humidity:
+      name: "Bedroom Sensor Humidity"
+    update_interval: 60s
+  - platform: adc
+    unit_of_measurement: "%"
+    icon: mdi:brightness-4
+    pin: A0
+    name: "Bedroom Sensor Light Intensity"
+    accuracy_decimals: 2
+    update_interval: 10s
+    filters:
+      - calibrate_linear:
+        - 0.0 -> 0.0
+        - 1.0 -> 100.0
+
+switch:
+  - platform: restart
+    name: "Bedroom Sensor Restart"
+  - platform: shutdown
+    name: "Bedroom Sensor Shutdown"

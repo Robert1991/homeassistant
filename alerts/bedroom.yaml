@@ -1,7 +1,7 @@
-bedroom_sensor_1_is_offline:
-  name: Bedroom Sensor 1 offline
-  done_message: Bedroom Sensor 1 online again
-  entity_id: binary_sensor.bedroom_sensor_1_ping
+bedroom_sensor_is_offline:
+  name: Bedroom Sensor offline
+  done_message: Bedroom Sensor online again
+  entity_id: binary_sensor.bedroom_sensor_connection_status
   state: 'off'
   repeat: 30
   can_acknowledge: true

@@ -14,7 +14,7 @@ views:
           tap_action:
             action: navigate
             navigation_path: /lovelace-device/other
-        - entity: binary_sensor.bedroom_sensor_1_ping
+        - entity: binary_sensor.bedroom_sensor_connection_status
           tap_action:
             action: navigate
             navigation_path: /lovelace-device/bedroom
@@ -67,25 +67,31 @@ views:
           state_color: true
           show_header_toggle: false
           entities:
-            - entity: binary_sensor.bedroom_sensor_1_ping
+            - entity: binary_sensor.bedroom_sensor_connection_status
               name: Device Status
               secondary_info: last-updated
               icon: 'hass:server-network'
-            - entity: alert.bedroom_sensor_1_is_offline
+            - entity: sensor.bedroom_sensor_uptime
+              name: Uptime
+            - entity: sensor.bedroom_sensor_wifi_signal
+              name: Wifi Signal
+            - entity: alert.bedroom_sensor_is_offline
               name: Offline Alert
-            - entity: switch.bedroom_sensor_1_reset_switch
-              name: Reset
+            - entity: switch.bedroom_sensor_restart
+              name: Restart
+            - entity: switch.bedroom_sensor_shutdown
+              name: Shutdown
         - type: 'custom:auto-entities'
           filter:
             include:
               - domain: light
-                entity_id: '*bedroom_sensor_1*'
+                entity_id: '*bedroom_sensor*'
               - domain: sensor
-                entity_id: '*bedroom_sensor_1*'
+                entity_id: '*bedroom_sensor*'
               - domain: binary_sensor
-                entity_id: '*bedroom_sensor_1*'
+                entity_id: '*bedroom_sensor*'
               - domain: switch
-                entity_id: '*bedroom_sensor_1*'
+                entity_id: '*bedroom_sensor*'
           card:
             type: 'custom:fold-entity-row'
             head:
