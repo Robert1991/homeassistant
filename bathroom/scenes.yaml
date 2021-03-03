@@ -1,14 +1,14 @@
 - name: Bathroom Night Light 1
   entities:
-    light.bathroom_sensor_actor_1_relais_switch:
+    light.bathroom_sensor_actor_spots:
       state: "on"
-    light.bathroom_sensor_actor_1_rgb:
+    light.bathroom_sensor_actor_light_strip:
       state: "off"
 - name: Bathroom Blue
   entities:
-    light.bathroom_sensor_actor_1_relais_switch:
+    light.bathroom_sensor_actor_spots:
       state: "on"
-    light.bathroom_sensor_actor_1_rgb:
+    light.bathroom_sensor_actor_light_strip:
       brightness: 255
       hs_color:
         - 180.0

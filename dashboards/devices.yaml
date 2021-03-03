@@ -10,7 +10,7 @@ views:
           tap_action:
             action: navigate
             navigation_path: /lovelace-device/other
-        - entity: binary_sensor.bathroom_sensor_actor_1_ping
+        - entity: binary_sensor.bathroom_sensor_actor_connection_status
           tap_action:
             action: navigate
             navigation_path: /lovelace-device/other
@@ -377,7 +377,6 @@ views:
     badges: []
     cards:
     - type: 'custom:vertical-stack-in-card'
-      title: Bathroom Sensor/Actor 1
       cards:
         - type: entities
           state_color: true
@@ -396,12 +395,38 @@ views:
             include:
               - domain: light
                 entity_id: '*bathroom_sensor_actor_1*'
+    - type: 'custom:vertical-stack-in-card'
+      title: Bathroom Sensor/Actor 1
+      cards:
+        - type: entities
+          state_color: true
+          show_header_toggle: false
+          entities:
+            - entity: binary_sensor.bathroom_sensor_actor_connection_status
+              name: Device Status
+              secondary_info: last-updated
+              icon: 'hass:server-network'
+            - entity: sensor.bathroom_sensor_actor_uptime
+              name: Uptime
+            - entity: sensor.bathroom_sensor_actor_wifi_signal
+              name: Wifi Signal
+            - entity: alert.bathroom_sensor_actor_is_offline
+              name: Offline Alert
+            - entity: switch.bathroom_sensor_actor_restart
+              name: Restart
+            - entity: switch.bathroom_sensor_actor_shutdown
+              name: Shutdown
+        - type: 'custom:auto-entities'
+          filter:
+            include:
+              - domain: light
+                entity_id: '*bathroom_sensor_actor*'
               - domain: sensor
-                entity_id: '*bathroom_sensor_actor_1*'
+                entity_id: '*bathroom_sensor_actor*'
               - domain: binary_sensor
-                entity_id: '*bathroom_sensor_actor_1*'
+                entity_id: '*bathroom_sensor_actor*'
               - domain: switch
-                entity_id: '*bathroom_sensor_actor_1*'
+                entity_id: '*bathroom_sensor_actor*'
           card:
             type: 'custom:fold-entity-row'
             head:
