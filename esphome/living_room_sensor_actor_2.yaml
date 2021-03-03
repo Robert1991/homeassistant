@@ -36,14 +36,11 @@ sensor:
     pin: A0
     name: "Living Room Sensor Actor 2 Light Intensity"
     accuracy_decimals: 2
-    update_interval: 0.5s
+    update_interval: 1s
     filters:
       - calibrate_linear:
         - 0.0 -> 0.0
         - 1.0 -> 100.0
-      - sliding_window_moving_average:
-          window_size: 5
-          send_every: 5
 
 
 text_sensor:
