@@ -10,7 +10,6 @@ light.balcony_sensor_actor_relay_light_2:
   friendly_name: "Balcony Ceiling Light"
   icon: "mdi:string-lights"
 
-  icon: mdi:restart
 
 # bathroom_sensor_actor
 light.bathroom_sensor_actor_spots:
