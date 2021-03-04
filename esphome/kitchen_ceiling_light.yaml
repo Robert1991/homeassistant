@@ -1,0 +1,63 @@
+esphome:
+  name: kitchen_ceiling_light
+  platform: ESP8266
+  board: esp01_1m
+
+wifi:
+  ssid: !secret WIFI_SSID
+  password: !secret WIFI_PASS
+  
+  ap:
+    ssid: "Kitchen Ceiling Light"
+    password: "7OVsabPI1Qb9"
+
+mqtt:
+  broker: !secret MQTT_BROKER
+  username: !secret MQTT_USER
+  password: !secret MQTT_PASSWORD
+
+captive_portal:
+logger:
+ota:
+
+binary_sensor:
+  - platform: status
+    name: "Kitchen Ceiling Light Connection Status"
+
+sensor:
+  - platform: wifi_signal
+    name: "Kitchen Ceiling Light WiFi Signal"
+    update_interval: 60s
+  - platform: uptime
+    name: "Kitchen Ceiling Light Uptime"
+
+
+output:
+  - platform: gpio
+    id: relay
+    pin: 0
+
+text_sensor:
+  - platform: version
+    name: "Kitchen Ceiling Light OS Version"
+  - platform: wifi_info
+    ip_address:
+      name: "Kitchen Ceiling Light IP Address"
+    ssid:
+      name: "Kitchen Ceiling Light Connected SSID"
+    bssid:
+      name: "Kitchen Ceiling Light Connected BSSID"
+    mac_address:
+      name: "Kitchen Ceiling Light Mac Wifi Address"
+
+
+switch:
+  - platform: restart
+    name: "Kitchen Ceiling Light Restart"
+  - platform: shutdown
+    name: "Kitchen Ceiling Light Shutdown"
+
+light:
+  - platform: binary
+    name: "Kitchen Ceiling Light Light Switch"
+    output: relay

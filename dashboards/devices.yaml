@@ -34,7 +34,7 @@ views:
           tap_action:
             action: navigate
             navigation_path: /lovelace-device/kitchen
-        - entity: binary_sensor.kitchen_ceiling_light_1_ping
+        - entity: binary_sensor.kitchen_ceiling_light_connection_status
           tap_action:
             action: navigate
             navigation_path: /lovelace-device/kitchen
@@ -245,25 +245,31 @@ views:
           state_color: true
           show_header_toggle: false
           entities:
-            - entity: binary_sensor.kitchen_ceiling_light_1_ping
+            - entity: binary_sensor.kitchen_ceiling_light_connection_status
               name: Device Status
               secondary_info: last-updated
               icon: 'hass:server-network'
-            - entity: alert.kitchen_ceiling_light_1_is_offline
+            - entity: sensor.kitchen_ceiling_light_uptime
+              name: Uptime
+            - entity: sensor.kitchen_ceiling_light_wifi_signal
+              name: Wifi Signal
+            - entity: alert.kitchen_ceiling_light_is_offline
               name: Offline Alert
-            - entity: switch.kitchen_ceiling_light_1_reset_switch
-              name: Reset
+            - entity: switch.kitchen_ceiling_light_restart
+              name: Restart
+            - entity: switch.kitchen_ceiling_light_shutdown
+              name: Shutdown
         - type: 'custom:auto-entities'
           filter:
             include:
               - domain: light
-                entity_id: '*kitchen_ceiling_light_1*'
+                entity_id: '*kitchen_ceiling_light*'
               - domain: sensor
-                entity_id: '*kitchen_ceiling_light_1*'
+                entity_id: '*kitchen_ceiling_light*'
               - domain: binary_sensor
-                entity_id: '*kitchen_ceiling_light_1*'
+                entity_id: '*kitchen_ceiling_light*'
               - domain: switch
-                entity_id: '*kitchen_ceiling_light_1*'
+                entity_id: '*kitchen_ceiling_light*'
           card:
             type: 'custom:fold-entity-row'
             head:

@@ -1,6 +1,6 @@
 - name: Kitchen Cooking 1
   entities:
-    light.kitchen_ceiling_light_1_relais_light_1:
+    light.kitchen_ceiling_light_light_switch:
       state: 'on'
     light.kitchen_light_controller_light_strip:
       brightness: 255
@@ -16,7 +16,7 @@
       state: 'on'
 - name: Kitchen Cooking 2
   entities:
-    light.kitchen_ceiling_light_1_relais_light_1:
+    light.kitchen_ceiling_light_light_switch:
       state: 'on'
     light.kitchen_light_controller_light_strip:
       brightness: 255
@@ -32,7 +32,7 @@
       state: 'off'
 - name: Kitchen Night Light 1
   entities:
-    light.kitchen_ceiling_light_1_relais_light_1:
+    light.kitchen_ceiling_light_light_switch:
       state: 'off'
     light.kitchen_light_controller_light_strip:
       brightness: 43
@@ -48,7 +48,7 @@
       state: 'on'
 - name: Kitchen Indirect Light 1
   entities:
-    light.kitchen_ceiling_light_1_relais_light_1:
+    light.kitchen_ceiling_light_light_switch:
       state: 'off'
     light.kitchen_light_controller_light_strip:
       brightness: 250
@@ -64,7 +64,7 @@
       state: 'on'
 - name: Kitchen Indirect Light 2
   entities:
-    light.kitchen_ceiling_light_1_relais_light_1:
+    light.kitchen_ceiling_light_light_switch:
       state: 'off'
     light.kitchen_light_controller_light_strip:
       brightness: 250

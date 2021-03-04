@@ -48,10 +48,10 @@ mqtt_lcd_display_is_offline:
   skip_first: false
   notifiers:
     - ios
-kitchen_ceiling_light_1_is_offline:
+kitchen_ceiling_light_is_offline:
   name: Kitchen Ceiling Light is offline
   done_message: Kitchen Ceiling Light is online again
-  entity_id: binary_sensor.kitchen_ceiling_light_1_ping
+  entity_id: binary_sensor.kitchen_ceiling_light_connection_status
   state: 'off'
   repeat:
     - 2

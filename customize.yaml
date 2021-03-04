@@ -93,13 +93,8 @@ switch.mqtt_lcd_display_reset_switch:
   friendly_name: "MQTT LCD Reset Switch"
 
 
-# kitchen_ceiling_light_1
-binary_sensor.kitchen_ceiling_light_1_ping:
-  friendly_name: "Kitchen Ceiling Light Connection Status"
-switch.kitchen_ceiling_light_1_reset_switch:
-  friendly_name: "Kitchen Ceiling Light Reset Switch"
-  icon: mdi:restart
-light.kitchen_ceiling_light_1_relais_light_1:
+# kitchen_ceiling_light
+light.kitchen_ceiling_light_light_switch:
   friendly_name: "Kitchen Ceiling Light"
   icon: mdi:ceiling-light
 
