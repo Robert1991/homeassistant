@@ -24,6 +24,18 @@
       state: "on"
       brightness: 51
       color_temp: 475
+    light.bedroom_sensor_neopixel_partition_light_1:
+      state: "on"
+      xy_color: [0.38, 0.17]
+      brightness: 252
+    light.bedroom_sensor_neopixel_partition_light_2:
+      state: "on"
+      xy_color: [0.701, 0.299]
+      brightness: 252
+    light.bedroom_sensor_neopixel_partition_light_3:
+      state: "on"
+      xy_color: [0.528, 0.446]
+      brightness: 252
 
 - name: Bedroom Relaxed 1
   entities:
@@ -50,6 +62,19 @@
       state: "on"
       brightness: 51
       color_temp: 475
+    light.bedroom_sensor_neopixel_partition_light_1:
+      state: "on"
+      xy_color: [0.528, 0.446]
+      brightness: 143
+    light.bedroom_sensor_neopixel_partition_light_2:
+      state: "on"
+      xy_color: [0.528, 0.446]
+      brightness: 143
+    light.bedroom_sensor_neopixel_partition_light_3:
+      state: "on"
+      xy_color: [0.528, 0.446]
+      brightness: 143
+
 
 - name: Bedroom Relaxed 2
   entities:
@@ -73,6 +98,18 @@
       state: "off"
     light.bedroom_bed_light:
       state: "off"
+    light.bedroom_sensor_neopixel_partition_light_1:
+      state: "on"
+      xy_color: [0.528, 0.446]
+      brightness: 171
+    light.bedroom_sensor_neopixel_partition_light_2:
+      state: "on"
+      xy_color: [0.528, 0.446]
+      brightness: 171
+    light.bedroom_sensor_neopixel_partition_light_3:
+      state: "on"
+      xy_color: [0.528, 0.446]
+      brightness: 171
 
 - name: Bedroom Work 1
   entities:
@@ -96,6 +133,18 @@
       state: "off"
     light.bedroom_bed_light:
       state: "off"
+    light.bedroom_sensor_neopixel_partition_light_1:
+      state: "on"
+      xy_color: [0.323, 0.329]
+      brightness: 255
+    light.bedroom_sensor_neopixel_partition_light_2:
+      state: "on"
+      xy_color: [0.323, 0.329]
+      brightness: 255
+    light.bedroom_sensor_neopixel_partition_light_3:
+      state: "on"
+      xy_color: [0.323, 0.329]
+      brightness: 255
 
 - name: Bedroom Relaxed 3
   entities:
@@ -122,6 +171,18 @@
       state: "on"
       brightness: 51
       color_temp: 475
+    light.bedroom_sensor_neopixel_partition_light_1:
+      state: "on"
+      xy_color: [0.493, 0.389]
+      brightness: 176
+    light.bedroom_sensor_neopixel_partition_light_2:
+      state: "on"
+      xy_color: [0.493, 0.389]
+      brightness: 176
+    light.bedroom_sensor_neopixel_partition_light_3:
+      state: "on"
+      xy_color: [0.493, 0.389]
+      brightness: 176
 
 - name: Bedroom Night Light 1
   entities:
@@ -146,6 +207,19 @@
       state: "on"
       brightness: 25
       color_temp: 500
+    light.bedroom_sensor_neopixel_partition_light_1:
+      state: "on"
+      xy_color: [0.454, 0.433]
+      brightness: 143
+    light.bedroom_sensor_neopixel_partition_light_2:
+      state: "on"
+      xy_color: [0.454, 0.433]
+      brightness: 143
+    light.bedroom_sensor_neopixel_partition_light_3:
+      state: "on"
+      xy_color: [0.454, 0.433]
+      brightness: 143
+
 
 - name: Bedroom Colorful 2
   entities:
@@ -180,6 +254,18 @@
       state: "on"
       brightness: 100
       color_temp: 300
+    light.bedroom_sensor_neopixel_partition_light_1:
+      state: "on"
+      xy_color: [0.151, 0.343]
+      brightness: 252
+    light.bedroom_sensor_neopixel_partition_light_2:
+      state: "on"
+      xy_color: [0.17, 0.703]
+      brightness: 252
+    light.bedroom_sensor_neopixel_partition_light_3:
+      state: "on"
+      xy_color: [0.528, 0.446]
+      brightness: 252
 
 - name: Bedroom Colorful 3
   entities:
@@ -229,6 +315,19 @@
         - 190
         - 44
       state: "on"
+    light.bedroom_sensor_neopixel_partition_light_1:
+      state: "on"
+      xy_color: [0.614, 0.373]
+      brightness: 252
+    light.bedroom_sensor_neopixel_partition_light_2:
+      state: "on"
+      xy_color: [0.701, 0.299]
+      brightness: 252
+    light.bedroom_sensor_neopixel_partition_light_3:
+      state: "on"
+      xy_color: [0.583, 0.245]
+      brightness: 252
+
 - name: Bedroom Work 2
   entities:
     light.bedroom_bed_light:
@@ -254,3 +353,15 @@
       brightness: 255
       color_temp: 217
       state: "on"
+    light.bedroom_sensor_neopixel_partition_light_1:
+      state: "on"
+      xy_color: [0.323, 0.329]
+      brightness: 212
+    light.bedroom_sensor_neopixel_partition_light_2:
+      state: "on"
+      xy_color: [0.323, 0.329]
+      brightness: 212
+    light.bedroom_sensor_neopixel_partition_light_3:
+      state: "on"
+      xy_color: [0.323, 0.329]
+      brightness: 212

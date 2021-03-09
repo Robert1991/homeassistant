@@ -34,6 +34,15 @@ sensor.bedroom_sensor_light_intensity:
   friendly_name: "Bedroom Light Intensity"
 binary_sensor.bedroom_sensor_motion_detected:
   friendly_name: "Bedroom Motion Detector"
+light.bedroom_sensor_neopixel_partition_light_1:
+  friendly_name: "Bedroom NeoPixel Light Part 1"
+  icon: mdi:led-strip-variant
+light.bedroom_sensor_neopixel_partition_light_2:
+  friendly_name: "Bedroom NeoPixel Light Part 2"
+  icon: mdi:led-strip-variant
+light.bedroom_sensor_neopixel_partition_light_3:
+  friendly_name: "Bedroom NeoPixel Light Part 3"
+  icon: mdi:led-strip-variant
 
 # floor_sensor_actor
 sensor.floor_sensor_actor_humidity:
@@ -132,7 +141,7 @@ light.hue_iris_light:
   friendly_name: "TV Philips Hue Bubble Light"
   icon: mdi:wall-sconce-round-variant
 
-light.bedroom_workdesk:
+light.bedroom_workdesk_light:
   friendly_name: "Bedroom Workdesk Light"
   icon: mdi:desk-lamp
 light.bedroom_bed_light:
@@ -140,6 +149,8 @@ light.bedroom_bed_light:
 light.bedroom_closet_led_power_supply_light:
   friendly_name: "Bedroom Closet Light"
   icon: mdi:led-strip
+light.bedroom_neopixel_light:
+  icon: mdi:led-strip-variant
 
 # Robert PC
 binary_sensor.private_laptop_activity:

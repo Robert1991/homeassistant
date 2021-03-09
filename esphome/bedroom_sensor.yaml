@@ -69,11 +69,50 @@ sensor:
     pin: A0
     name: "Bedroom Sensor Light Intensity"
     accuracy_decimals: 2
-    update_interval: 10s
+    update_interval: 5s
     filters:
       - calibrate_linear:
         - 0.0 -> 0.0
         - 1.0 -> 100.0
+
+light:
+  - platform: neopixelbus
+    type: GRB
+    pin: GPIO3
+    num_leds: 100
+    id: neopixellight
+    name: "Bedroom Sensor NeoPixel Light"
+    internal: true
+    on_turn_off:
+      then:
+      - light.turn_off:
+          id: neopixellight_segment_1
+      - light.turn_off:
+          id: neopixellight_segment_2
+      - light.turn_off:
+          id: neopixellight_segment_3
+
+  - platform: partition
+    name: "Bedroom Sensor NeoPixel Partition Light 1"
+    id: neopixellight_segment_1
+    segments:
+      - id: neopixellight
+        from: 0
+        to: 31
+  - platform: partition
+    name: "Bedroom Sensor NeoPixel Partition Light 2"
+    id: neopixellight_segment_2
+    segments:
+      - id: neopixellight
+        from: 32
+        to: 66
+  - platform: partition
+    name: "Bedroom Sensor NeoPixel Partition Light 3"
+    id: neopixellight_segment_3
+    segments:
+      - id: neopixellight
+        from: 67
+        to: 99
 
 switch:
   - platform: restart

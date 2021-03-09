@@ -8,6 +8,9 @@ all_bedroom_lights:
     - light.bedroom_workdesk_light
     - light.bedroom_closet_led_power_supply_light
     - light.bedroom_bed_light
+    - light.bedroom_sensor_neopixel_partition_light_1
+    - light.bedroom_sensor_neopixel_partition_light_2
+    - light.bedroom_sensor_neopixel_partition_light_3
 bedroom_ceiling_lights:
   name: "Bedroom Ceiling Lights"
   icon: "mdi:ceiling-light"
@@ -19,9 +22,13 @@ bedroom_indirect_lights:
   name: "Indirect Bedroom Lights"
   icon: "mdi:lightbulb-group-outline"
   entities:
+    - light.bedroom_neopixel_light
     - light.bedroom_workdesk_light
     - light.bedroom_closet_led_power_supply_light
     - light.bedroom_bed_light
+    - light.bedroom_sensor_neopixel_partition_light_1
+    - light.bedroom_sensor_neopixel_partition_light_2
+    - light.bedroom_sensor_neopixel_partition_light_3
 all_bedroom_scenes:
   name: "All Bedroom Scenes"
   icon: "mdi:string-lights"
