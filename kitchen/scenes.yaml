@@ -35,7 +35,7 @@
     light.kitchen_ceiling_light_light_switch:
       state: 'off'
     light.kitchen_light_controller_light_strip:
-      brightness: 43
+      brightness: 163
       rgb_color:
       - 255
       - 126

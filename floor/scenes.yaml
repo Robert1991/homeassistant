@@ -24,7 +24,7 @@
       color_temp: 465
       state: "on"
     light.floor_sensor_actor_rgb_i2c_light:
-      brightness: 41
+      brightness: 163
       hs_color:
         - 14.824
         - 100.0
