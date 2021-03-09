@@ -15,11 +15,6 @@ kitchen_plant_night_ventilation_turn_on_time:
     has_date: false
     has_time: true
 
-kitchen_plant_day_ventilation_turn_on_time:
-    name: Plant Day Ventilation Turn On Time
-    has_date: false
-    has_time: true
-
 kitchen_plant_light_turn_on_time:
     name: Plant Light Turn On Time
     has_date: false

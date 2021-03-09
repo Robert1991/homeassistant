@@ -5,20 +5,20 @@ kitchen_light_brightness:
   max: 255
   step: 15
 
-kitchen_plant_ventilation_on_interval:
-  name: Kitchen Plant Ventilation On Interval
+kitchen_plant_watering_duration:
+  name: Kitchen Plant Watering Duration
   min: 1
   max: 100
   step: 1
-  unit_of_measurement: "min"
+  unit_of_measurement: "s"
   icon: 'mdi:clock-in'
 
-kitchen_plant_ventilation_off_interval:
-  name: Kitchen Plant Ventilation Off Interval
+kitchen_plant_watering_interval:
+  name: Kitchen Plant Watering Interval
   min: 1
-  max: 100
+  max: 48
   step: 1
-  unit_of_measurement: "min"
+  unit_of_measurement: "h"
   icon: 'mdi:clock-in'
 
 kitchen_plant_night_ventilation_on_interval:
@@ -44,6 +44,7 @@ kitchen_light_turn_off_timeout:
   step: 10
   unit_of_measurement: "s"
   icon: 'mdi:clock-in'
+
 kitchen_light_toogle_intensity_threshold:
   name: Kitchen Light Toogle Light Intensity Threshold
   min: 10

@@ -10,6 +10,10 @@ kitchen_light_intensity_based_light_control_enabled:
 kitchen_automatic_scene_mode_enabled:
   initial: true
 
+kitchen_plant_watering_automation_enabled:
+  icon: mdi:water
+  initial: true
+
 kitchen_plant_light_automation_enabled:
   icon: mdi:theme-light-dark
   initial: true
