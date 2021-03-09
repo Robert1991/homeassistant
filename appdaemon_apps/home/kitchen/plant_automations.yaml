@@ -26,3 +26,22 @@ toggle_plant_ventilation_in_given_interval_at_night_time:
   interval_start: input_datetime.kitchen_plant_night_ventilation_turn_on_time
   interval_end: input_datetime.kitchen_plant_day_ventilation_turn_on_time
   input_constraint: input_boolean.kitchen_plant_ventilation_automation_enabled
+
+plant_status_lcd_display_rotation:
+  module: lcd_display_rotation
+  class: LCDDisplayRotation
+  displayed_entities:
+    - entity: sensor.kitchen_plant_controller_humidity
+      name: Humidity
+      unit: "%"
+    - entity: sensor.kitchen_plant_controller_temperature
+      name: Temperature
+      unit: "deg. C"
+    - entity: sensor.kitchen_plant_controller_moisture_1
+      name: Moisture Right
+      unit: "%"
+    - entity: sensor.kitchen_plant_controller_moisture_2
+      name: Moisture Left
+      unit: "%"
+  rotate_timeout: 10
+  mqtt_display: kitchen_mqtt_lcd_display/show

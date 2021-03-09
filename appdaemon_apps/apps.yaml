@@ -20,22 +20,3 @@ turn_off_touch_screen_backlight_when_there_is_no_activity_in_the_living_room:
   turn_off_timeout: input_number.living_touch_screen_back_light_turn_off_timeout
   observed_activity_sensor: binary_sensor.living_room_sensor_actor_1_motion_detected
   constrain_input_boolean: input_boolean.touch_screen_back_light_automatic_enabled
-
-plant_status_lcd_display_rotation:
-  module: lcd_display_rotation
-  class: LCDDisplayRotation
-  displayed_entities:
-    - entity: sensor.kitchen_plant_controller_humidity
-      name: Humidity
-      unit: "%"
-    - entity: sensor.kitchen_plant_controller_temperature
-      name: Temperature
-      unit: "deg. C"
-    - entity: sensor.kitchen_plant_controller_moisture_1
-      name: Moisture Right
-      unit: "%"
-    - entity: sensor.kitchen_plant_controller_moisture_2
-      name: Moisture Left
-      unit: "%"
-  rotate_timeout: 10
-  mqtt_display: homeassistant/display/mqtt_lcd_display_show/show

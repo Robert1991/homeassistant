@@ -86,13 +86,6 @@ light.living_room_sensor_actor_1_closet_rgb_lights:
   friendly_name: "Living Closet Lights"
   icon: mdi:lightbulb-multiple
 
-# mqtt_lcd_display
-binary_sensor.mqtt_lcd_display_ping:
-  friendly_name: "MQTT LCD Display Ping"
-switch.mqtt_lcd_display_reset_switch:
-  friendly_name: "MQTT LCD Reset Switch"
-
-
 # kitchen_ceiling_light
 light.kitchen_ceiling_light_light_switch:
   friendly_name: "Kitchen Ceiling Light"

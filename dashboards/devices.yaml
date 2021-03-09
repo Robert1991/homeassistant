@@ -46,7 +46,7 @@ views:
           tap_action:
             action: navigate
             navigation_path: /lovelace-device/kitchen
-        - entity: binary_sensor.mqtt_lcd_display_ping
+        - entity: binary_sensor.kitchen_mqtt_lcd_display_connection_status
           tap_action:
             action: navigate
             navigation_path: /lovelace-device/kitchen
@@ -214,25 +214,31 @@ views:
           state_color: true
           show_header_toggle: false
           entities:
-            - entity: binary_sensor.mqtt_lcd_display_ping
+            - entity: binary_sensor.kitchen_mqtt_lcd_display_connection_status
               name: Device Status
               secondary_info: last-updated
               icon: 'hass:server-network'
-            - entity: alert.mqtt_lcd_display_is_offline
+            - entity: sensor.kitchen_mqtt_lcd_display_uptime
+              name: Uptime
+            - entity: sensor.kitchen_mqtt_lcd_display_wifi_signal
+              name: Wifi Signal
+            - entity: alert.kitchen_mqtt_lcd_display_is_offline
               name: Offline Alert
-            - entity: switch.mqtt_lcd_display_reset_switch
-              name: Reset
+            - entity: switch.kitchen_mqtt_lcd_display_restart
+              name: Restart
+            - entity: switch.kitchen_mqtt_lcd_display_shutdown
+              name: Shutdown
         - type: 'custom:auto-entities'
           filter:
             include:
               - domain: light
-                entity_id: '*mqtt_lcd_display*'
+                entity_id: '*kitchen_mqtt_lcd_display*'
               - domain: sensor
-                entity_id: '*mqtt_lcd_display*'
+                entity_id: '*kitchen_mqtt_lcd_display*'
               - domain: binary_sensor
-                entity_id: '*mqtt_lcd_display*'
+                entity_id: '*kitchen_mqtt_lcd_display*'
               - domain: switch
-                entity_id: '*mqtt_lcd_display*'
+                entity_id: '*kitchen_mqtt_lcd_display*'
           card:
             type: 'custom:fold-entity-row'
             head:
