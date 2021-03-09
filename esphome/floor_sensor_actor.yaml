@@ -26,8 +26,8 @@ ota:
 
 i2c:
   - id: i2cbus
-    sda: 4
-    scl: 5
+    sda: 5
+    scl: 4
 
 binary_sensor:
   - platform: status
@@ -54,13 +54,13 @@ sensor:
 light:
 - platform: custom
   lambda: |-
-    auto light_out = new I2CRGBLight(5, 4);
+    auto light_out = new I2CRGBLight();
     App.register_component(light_out);
     return {light_out};
 
   lights:
     - name: "Floor Sensor Actor RGB I2C Light"
-      default_transition_length: 0.5s
+      default_transition_length: 0s
 
 text_sensor:
   - platform: version
