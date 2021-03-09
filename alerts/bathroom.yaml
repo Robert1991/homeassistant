@@ -11,3 +11,16 @@ bathroom_sensor_actor_is_offline:
   skip_first: true
   notifiers:
     - ios
+bathroom_fan_is_offline:
+  name: Bathroom Fan offline
+  done_message: Bathroom Fan online again
+  entity_id: binary_sensor.bathroom_fan_ping
+  state: 'off'
+  repeat:
+    - 5
+    - 30
+    - 1140
+  can_acknowledge: true
+  skip_first: true
+  notifiers:
+    - ios

@@ -1,4 +1,13 @@
-# bathroom
+# turn_on_bathroom_fan_when_humidity_is_over_threshold:
+#   module: threshold_based_toggle_automation
+#   class: ThresholdBasedToggleAutomationWithDelay
+#   observed_sensor: sensor.bathroom_sensor_actor_humidity
+#   switch: light.bathroom_fan_switch
+#   threshold_input_number: input_number.bathroom_turn_on_fan_humidity_threshold
+#   act_on_over_threshold: true
+#   toggle_to_on: true
+#   state_change_delay: input_number.bathroom_fan_turn_off_turn_on_delay
+
 turn_on_lights_when_there_is_activity_in_the_bathroom:
   module: activity_based_light_control_automations
   class: TurnOnAutomation

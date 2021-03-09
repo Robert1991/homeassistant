@@ -10,6 +10,17 @@ light.balcony_sensor_actor_relay_light_2:
   friendly_name: "Balcony Ceiling Light"
   icon: "mdi:string-lights"
 
+# bathroom_fan
+light.bathroom_fan_switch:
+  icon: mdi:fan
+  friendly_name: "Bathroom Fan Switch"
+sensor.bathroom_fan_battery_percentage:
+  friendly_name: "Bathroom Fan Battery Status"
+switch.bathroom_fan_reset_switch:
+  friendly_name: "Bathroom Fan Reset Switch"
+  icon: mdi:restart
+binary_sensor.bathroom_fan_ping:
+  friendly_name: "Bathroom Fan Connection Status"
 
 # bathroom_sensor_actor
 light.bathroom_sensor_actor_spots:

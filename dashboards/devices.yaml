@@ -10,6 +10,10 @@ views:
           tap_action:
             action: navigate
             navigation_path: /lovelace-device/other
+        - entity: binary_sensor.bathroom_fan_ping
+          tap_action:
+            action: navigate
+            navigation_path: /lovelace-device/other  
         - entity: binary_sensor.bathroom_sensor_actor_connection_status
           tap_action:
             action: navigate
@@ -401,20 +405,38 @@ views:
     badges: []
     cards:
     - type: 'custom:vertical-stack-in-card'
+      title: Bathroom Fan
       cards:
         - type: entities
           state_color: true
           show_header_toggle: false
           entities:
+            - entity: binary_sensor.bathroom_fan_ping
               name: Device Status
               secondary_info: last-updated
               icon: 'hass:server-network'
+            - entity: sensor.bathroom_fan_battery_percentage
+              name: Battery Status
+            - entity: alert.bathroom_fan_is_offline
               name: Offline Alert
+            - entity: switch.bathroom_fan_reset_switch
               name: Reset
         - type: 'custom:auto-entities'
           filter:
             include:
               - domain: light
+                entity_id: '*bathroom_fan*'
+              - domain: sensor
+                entity_id: '*bathroom_fan*'
+              - domain: binary_sensor
+                entity_id: '*bathroom_fan*'
+              - domain: switch
+                entity_id: '*bathroom_fan*'
+          card:
+            type: 'custom:fold-entity-row'
+            head:
+              type: section
+              label: Entities
     - type: 'custom:vertical-stack-in-card'
       title: Bathroom Sensor/Actor 1
       cards:
