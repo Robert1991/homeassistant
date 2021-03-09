@@ -2,7 +2,7 @@ living_room_sensor_actor_2_offline:
   name: Living Room Sensor Actor 2 offline
   done_message: Living Room Sensor Actor 2 online again
   entity_id: binary_sensor.living_room_sensor_actor_2_connection_status
-  state: 'off'
+  state: 'unavailable'
   repeat:
     - 2
     - 30
@@ -17,7 +17,7 @@ living_room_sensor_actor_1_is_offline:
   name: Living Room Sensor/Actor 1 offline
   done_message: Living Room Sensor/Actor 1 online again
   entity_id: binary_sensor.living_room_sensor_actor_1_connection_status
-  state: 'off'
+  state: 'unavailable'
   repeat: 30
   can_acknowledge: true
   skip_first: false

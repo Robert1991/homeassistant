@@ -2,7 +2,7 @@ floor_sensor_actor_is_offline:
   name: Floor Sensor/Actor offline
   done_message: Floor Sensor/Actor online again
   entity_id: binary_sensor.floor_sensor_actor_connection_status
-  state: 'off'
+  state: 'unavailable'
   repeat: 30
   can_acknowledge: true
   skip_first: false

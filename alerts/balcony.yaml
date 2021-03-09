@@ -2,7 +2,7 @@ balcony_sensor_actor_is_offline:
   name: Balcony Sensor/Actor offline
   done_message: Balcony Sensor/Actor online again
   entity_id: binary_sensor.balcony_sensor_actor_connection_status
-  state: 'off'
+  state: 'unavailable'
   repeat:       
     - 5
     - 30

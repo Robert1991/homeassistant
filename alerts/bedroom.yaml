@@ -2,7 +2,7 @@ bedroom_sensor_is_offline:
   name: Bedroom Sensor offline
   done_message: Bedroom Sensor online again
   entity_id: binary_sensor.bedroom_sensor_connection_status
-  state: 'off'
+  state: 'unavailable'
   repeat: 30
   can_acknowledge: true
   skip_first: false
