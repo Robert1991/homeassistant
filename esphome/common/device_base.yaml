@@ -1,0 +1,39 @@
+esphome:
+  name: ${node_name}
+  platform: ESP8266
+  board: ${node_board}
+  build_path: ./build/${node_name}
+
+captive_portal:
+logger:
+ota:
+
+binary_sensor:
+  - platform: status
+    name: ${node_verbose_name} Connection Status
+
+sensor:
+  - platform: wifi_signal
+    name: ${node_verbose_name} WiFi Signal
+    update_interval: 60s
+  - platform: uptime
+    name: ${node_verbose_name} Uptime
+
+text_sensor:
+  - platform: version
+    name: ${node_verbose_name} OS Version
+  - platform: wifi_info
+    ip_address:
+      name: ${node_verbose_name} IP Address
+    ssid:
+      name: ${node_verbose_name} Connected SSID
+    bssid:
+      name: ${node_verbose_name} Connected BSSID
+    mac_address:
+      name: ${node_verbose_name} Mac Wifi Address
+
+switch:
+  - platform: restart
+    name: ${node_verbose_name} Restart
+  - platform: shutdown
+    name: ${node_verbose_name} Shutdown

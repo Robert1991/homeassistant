@@ -1,0 +1,8 @@
+- platform: dht
+  pin: ${dht_pin}
+  model: ${dht_type}
+  temperature:
+    name: ${node_verbose_name} Temperature
+  humidity:
+    name: ${node_verbose_name} Humidity
+  update_interval: 60s

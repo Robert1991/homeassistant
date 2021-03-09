@@ -1,58 +1,17 @@
-esphome:
-  name: balcony_sensor_actor
-  platform: ESP8266
-  board: nodemcuv2
+substitutions:
+  node_name: balcony_sensor_actor
+  node_board: nodemcuv2
+  node_verbose_name: Balcony Sensor Actor
+  dht_pin: D3
+  dht_type: DHT22
 
-wifi:
-  ssid: !secret WIFI_SSID
-  password: !secret WIFI_PASS
-  
-  ap:
-    ssid: "Balcony Sensor Actor"
-    password: "7OVsabPI1Qb9"
+packages:
+  mqtt: !include mqtt.yaml
+  wifi: !include wifi.yaml 
+  device_base: !include common/device_base.yaml
 
-
-mqtt:
-  broker: !secret MQTT_BROKER
-  username: !secret MQTT_USER
-  password: !secret MQTT_PASSWORD
-
-captive_portal:
-logger:
-ota:
-
-binary_sensor:
-  - platform: status
-    name: "Balcony Sensor Actor Connection Status"
-    
 sensor:
-  - platform: wifi_signal
-    name: "Balcony Sensor Actor WiFi Signal"
-    update_interval: 60s
-  - platform: uptime
-    name: "Balcony Sensor Actor Uptime"
-  - platform: dht
-    pin: D3
-    model: DHT22
-    temperature:
-      name: "Balcony Sensor Actor Temperature"
-    humidity:
-      name: "Balcony Sensor Actor Humidity"
-    update_interval: 60s
-
-
-text_sensor:
-  - platform: version
-    name: "Balcony Sensor Actor OS Version"
-  - platform: wifi_info
-    ip_address:
-      name: "Balcony Sensor Actor IP Address"
-    ssid:
-      name: "Balcony Sensor Actor Connected SSID"
-    bssid:
-      name: "Balcony Sensor Actor Connected BSSID"
-    mac_address:
-      name: "Balcony Sensor Actor Mac Wifi Address"
+  - <<: !include common/sensor/dht.yaml
 
 output:
   - platform: gpio
@@ -61,12 +20,6 @@ output:
   - platform: gpio
     id: relay_2
     pin: D2
-
-switch:
-  - platform: restart
-    name: "Balcony Sensor Actor Restart"
-  - platform: shutdown
-    name: "Balcony Sensor Actor Shutdown"
 
 light:
   - platform: binary
