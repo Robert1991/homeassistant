@@ -1,0 +1,11 @@
+- platform: adc
+  unit_of_measurement: "%"
+  icon: mdi:brightness-4
+  pin: ${light_intensity_sensor_pin}
+  name: ${node_verbose_name} Light Intensity
+  accuracy_decimals: 2
+  update_interval: ${light_intensity_sensor_update_interval}
+  filters:
+    - calibrate_linear:
+      - 0.0 -> 0.0
+      - 1.0 -> 100.0

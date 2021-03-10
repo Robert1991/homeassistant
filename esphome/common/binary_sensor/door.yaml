@@ -1,0 +1,6 @@
+  - platform: gpio
+    name: ${node_verbose_name} Door Sensor
+    device_class: door
+    pin:
+      number: ${door_sensor_pin}
+      mode: INPUT_PULLUP

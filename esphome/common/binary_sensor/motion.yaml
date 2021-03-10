@@ -1,0 +1,4 @@
+  - platform: gpio
+    name:  ${node_verbose_name} Motion Detected
+    device_class: motion
+    pin: ${motion_sensor_pin}

@@ -1,79 +1,27 @@
-esphome:
-  name: bedroom_sensor
-  platform: ESP8266
-  board: d1_mini
+substitutions:
+  node_name: bedroom_sensor
+  node_board: d1_mini
+  node_verbose_name: Bedroom Sensor
+  # sensors
+  light_intensity_sensor_pin: A0
+  light_intensity_sensor_update_interval: 5s
+  door_sensor_pin: D2
+  motion_sensor_pin: D3
+  dht_pin: D4
+  dht_type: DHT22
 
-wifi:
-  ssid: !secret WIFI_SSID
-  password: !secret WIFI_PASS
-
-  ap:
-    ssid: "Bedroom Sensor"
-    password: "6HcUr2h3UrDA"
-
-mqtt:
-  broker: !secret MQTT_BROKER
-  username: !secret MQTT_USER
-  password: !secret MQTT_PASSWORD
-
-captive_portal:
-logger:
-ota:
+packages:
+  mqtt: !include mqtt.yaml
+  wifi: !include wifi.yaml 
+  device_base: !include common/device_base.yaml
 
 binary_sensor:
-  - platform: status
-    name: "Bedroom Sensor Connection Status"
-  - platform: gpio
-    name: "Bedroom Sensor Motion Detected"
-    device_class: motion
-    pin: D3
-  - platform: gpio
-    name: "Bedroom Sensor Door Sensor"
-    device_class: door
-    pin:
-      number: D2
-      mode: INPUT_PULLUP
-
-
-text_sensor:
-  - platform: version
-    name: "Bedroom Sensor OS Version"
-  - platform: wifi_info
-    ip_address:
-      name: "Bedroom Sensor IP Address"
-    ssid:
-      name: "Bedroom Sensor Connected SSID"
-    bssid:
-      name: "Bedroom Sensor Connected BSSID"
-    mac_address:
-      name: "Bedroom Sensor Mac Wifi Address"
+  - <<: !include common/binary_sensor/motion.yaml
+  - <<: !include common/binary_sensor/door.yaml
 
 sensor:
-  - platform: wifi_signal
-    name: "Bedroom Sensor WiFi Signal"
-    update_interval: 60s
-  - platform: uptime
-    name: "Bedroom Sensor Uptime"
-    id: uptime_sensor
-  - platform: dht
-    pin: D4
-    model: DHT22
-    temperature:
-      name: "Bedroom Sensor Temperature"
-    humidity:
-      name: "Bedroom Sensor Humidity"
-    update_interval: 60s
-  - platform: adc
-    unit_of_measurement: "%"
-    icon: mdi:brightness-4
-    pin: A0
-    name: "Bedroom Sensor Light Intensity"
-    accuracy_decimals: 2
-    update_interval: 5s
-    filters:
-      - calibrate_linear:
-        - 0.0 -> 0.0
-        - 1.0 -> 100.0
+  - <<: !include common/sensor/dht.yaml
+  - <<: !include common/sensor/light_intensity.yaml
 
 light:
   - platform: neopixelbus
@@ -81,41 +29,26 @@ light:
     pin: GPIO3
     num_leds: 100
     id: neopixellight
-    name: "Bedroom Sensor NeoPixel Light"
+    name: ${node_verbose_name} NeoPixel Light
     internal: true
-    on_turn_off:
-      then:
-      - light.turn_off:
-          id: neopixellight_segment_1
-      - light.turn_off:
-          id: neopixellight_segment_2
-      - light.turn_off:
-          id: neopixellight_segment_3
-
   - platform: partition
-    name: "Bedroom Sensor NeoPixel Partition Light 1"
+    name: ${node_verbose_name} NeoPixel Partition Light 1
     id: neopixellight_segment_1
     segments:
       - id: neopixellight
         from: 0
         to: 31
   - platform: partition
-    name: "Bedroom Sensor NeoPixel Partition Light 2"
+    name: ${node_verbose_name} NeoPixel Partition Light 2
     id: neopixellight_segment_2
     segments:
       - id: neopixellight
         from: 32
         to: 66
   - platform: partition
-    name: "Bedroom Sensor NeoPixel Partition Light 3"
+    name: ${node_verbose_name} NeoPixel Partition Light 3
     id: neopixellight_segment_3
     segments:
       - id: neopixellight
         from: 67
         to: 99
-
-switch:
-  - platform: restart
-    name: "Bedroom Sensor Restart"
-  - platform: shutdown
-    name: "Bedroom Sensor Shutdown"
