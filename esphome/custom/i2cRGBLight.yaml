@@ -1,0 +1,21 @@
+esphome:
+  includes:
+    - custom/I2CRGBLight.h
+  libraries:
+    - "Wire"
+
+i2c:
+  - id: i2cbus
+    sda: ${sda_pin}
+    scl: ${scl_pin}
+
+light:
+  - platform: custom
+    lambda: |-
+      auto light_out = new I2CRGBLight();
+      App.register_component(light_out);
+      return {light_out};
+
+    lights:
+      - name: ${node_verbose_name} RGB I2C Light
+        default_transition_length: 0s

@@ -1,49 +1,14 @@
-esphome:
-  name: kitchen_mqtt_lcd_display
-  platform: ESP8266
-  board: nodemcuv2
+substitutions:
+  node_name: kitchen_mqtt_lcd_display
+  node_board: nodemcuv2
+  node_verbose_name: Kitchen MQTT LCD Display
 
-wifi:
-  ssid: !secret WIFI_SSID
-  password: !secret WIFI_PASS
-  
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "Kitchen MQTT LCD Display"
-    password: "7dz7qbJzbxuE"
-
-captive_portal:
-logger:
-ota:
-
-mqtt:
-  broker: !secret MQTT_BROKER
-  username: !secret MQTT_USER
-  password: !secret MQTT_PASSWORD
-
-sensor:
-  - platform: wifi_signal
-    name: "Kitchen MQTT LCD Display WiFi Signal"
-    update_interval: 60s
-  - platform: uptime
-    name: "Kitchen MQTT LCD Display Uptime"
-
-binary_sensor:
-  - platform: status
-    name: "Kitchen MQTT LCD Display Connection Status"
+packages:
+  mqtt: !include mqtt.yaml
+  wifi: !include wifi.yaml 
+  device_base: !include common/device_base.yaml
     
 text_sensor:
-  - platform: version
-    name: "Kitchen MQTT LCD Display OS Version"
-  - platform: wifi_info
-    ip_address:
-      name: "Kitchen MQTT LCD Display IP Address"
-    ssid:
-      name: "Kitchen MQTT LCD Display Connected SSID"
-    bssid:
-      name: "Kitchen MQTT LCD Display Connected BSSID"
-    mac_address:
-      name: "Kitchen MQTT LCD Display Mac Wifi Address"
   - platform: mqtt_subscribe
     name: "Kitchen MQTT LCD Display Display Topic"
     id: diplay_text_sensor
@@ -77,9 +42,3 @@ display:
       }
       ESP_LOGD("Display", "displaying %s", currentLineDisplay.c_str());
       it.print(0, currentDisplayIndex, currentLineDisplay.c_str());
-
-switch:
-  - platform: restart
-    name: "Kitchen MQTT LCD Display Restart"
-  - platform: shutdown
-    name: "Kitchen MQTT LCD Display Shutdown"

@@ -1,48 +1,12 @@
-esphome:
-  name: kitchen_light_controller
-  platform: ESP8266
-  board: nodemcuv2
-
-wifi:
-  ssid: !secret WIFI_SSID
-  password: !secret WIFI_PASS
-  
-  ap:
-    ssid: "Kitchen Light Controller"
-    password: "7OVsabPI1Qb9"
-
-mqtt:
-  broker: !secret MQTT_BROKER
-  username: !secret MQTT_USER
-  password: !secret MQTT_PASSWORD
-
-captive_portal:
-logger:
-ota:
-
-binary_sensor:
-  - platform: status
-    name: "Kitchen Light Controller Connection Status"
-    
-sensor:
-  - platform: wifi_signal
-    name: "Kitchen Light Controller WiFi Signal"
-    update_interval: 60s
-  - platform: uptime
-    name: "Kitchen Light Controller Uptime"
-
-text_sensor:
-  - platform: version
-    name: "Kitchen Light Controller OS Version"
-  - platform: wifi_info
-    ip_address:
-      name: "Kitchen Light Controller IP Address"
-    ssid:
-      name: "Kitchen Light Controller Connected SSID"
-    bssid:
-      name: "Kitchen Light Controller Connected BSSID"
-    mac_address:
-      name: "Kitchen Light Controller Mac Wifi Address"
+substitutions:
+  node_name: kitchen_light_controller
+  node_board: nodemcuv2
+  node_verbose_name: Kitchen Light Controller
+ 
+packages:
+  mqtt: !include mqtt.yaml
+  wifi: !include wifi.yaml 
+  device_base: !include common/device_base.yaml
 
 output:
   - platform: gpio
@@ -58,18 +22,12 @@ output:
     id: strip_blue
     pin: D6
 
-switch:
-  - platform: restart
-    name: "Kitchen Light Controller Restart"
-  - platform: shutdown
-    name: "Kitchen Light Controller Shutdown"
-
 light:
   - platform: binary
-    name: "Kitchen Light Controller Black Light"
+    name: ${node_verbose_name} Black Light
     output: relay
   - platform: rgb
-    name: "Kitchen Light Controller Light Strip"
+    name: ${node_verbose_name} Light Strip
     red: strip_red
     green: strip_green
     blue: strip_blue

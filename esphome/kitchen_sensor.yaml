@@ -1,82 +1,24 @@
-esphome:
-  name: kitchen_sensor
-  platform: ESP8266
-  board: nodemcuv2
+substitutions:
+  node_name: kitchen_sensor
+  node_board: nodemcuv2
+  node_verbose_name: Kitchen Sensor
+  # sensors
+  light_intensity_sensor_pin: A0
+  light_intensity_sensor_update_interval: 10s
+  door_sensor_pin: D1
+  motion_sensor_pin: D2
+  dht_pin: D3
+  dht_type: DHT11
 
-wifi:
-  ssid: !secret WIFI_SSID
-  password: !secret WIFI_PASS
-  power_save_mode: NONE
-
-  ap:
-    ssid: "Kitchen Sensor"
-    password: "6HcUr2h3UrDA"
-
-mqtt:
-  broker: !secret MQTT_BROKER
-  username: !secret MQTT_USER
-  password: !secret MQTT_PASSWORD
-
-captive_portal:
-logger:
-ota:
+packages:
+  mqtt: !include mqtt.yaml
+  wifi: !include wifi.yaml 
+  device_base: !include common/device_base.yaml
 
 binary_sensor:
-  - platform: status
-    name: "Kitchen Sensor Connection Status"
-  - platform: gpio
-    name: "Kitchen Sensor Motion Detected"
-    device_class: motion
-    pin: D2
-  - platform: gpio
-    name: "Kitchen Sensor Door Sensor"
-    device_class: door
-    pin:
-      number: D1
-      mode: INPUT_PULLUP
+  - <<: !include common/binary_sensor/motion.yaml
+  - <<: !include common/binary_sensor/door.yaml
 
-    
 sensor:
-  - platform: wifi_signal
-    name: "Kitchen Sensor WiFi Signal"
-    update_interval: 60s
-  - platform: uptime
-    name: "Kitchen Sensor Uptime"
-  - platform: dht
-    pin: D3
-    temperature:
-      name: "Kitchen Sensor Temperature"
-    humidity:
-      name: "Kitchen Sensor Humidity"
-    update_interval: 60s
-  - platform: adc
-    unit_of_measurement: "%"
-    icon: mdi:brightness-4
-    pin: A0
-    name: "Kitchen Sensor Light Intensity"
-    accuracy_decimals: 2
-    update_interval: 10s
-    filters:
-      - calibrate_linear:
-        - 0.0 -> 0.0
-        - 1.0 -> 100.0
-
-
-text_sensor:
-  - platform: version
-    name: "Kitchen Sensor OS Version"
-  - platform: wifi_info
-    ip_address:
-      name: "Kitchen Sensor IP Address"
-    ssid:
-      name: "Kitchen Sensor Connected SSID"
-    bssid:
-      name: "Kitchen Sensor Connected BSSID"
-    mac_address:
-      name: "Kitchen Sensor Mac Wifi Address"
-
-switch:
-  - platform: restart
-    name: "Kitchen Sensor Restart"
-  - platform: shutdown
-    name: "Kitchen Sensor Shutdown"
+  - <<: !include common/sensor/dht.yaml
+  - <<: !include common/sensor/light_intensity.yaml

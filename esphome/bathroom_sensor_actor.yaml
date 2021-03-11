@@ -1,58 +1,18 @@
-esphome:
-  name: bathroom_sensor_actor
-  platform: ESP8266
-  board: nodemcuv2
+substitutions:
+  node_name: bathroom_sensor_actor
+  node_board: nodemcuv2
+  node_verbose_name: Bathroom Sensor Actor
+  # sensors
+  dht_pin: D8
+  dht_type: DHT22
 
-wifi:
-  ssid: !secret WIFI_SSID
-  password: !secret WIFI_PASS
-
-  ap:
-    ssid: "Bathroom Sensor Actor"
-    password: "6HcUr2h3UrDA"
-
-mqtt:
-  broker: !secret MQTT_BROKER
-  username: !secret MQTT_USER
-  password: !secret MQTT_PASSWORD
-
-captive_portal:
-logger:
-ota:
-
-
-binary_sensor:
-  - platform: status
-    name: "Bathroom Sensor Actor Connection Status"
-
-text_sensor:
-  - platform: version
-    name: "Bathroom Sensor Actor OS Version"
-  - platform: wifi_info
-    ip_address:
-      name: "Bathroom Sensor Actor IP Address"
-    ssid:
-      name: "Bathroom Sensor Actor Connected SSID"
-    bssid:
-      name: "Bathroom Sensor Actor Connected BSSID"
-    mac_address:
-      name: "Bathroom Sensor Actor Mac Wifi Address"
-
+packages:
+  mqtt: !include mqtt.yaml
+  wifi: !include wifi.yaml 
+  device_base: !include common/device_base.yaml
 
 sensor:
-  - platform: wifi_signal
-    name: "Bathroom Sensor Actor WiFi Signal"
-    update_interval: 60s
-  - platform: uptime
-    name: "Bathroom Sensor Actor Uptime"
-  - platform: dht
-    pin: D8
-    model: DHT22
-    temperature:
-      name: "Bathroom Sensor Actor Temperature"
-    humidity:
-      name: "Bathroom Sensor Actor Humidity"
-    update_interval: 60s
+  - <<: !include common/sensor/dht.yaml
 
 output:
   - platform: gpio
@@ -67,21 +27,13 @@ output:
   - platform: esp8266_pwm
     id: strip_blue
     pin: D6
-  
-
-switch:
-  - platform: restart
-    name: "Bathroom Sensor Actor Restart"
-  - platform: shutdown
-    name: "Bathroom Sensor Actor Shutdown"
-
 
 light:
   - platform: binary
-    name: "Bathroom Sensor Actor Spots"
+    name: ${node_verbose_name} Spots
     output: relay
   - platform: rgb
-    name: "Bathroom Sensor Actor Light Strip"
+    name: ${node_verbose_name} Light Strip
     red: strip_red
     green: strip_green
     blue: strip_blue

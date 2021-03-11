@@ -92,7 +92,7 @@ sensor.living_room_sensor_actor_1_temperature:
 binary_sensor.living_room_sensor_actor_1_motion_detected:
   friendly_name: "Living Room Motion Detector"
 light.living_room_sensor_actor_1_closet_rgb_lights:
-  friendly_name: "Living Closet Lights"
+  friendly_name: "Living Room Closet Lights"
   icon: mdi:lightbulb-multiple
 
 # kitchen_ceiling_light

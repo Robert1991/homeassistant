@@ -1,66 +1,18 @@
-esphome:
-  name: living_room_sensor_actor_2
-  platform: ESP8266
-  board: nodemcuv2
- 
-wifi:
-  ssid: !secret WIFI_SSID
-  password: !secret WIFI_PASS
+substitutions:
+  node_name: living_room_sensor_actor_2
+  node_board: nodemcuv2
+  node_verbose_name: Living Room Sensor Actor 2
+  # sensors
+  light_intensity_sensor_pin: A0
+  light_intensity_sensor_update_interval: 1s
 
-  ap:
-    ssid: "Living Room Sensor Actor 2"
-    password: "6HcUr2h3UrDA"
+packages:
+  mqtt: !include mqtt.yaml
+  wifi: !include wifi.yaml 
+  device_base: !include common/device_base.yaml
 
-mqtt:
-  broker: !secret MQTT_BROKER
-  username: !secret MQTT_USER
-  password: !secret MQTT_PASSWORD
-
-captive_portal:
-logger:
-ota:
-
-binary_sensor:
-  - platform: status
-    name: "Living Room Sensor Actor 2 Connection Status"
-    
 sensor:
-  - platform: wifi_signal
-    name: "Living Room Sensor Actor 2 WiFi Signal"
-    update_interval: 60s
-  - platform: uptime
-    name: "Living Room Sensor Actor 2 Uptime"
-  - platform: adc
-    unit_of_measurement: "%"
-    icon: mdi:brightness-4
-    pin: A0
-    name: "Living Room Sensor Actor 2 Light Intensity"
-    accuracy_decimals: 2
-    update_interval: 1s
-    filters:
-      - calibrate_linear:
-        - 0.0 -> 0.0
-        - 1.0 -> 100.0
-
-
-text_sensor:
-  - platform: version
-    name: "Living Room Sensor Actor 2 OS Version"
-  - platform: wifi_info
-    ip_address:
-      name: "Living Room Sensor Actor 2 IP Address"
-    ssid:
-      name: "Living Room Sensor Actor 2 Connected SSID"
-    bssid:
-      name: "Living Room Sensor Actor 2 Connected BSSID"
-    mac_address:
-      name: "Living Room Sensor Actor 2 Mac Wifi Address"
-
-switch:
-  - platform: restart
-    name: "Living Room Sensor Actor 2 Restart"
-  - platform: shutdown
-    name: "Living Room Sensor Actor 2 Shutdown"
+  - <<: !include common/sensor/light_intensity.yaml
 
 output:
   - platform: gpio
@@ -69,5 +21,5 @@ output:
 
 light:
   - platform: binary
-    name: "Living Room Sensor Actor 2 Light Strings"
+    name: ${node_verbose_name} Light Strings
     output: relay

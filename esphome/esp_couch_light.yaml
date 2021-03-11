@@ -1,71 +1,13 @@
-esphome:
-  name: esp_couch_light
-  platform: ESP8266
-  board: nodemcuv2
-  includes:
-    - custom/I2CRGBLight.h
-  libraries:
-    - "Wire"
+substitutions:
+  node_name: esp_couch_light
+  node_board: nodemcuv2
+  node_verbose_name: ESP Couch Light
+  # i2c
+  sda_pin: "5"
+  scl_pin: "4"
 
-wifi:
-  ssid: !secret WIFI_SSID
-  password: !secret WIFI_PASS
-
-  ap:
-    ssid: "ESP Couch Light"
-    password: "6HcUr2h3UrDA"
-
-mqtt:
-  broker: !secret MQTT_BROKER
-  username: !secret MQTT_USER
-  password: !secret MQTT_PASSWORD
-
-captive_portal:
-logger:
-ota:
-
-i2c:
-  - id: i2cbus
-    sda: 5
-    scl: 4
-
-binary_sensor:
-  - platform: status
-    name: "ESP Couch Light Connection Status"
-
-sensor:
-  - platform: wifi_signal
-    name: "ESP Couch Light WiFi Signal"
-    update_interval: 60s
-  - platform: uptime
-    name: "ESP Couch Light Uptime"
-
-light:
-- platform: custom
-  lambda: |-
-    auto light_out = new I2CRGBLight();
-    App.register_component(light_out);
-    return {light_out};
-
-  lights:
-    - name: "ESP Couch Light RGB I2C Light"
-      default_transition_length: 0s
-
-text_sensor:
-  - platform: version
-    name: "ESP Couch Light OS Version"
-  - platform: wifi_info
-    ip_address:
-      name: "ESP Couch Light IP Address"
-    ssid:
-      name: "ESP Couch Light Connected SSID"
-    bssid:
-      name: "ESP Couch Light Connected BSSID"
-    mac_address:
-      name: "ESP Couch Light Mac Wifi Address"
-
-switch:
-  - platform: restart
-    name: "ESP Couch Light Restart"
-  - platform: shutdown
-    name: "ESP Couch Light Shutdown"
+packages:
+  mqtt: !include mqtt.yaml
+  wifi: !include wifi.yaml 
+  device_base: !include common/device_base.yaml
+  i2c_light: !include custom/i2cRGBLight.yaml
