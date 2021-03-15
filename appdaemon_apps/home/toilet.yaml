@@ -17,9 +17,13 @@ turn_on_lights_when_there_is_activity_in_the_toilet:
 set_toilet_timebased_light_scene:
   module: time_based_scene_switch
   class: TimeBasedSceneSwitch
+  dependencies: 
+    - scene_utils
   scene_switch_input_select: input_select.toilet_time_based_scenes
   toggled_scene_input_select: input_select.toilet_automatic_light_scene_generated
   light_automatic_enabled: input_boolean.toilet_light_automation_is_enabled
+  light_group: light.toilet_lights
+  scene_group_prefix: toilet
 
 turn_off_lights_when_there_is_no_activity_in_the_toilet:
   module: activity_based_turn_off_automations
