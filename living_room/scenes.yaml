@@ -119,6 +119,7 @@
         - 0.539
         - 0.392
       state: "on"
+    input_number.living_room_light_toogle_intensity_threshold: "15.0"
 - name: Living Room Afrika 2
   entities:
     light.esp_couch_light_rgb_i2c_light:
@@ -240,6 +241,7 @@
         - 0.537
         - 0.392
       state: "on"
+    input_number.living_room_light_toogle_intensity_threshold: "30.0"
 - name: Living Room Work
   entities:
     light.esp_couch_light_rgb_i2c_light:
@@ -309,6 +311,7 @@
       state: "on"
     light.touch_screen_back_light:
       state: "on"
+    input_number.living_room_light_toogle_intensity_threshold: "45.0"
 - name: Living Room TV 1
   entities:
     light.esp_couch_light_rgb_i2c_light:
@@ -423,6 +426,7 @@
       state: "on"
     light.touch_screen_back_light:
       state: "off"
+    input_number.living_room_light_toogle_intensity_threshold: "20.0"
 - name: Living Room Casa Cabron
   entities:
     light.esp_couch_light_rgb_i2c_light:
@@ -546,3 +550,4 @@
       state: "on"
     light.touch_screen_back_light:
       state: "on"
+    input_number.living_room_light_toogle_intensity_threshold: "25.0"

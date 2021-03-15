@@ -36,6 +36,7 @@
       state: "on"
       xy_color: [0.528, 0.446]
       brightness: 252
+    input_number.bedroom_light_toogle_intensity_threshold: "45.0"
 
 - name: Bedroom Relaxed 1
   entities:
@@ -74,6 +75,7 @@
       state: "on"
       xy_color: [0.528, 0.446]
       brightness: 143
+    input_number.bedroom_light_toogle_intensity_threshold: "30.0"
 
 
 - name: Bedroom Relaxed 2
@@ -110,6 +112,7 @@
       state: "on"
       xy_color: [0.528, 0.446]
       brightness: 171
+    input_number.bedroom_light_toogle_intensity_threshold: "30.0"
 
 - name: Bedroom Work 1
   entities:
@@ -145,6 +148,7 @@
       state: "on"
       xy_color: [0.323, 0.329]
       brightness: 255
+    input_number.bedroom_light_toogle_intensity_threshold: "50.0"
 
 - name: Bedroom Relaxed 3
   entities:
@@ -183,6 +187,7 @@
       state: "on"
       xy_color: [0.493, 0.389]
       brightness: 176
+    input_number.bedroom_light_toogle_intensity_threshold: "25.0"
 
 - name: Bedroom Night Light 1
   entities:
@@ -219,7 +224,7 @@
       state: "on"
       xy_color: [0.454, 0.433]
       brightness: 143
-
+    input_number.bedroom_light_toogle_intensity_threshold: "23.0"
 
 - name: Bedroom Colorful 2
   entities:
@@ -266,6 +271,7 @@
       state: "on"
       xy_color: [0.528, 0.446]
       brightness: 252
+    input_number.bedroom_light_toogle_intensity_threshold: "25.0"
 
 - name: Bedroom Colorful 3
   entities:
@@ -327,6 +333,7 @@
       state: "on"
       xy_color: [0.583, 0.245]
       brightness: 252
+    input_number.bedroom_light_toogle_intensity_threshold: "40.0"
 
 - name: Bedroom Work 2
   entities:
@@ -365,3 +372,4 @@
       state: "on"
       xy_color: [0.323, 0.329]
       brightness: 212
+    input_number.bedroom_light_toogle_intensity_threshold: "50.0"
