@@ -327,6 +327,8 @@ views:
                   entity: input_datetime.floor_light_automation_reactivation_timeout
             - name: Turn Off Timeout
               entity: input_number.floor_light_turn_off_timeout
+            - name: Light Intensity (Kitchen Sensor)
+              entity: input_number.floor_light_toogle_intensity_threshold
             - type: 'custom:fold-entity-row'
               head:
                 entity: input_boolean.floor_automatic_scene_mode_enabled
