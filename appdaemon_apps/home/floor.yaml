@@ -2,6 +2,9 @@
 turn_on_lights_when_there_is_activity_in_the_floor:
   module: activity_based_light_control_automations
   class: TurnOnAutomation
+  dependencies: 
+    - scene_utils
+    - hass_utils
   observed_activity_sensor: binary_sensor.floor_sensor_actor_motion_detected
   light_group: light.floor_lights
   light_sensor: sensor.kitchen_sensor_light_intensity

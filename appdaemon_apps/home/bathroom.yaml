@@ -2,6 +2,9 @@
 turn_on_lights_when_there_is_activity_in_the_bathroom:
   module: activity_based_light_control_automations
   class: TurnOnAutomation
+  dependencies: 
+    - scene_utils
+    - hass_utils
   observed_activity_sensor: binary_sensor.bathroom_motion_detector
   light_group: light.bathroom_lights
   light_sensor: sensor.bathroom_light_intensity_percent

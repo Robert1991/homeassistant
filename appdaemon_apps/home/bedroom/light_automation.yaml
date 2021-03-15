@@ -24,7 +24,10 @@ turn_off_lights_when_there_is_no_activity_in_the_bedroom:
 
 turn_on_lights_when_there_is_activity_in_the_bedroom:
   module: activity_based_light_control_automations
-  class: TurnOnAutomation
+  class: TurnOnAutomationWithSceneTransition
+  dependencies: 
+    - scene_utils
+    - hass_utils
   observed_activity_sensor: binary_sensor.activity_detected_in_bedroom
   light_group: light.all_bedroom_lights
   light_sensor: sensor.bedroom_sensor_light_intensity
