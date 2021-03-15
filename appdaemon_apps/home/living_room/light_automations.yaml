@@ -37,9 +37,9 @@ set_living_room_timebased_light_scene:
   light_automatic_enabled: input_boolean.living_room_light_automation_is_enabled
 
 turn_off_lights_when_there_is_no_activity_in_the_living_room:
-  module: activity_based_light_control_automations
+  module: activity_based_turn_off_automations
   class: TurnOffAutomation
-  light_group: light.living_room_lights
+  entity: light.living_room_lights
   turn_off_timeout: input_number.living_room_light_turn_off_timeout
   observed_activity_sensor: binary_sensor.activity_detected_in_living_room
   constrain_input_boolean: input_boolean.living_room_light_automation_is_enabled

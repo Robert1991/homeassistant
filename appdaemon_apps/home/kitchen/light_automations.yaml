@@ -28,9 +28,9 @@ reactivate_kitchen_light_automation_after_given_timeout:
   reactivation_timeout: input_datetime.kitchen_light_automation_reactivation_timeout
 
 turn_off_lights_when_there_is_no_activity_in_the_kitchen:
-  module: activity_based_light_control_automations
+  module: activity_based_turn_off_automations
   class: TurnOffAutomation
-  light_group: light.kitchen_lights
+  entity: light.kitchen_lights
   turn_off_timeout: input_number.kitchen_light_turn_off_timeout
   observed_activity_sensor: binary_sensor.kitchen_sensor_motion_detected
   constrain_input_boolean: input_boolean.kitchen_light_automation_is_enabled

@@ -22,9 +22,9 @@ set_floor_timebased_light_scene:
   light_automatic_enabled: input_boolean.floor_light_automation_is_enabled
 
 turn_off_lights_when_there_is_no_activity_in_the_floor:
-  module: activity_based_light_control_automations
+  module: activity_based_turn_off_automations
   class: TurnOffAutomation
-  light_group: light.floor_lights
+  entity: light.floor_lights
   turn_off_timeout: input_number.floor_light_turn_off_timeout
   observed_activity_sensor: binary_sensor.floor_sensor_actor_motion_detected
   constrain_input_boolean: input_boolean.floor_light_automation_is_enabled
