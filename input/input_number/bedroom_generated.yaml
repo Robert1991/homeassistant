@@ -1,0 +1,45 @@
+bedroom_colorful_1_light_intensity:
+  initial: 45
+  max: 100
+  min: 0
+  step: 1
+bedroom_colorful_2_light_intensity:
+  initial: 25
+  max: 100
+  min: 0
+  step: 1
+bedroom_colorful_3_light_intensity:
+  initial: 40
+  max: 100
+  min: 0
+  step: 1
+bedroom_eves_light_light_intensity:
+  initial: 30
+  max: 100
+  min: 0
+  step: 1
+bedroom_night_light_1_light_intensity:
+  initial: 20
+  max: 100
+  min: 0
+  step: 1
+bedroom_night_light_2_light_intensity:
+  initial: 10
+  max: 100
+  min: 0
+  step: 1
+bedroom_relaxed_1_light_intensity:
+  initial: 30
+  max: 100
+  min: 0
+  step: 1
+bedroom_relaxed_2_light_intensity:
+  initial: 20
+  max: 100
+  min: 0
+  step: 1
+bedroom_work_1_light_intensity:
+  initial: 45
+  max: 100
+  min: 0
+  step: 1

@@ -52,4 +52,5 @@ set_bedroom_timebased_light_scene:
   toggled_scene_input_select: input_select.bedroom_automatic_light_scene_generated
   light_automatic_enabled: input_boolean.bedroom_light_automation_is_enabled
   light_group: light.all_bedroom_lights
+  light_intensity_control: input_number.bedroom_light_toogle_intensity_threshold
   scene_group_prefix: bedroom

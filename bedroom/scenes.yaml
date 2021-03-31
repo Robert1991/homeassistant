@@ -1,375 +1,875 @@
-- name: Bedroom Colorful 1
-  icon: "mdi:flower-tulip"
-  entities:
-    light.bedroom_ceiling_1:
-      state: "on"
-      xy_color: [0.636, 0.335]
-      brightness: 111
-    light.bedroom_ceiling_2:
-      state: "on"
-      xy_color: [0.38, 0.391]
-      brightness: 111
-    light.bedroom_ceiling_3:
-      state: "on"
-      xy_color: [0.416, 0.475]
-      brightness: 111
-    light.bedroom_workdesk_light:
-      state: "on"
-      xy_color: [0.606, 0.372]
-      brightness: 200
-    light.bedroom_closet_led_power_supply_light:
-      state: "on"
-      brightness: 80
+- entities:
+    input_number.bedroom_light_toogle_intensity_threshold: '45'
     light.bedroom_bed_light:
-      state: "on"
       brightness: 51
-      color_temp: 475
-    light.bedroom_sensor_neopixel_partition_light_1:
-      state: "on"
-      xy_color: [0.38, 0.17]
-      brightness: 252
-    light.bedroom_sensor_neopixel_partition_light_2:
-      state: "on"
-      xy_color: [0.701, 0.299]
-      brightness: 252
-    light.bedroom_sensor_neopixel_partition_light_3:
-      state: "on"
-      xy_color: [0.528, 0.446]
-      brightness: 252
-    input_number.bedroom_light_toogle_intensity_threshold: "45.0"
-
-- name: Bedroom Relaxed 1
-  entities:
+      state: 'on'
     light.bedroom_ceiling_1:
-      state: "on"
-      xy_color: [0.502, 0.414]
-      brigtness: 145
-    light.bedroom_ceiling_2:
-      state: "on"
-      xy_color: [0.502, 0.414]
-      brigtness: 145
-    light.bedroom_ceiling_3:
-      state: "on"
-      xy_color: [0.502, 0.414]
-      brigtness: 145
-    light.bedroom_workdesk_light:
-      state: "on"
-      xy_color: [0.502, 0.414]
-      brightness: 120
-    light.bedroom_closet_led_power_supply_light:
-      state: "on"
-      brightness: 120
-    light.bedroom_bed_light:
-      state: "on"
-      brightness: 51
-      color_temp: 475
-    light.bedroom_sensor_neopixel_partition_light_1:
-      state: "on"
-      xy_color: [0.528, 0.446]
-      brightness: 143
-    light.bedroom_sensor_neopixel_partition_light_2:
-      state: "on"
-      xy_color: [0.528, 0.446]
-      brightness: 143
-    light.bedroom_sensor_neopixel_partition_light_3:
-      state: "on"
-      xy_color: [0.528, 0.446]
-      brightness: 143
-    input_number.bedroom_light_toogle_intensity_threshold: "30.0"
-
-
-- name: Bedroom Relaxed 2
-  entities:
-    light.bedroom_ceiling_1:
-      state: "on"
-      xy_color: [0.457, 0.41]
-      brightness: 145
-    light.bedroom_ceiling_2:
-      state: "on"
-      xy_color: [0.457, 0.41]
-      brightness: 145
-    light.bedroom_ceiling_3:
-      state: "on"
-      xy_color: [0.457, 0.41]
-      brightness: 145
-    light.bedroom_workdesk_light:
-      state: "on"
-      xy_color: [0.457, 0.41]
-      brightness: 200
-    light.bedroom_closet_led_power_supply_light:
-      state: "off"
-    light.bedroom_bed_light:
-      state: "off"
-    light.bedroom_sensor_neopixel_partition_light_1:
-      state: "on"
-      xy_color: [0.528, 0.446]
-      brightness: 171
-    light.bedroom_sensor_neopixel_partition_light_2:
-      state: "on"
-      xy_color: [0.528, 0.446]
-      brightness: 171
-    light.bedroom_sensor_neopixel_partition_light_3:
-      state: "on"
-      xy_color: [0.528, 0.446]
-      brightness: 171
-    input_number.bedroom_light_toogle_intensity_threshold: "30.0"
-
-- name: Bedroom Work 1
-  entities:
-    light.bedroom_ceiling_1:
-      state: "on"
-      xy_color: [0.39, 0.373]
-      brightness: 200
-    light.bedroom_ceiling_2:
-      state: "on"
-      xy_color: [0.39, 0.373]
-      brightness: 200
-    light.bedroom_ceiling_3:
-      state: "on"
-      xy_color: [0.39, 0.373]
-      brightness: 200
-    light.bedroom_workdesk_light:
-      state: "on"
-      xy_color: [0.429, 0.396]
-      brightness: 220
-    light.bedroom_closet_led_power_supply_light:
-      state: "off"
-    light.bedroom_bed_light:
-      state: "off"
-    light.bedroom_sensor_neopixel_partition_light_1:
-      state: "on"
-      xy_color: [0.323, 0.329]
-      brightness: 255
-    light.bedroom_sensor_neopixel_partition_light_2:
-      state: "on"
-      xy_color: [0.323, 0.329]
-      brightness: 255
-    light.bedroom_sensor_neopixel_partition_light_3:
-      state: "on"
-      xy_color: [0.323, 0.329]
-      brightness: 255
-    input_number.bedroom_light_toogle_intensity_threshold: "50.0"
-
-- name: Bedroom Relaxed 3
-  entities:
-    light.bedroom_ceiling_1:
-      state: "on"
-      xy_color: [0.457, 0.41]
-      brightness: 77
-    light.bedroom_ceiling_2:
-      state: "on"
-      xy_color: [0.457, 0.41]
-      brightness: 77
-    light.bedroom_ceiling_3:
-      state: "on"
-      xy_color: [0.457, 0.41]
-      brightness: 77
-    light.bedroom_workdesk_light:
-      state: "on"
-      xy_color: [0.457, 0.41]
-      brightness: 50
-    light.bedroom_closet_led_power_supply_light:
-      state: "on"
-      brightness: 77
-    light.bedroom_bed_light:
-      state: "on"
-      brightness: 51
-      color_temp: 475
-    light.bedroom_sensor_neopixel_partition_light_1:
-      state: "on"
-      xy_color: [0.493, 0.389]
-      brightness: 176
-    light.bedroom_sensor_neopixel_partition_light_2:
-      state: "on"
-      xy_color: [0.493, 0.389]
-      brightness: 176
-    light.bedroom_sensor_neopixel_partition_light_3:
-      state: "on"
-      xy_color: [0.493, 0.389]
-      brightness: 176
-    input_number.bedroom_light_toogle_intensity_threshold: "25.0"
-
-- name: Bedroom Night Light 1
-  entities:
-    light.bedroom_ceiling_1:
-      state: "on"
-      xy_color: [0.561, 0.404]
-      brigtness: 10
-    light.bedroom_ceiling_2:
-      state: "on"
-      xy_color: [0.561, 0.404]
-      brigtness: 10
-    light.bedroom_ceiling_3:
-      state: "on"
-      xy_color: [0.561, 0.404]
-      brigtness: 10
-    light.bedroom_workdesk_light:
-      state: "off"
-    light.bedroom_closet_led_power_supply_light:
-      state: "on"
-      brightness: 20
-    light.bedroom_bed_light:
-      state: "on"
-      brightness: 25
-      color_temp: 500
-    light.bedroom_sensor_neopixel_partition_light_1:
-      state: "on"
-      xy_color: [0.454, 0.433]
-      brightness: 143
-    light.bedroom_sensor_neopixel_partition_light_2:
-      state: "on"
-      xy_color: [0.454, 0.433]
-      brightness: 143
-    light.bedroom_sensor_neopixel_partition_light_3:
-      state: "on"
-      xy_color: [0.454, 0.433]
-      brightness: 143
-    input_number.bedroom_light_toogle_intensity_threshold: "23.0"
-
-- name: Bedroom Colorful 2
-  entities:
-    light.bedroom_ceiling_1:
-      brightness: 157
+      brightness: 111
+      hs_color:
+      - 14.493
+      - 81.176
+      rgb_color:
+      - 255
+      - 98
+      - 48
+      state: 'on'
       xy_color:
-        - 0.468
-        - 0.46
-      state: "on"
+      - 0.63
+      - 0.336
     light.bedroom_ceiling_2:
-      brightness: 157
+      brightness: 111
+      hs_color:
+      - 49.459
+      - 29.02
+      rgb_color:
+      - 255
+      - 241
+      - 180
+      state: 'on'
       xy_color:
-        - 0.418
-        - 0.189
-      state: "on"
+      - 0.383
+      - 0.392
     light.bedroom_ceiling_3:
-      brightness: 157
+      brightness: 111
+      hs_color:
+      - 60.805
+      - 58.431
+      rgb_color:
+      - 253
+      - 255
+      - 106
+      state: 'on'
       xy_color:
-        - 0.216
-        - 0.666
-      state: "on"
-    light.bedroom_workdesk_light:
-      brightness: 142
-      xy_color:
-        - 0.562
-        - 0.337
-      state: "on"
+      - 0.415
+      - 0.477
     light.bedroom_closet_led_power_supply_light:
       brightness: 80
-      state: "on"
-    light.bedroom_bed_light:
-      state: "on"
-      brightness: 100
-      color_temp: 300
+      state: 'on'
     light.bedroom_sensor_neopixel_partition_light_1:
-      state: "on"
-      xy_color: [0.151, 0.343]
       brightness: 252
+      hs_color:
+      - 300.331
+      - 70.98
+      rgb_color:
+      - 255
+      - 74
+      - 254
+      state: 'on'
+      xy_color:
+      - 0.381
+      - 0.172
     light.bedroom_sensor_neopixel_partition_light_2:
-      state: "on"
-      xy_color: [0.17, 0.703]
       brightness: 252
+      hs_color:
+      - 0.0
+      - 100.0
+      rgb_color:
+      - 255
+      - 0
+      - 0
+      state: 'on'
+      xy_color:
+      - 0.701
+      - 0.299
     light.bedroom_sensor_neopixel_partition_light_3:
-      state: "on"
-      xy_color: [0.528, 0.446]
       brightness: 252
-    input_number.bedroom_light_toogle_intensity_threshold: "25.0"
-
-- name: Bedroom Colorful 3
-  entities:
-    light.bedroom_bed_light:
-      brightness: 59
-      state: "on"
-    light.bedroom_ceiling_1:
-      brightness: 255
       hs_color:
-        - 354.34
-        - 83.137
+      - 44.706
+      - 100.0
       rgb_color:
-        - 255
-        - 43
-        - 62
-      state: "on"
-    light.bedroom_ceiling_2:
-      brightness: 184
-      hs_color:
-        - 318.028
-        - 83.529
-      rgb_color:
-        - 255
-        - 42
-        - 191
-      state: "on"
-    light.bedroom_ceiling_3:
-      brightness: 184
-      hs_color:
-        - 15.354
-        - 99.608
-      rgb_color:
-        - 255
-        - 65
-        - 0
-      state: "on"
-    light.bedroom_closet_led_power_supply_light:
-      brightness: 51
-      state: "off"
+      - 255
+      - 190
+      - 0
+      state: 'on'
+      xy_color:
+      - 0.528
+      - 0.446
     light.bedroom_workdesk_light:
-      brightness: 184
+      brightness: 200
       hs_color:
-        - 41.429
-        - 82.353
+      - 26.667
+      - 88.235
       rgb_color:
-        - 255
-        - 190
-        - 44
-      state: "on"
-    light.bedroom_sensor_neopixel_partition_light_1:
-      state: "on"
-      xy_color: [0.614, 0.373]
-      brightness: 252
-    light.bedroom_sensor_neopixel_partition_light_2:
-      state: "on"
-      xy_color: [0.701, 0.299]
-      brightness: 252
-    light.bedroom_sensor_neopixel_partition_light_3:
-      state: "on"
-      xy_color: [0.583, 0.245]
-      brightness: 252
-    input_number.bedroom_light_toogle_intensity_threshold: "40.0"
-
-- name: Bedroom Work 2
-  entities:
+      - 255
+      - 130
+      - 30
+      state: 'on'
+      xy_color:
+      - 0.602
+      - 0.373
+  name: Bedroom Colorful 1
+- entities:
+    input_number.bedroom_light_toogle_intensity_threshold: '30'
     light.bedroom_bed_light:
-      brightness: 51
-      color_temp: 475
-      state: "off"
+      brightness: 99
+      state: 'on'
     light.bedroom_ceiling_1:
-      brightness: 196
-      color_temp: 244
-      state: "on"
+      brightness: 242
+      hs_color:
+      - 35.714
+      - 65.882
+      rgb_color:
+      - 255
+      - 186
+      - 87
+      state: 'on'
+      xy_color:
+      - 0.503
+      - 0.411
     light.bedroom_ceiling_2:
-      brightness: 196
-      color_temp: 244
-      state: "on"
+      brightness: 144
+      hs_color:
+      - 35.714
+      - 65.882
+      rgb_color:
+      - 255
+      - 186
+      - 87
+      state: 'on'
+      xy_color:
+      - 0.503
+      - 0.411
     light.bedroom_ceiling_3:
-      brightness: 196
-      color_temp: 244
-      state: "on"
+      brightness: 198
+      hs_color:
+      - 35.714
+      - 65.882
+      rgb_color:
+      - 255
+      - 186
+      - 87
+      state: 'on'
+      xy_color:
+      - 0.503
+      - 0.411
     light.bedroom_closet_led_power_supply_light:
-      brightness: 80
-      state: "off"
-    light.bedroom_workdesk_light:
-      brightness: 255
-      color_temp: 217
-      state: "on"
+      brightness: 162
+      state: 'on'
     light.bedroom_sensor_neopixel_partition_light_1:
-      state: "on"
-      xy_color: [0.323, 0.329]
-      brightness: 212
+      brightness: 188
+      hs_color:
+      - 44.706
+      - 100.0
+      rgb_color:
+      - 255
+      - 190
+      - 0
+      state: 'on'
+      xy_color:
+      - 0.528
+      - 0.446
     light.bedroom_sensor_neopixel_partition_light_2:
-      state: "on"
-      xy_color: [0.323, 0.329]
-      brightness: 212
+      brightness: 188
+      hs_color:
+      - 44.706
+      - 100.0
+      rgb_color:
+      - 255
+      - 190
+      - 0
+      state: 'on'
+      xy_color:
+      - 0.528
+      - 0.446
     light.bedroom_sensor_neopixel_partition_light_3:
-      state: "on"
-      xy_color: [0.323, 0.329]
-      brightness: 212
-    input_number.bedroom_light_toogle_intensity_threshold: "50.0"
+      brightness: 188
+      hs_color:
+      - 44.706
+      - 100.0
+      rgb_color:
+      - 255
+      - 190
+      - 0
+      state: 'on'
+      xy_color:
+      - 0.528
+      - 0.446
+    light.bedroom_workdesk_light:
+      brightness: 166
+      hs_color:
+      - 35.714
+      - 65.882
+      rgb_color:
+      - 255
+      - 186
+      - 87
+      state: 'on'
+      xy_color:
+      - 0.503
+      - 0.411
+  name: Bedroom Relaxed 1
+- entities:
+    input_number.bedroom_light_toogle_intensity_threshold: '20'
+    light.bedroom_bed_light:
+      state: 'off'
+    light.bedroom_ceiling_1:
+      brightness: 140
+      hs_color:
+      - 38.667
+      - 52.941
+      rgb_color:
+      - 255
+      - 207
+      - 120
+      state: 'on'
+      xy_color:
+      - 0.457
+      - 0.41
+    light.bedroom_ceiling_2:
+      brightness: 140
+      hs_color:
+      - 38.667
+      - 52.941
+      rgb_color:
+      - 255
+      - 207
+      - 120
+      state: 'on'
+      xy_color:
+      - 0.457
+      - 0.41
+    light.bedroom_ceiling_3:
+      brightness: 140
+      hs_color:
+      - 38.667
+      - 52.941
+      rgb_color:
+      - 255
+      - 207
+      - 120
+      state: 'on'
+      xy_color:
+      - 0.457
+      - 0.41
+    light.bedroom_closet_led_power_supply_light:
+      brightness: 162
+      state: 'off'
+    light.bedroom_sensor_neopixel_partition_light_1:
+      brightness: 165
+      hs_color:
+      - 44.706
+      - 100.0
+      rgb_color:
+      - 255
+      - 190
+      - 0
+      state: 'on'
+      xy_color:
+      - 0.528
+      - 0.446
+    light.bedroom_sensor_neopixel_partition_light_2:
+      brightness: 165
+      hs_color:
+      - 44.706
+      - 100.0
+      rgb_color:
+      - 255
+      - 190
+      - 0
+      state: 'on'
+      xy_color:
+      - 0.528
+      - 0.446
+    light.bedroom_sensor_neopixel_partition_light_3:
+      brightness: 165
+      hs_color:
+      - 44.706
+      - 100.0
+      rgb_color:
+      - 255
+      - 190
+      - 0
+      state: 'on'
+      xy_color:
+      - 0.528
+      - 0.446
+    light.bedroom_workdesk_light:
+      brightness: 194
+      hs_color:
+      - 38.667
+      - 52.941
+      rgb_color:
+      - 255
+      - 207
+      - 120
+      state: 'on'
+      xy_color:
+      - 0.457
+      - 0.41
+  name: Bedroom Relaxed 2
+- entities:
+    input_number.bedroom_light_toogle_intensity_threshold: '45'
+    light.bedroom_bed_light:
+      state: 'off'
+    light.bedroom_ceiling_1:
+      brightness: 125
+      hs_color:
+      - 36.667
+      - 28.235
+      rgb_color:
+      - 255
+      - 227
+      - 183
+      state: 'on'
+      xy_color:
+      - 0.39
+      - 0.372
+    light.bedroom_ceiling_2:
+      brightness: 190
+      hs_color:
+      - 36.667
+      - 28.235
+      rgb_color:
+      - 255
+      - 227
+      - 183
+      state: 'on'
+      xy_color:
+      - 0.39
+      - 0.372
+    light.bedroom_ceiling_3:
+      brightness: 190
+      hs_color:
+      - 36.667
+      - 28.235
+      rgb_color:
+      - 255
+      - 227
+      - 183
+      state: 'on'
+      xy_color:
+      - 0.39
+      - 0.372
+    light.bedroom_closet_led_power_supply_light:
+      brightness: 40
+      state: 'off'
+    light.bedroom_sensor_neopixel_partition_light_1:
+      brightness: 198
+      hs_color:
+      - 0.0
+      - 0.392
+      rgb_color:
+      - 255
+      - 254
+      - 254
+      state: 'on'
+      xy_color:
+      - 0.324
+      - 0.329
+    light.bedroom_sensor_neopixel_partition_light_2:
+      brightness: 198
+      hs_color:
+      - 0.0
+      - 0.392
+      rgb_color:
+      - 255
+      - 254
+      - 254
+      state: 'on'
+      xy_color:
+      - 0.324
+      - 0.329
+    light.bedroom_sensor_neopixel_partition_light_3:
+      brightness: 198
+      hs_color:
+      - 0.0
+      - 0.392
+      rgb_color:
+      - 255
+      - 254
+      - 254
+      state: 'on'
+      xy_color:
+      - 0.324
+      - 0.329
+    light.bedroom_workdesk_light:
+      brightness: 213
+      hs_color:
+      - 37.982
+      - 42.745
+      rgb_color:
+      - 255
+      - 215
+      - 146
+      state: 'on'
+      xy_color:
+      - 0.429
+      - 0.396
+  name: Bedroom Work 1
+- entities:
+    input_number.bedroom_light_toogle_intensity_threshold: '20'
+    light.bedroom_bed_light:
+      brightness: 52
+      state: 'on'
+    light.bedroom_ceiling_1:
+      brightness: 235
+      hs_color:
+      - 33.803
+      - 83.529
+      rgb_color:
+      - 255
+      - 162
+      - 42
+      state: 'on'
+      xy_color:
+      - 0.557
+      - 0.405
+    light.bedroom_ceiling_2:
+      brightness: 188
+      hs_color:
+      - 33.803
+      - 83.529
+      rgb_color:
+      - 255
+      - 162
+      - 42
+      state: 'on'
+      xy_color:
+      - 0.557
+      - 0.405
+    light.bedroom_ceiling_3:
+      brightness: 188
+      hs_color:
+      - 33.803
+      - 83.529
+      rgb_color:
+      - 255
+      - 162
+      - 42
+      state: 'on'
+      xy_color:
+      - 0.557
+      - 0.405
+    light.bedroom_closet_led_power_supply_light:
+      brightness: 18
+      state: 'off'
+    light.bedroom_sensor_neopixel_partition_light_1:
+      brightness: 151
+      hs_color:
+      - 44.898
+      - 57.647
+      rgb_color:
+      - 255
+      - 218
+      - 108
+      state: 'on'
+      xy_color:
+      - 0.454
+      - 0.433
+    light.bedroom_sensor_neopixel_partition_light_2:
+      brightness: 151
+      hs_color:
+      - 44.898
+      - 57.647
+      rgb_color:
+      - 255
+      - 218
+      - 108
+      state: 'on'
+      xy_color:
+      - 0.454
+      - 0.433
+    light.bedroom_sensor_neopixel_partition_light_3:
+      brightness: 151
+      hs_color:
+      - 44.898
+      - 57.647
+      rgb_color:
+      - 255
+      - 218
+      - 108
+      state: 'on'
+      xy_color:
+      - 0.454
+      - 0.433
+    light.bedroom_workdesk_light:
+      state: 'off'
+  name: Bedroom Night Light 1
+- entities:
+    input_number.bedroom_light_toogle_intensity_threshold: '25'
+    light.bedroom_bed_light:
+      brightness: 96
+      state: 'on'
+    light.bedroom_ceiling_1:
+      brightness: 151
+      hs_color:
+      - 49.0
+      - 70.588
+      rgb_color:
+      - 255
+      - 222
+      - 75
+      state: 'on'
+      xy_color:
+      - 0.468
+      - 0.46
+    light.bedroom_ceiling_2:
+      brightness: 151
+      hs_color:
+      - 309.89
+      - 71.373
+      rgb_color:
+      - 255
+      - 72
+      - 225
+      state: 'on'
+      xy_color:
+      - 0.418
+      - 0.19
+    light.bedroom_ceiling_3:
+      brightness: 151
+      hs_color:
+      - 113.333
+      - 74.118
+      rgb_color:
+      - 87
+      - 255
+      - 65
+      state: 'on'
+      xy_color:
+      - 0.216
+      - 0.666
+    light.bedroom_closet_led_power_supply_light:
+      brightness: 77
+      state: 'on'
+    light.bedroom_sensor_neopixel_partition_light_1:
+      brightness: 243
+      hs_color:
+      - 179.765
+      - 100.0
+      rgb_color:
+      - 0
+      - 255
+      - 254
+      state: 'on'
+      xy_color:
+      - 0.151
+      - 0.344
+    light.bedroom_sensor_neopixel_partition_light_2:
+      brightness: 243
+      hs_color:
+      - 135.059
+      - 100.0
+      rgb_color:
+      - 0
+      - 255
+      - 64
+      state: 'on'
+      xy_color:
+      - 0.17
+      - 0.701
+    light.bedroom_sensor_neopixel_partition_light_3:
+      brightness: 243
+      hs_color:
+      - 44.706
+      - 100.0
+      rgb_color:
+      - 255
+      - 190
+      - 0
+      state: 'on'
+      xy_color:
+      - 0.528
+      - 0.446
+    light.bedroom_workdesk_light:
+      brightness: 137
+      hs_color:
+      - 11.465
+      - 61.569
+      rgb_color:
+      - 255
+      - 127
+      - 97
+      state: 'on'
+      xy_color:
+      - 0.559
+      - 0.337
+  name: Bedroom Colorful 2
+- entities:
+    input_number.bedroom_light_toogle_intensity_threshold: '40'
+    light.bedroom_bed_light:
+      brightness: 55
+      state: 'on'
+    light.bedroom_ceiling_1:
+      brightness: 241
+      hs_color:
+      - 354.519
+      - 81.569
+      rgb_color:
+      - 255
+      - 46
+      - 65
+      state: 'on'
+      xy_color:
+      - 0.654
+      - 0.294
+    light.bedroom_ceiling_2:
+      brightness: 173
+      hs_color:
+      - 318.373
+      - 81.961
+      rgb_color:
+      - 255
+      - 45
+      - 191
+      state: 'on'
+      xy_color:
+      - 0.472
+      - 0.205
+    light.bedroom_ceiling_3:
+      brightness: 173
+      hs_color:
+      - 14.94
+      - 97.647
+      rgb_color:
+      - 255
+      - 68
+      - 6
+      state: 'on'
+      xy_color:
+      - 0.672
+      - 0.322
+    light.bedroom_closet_led_power_supply_light:
+      brightness: 73
+      state: 'off'
+    light.bedroom_sensor_neopixel_partition_light_1:
+      brightness: 238
+      hs_color:
+      - 30.118
+      - 100.0
+      rgb_color:
+      - 255
+      - 128
+      - 0
+      state: 'on'
+      xy_color:
+      - 0.611
+      - 0.375
+    light.bedroom_sensor_neopixel_partition_light_2:
+      brightness: 238
+      hs_color:
+      - 0.0
+      - 100.0
+      rgb_color:
+      - 255
+      - 0
+      - 0
+      state: 'on'
+      xy_color:
+      - 0.701
+      - 0.299
+    light.bedroom_sensor_neopixel_partition_light_3:
+      brightness: 238
+      hs_color:
+      - 329.882
+      - 100.0
+      rgb_color:
+      - 255
+      - 0
+      - 128
+      state: 'on'
+      xy_color:
+      - 0.58
+      - 0.244
+    light.bedroom_workdesk_light:
+      brightness: 173
+      hs_color:
+      - 41.429
+      - 82.353
+      rgb_color:
+      - 255
+      - 190
+      - 44
+      state: 'on'
+      xy_color:
+      - 0.52
+      - 0.437
+  name: Bedroom Colorful 3
+- entities:
+    input_number.bedroom_light_toogle_intensity_threshold: '10'
+    light.bedroom_bed_light:
+      state: 'off'
+    light.bedroom_ceiling_1:
+      brightness: 205
+      hs_color:
+      - 33.803
+      - 83.529
+      rgb_color:
+      - 255
+      - 162
+      - 42
+      state: 'on'
+      xy_color:
+      - 0.557
+      - 0.405
+    light.bedroom_ceiling_2:
+      brightness: 160
+      hs_color:
+      - 33.803
+      - 83.529
+      rgb_color:
+      - 255
+      - 162
+      - 42
+      state: 'on'
+      xy_color:
+      - 0.557
+      - 0.405
+    light.bedroom_ceiling_3:
+      brightness: 158
+      hs_color:
+      - 33.803
+      - 83.529
+      rgb_color:
+      - 255
+      - 162
+      - 42
+      state: 'on'
+      xy_color:
+      - 0.557
+      - 0.405
+    light.bedroom_closet_led_power_supply_light:
+      brightness: 18
+      state: 'off'
+    light.bedroom_sensor_neopixel_partition_light_1:
+      brightness: 121
+      hs_color:
+      - 44.898
+      - 57.647
+      rgb_color:
+      - 255
+      - 218
+      - 108
+      state: 'on'
+      xy_color:
+      - 0.454
+      - 0.433
+    light.bedroom_sensor_neopixel_partition_light_2:
+      brightness: 121
+      hs_color:
+      - 44.898
+      - 57.647
+      rgb_color:
+      - 255
+      - 218
+      - 108
+      state: 'on'
+      xy_color:
+      - 0.454
+      - 0.433
+    light.bedroom_sensor_neopixel_partition_light_3:
+      brightness: 121
+      hs_color:
+      - 44.898
+      - 57.647
+      rgb_color:
+      - 255
+      - 218
+      - 108
+      state: 'on'
+      xy_color:
+      - 0.454
+      - 0.433
+    light.bedroom_workdesk_light:
+      state: 'off'
+  name: Bedroom Night Light 2
+- entities:
+    input_number.bedroom_light_toogle_intensity_threshold: '30'
+    light.bedroom_bed_light:
+      brightness: 31
+      state: 'on'
+    light.bedroom_ceiling_1:
+      brightness: 225
+      hs_color:
+      - 257.882
+      - 100.0
+      rgb_color:
+      - 75
+      - 0
+      - 255
+      state: 'on'
+      xy_color:
+      - 0.165
+      - 0.054
+    light.bedroom_ceiling_2:
+      brightness: 140
+      hs_color:
+      - 12.0
+      - 100.0
+      rgb_color:
+      - 255
+      - 50
+      - 0
+      state: 'on'
+      xy_color:
+      - 0.685
+      - 0.312
+    light.bedroom_ceiling_3:
+      brightness: 235
+      hs_color:
+      - 318.824
+      - 80.0
+      rgb_color:
+      - 255
+      - 50
+      - 190
+      state: 'on'
+      xy_color:
+      - 0.473
+      - 0.207
+    light.bedroom_closet_led_power_supply_light:
+      brightness: 161
+      state: 'off'
+    light.bedroom_sensor_neopixel_partition_light_1:
+      brightness: 235
+      hs_color:
+      - 254.919
+      - 72.549
+      rgb_color:
+      - 116
+      - 70
+      - 255
+      state: 'on'
+      xy_color:
+      - 0.203
+      - 0.098
+    light.bedroom_sensor_neopixel_partition_light_2:
+      brightness: 235
+      hs_color:
+      - 0.0
+      - 85.882
+      rgb_color:
+      - 255
+      - 36
+      - 36
+      state: 'on'
+      xy_color:
+      - 0.68
+      - 0.301
+    light.bedroom_sensor_neopixel_partition_light_3:
+      brightness: 235
+      hs_color:
+      - 60.0
+      - 85.882
+      rgb_color:
+      - 255
+      - 255
+      - 36
+      state: 'on'
+      xy_color:
+      - 0.441
+      - 0.511
+    light.bedroom_workdesk_light:
+      brightness: 185
+      hs_color:
+      - 91.233
+      - 28.627
+      rgb_color:
+      - 217
+      - 255
+      - 182
+      state: 'on'
+      xy_color:
+      - 0.327
+      - 0.42
+  name: Bedroom Eves Light

@@ -1,3 +1,22 @@
+fire_scene_creator_event:
+  alias: Fire Scene Creator Event
+  variables:
+    event_name: 'TEST_EVENT'
+    scene_group_prefix: 'group'
+    scene_name: 'Test Scene'
+    light_group: 'light.test_light_group'
+    light_intensity_control: ''
+    timebased_scene_config: ''
+  sequence:
+    - event: SCENE_CREATOR
+      event_data:
+        event_name: "{{ event_name }}"
+        scene_group_prefix: "{{ scene_group_prefix }}"
+        scene_name: "{{ scene_name }}"
+        light_group: "{{ light_group }}"
+        light_intensity_control: "{{ light_intensity_control }}"
+        timebased_scene_config: "{{ timebased_scene_config }}"
+
 toggle_scene_from_input_select:
   alias: Toggle scene from input select
   variables:

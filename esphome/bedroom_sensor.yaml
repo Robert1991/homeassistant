@@ -4,7 +4,7 @@ substitutions:
   node_verbose_name: Bedroom Sensor
   # sensors
   light_intensity_sensor_pin: A0
-  light_intensity_sensor_update_interval: 5s
+  light_intensity_sensor_update_interval: 2s
   door_sensor_pin: D2
   motion_sensor_pin: D3
   dht_pin: D4
