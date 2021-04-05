@@ -17,15 +17,6 @@ fire_scene_creator_event:
         light_intensity_control: "{{ light_intensity_control }}"
         timebased_scene_config: "{{ timebased_scene_config }}"
 
-toggle_scene_from_input_select:
-  alias: Toggle scene from input select
-  variables:
-    input_select_entity: 'input_select.bedroom_light_scene'
-  sequence:
-    - service: scene.turn_on
-      data_template:
-        entity_id: "{{ 'scene.bedroom_' + states(input_select_entity) | string | lower | regex_replace(find=' ', replace='_', ignorecase=False) }}"
-
 let_light_blink:
   alias: Let ceiling light in kitchen blink
   mode: restart
