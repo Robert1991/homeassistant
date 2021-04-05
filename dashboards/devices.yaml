@@ -401,21 +401,6 @@ views:
     badges: []
     cards:
     - type: 'custom:vertical-stack-in-card'
-      cards:
-        - type: entities
-          state_color: true
-          show_header_toggle: false
-          entities:
-              name: Device Status
-              secondary_info: last-updated
-              icon: 'hass:server-network'
-              name: Offline Alert
-              name: Reset
-        - type: 'custom:auto-entities'
-          filter:
-            include:
-              - domain: light
-    - type: 'custom:vertical-stack-in-card'
       title: Bathroom Sensor/Actor 1
       cards:
         - type: entities
