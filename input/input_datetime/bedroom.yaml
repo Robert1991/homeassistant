@@ -18,6 +18,11 @@ bedroom_light_automation_reactivation_timeout:
   has_date: false
   has_time: true
 
+bedroom_evening_light_start_time:
+  name: Evening Light Start Time
+  has_date: false
+  has_time: true
+
 bedroom_night_light_start_time:
   name: Night Light Start Time
   has_date: false

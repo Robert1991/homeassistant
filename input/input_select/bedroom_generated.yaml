@@ -20,6 +20,17 @@ bedroom_day_light_choosen_scene:
   - Relaxed 1
   - Relaxed 2
   - Work 1
+bedroom_evening_light_choosen_scene:
+  options:
+  - Colorful 1
+  - Colorful 2
+  - Colorful 3
+  - Eves Light
+  - Night Light 1
+  - Night Light 2
+  - Relaxed 1
+  - Relaxed 2
+  - Work 1
 bedroom_light_scene_generated:
   options:
   - Colorful 1

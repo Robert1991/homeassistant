@@ -302,7 +302,7 @@
     light.bedroom_bed_light:
       state: 'off'
     light.bedroom_ceiling_1:
-      brightness: 125
+      brightness: 169
       hs_color:
       - 36.667
       - 28.235
@@ -315,7 +315,7 @@
       - 0.39
       - 0.372
     light.bedroom_ceiling_2:
-      brightness: 190
+      brightness: 169
       hs_color:
       - 36.667
       - 28.235
@@ -328,7 +328,7 @@
       - 0.39
       - 0.372
     light.bedroom_ceiling_3:
-      brightness: 190
+      brightness: 169
       hs_color:
       - 36.667
       - 28.235
@@ -341,49 +341,49 @@
       - 0.39
       - 0.372
     light.bedroom_closet_led_power_supply_light:
-      brightness: 40
+      brightness: 168
       state: 'off'
     light.bedroom_sensor_neopixel_partition_light_1:
-      brightness: 198
+      brightness: 169
       hs_color:
-      - 0.0
-      - 0.392
+      - 44.384
+      - 28.627
       rgb_color:
       - 255
-      - 254
-      - 254
+      - 236
+      - 182
       state: 'on'
       xy_color:
-      - 0.324
-      - 0.329
+      - 0.385
+      - 0.384
     light.bedroom_sensor_neopixel_partition_light_2:
-      brightness: 198
+      brightness: 169
       hs_color:
-      - 0.0
-      - 0.392
+      - 44.384
+      - 28.627
       rgb_color:
       - 255
-      - 254
-      - 254
+      - 236
+      - 182
       state: 'on'
       xy_color:
-      - 0.324
-      - 0.329
+      - 0.385
+      - 0.384
     light.bedroom_sensor_neopixel_partition_light_3:
-      brightness: 198
+      brightness: 169
       hs_color:
-      - 0.0
-      - 0.392
+      - 44.384
+      - 28.627
       rgb_color:
       - 255
-      - 254
-      - 254
+      - 236
+      - 182
       state: 'on'
       xy_color:
-      - 0.324
-      - 0.329
+      - 0.385
+      - 0.384
     light.bedroom_workdesk_light:
-      brightness: 213
+      brightness: 144
       hs_color:
       - 37.982
       - 42.745

@@ -2,3 +2,4 @@ bedroom_time_based_scenes:
   options:
     - bedroom_night_light_start_time/bedroom_night_light_choosen_scene
     - bedroom_day_light_start_time/bedroom_day_light_choosen_scene
+    - bedroom_evening_light_start_time/bedroom_evening_light_choosen_scene
