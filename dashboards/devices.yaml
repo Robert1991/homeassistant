@@ -38,7 +38,7 @@ views:
           tap_action:
             action: navigate
             navigation_path: /lovelace-device/kitchen
-        - entity: binary_sensor.kitchen_plant_controller_ping
+        - entity: binary_sensor.kitchen_plant_controller_connection_status
           tap_action:
             action: navigate
             navigation_path: /lovelace-device/kitchen
@@ -183,14 +183,20 @@ views:
           state_color: true
           show_header_toggle: false
           entities:
-            - entity: binary_sensor.kitchen_plant_controller_ping
+            - entity: binary_sensor.kitchen_plant_controller_connection_status
               name: Device Status
               secondary_info: last-updated
               icon: 'hass:server-network'
+            - entity: sensor.kitchen_plant_controller_uptime
+              name: Uptime
+            - entity: sensor.kitchen_plant_controller_wifi_signal
+              name: Wifi Signal
             - entity: alert.kitchen_plant_controller_is_offline
               name: Offline Alert
-            - entity: switch.kitchen_plant_controller_reset_switch
-              name: Reset
+            - entity: switch.kitchen_plant_controller_restart
+              name: Restart
+            - entity: switch.kitchen_plant_controller_shutdown
+              name: Shutdown
         - type: 'custom:auto-entities'
           filter:
             include:

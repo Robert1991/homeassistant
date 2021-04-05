@@ -101,26 +101,21 @@ light.kitchen_ceiling_light_light_switch:
   icon: mdi:ceiling-light
 
 # kitchen plant controller
-binary_sensor.kitchen_plant_controller_ping:
-  friendly_name: "Kitchen Plant Controller Ping"
-sensor.kitchen_plant_controller_moisture_1:
-  friendly_name: "Kitchen Plant Closet Right Plant Moisture"
-sensor.kitchen_plant_controller_moisture_2:
+sensor.kitchen_plant_controller_moisture_sensor_1:
   friendly_name: "Kitchen Plant Closet Left Plant Moisture"
-switch.kitchen_plant_controller_pump_relais_1:
-  friendly_name: "Kitchen Plant Closet Right Plant Pump"
-  icon: mdi:water-pump
-switch.kitchen_plant_controller_pump_relais_2:
+sensor.kitchen_plant_controller_moisture_sensor_2:
+  friendly_name: "Kitchen Plant Closet Right Plant Moisture"
+switch.kitchen_plant_controller_pump_relay_1:
   friendly_name: "Kitchen Plant Closet Left Plant Pump"
   icon: mdi:water-pump
-switch.kitchen_plant_controller_reset_switch:
-  friendly_name: "Kitchen Plant Controller Reset Switch"
-  icon: mdi:restart
+switch.kitchen_plant_controller_pump_relay_2:
+  friendly_name: "Kitchen Plant Closet Right Plant Pump"
+  icon: mdi:water-pump
 sensor.kitchen_plant_controller_humidity:
   friendly_name: "Kitchen Plant Closet Humidity"
 sensor.kitchen_plant_controller_temperature:
   friendly_name: "Kitchen Plant Closet Temperature"
-binary_sensor.kitchen_plant_controller_swim_switch:
+binary_sensor.kitchen_plant_controller_swimmer_sensor:
   friendly_name: "Kitchen Plant Closet Swimmer"
   icon: mdi:water-check
 

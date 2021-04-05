@@ -31,8 +31,8 @@ kitchen_sensor_is_offline:
 kitchen_plant_controller_is_offline:
   name: Kitchen Plant Controller offline
   done_message: Kitchen Plant Controller online again
-  entity_id: binary_sensor.kitchen_plant_controller_ping
-  state: 'off'
+  entity_id: binary_sensor.kitchen_plant_controller_connection_status
+  state: 'unavailable'
   repeat: 30
   can_acknowledge: true
   skip_first: false
