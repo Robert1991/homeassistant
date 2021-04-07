@@ -22,6 +22,9 @@ toggle_plant_watering_in_given_interval:
   toggled_entity: switch.kitchen_plant_controller_pump_relay_1
   input_constraint: input_boolean.kitchen_plant_watering_automation_enabled
   skip_first: true
+  on_constraint:
+    entity: binary_sensor.kitchen_plant_controller_swimmer_sensor
+    state: on
 
 toggle_plant_watering_2_in_given_interval:
   module: time_based_toggle_automations
@@ -31,6 +34,9 @@ toggle_plant_watering_2_in_given_interval:
   toggled_entity: switch.kitchen_plant_controller_pump_relay_2
   input_constraint: input_boolean.kitchen_plant_watering_automation_enabled
   skip_first: true
+  on_constraint:
+    entity: binary_sensor.kitchen_plant_controller_swimmer_sensor
+    state: on
 
 toggle_plant_ventilation_in_given_interval_at_night_time:
   module: time_based_toggle_automations

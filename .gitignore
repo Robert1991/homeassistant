@@ -6,7 +6,7 @@ esphome/.esphome/
 **/src/
 **/platformio.ini
 secrets.yaml
-
+tmp/
 
 .storage/*
 custom_components/*

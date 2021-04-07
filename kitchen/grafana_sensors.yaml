@@ -1,0 +1,17 @@
+- platform: command_line
+  name: "Download Grafana Picture Closet Temperature"
+  command: >
+    curl -s -H "Authorization: Bearer eyJrIjoiVm5MN09MNjJqb2tKN1FWZHZ1NzRZNkVNSjBmSHFQNHgiLCJuIjoiaG9tZWFzc2lzdGFudCIsImlkIjoxfQ==" "http://rpn-home-server:3000/render/d-solo/Y9NBMTYMk/home-assistant?orgId=1&refresh=5m&theme=light&from=now-2d&to=now&panelId=26&width=2000&height=750&tz=Europe%2FBerlin" > /config/tmp/images/plant_closet_temperature.png
+- platform: command_line
+  name: "Download Grafana Picture Closet Humidity"
+  command: >
+    curl -s -H "Authorization: Bearer eyJrIjoiVm5MN09MNjJqb2tKN1FWZHZ1NzRZNkVNSjBmSHFQNHgiLCJuIjoiaG9tZWFzc2lzdGFudCIsImlkIjoxfQ==" "http://rpn-home-server:3000/render/d-solo/Y9NBMTYMk/home-assistant?orgId=1&refresh=5m&theme=light&from=now-2d&to=now&panelId=27&width=2000&height=750&tz=Europe%2FBerlin" > /config/tmp/images/plant_closet_humidity.png
+- platform: command_line
+  name: "Download Grafana Picture Moisture Left Plant"
+  command: >
+    curl -s -H "Authorization: Bearer eyJrIjoiVm5MN09MNjJqb2tKN1FWZHZ1NzRZNkVNSjBmSHFQNHgiLCJuIjoiaG9tZWFzc2lzdGFudCIsImlkIjoxfQ==" "http://rpn-home-server:3000/render/d-solo/Y9NBMTYMk/home-assistant?orgId=1&refresh=5m&theme=light&from=now-2d&to=now&panelId=28&width=2000&height=750&tz=Europe%2FBerlin" > /config/tmp/images/plant_closet_left_plant_humidity.png
+- platform: command_line
+  name: "Download Grafana Picture Moisture Right Plant"
+  command: >
+    curl -s -H "Authorization: Bearer eyJrIjoiVm5MN09MNjJqb2tKN1FWZHZ1NzRZNkVNSjBmSHFQNHgiLCJuIjoiaG9tZWFzc2lzdGFudCIsImlkIjoxfQ==" "http://rpn-home-server:3000/render/d-solo/Y9NBMTYMk/home-assistant?orgId=1&refresh=5m&theme=light&from=now-2d&to=now&panelId=29&width=2000&height=750&tz=Europe%2FBerlin" > /config/tmp/images/plant_closet_right_plant_humidity.png
+

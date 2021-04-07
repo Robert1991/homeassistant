@@ -1,0 +1,12 @@
+- platform: local_file
+  name: grafana_plant_closet_temp
+  file_path: /config/tmp/images/plant_closet_temperature.png
+- platform: local_file
+  name: grafana_plant_closet_humidity
+  file_path: /config/tmp/images/plant_closet_humidity.png
+- platform: local_file
+  name: grafana_plant_closet_left_plant_humidity
+  file_path: /config/tmp/images/plant_closet_left_plant_humidity.png
+- platform: local_file
+  name: grafana_plant_closet_right_plant_humidity
+  file_path: /config/tmp/images/plant_closet_right_plant_humidity.png
