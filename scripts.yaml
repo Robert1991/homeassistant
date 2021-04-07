@@ -125,4 +125,26 @@ create_light_scene_from_group:
         - service: persistent_notification.create
           data:
             message: "Either scene already exists or no scene name was given!"
-            title: "Scene creation failed"        
+            title: "Scene creation failed" 
+zigbee2mqtt_rename:
+  alias: Zigbee2MQTT Rename
+  sequence:
+    service: mqtt.publish
+    data_template:
+      topic: zigbee2mqtt/bridge/request/device/rename
+      payload_template: >-
+          {
+            "from": "{{ states.input_text.zigbee2mqtt_old_name.state | string }}",
+            "to": "{{ states.input_text.zigbee2mqtt_new_name.state | string }}"
+          }
+zigbee2mqtt_remove:
+  alias: Zigbee2MQTT Remove
+  sequence:
+    service: mqtt.publish
+    data_template:
+      topic: zigbee2mqtt/bridge/request/device/remove
+      payload_template: >-
+          { 
+            "id": "{{ states.input_text.zigbee2mqtt_remove.state | string }}", 
+            "force": {% if states.input_boolean.zigbee2mqtt_force_remove.state == "off" %}false{% else %}true{% endif %}
+          }

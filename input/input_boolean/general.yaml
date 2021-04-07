@@ -1,0 +1,4 @@
+zigbee2mqtt_force_remove:
+  name: Zigbee2MQTT Force Remove
+  initial: false
+  icon: mdi:alert-remove

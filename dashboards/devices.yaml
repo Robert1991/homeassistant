@@ -517,3 +517,173 @@ views:
             head:
               type: section
               label: Entities
+  - title: Zigbee2MQTT
+    path: zigbee2mqtt
+    badges: []
+    cards:
+    - type: entities
+      show_header_toggle: false
+      entities:
+        - entity: sensor.zigbee2mqtt_bridge_state
+        - entity: sensor.zigbee2mqtt_version
+        - entity: sensor.coordinator_version
+        - entity: input_select.zigbee2mqtt_log_level
+        - type: divider
+        - entity: switch.zigbee2mqtt_main_join
+        - entity: input_number.zigbee2mqtt_join_minutes
+        - entity: timer.zigbee_permit_join
+        - type: divider
+        - entity: input_text.zigbee2mqtt_old_name
+        - entity: input_text.zigbee2mqtt_new_name
+        - entity: script.zigbee2mqtt_rename
+        - type: divider
+        - entity: input_text.zigbee2mqtt_remove
+        - entity: input_boolean.zigbee2mqtt_force_remove
+        - entity: script.zigbee2mqtt_remove
+  - title: Zigbee Network
+    path: zigbee_network
+    panel: true # this renders the first card on full width, other cards in this view will not be rendered
+    cards:
+    - type: 'custom:vertical-stack-in-card'
+      cards:
+        - type: 'custom:zigbee2mqtt-networkmap'
+          entity: sensor.zigbee2mqtt_networkmap
+          # the following are optional:
+          mqtt_base_topic: zigbee2mqtt # if you change base_topic of Zigbee2mqtt, change it accordingly
+          force: 3000 # decrease it to get smaller map if you have many devices
+          node_size: 16
+          font_size: 12
+          link_width: 2
+          height: 400 # height of the card
+          # use this css config or use whatever css tech to change look and feel,
+          # the same variable can also be used in Home Assistant themes, see https://www.home-assistant.io/components/frontend/#defining-themes
+          css: |
+            :host {
+              --zigbee2mqtt-networkmap-node-color: rgba(18, 120, 98, .7);
+              --zigbee2mqtt-networkmap-node-fill-color: #dcfaf3;
+              --zigbee2mqtt-networkmap-node-pinned-color: rgba(190, 56, 93, .6);
+              --zigbee2mqtt-networkmap-link-color: rgba(18, 120, 98, .5);
+              --zigbee2mqtt-networkmap-hover-color: #be385d;
+              --zigbee2mqtt-networkmap-link-selected-color: rgba(202, 164, 85, .6);
+              --zigbee2mqtt-networkmap-label-color: #127862;
+              --zigbee2mqtt-networkmap-arrow-color: rgba(18, 120, 98, 0.7);
+              --zigbee2mqtt-networkmap-node-coordinator-color: rgba(224, 78, 93, .7);
+              --zigbee2mqtt-networkmap-node-router-color: rgba(0, 165, 255, .7);
+            }
+        - type: 'custom:auto-entities'
+          filter:
+            include:
+              - device: /Bedroom Closet Led Power Supply Light/
+          card:
+            type: 'custom:fold-entity-row'
+            head:
+              type: section
+              label: Bedroom Closet Led Power Supply Light
+        - type: 'custom:auto-entities'
+          filter:
+            include:
+              - device: /Hue Iris Light/
+          card:
+            type: 'custom:fold-entity-row'
+            head:
+              type: section
+              label: Hue Iris Light
+        - type: 'custom:auto-entities'
+          filter:
+            include:
+              - device: /Hue Motion Sensor 1/
+          card:
+            type: 'custom:fold-entity-row'
+            head:
+              type: section
+              label: Hue Motion Sensor 1
+        - type: 'custom:auto-entities'
+          filter:
+            include:
+              - device: /Hue Motion Sensor 2/
+          card:
+            type: 'custom:fold-entity-row'
+            head:
+              type: section
+              label: Hue Motion Sensor 2
+        - type: 'custom:auto-entities'
+          filter:
+            include:
+              - device: /Hue Smart Button 1/
+          card:
+            type: 'custom:fold-entity-row'
+            head:
+              type: section
+              label: Hue Smart Button 1
+        - type: 'custom:auto-entities'
+          filter:
+            include:
+              - device: /Hue Smart Button 2/
+          card:
+            type: 'custom:fold-entity-row'
+            head:
+              type: section
+              label: Hue Smart Button 2
+        - type: 'custom:auto-entities'
+          filter:
+            include:
+              - device: /Hue Smart Button 3/
+          card:
+            type: 'custom:fold-entity-row'
+            head:
+              type: section
+              label: Hue Smart Button 3
+        - type: 'custom:auto-entities'
+          filter:
+            include:
+              - device: /Hue Smart Button 4/
+          card:
+            type: 'custom:fold-entity-row'
+            head:
+              type: section
+              label: Hue Smart Button 4
+        - type: 'custom:auto-entities'
+          filter:
+            include:
+              - device: /Hue Smart Plug 1/
+          card:
+            type: 'custom:fold-entity-row'
+            head:
+              type: section
+              label: Hue Smart Plug 1
+        - type: 'custom:auto-entities'
+          filter:
+            include:
+              - device: /Hue Smart Plug 2/
+          card:
+            type: 'custom:fold-entity-row'
+            head:
+              type: section
+              label: Hue Smart Plug 2
+        - type: 'custom:auto-entities'
+          filter:
+            include:
+              - device: /Ikea Bathroom Smart Button/
+          card:
+            type: 'custom:fold-entity-row'
+            head:
+              type: section
+              label: Ikea Bathroom Smart Button
+        - type: 'custom:auto-entities'
+          filter:
+            include:
+              - device: /Ikea Kitchen Smart Button/
+          card:
+            type: 'custom:fold-entity-row'
+            head:
+              type: section
+              label: Ikea Kitchen Smart Button
+        - type: 'custom:auto-entities'
+          filter:
+            include:
+              - device: /Kitchen Led Spots Light/
+          card:
+            type: 'custom:fold-entity-row'
+            head:
+              type: section
+              label: Kitchen Led Spots Light

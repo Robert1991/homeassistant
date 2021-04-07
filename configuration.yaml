@@ -17,6 +17,7 @@ alert: !include_dir_merge_named alerts/
 
 automation bedroom: !include bedroom/automations.yaml
 automation kitchen: !include kitchen/automations.yaml
+automation general: !include general/zigbee2mqtt_automations.yaml
 
 binary_sensor general: !include general/binary_sensors.yaml 
 binary_sensor bathroom: !include bathroom/binary_sensors.yaml
@@ -116,10 +117,17 @@ sensor bathroom: !include bathroom/sensors.yaml
 sensor bedroom: !include bedroom/sensors.yaml 
 sensor toilet: !include toilet/sensors.yaml
 sensor kitchen_grafana: !include kitchen/grafana_sensors.yaml
+sensor general: !include general/sensors.yaml
 
+switch general: !include general/switches.yaml
 
 shell_command:
   truncate_file: >
     truncate -s 0 {{ file_path }}
   write_variable_content_to_file: >
     /bin/bash -c "echo '{{ content }}' >> {{ target_file }}"
+
+timer:
+  zigbee_permit_join:
+    name: Time remaining
+    duration: 120
