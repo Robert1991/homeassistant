@@ -1,104 +1,352 @@
-- name: Floor Day Light 1
-  entities:
+- entities:
     light.floor_light:
       brightness: 235
-      color_temp: 290
-      state: "on"
-    light.floor_sensor_actor_rgb_i2c_light:
-      brightness: 224
+      state: 'on'
+    light.floor_sensor_actor_neopixel_partition_light_1:
+      brightness: 173
       hs_color:
-        - 254.795
-        - 57.255
+      - 44.727
+      - 43.137
       rgb_color:
-        - 145
-        - 108
-        - 255
+      - 255
+      - 226
+      - 145
+      state: 'on'
       xy_color:
-        - 0.234
-        - 0.143
-      state: "on"
-- name: Floor Night Light 1
-  entities:
+      - 0.421
+      - 0.409
+    light.floor_sensor_actor_neopixel_partition_light_2:
+      brightness: 173
+      hs_color:
+      - 44.727
+      - 43.137
+      rgb_color:
+      - 255
+      - 226
+      - 145
+      state: 'on'
+      xy_color:
+      - 0.421
+      - 0.409
+    light.floor_sensor_actor_neopixel_partition_light_3:
+      brightness: 173
+      hs_color:
+      - 44.727
+      - 43.137
+      rgb_color:
+      - 255
+      - 226
+      - 145
+      state: 'on'
+      xy_color:
+      - 0.421
+      - 0.409
+    light.floor_sensor_actor_neopixel_partition_light_4:
+      brightness: 173
+      hs_color:
+      - 44.727
+      - 43.137
+      rgb_color:
+      - 255
+      - 226
+      - 145
+      state: 'on'
+      xy_color:
+      - 0.421
+      - 0.409
+  name: Floor Day Light 1
+- entities:
     light.floor_light:
-      brightness: 128
-      color_temp: 465
-      state: "on"
-    light.floor_sensor_actor_rgb_i2c_light:
-      brightness: 163
+      brightness: 130
+      state: 'on'
+    light.floor_sensor_actor_neopixel_partition_light_1:
+      brightness: 84
       hs_color:
-        - 14.824
-        - 100.0
+      - 44.727
+      - 43.137
       rgb_color:
-        - 255
-        - 63
-        - 0
+      - 255
+      - 226
+      - 145
+      state: 'on'
       xy_color:
-        - 0.677
-        - 0.319
-      state: "on"
-- name: Floor Day Light Colorful 1
-  entities:
-    light.floor_light:
-      brightness: 252
+      - 0.421
+      - 0.409
+    light.floor_sensor_actor_neopixel_partition_light_2:
+      brightness: 84
       hs_color:
-        - 29.834
-        - 70.98
+      - 44.727
+      - 43.137
       rgb_color:
-        - 255
-        - 163
-        - 74
+      - 255
+      - 226
+      - 145
+      state: 'on'
       xy_color:
-        - 0.539
-        - 0.392
-      state: "on"
-    light.floor_sensor_actor_rgb_i2c_light:
-      brightness: 224
+      - 0.421
+      - 0.409
+    light.floor_sensor_actor_neopixel_partition_light_3:
+      brightness: 84
       hs_color:
-        - 75.205
-        - 57.255
+      - 44.727
+      - 43.137
       rgb_color:
-        - 218
-        - 255
-        - 108
+      - 255
+      - 226
+      - 145
+      state: 'on'
       xy_color:
-        - 0.371
-        - 0.503
-      state: "on"
-- name: Floor Workout Time
-  entities:
-    light.floor_light:
-      brightness: 252
-      color_temp: 300
-      state: "on"
-    light.floor_sensor_actor_rgb_i2c_light:
-      brightness: 224
+      - 0.421
+      - 0.409
+    light.floor_sensor_actor_neopixel_partition_light_4:
+      brightness: 84
       hs_color:
-        - 240.0
-        - 100.0
+      - 44.727
+      - 43.137
       rgb_color:
-        - 0
-        - 0
-        - 255
+      - 255
+      - 226
+      - 145
+      state: 'on'
       xy_color:
-        - 0.136
-        - 0.04
-      state: "on"
-- name: Floor Casa Cabron
-  entities:
+      - 0.421
+      - 0.409
+  name: Floor Night Light 1
+- entities:
     light.floor_light:
       brightness: 235
-      color_temp: 290
-      state: "on"
-    light.floor_sensor_actor_rgb_i2c_light:
-      brightness: 224
+      state: 'on'
+    light.floor_sensor_actor_neopixel_partition_light_1:
+      brightness: 173
       hs_color:
-        - 255.102
-        - 57.647
+      - 330.118
+      - 100.0
       rgb_color:
-        - 145
-        - 108
-        - 255
+      - 255
+      - 0
+      - 126
+      state: 'on'
       xy_color:
-        - 0.234
-        - 0.143
-      state: "on"
+      - 0.583
+      - 0.245
+    light.floor_sensor_actor_neopixel_partition_light_2:
+      brightness: 173
+      hs_color:
+      - 330.118
+      - 100.0
+      rgb_color:
+      - 255
+      - 0
+      - 126
+      state: 'on'
+      xy_color:
+      - 0.583
+      - 0.245
+    light.floor_sensor_actor_neopixel_partition_light_3:
+      brightness: 173
+      hs_color:
+      - 330.118
+      - 100.0
+      rgb_color:
+      - 255
+      - 0
+      - 126
+      state: 'on'
+      xy_color:
+      - 0.583
+      - 0.245
+    light.floor_sensor_actor_neopixel_partition_light_4:
+      brightness: 173
+      hs_color:
+      - 330.118
+      - 100.0
+      rgb_color:
+      - 255
+      - 0
+      - 126
+      state: 'on'
+      xy_color:
+      - 0.583
+      - 0.245
+  name: Floor Day Light Colorful 1
+- entities:
+    light.floor_light:
+      brightness: 252
+      state: 'on'
+    light.floor_sensor_actor_neopixel_partition_light_1:
+      brightness: 255
+      hs_color:
+      - 240.0
+      - 100.0
+      rgb_color:
+      - 0
+      - 0
+      - 255
+      state: 'on'
+      xy_color:
+      - 0.136
+      - 0.04
+    light.floor_sensor_actor_neopixel_partition_light_2:
+      brightness: 171
+      hs_color:
+      - 240.0
+      - 100.0
+      rgb_color:
+      - 0
+      - 0
+      - 255
+      state: 'on'
+      xy_color:
+      - 0.136
+      - 0.04
+    light.floor_sensor_actor_neopixel_partition_light_3:
+      brightness: 186
+      hs_color:
+      - 240.0
+      - 100.0
+      rgb_color:
+      - 0
+      - 0
+      - 255
+      state: 'on'
+      xy_color:
+      - 0.136
+      - 0.04
+    light.floor_sensor_actor_neopixel_partition_light_4:
+      brightness: 255
+      hs_color:
+      - 240.0
+      - 100.0
+      rgb_color:
+      - 0
+      - 0
+      - 255
+      state: 'on'
+      xy_color:
+      - 0.136
+      - 0.04
+  name: Floor Workout Time
+- entities:
+    light.floor_light:
+      brightness: 235
+      hs_color:
+      - 30.207
+      - 56.863
+      rgb_color:
+      - 255
+      - 182
+      - 109
+      state: 'on'
+      xy_color:
+      - 0.491
+      - 0.39
+    light.floor_sensor_actor_neopixel_partition_light_1:
+      brightness: 255
+      hs_color:
+      - 0.0
+      - 100.0
+      rgb_color:
+      - 255
+      - 0
+      - 0
+      state: 'on'
+      xy_color:
+      - 0.701
+      - 0.299
+    light.floor_sensor_actor_neopixel_partition_light_2:
+      brightness: 171
+      hs_color:
+      - 90.118
+      - 100.0
+      rgb_color:
+      - 126
+      - 255
+      - 0
+      state: 'on'
+      xy_color:
+      - 0.268
+      - 0.666
+    light.floor_sensor_actor_neopixel_partition_light_3:
+      brightness: 176
+      hs_color:
+      - 105.176
+      - 100.0
+      rgb_color:
+      - 63
+      - 255
+      - 0
+      state: 'on'
+      xy_color:
+      - 0.199
+      - 0.724
+    light.floor_sensor_actor_neopixel_partition_light_4:
+      brightness: 255
+      hs_color:
+      - 44.941
+      - 100.0
+      rgb_color:
+      - 255
+      - 190
+      - 0
+      state: 'on'
+      xy_color:
+      - 0.528
+      - 0.446
+  name: Floor Casa Cabron
+- entities:
+    light.floor_light:
+      brightness: 235
+      state: 'on'
+    light.floor_sensor_actor_neopixel_partition_light_1:
+      brightness: 255
+      hs_color:
+      - 344.932
+      - 85.882
+      rgb_color:
+      - 255
+      - 36
+      - 90
+      state: 'on'
+      xy_color:
+      - 0.629
+      - 0.277
+    light.floor_sensor_actor_neopixel_partition_light_2:
+      brightness: 171
+      hs_color:
+      - 254.824
+      - 100.0
+      rgb_color:
+      - 63
+      - 0
+      - 255
+      state: 'on'
+      xy_color:
+      - 0.157
+      - 0.05
+    light.floor_sensor_actor_neopixel_partition_light_3:
+      brightness: 186
+      hs_color:
+      - 210.137
+      - 85.882
+      rgb_color:
+      - 36
+      - 145
+      - 255
+      state: 'on'
+      xy_color:
+      - 0.148
+      - 0.165
+    light.floor_sensor_actor_neopixel_partition_light_4:
+      brightness: 255
+      hs_color:
+      - 0.0
+      - 100.0
+      rgb_color:
+      - 255
+      - 0
+      - 0
+      state: 'on'
+      xy_color:
+      - 0.701
+      - 0.299
+  name: Floor Casa Cabron 2

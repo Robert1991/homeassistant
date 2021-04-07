@@ -6,18 +6,54 @@ substitutions:
   motion_sensor_pin: D7
   dht_pin: D3
   dht_type: DHT11
-  # i2c
-  sda_pin: "5"
-  scl_pin: "4"
+  light_intensity_sensor_pin: A0
+  light_intensity_sensor_update_interval: 2s
 
 packages:
   mqtt: !include mqtt.yaml
   wifi: !include wifi.yaml 
   device_base: !include common/device_base.yaml
-  i2c_light: !include custom/i2cRGBLight.yaml
 
 binary_sensor:
   - <<: !include common/binary_sensor/motion.yaml
 
 sensor:
   - <<: !include common/sensor/dht.yaml
+  - <<: !include common/sensor/light_intensity.yaml
+
+light:
+  - platform: neopixelbus
+    type: GRB
+    pin: GPIO3
+    num_leds: 144
+    id: neopixellight
+    name: ${node_verbose_name} NeoPixel Light
+    internal: true
+  - platform: partition
+    name: ${node_verbose_name} NeoPixel Partition Light 1
+    id: neopixellight_segment_1
+    segments:
+      - id: neopixellight
+        from: 0
+        to: 35
+  - platform: partition
+    name: ${node_verbose_name} NeoPixel Partition Light 2
+    id: neopixellight_segment_2
+    segments:
+      - id: neopixellight
+        from: 36
+        to: 71
+  - platform: partition
+    name: ${node_verbose_name} NeoPixel Partition Light 3
+    id: neopixellight_segment_3
+    segments:
+      - id: neopixellight
+        from: 72
+        to: 107
+  - platform: partition
+    name: ${node_verbose_name} NeoPixel Partition Light 4
+    id: neopixellight_segment_4
+    segments:
+      - id: neopixellight
+        from: 108
+        to: 143

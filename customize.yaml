@@ -51,8 +51,17 @@ sensor.floor_sensor_actor_temperature:
   friendly_name: "Floor Temperature"
 binary_sensor.floor_sensor_actor_motion_detected:
   friendly_name: "Floor Motion Detected"
-light.floor_sensor_actor_rgb_i2c_light:
-  friendly_name: "Floor RGB Lightstrip"
+light.floor_sensor_actor_neopixel_partition_light_1:
+  friendly_name: "Floor Neo Pixel Lightstrip Part 1"
+  icon: mdi:led-strip-variant
+light.floor_sensor_actor_neopixel_partition_light_2:
+  friendly_name: "Floor Neo Pixel Lightstrip Part 2"
+  icon: mdi:led-strip-variant
+light.floor_sensor_actor_neopixel_partition_light_3:
+  friendly_name: "Floor Neo Pixel Lightstrip Part 3"
+  icon: mdi:led-strip-variant
+light.floor_sensor_actor_neopixel_partition_light_4:
+  friendly_name: "Floor Neo Pixel Lightstrip Part 4"
   icon: mdi:led-strip-variant
 
 # living_room_sensor_actor_2
@@ -69,7 +78,6 @@ light.kitchen_light_controller_light_strip:
 light.kitchen_light_controller_black_light:
   friendly_name: "Kitchen Black Light"
   icon: mdi:desk-lamp
-
 
 # kitchen_sensor
 binary_sensor.kitchen_sensor_door_sensor:
@@ -132,18 +140,26 @@ light.floor_light:
 light.living_room_standing_light:
   friendly_name: "Living Room Standing Light"
   icon: mdi:floor-lamp
+
 light.hue_iris_light:
   friendly_name: "TV Philips Hue Bubble Light"
   icon: mdi:wall-sconce-round-variant
 
+light.floor_neo_pixel_light:
+  friendly_name: "Floor Neo Pixel Lightstrip"
+  icon: mdi:led-strip-variant
+
 light.bedroom_workdesk_light:
   friendly_name: "Bedroom Workdesk Light"
   icon: mdi:desk-lamp
+
 light.bedroom_bed_light:
   icon: mdi:outdoor-lamp
+
 light.bedroom_closet_led_power_supply_light:
   friendly_name: "Bedroom Closet Light"
   icon: mdi:led-strip
+
 light.bedroom_neopixel_light:
   icon: mdi:led-strip-variant
 
@@ -156,7 +172,6 @@ binary_sensor.private_laptop_activity:
 binary_sensor.lenovo_new_gen_key_was_pressed:
   friendly_name: "Robert PC New Gen is occupied"
   icon: mdi:monitor-dashboard
-
 binary_sensor.lenovo_new_gen_mouse_moved:
   friendly_name: "Robert PC New Gen is occupied"
   icon: mdi:monitor-dashboard
@@ -171,11 +186,10 @@ light.touch_screen_back_light:
   friendly_name: "Smart Home Panel Back Light"
   icon: mdi:tablet-dashboard
 
-# plants
+# switches
 switch.hue_smart_plug_1:
   friendly_name: "Kitchen Plant Light"
   icon: mdi:flower-tulip
-
 switch.hue_smart_plug_2:
   friendly_name: "Kitchen Plant Ventilation"
   icon: mdi:fan
