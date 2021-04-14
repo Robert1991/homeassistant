@@ -537,6 +537,9 @@ views:
         - entity: input_text.zigbee2mqtt_new_name
         - entity: script.zigbee2mqtt_rename
         - type: divider
+        - entity: input_text.zigbee2mqtt_update_name
+        - entity: script.zigbee2mqtt_update
+        - type: divider
         - entity: input_text.zigbee2mqtt_remove
         - entity: input_boolean.zigbee2mqtt_force_remove
         - entity: script.zigbee2mqtt_remove
