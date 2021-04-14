@@ -2,8 +2,6 @@
 default_config:
 
 homeassistant:
-  latitude: !secret latitude
-  longitude: !secret longitude
   elevation: 117
   time_zone: Europe/Berlin
   customize: !include customize.yaml
