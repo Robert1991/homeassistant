@@ -11,3 +11,6 @@ zigbee2mqtt_new_name:
 zigbee2mqtt_remove:
   name: Zigbee2MQTT Remove
   initial: ''
+zigbee2mqtt_update_name:
+  name: Zigbee2MQTT Update Name
+  initial: ''
