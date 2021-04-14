@@ -675,6 +675,15 @@ views:
         - type: 'custom:auto-entities'
           filter:
             include:
+              - device: /Ikea Floor Smart Button/
+          card:
+            type: 'custom:fold-entity-row'
+            head:
+              type: section
+              label: Ikea Floor Smart Button
+        - type: 'custom:auto-entities'
+          filter:
+            include:
               - device: /Ikea Kitchen Smart Button/
           card:
             type: 'custom:fold-entity-row'

@@ -13,3 +13,10 @@ floor_light_toogle_intensity_threshold:
   step: 5
   unit_of_measurement: "%"
   icon: 'mdi:brightness-auto'
+
+floor_smart_button_dim_step_size:
+  name: Kitchen Smart Button Dim Step Size
+  min: 10
+  max: 45
+  step: 5
+  icon: 'mdi:brightness-auto'
