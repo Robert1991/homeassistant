@@ -23,14 +23,28 @@ sensor:
   - platform: ads1115
     multiplexer: 'A0_GND'
     gain: 4.096
+    name: ${node_verbose_name} Moisture Sensor 1 Raw Value
+    update_interval: 5s
+    unit_of_measurement: "V"
+    icon: mdi:water-percent
+  - platform: ads1115
+    multiplexer: 'A0_GND'
+    gain: 4.096
     name: ${node_verbose_name} Moisture Sensor 1
     update_interval: 5s
     unit_of_measurement: "%"
     icon: mdi:water-percent
     filters:
       - calibrate_linear:
-          - 1.3 -> 100.0
+          - 1.2 -> 100.0
           - 2.9 -> 0.0
+  - platform: ads1115
+    multiplexer: 'A1_GND'
+    gain: 4.096
+    name: ${node_verbose_name} Moisture Sensor Raw Value 2
+    update_interval: 5s
+    unit_of_measurement: "V"
+    icon: mdi:water-percent
   - platform: ads1115
     multiplexer: 'A1_GND'
     gain: 4.096

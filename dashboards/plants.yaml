@@ -95,21 +95,64 @@ views:
             entities:
               - name: On Interval
                 entity: input_number.kitchen_plant_night_ventilation_on_interval
+                type: custom:slider-entity-row
               - name: Off Interval
                 entity: input_number.kitchen_plant_night_ventilation_off_interval
+                type: custom:slider-entity-row
               - name: Start Time
                 entity: input_datetime.kitchen_plant_night_ventilation_turn_on_time
+          - type: divider
+          - entity: alert.plants_need_water_refill
+            name: Plantwater Refill Alert
           - type: 'custom:fold-entity-row'
             head:
-              entity: input_boolean.kitchen_plant_watering_automation_enabled
-              name: Plant Watering
+              entity: input_boolean.kitchen_left_plant_watering_automation_enabled
+              name: Left Plant Watering
             entities:
               - name: Interval in h
-                entity: input_number.kitchen_plant_watering_interval
+                entity: input_number.kitchen_left_plant_watering_interval
+                type: custom:slider-entity-row
               - name: Pump Duration
-                entity: input_number.kitchen_plant_watering_duration
-              - entity: alert.plants_need_water_refill
-                name: Plantwater Refill Alert
+                entity: input_number.kitchen_left_plant_watering_duration
+                type: custom:slider-entity-row
+          - type: 'custom:fold-entity-row'
+            head:
+              entity: input_boolean.kitchen_right_plant_watering_automation_enabled
+              name: Right Plant Watering
+            entities:
+              - name: Interval in h
+                entity: input_number.kitchen_right_plant_watering_interval
+                type: custom:slider-entity-row
+              - name: Pump Duration
+                entity: input_number.kitchen_right_plant_watering_duration
+                type: custom:slider-entity-row
+    - type: 'custom:stack-in-card'
+      mode: horizontal
+      cards:
+      - type: 'custom:logbook-card'
+        entity: switch.kitchen_plant_controller_pump_relay_1
+        title: Left Plant Watering History
+        show:
+          state: true
+          duration: true
+          start_date: true
+          end_date: false
+          icon: true
+          separator: false
+        max_items: -1
+        history: 3
+      - type: 'custom:logbook-card'
+        entity: switch.kitchen_plant_controller_pump_relay_2
+        title: Right Plant Watering History
+        show:
+          state: true
+          duration: true
+          start_date: true
+          end_date: false
+          icon: true
+          separator: false
+        max_items: -1
+        history: 3
   - title: Graphs
     path: graphs
     panel: true
