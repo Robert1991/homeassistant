@@ -61,8 +61,14 @@ plant_status_lcd_display_rotation:
     - entity: sensor.kitchen_plant_controller_moisture_sensor_1
       name: Moisture Left
       unit: "%"
+    - entity: sensor.kitchen_left_plant_last_watering_duration
+      name: Watering Left
+      unit: ""
     - entity: sensor.kitchen_plant_controller_moisture_sensor_2
       name: Moisture Right
       unit: "%"
-  rotate_timeout: 7
+    - entity: sensor.kitchen_right_plant_last_watering_duration
+      name: Watering Right
+      unit: ""
+  rotate_timeout: 5
   mqtt_display: kitchen_mqtt_lcd_display/show

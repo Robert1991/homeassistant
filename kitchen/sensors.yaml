@@ -1,3 +1,23 @@
+- platform: template 
+  sensors: 
+    kitchen_left_plant_last_watering_duration: 
+      value_template: >
+          {% set uptime = as_timestamp(now()) - as_timestamp(states('sensor.kitchen_left_plant_last_watering_time_stamp')) | int - 60*60 %}
+          {% set days = (uptime / 86400) | int %}
+          {%- if days > 0 -%}
+          {{ days }} days, {{ (uptime - (days * 86400)) | int | timestamp_custom('%H:%M:%S') }}
+          {%- else -%}
+            {{ uptime | int | timestamp_custom('%H:%M:%S') }}
+          {%- endif -%}
+    kitchen_right_plant_last_watering_duration: 
+      value_template: >
+          {% set uptime = as_timestamp(now()) - as_timestamp(states('sensor.kitchen_right_plant_last_watering_time_stamp')) | int - 60*60 %}
+          {% set days = (uptime / 86400) | int %}
+          {%- if days > 0 -%}
+          {{ days }} days, {{ (uptime - (days * 86400)) | int | timestamp_custom('%H:%M:%S') }}
+          {%- else -%}
+            {{ uptime | int | timestamp_custom('%H:%M:%S') }}
+          {%- endif -%}
 - platform: command_line
   name: shopping_list
   command: /config/scripts/shopping_list.py

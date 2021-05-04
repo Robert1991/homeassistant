@@ -127,32 +127,43 @@ views:
                 entity: input_number.kitchen_right_plant_watering_duration
                 type: custom:slider-entity-row
     - type: 'custom:stack-in-card'
-      mode: horizontal
+      mode: vertical
       cards:
-      - type: 'custom:logbook-card'
-        entity: switch.kitchen_plant_controller_pump_relay_1
-        title: Left Plant Watering History
-        show:
-          state: true
-          duration: true
-          start_date: true
-          end_date: false
-          icon: true
-          separator: false
-        max_items: -1
-        history: 3
-      - type: 'custom:logbook-card'
-        entity: switch.kitchen_plant_controller_pump_relay_2
-        title: Right Plant Watering History
-        show:
-          state: true
-          duration: true
-          start_date: true
-          end_date: false
-          icon: true
-          separator: false
-        max_items: -1
-        history: 3
+      - type: entity
+        entity: sensor.kitchen_left_plant_last_watering_duration
+        name: Left Plant Last Watering
+        icon: mdi:water
+      - type: entity
+        entity: sensor.kitchen_right_plant_last_watering_duration
+        name: Right Plant Last Watering
+        icon: mdi:water
+      - type: 'custom:stack-in-card'
+        mode: horizontal
+        cards:
+        - type: 'custom:logbook-card'
+          entity: switch.kitchen_plant_controller_pump_relay_1
+          title: Left Plant Watering History
+          show:
+            state: true
+            duration: true
+            start_date: true
+            end_date: false
+            icon: true
+            separator: false
+          max_items: 10
+          history: 2
+        - type: 'custom:logbook-card'
+          entity: switch.kitchen_plant_controller_pump_relay_2
+          title: Right Plant Watering History
+          show:
+            state: true
+            duration: true
+            start_date: true
+            end_date: false
+            icon: true
+            separator: false
+          max_items: 10
+          history: 2
   - title: Graphs
     path: graphs
     panel: true

@@ -126,6 +126,24 @@ shell_command:
   write_variable_content_to_file: >
     /bin/bash -c "echo '{{ content }}' >> {{ target_file }}"
 
+template:
+  - trigger:
+    - platform: state
+      entity_id: switch.kitchen_plant_controller_pump_relay_1
+      from: 'off'
+      to: 'on'
+    sensor:
+      - name: "Kitchen Left Plant Last Watering Time Stamp"
+        state: "{{ now() }}"
+  - trigger:
+    - platform: state
+      entity_id: switch.kitchen_plant_controller_pump_relay_2
+      from: 'off'
+      to: 'on'
+    sensor:
+      - name: "Kitchen Right Plant Last Watering Time Stamp"
+        state: "{{ now() }}"
+
 timer:
   zigbee_permit_join:
     name: Time remaining
