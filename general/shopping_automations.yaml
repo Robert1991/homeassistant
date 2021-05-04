@@ -1,0 +1,13 @@
+- alias: Notify Shopping List
+  trigger:
+    - platform: state
+      entity_id: person.robert
+      to: "shopping"
+      for: "00:00:30"
+  condition: "{{ states('binary_sensor.shopping_list_has_items') == 'on' }}"
+  action:
+  - service: notify.mobile_app_iphone_von_robert
+    data_template:
+      title: Einkaufsliste
+      message: "{{ states('sensor.shopping_list').split(',') | join(', ') }}"
+      target: 'https://robertnator.duckdns.org/shopping-list'

@@ -17,3 +17,5 @@ home-assistant_v2.*
 appdaemon/
 blueprints/
 passwd.dat
+
+.shopping_list.json
