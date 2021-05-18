@@ -243,9 +243,9 @@
       - 0.392
   name: Living Room Afrika 2
 - entities:
-    input_number.living_room_light_toogle_intensity_threshold: '45.0'
+    input_number.living_room_light_toogle_intensity_threshold: '40'
     light.esp_couch_light_rgb_i2c_light:
-      brightness: 35
+      brightness: 75
       hs_color:
       - 14.824
       - 100.0
@@ -258,37 +258,32 @@
       - 0.677
       - 0.319
     light.hue_iris_light:
-      brightness: 30
+      brightness: 70
       hs_color:
-      - 42.162
-      - 14.51
+      - 40.0
+      - 15.294
       rgb_color:
       - 255
-      - 243
-      - 217
+      - 242
+      - 216
       state: 'on'
       xy_color:
-      - 0.355
+      - 0.356
       - 0.355
     light.living_room_center_1:
-      brightness: 133
-      color_temp: 360
+      brightness: 173
       state: 'on'
     light.living_room_center_2:
-      brightness: 133
-      color_temp: 360
+      brightness: 173
       state: 'on'
     light.living_room_center_3:
-      brightness: 134
-      color_temp: 360
+      brightness: 174
       state: 'on'
     light.living_room_center_4:
-      brightness: 123
-      color_temp: 360
+      brightness: 163
       state: 'on'
     light.living_room_center_5:
-      brightness: 123
-      color_temp: 360
+      brightness: 163
       state: 'on'
     light.living_room_sensor_actor_1_closet_rgb_lights:
       brightness: 255
@@ -306,10 +301,7 @@
     light.living_room_sensor_actor_2_light_strings:
       state: 'on'
     light.living_room_standing_light:
-      brightness: 156
-      color_temp: 410
-      state: 'on'
-    light.touch_screen_back_light:
+      brightness: 196
       state: 'on'
   name: Living Room Work
 - entities:
@@ -551,4 +543,125 @@
     light.touch_screen_back_light:
       state: 'on'
   name: Living Room Casa Cabron
-
+- entities:
+    input_number.living_room_light_toogle_intensity_threshold: '20'
+    light.esp_couch_light_rgb_i2c_light:
+      brightness: 245
+      hs_color:
+      - 315.059
+      - 100.0
+      rgb_color:
+      - 255
+      - 0
+      - 190
+      state: 'on'
+      xy_color:
+      - 0.478
+      - 0.197
+    light.hue_iris_light:
+      brightness: 228
+      hs_color:
+      - 314.824
+      - 100.0
+      rgb_color:
+      - 255
+      - 0
+      - 191
+      state: 'on'
+      xy_color:
+      - 0.477
+      - 0.196
+    light.living_room_center_1:
+      brightness: 255
+      hs_color:
+      - 315.31
+      - 56.863
+      rgb_color:
+      - 255
+      - 109
+      - 218
+      state: 'on'
+      xy_color:
+      - 0.417
+      - 0.218
+    light.living_room_center_2:
+      brightness: 133
+      hs_color:
+      - 300.55
+      - 42.745
+      rgb_color:
+      - 255
+      - 146
+      - 254
+      state: 'on'
+      xy_color:
+      - 0.364
+      - 0.219
+    light.living_room_center_3:
+      brightness: 255
+      hs_color:
+      - 300.417
+      - 56.471
+      rgb_color:
+      - 255
+      - 110
+      - 253
+      state: 'on'
+      xy_color:
+      - 0.375
+      - 0.192
+    light.living_room_center_4:
+      brightness: 255
+      hs_color:
+      - 315.273
+      - 43.137
+      rgb_color:
+      - 255
+      - 145
+      - 226
+      state: 'on'
+      xy_color:
+      - 0.394
+      - 0.241
+    light.living_room_center_5:
+      brightness: 255
+      hs_color:
+      - 300.333
+      - 70.588
+      rgb_color:
+      - 255
+      - 75
+      - 254
+      state: 'on'
+      xy_color:
+      - 0.381
+      - 0.172
+    light.living_room_sensor_actor_1_closet_rgb_lights:
+      brightness: 255
+      hs_color:
+      - 315.059
+      - 100.0
+      rgb_color:
+      - 255
+      - 0
+      - 190
+      state: 'on'
+      xy_color:
+      - 0.478
+      - 0.197
+    light.living_room_sensor_actor_2_light_strings:
+      state: 'on'
+    light.living_room_standing_light:
+      brightness: 255
+      hs_color:
+      - 318.028
+      - 83.529
+      rgb_color:
+      - 255
+      - 42
+      - 191
+      state: 'on'
+      xy_color:
+      - 0.473
+      - 0.204
+  name: Living Room lilex

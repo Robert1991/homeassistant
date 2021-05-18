@@ -13,13 +13,18 @@ living_room_casa_cabron_light_intensity:
   max: 100
   min: 0
   step: 1
+living_room_lilex_light_intensity:
+  initial: 20
+  max: 100
+  min: 0
+  step: 1
 living_room_tv_1_light_intensity:
   initial: 30
   max: 100
   min: 0
   step: 1
 living_room_work_light_intensity:
-  initial: 20
+  initial: 40
   max: 100
   min: 0
   step: 1

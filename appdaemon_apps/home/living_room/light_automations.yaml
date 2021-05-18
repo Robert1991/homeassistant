@@ -13,12 +13,12 @@ dim_lights_under_threshold_in_living_room:
   light_turn_off_boundary_brightness: input_number.living_room_automatic_dim_light_turn_of_boundary
   light_turn_off_step_size: input_number.living_room_automatic_dim_step_size
   constrain_input_boolean: input_boolean.living_room_light_automation_is_enabled
-  dim_time_out: 0.2
+  dim_time_out: 0.5
   toggle_delta: 2.5
 
 turn_on_lights_when_there_is_activity_in_the_living_room:
   module: activity_based_light_control_automations
-  class: TurnOnAutomationWithSceneTransition
+  class: TurnOnAutomation
   dependencies: 
     - scene_utils
     - hass_utils

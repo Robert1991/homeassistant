@@ -5,6 +5,7 @@ living_room_automatic_light_scene_generated:
   - Casa Cabron
   - TV 1
   - Work
+  - lilex
 living_room_day_light_choosen_scene:
   options:
   - Afrika
@@ -12,6 +13,7 @@ living_room_day_light_choosen_scene:
   - Casa Cabron
   - TV 1
   - Work
+  - lilex
 living_room_light_scene_generated:
   options:
   - Afrika
@@ -19,6 +21,7 @@ living_room_light_scene_generated:
   - Casa Cabron
   - TV 1
   - Work
+  - lilex
 living_room_night_light_choosen_scene:
   options:
   - Afrika
@@ -26,6 +29,7 @@ living_room_night_light_choosen_scene:
   - Casa Cabron
   - TV 1
   - Work
+  - lilex
 living_room_relaxed_light_choosen_scene:
   options:
   - Afrika
@@ -33,6 +37,7 @@ living_room_relaxed_light_choosen_scene:
   - Casa Cabron
   - TV 1
   - Work
+  - lilex
 living_room_scene_generator_light_scene_generated:
   options:
   - Afrika
@@ -40,3 +45,4 @@ living_room_scene_generator_light_scene_generated:
   - Casa Cabron
   - TV 1
   - Work
+  - lilex
