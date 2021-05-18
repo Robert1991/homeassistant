@@ -44,6 +44,100 @@ http:
   ip_ban_enabled: true
   login_attempts_threshold: 5
 
+homekit:
+  - filter:
+      include_domains:
+        - binary_sensor
+        - light
+        #- media_player
+        - scene
+        - sensor
+        - switch
+        - input_boolean
+      exclude_entity_globs:
+        - binary_sensor.*_connection_status
+        - binary_sensor.*_update_available
+        - binary_sensor.*_led_indication
+        - binary_sensor.lenovo_new_gen_*
+        - binary_sensor.living_room_tv_*
+        - binary_sensor.pixel_4a_*
+        - sensor.*_connected_bssid
+        - sensor.*_connected_ssid
+        - sensor.*_ip_address
+        - sensor.*_mac_wifi_address
+        - sensor.*_uptime
+        - sensor.*_wifi_signal
+        - sensor.*_linkquality
+        - sensor.*_update_state
+        - sensor.*_battery_level
+        - sensor.*_battery_state*
+        - sensor.*_battery
+        - sensor.*_illuminance_lux
+        - sensor.*_motion_sensitivity
+        - sensor.*_occupancy_timeout
+        - sensor.*_action
+        - sensor.download_*
+        - sensor.iphone_von_robert_*
+        - sensor.pixel_4a_*
+        - sensor.*_last_watering_duration
+        - sensor.*_last_watering_time_stamp
+        - sensor.*_raw_value
+        - sensor.zigbee2mqtt_*
+        - sensor.uptime_sensor*
+        - sensor.hue_motion_sensor_*_temperature
+        - switch.*_shutdown
+        - input_boolean.*_automatic_scene_mode_enabled
+      include_entities:
+        - light.living_room_sensor_actor_2_light_strings
+      exclude_entities:
+        - binary_sensor.robert_think_pad_is_on
+        - binary_sensor.robert_work_laptop_is_on
+        - binary_sensor.shopping_list_has_items
+        - binary_sensor.updater
+        - binary_sensor.work_laptop_activity
+        - binary_sensor.workday_sensor
+        - binary_sensor.hue_motion_sensor_2_occupancy
+        - light.my_custom_light
+        - sensor.cert_expiry_timestamp_robertnator_duckdns_org
+        - sensor.coordinator_version
+        - sensor.data_from_topic
+        - sensor.hacs
+        - sensor.iphone_von_robert_activity
+        - sensor.iphone_von_robert_average_active_pace
+        - sensor.iphone_von_robert_battery_state
+        - sensor.kitchen_mqtt_lcd_display_display_topic
+        - sensor.robert_thinkpad_running
+        - sensor.shopping_list
+        - sensor.bathroom_temperature
+        - switch.lenovo_new_gen_backup_switch_switch
+        - switch.lenovo_new_gen_suspend_switch
+        - switch.zigbee2mqtt_main_join
+        - input_boolean.bedroom_closet_light_was_turned_off_before
+        - input_boolean.fride_door_was_left_open
+        - input_boolean.zigbee2mqtt_force_remove
+        - input_boolean.toilet_time_depended_light_automation_is_enabled
+        - input_boolean.toilet_light_intensity_based_light_control_enabled
+        - input_boolean.bathroom_light_intensity_based_light_control_enabled
+        - input_boolean.living_room_time_depended_light_automation_is_enabled
+        - input_boolean.kitchen_time_depended_light_automation_is_enabled
+        - input_boolean.floor_time_depended_light_automation_is_enabled
+        - input_boolean.bathroom_time_depended_light_automation_is_enabled
+        - input_boolean.bedroom_time_depended_light_automation_is_enabled
+        - input_boolean.touch_screen_back_light_automatic_enabled
+    entity_config:
+      switch.kitchen_plant_controller_pump_relay_1:
+        type: faucet
+      switch.kitchen_plant_controller_pump_relay_2:
+        type: faucet
+  - name: HASS Accessory Bridge
+    port: 21065
+    mode: accessory
+    filter:
+      include_domains:
+        - media_player
+
+
+
 input_boolean: !include_dir_merge_named input/input_boolean/
 input_number: !include_dir_merge_named input/input_number/
 input_select: !include_dir_merge_named input/input_select/

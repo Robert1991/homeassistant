@@ -27,3 +27,14 @@
       entity_id: input_boolean.bedroom_closet_light_was_turned_off_before
     - service: light.turn_off
       entity_id: light.bedroom_closet_led_power_supply_light
+
+- alias: Rotate Light Scene On IOS event
+  trigger:
+    platform: event
+    event_type: ios.action_fired
+    event_data:
+      actionID: ED3CF43F-E74C-43C7-A191-3EDF1AFD00A4
+      sourceDeviceID: iphone_von_robert
+  action:
+    - service:  input_select.select_next
+      entity_id: input_select.bedroom_light_scene_generated
