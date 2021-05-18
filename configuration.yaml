@@ -37,6 +37,9 @@ group: !include_dir_merge_named groups/
 
 influxdb:
   host: !secret influx_host
+  database: home_assistant
+  username: !secret influx_user
+  password: !secret influx_password
 
 http:
   ssl_certificate: !secret ssl_certificate_path
