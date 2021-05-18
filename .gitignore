@@ -19,3 +19,4 @@ blueprints/
 passwd.dat
 
 .shopping_list.json
+.ssh/

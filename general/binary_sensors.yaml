@@ -1,3 +1,12 @@
 - platform: workday
   country: DE
   province: BW
+
+
+- platform: template
+  sensors:
+    home_server_updates_available:
+      value_template: >
+        {{ states('sensor.home_server_update_state') | int > 0 or state_attr('sensor.home_server_update_state', 'security_updates') | int > 0}}
+    
+  
