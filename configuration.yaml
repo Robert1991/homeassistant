@@ -126,6 +126,14 @@ shell_command:
   write_variable_content_to_file: >
     /bin/bash -c "echo '{{ content }}' >> {{ target_file }}"
 
+spotify:
+  client_id: !secret spotify_client_id
+  client_secret: !secret spotify_client_secret
+
+spotcast:
+  sp_dc: !secret sp_dc
+  sp_key: !secret sp_key
+
 template:
   - trigger:
     - platform: state
