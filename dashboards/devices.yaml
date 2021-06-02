@@ -54,7 +54,144 @@ views:
           tap_action:
             action: navigate
             navigation_path: /lovelace-device/living_room
-      title: Autoconfigure Devices
+      title: ESP-Home Devices
+      state_color: true
+    - type: entities
+      entities:
+        - entity: sensor.bedroom_closet_led_power_supply_light_linkquality
+          name: Bedroom Closet Led Power Supply Light
+          type: custom:multiple-entity-row
+          tap_action:
+            action: navigate
+            navigation_path: /lovelace-device/zigbee_network
+          entities:
+            - name: Update
+              entity: binary_sensor.bedroom_closet_led_power_supply_light_update_available
+        - entity: sensor.hue_iris_light_linkquality
+          name: Hue Iris Light
+          type: custom:multiple-entity-row
+          tap_action:
+            action: navigate
+            navigation_path: /lovelace-device/zigbee_network
+          entities:
+            - name: Update
+              entity: binary_sensor.hue_iris_light_update_available
+        - entity: sensor.hue_motion_sensor_2_battery
+          name: Hue Motion Sensor 2
+          type: custom:multiple-entity-row
+          tap_action:
+            action: navigate
+            navigation_path: /lovelace-device/zigbee_network
+          entities:
+            - name: Update
+              entity: binary_sensor.hue_motion_sensor_2_update_available
+            - name: Linkquality
+              entity: sensor.hue_motion_sensor_2_linkquality
+        - entity: sensor.hue_smart_button_1_battery
+          name: Hue Smart Button 1
+          type: custom:multiple-entity-row
+          tap_action:
+            action: navigate
+            navigation_path: /lovelace-device/zigbee_network
+          entities:
+            - name: Update
+              entity: binary_sensor.hue_smart_button_1_update_available
+            - name: Linkquality
+              entity: sensor.hue_smart_button_1_linkquality
+        - entity: sensor.hue_smart_button_2_battery
+          name: Hue Smart Button 2
+          type: custom:multiple-entity-row
+          tap_action:
+            action: navigate
+            navigation_path: /lovelace-device/zigbee_network
+          entities:
+            - name: Update
+              entity: binary_sensor.hue_smart_button_2_update_available
+            - name: Linkquality
+              entity: sensor.hue_smart_button_2_linkquality
+        - entity: sensor.hue_smart_button_3_battery
+          name: Hue Smart Button 3
+          type: custom:multiple-entity-row
+          tap_action:
+            action: navigate
+            navigation_path: /lovelace-device/zigbee_network
+          entities:
+            - name: Update
+              entity: binary_sensor.hue_smart_button_3_update_available
+            - name: Linkquality
+              entity: sensor.hue_smart_button_3_linkquality
+        - entity: sensor.hue_smart_button_4_battery
+          name: Hue Smart Button 4
+          type: custom:multiple-entity-row
+          tap_action:
+            action: navigate
+            navigation_path: /lovelace-device/zigbee_network
+          entities:
+            - name: Update
+              entity: binary_sensor.hue_smart_button_4_update_available
+            - name: Linkquality
+              entity: sensor.hue_smart_button_4_linkquality
+        - entity: sensor.hue_smart_plug_1_linkquality
+          name: Hue Smart Plug 1
+          type: custom:multiple-entity-row
+          tap_action:
+            action: navigate
+            navigation_path: /lovelace-device/zigbee_network
+          entities:
+            - name: Update
+              entity: binary_sensor.hue_smart_plug_1_update_available
+        - entity: sensor.hue_smart_plug_2_linkquality
+          name: Hue Smart Plug 2
+          type: custom:multiple-entity-row
+          tap_action:
+            action: navigate
+            navigation_path: /lovelace-device/zigbee_network
+          entities:
+            - name: Update
+              entity: binary_sensor.hue_smart_plug_2_update_available
+        - entity: sensor.ikea_bathroom_smart_button_battery
+          name: Ikea Bathroom Smart Button
+          type: custom:multiple-entity-row
+          tap_action:
+            action: navigate
+            navigation_path: /lovelace-device/zigbee_network
+          entities:
+            - name: Update
+              entity: binary_sensor.ikea_bathroom_smart_button_update_available
+            - name: Linkquality
+              entity: sensor.ikea_bathroom_smart_button_linkquality
+        - entity: sensor.ikea_floor_smart_button_battery
+          name: Ikea Floor Smart Button
+          type: custom:multiple-entity-row
+          tap_action:
+            action: navigate
+            navigation_path: /lovelace-device/zigbee_network
+          entities:
+            - name: Update
+              entity: binary_sensor.ikea_floor_smart_button_update_available
+            - name: Linkquality
+              entity: sensor.ikea_floor_smart_button_linkquality
+        - entity: sensor.ikea_kitchen_smart_button_battery
+          name: Ikea Kitchen Smart Button
+          type: custom:multiple-entity-row
+          tap_action:
+            action: navigate
+            navigation_path: /lovelace-device/zigbee_network
+          entities:
+            - name: Update
+              entity: binary_sensor.ikea_kitchen_smart_button_update_available
+            - name: Linkquality
+              entity: sensor.ikea_kitchen_smart_button_linkquality
+        - entity: sensor.kitchen_led_spots_light_linkquality
+          name: Kitchen LED Spot Lights
+          type: custom:multiple-entity-row
+          tap_action:
+            action: navigate
+            navigation_path: /lovelace-device/zigbee_network
+          entities:
+            - name: Update
+              entity: binary_sensor.kitchen_led_spots_light_update_available
+      title: Zigbee2Mqtt Devices
       state_color: true
   - title: Bedroom
     path: bedroom
@@ -81,6 +218,18 @@ views:
               name: Restart
             - entity: switch.bedroom_sensor_shutdown
               name: Shutdown
+        - type: 'custom:uptime-card'
+          entity: binary_sensor.bedroom_sensor_connection_status
+          name: Uptime
+          hours_to_show: 144
+          ko: unavailable
+          status_adaptive_color: true
+          title_adaptive_color: false
+          icon_adaptive_color: true
+          ok: 'on'
+          alias:
+            ok: online
+            ko: offline
         - type: 'custom:auto-entities'
           filter:
             include:
@@ -97,6 +246,69 @@ views:
             head:
               type: section
               label: Entities
+    - type: 'custom:vertical-stack-in-card'
+      title: ZigBee2MQTT
+      cards:
+      - type: 'custom:auto-entities'
+        filter:
+          include:
+            - device: /Bedroom Closet Led Power Supply Light/
+        card:
+          type: 'custom:fold-entity-row'
+          head:
+            type: section
+            label: Bedroom Closet Led Power Supply Light
+      - type: 'custom:auto-entities'
+        filter:
+          include:
+            - device: /Hue Smart Button 1/
+        card:
+          type: 'custom:fold-entity-row'
+          head:
+            type: section
+            label: Hue Smart Button 1
+      - type: 'custom:auto-entities'
+        filter:
+          include:
+            - device: /Hue Smart Button 3/
+        card:
+          type: 'custom:fold-entity-row'
+          head:
+            type: section
+            label: Hue Smart Button 3
+    - type: entities
+      title: Philips Hue Bridge
+      entities:
+        - light.bedroom_ceiling_1
+        - light.bedroom_ceiling_2
+        - light.bedroom_ceiling_3
+        - light.bedroom_workdesk_light
+        - light.bedroom_bed_light
+    - type: 'custom:vertical-stack-in-card'
+      title: Other
+      cards:
+      - type: 'custom:auto-entities'
+        filter:
+          include:
+            - device: /L64978-WDD/
+            - domain: binary_sensor
+              entity_id: binary_sensor.robert_work_laptop_is_on
+        card:
+          type: 'custom:fold-entity-row'
+          head:
+            type: section
+            label: L64978-WDD
+      - type: 'custom:auto-entities'
+        filter:
+          include:
+            - device: /Robert ThinkPad NewGen/
+            - domain: binary_sensor
+              entity_id: binary_sensor.robert_think_pad_is_on
+        card:
+          type: 'custom:fold-entity-row'
+          head:
+            type: section
+            label: Robert ThinkPad NewGen
   - title: Kitchen
     path: kitchen
     badges: []
@@ -287,6 +499,27 @@ views:
             head:
               type: section
               label: Entities
+    - type: 'custom:vertical-stack-in-card'
+      title: ZigBee2MQTT
+      cards:
+      - type: 'custom:auto-entities'
+        filter:
+          include:
+            - device: /Ikea Kitchen Smart Button/
+        card:
+          type: 'custom:fold-entity-row'
+          head:
+            type: section
+            label: Bedroom Closet Led Power Supply Light
+      - type: 'custom:auto-entities'
+        filter:
+          include:
+            - device: /Kitchen Led Spots Light/
+        card:
+          type: 'custom:fold-entity-row'
+          head:
+            type: section
+            label: Kitchen Led Spots Light
   - title: Living Room
     path: living_room
     badges: []
@@ -402,6 +635,42 @@ views:
             head:
               type: section
               label: Entities
+    - type: 'custom:vertical-stack-in-card'
+      title: ZigBee2MQTT
+      cards:
+      - type: 'custom:auto-entities'
+        filter:
+          include:
+            - device: /Hue Iris Light/
+        card:
+          type: 'custom:fold-entity-row'
+          head:
+            type: section
+            label: Hue Iris Light
+      - type: 'custom:auto-entities'
+        filter:
+          include:
+            - device: /Hue Smart Button 4/
+        card:
+          type: 'custom:fold-entity-row'
+          head:
+            type: section
+            label: Hue Smart Button 4
+    - type: entities
+      title: Philips Hue Bridge
+      entities:
+        - light.living_room_center_1
+        - light.living_room_center_2
+        - light.living_room_center_3
+        - light.living_room_center_4
+        - light.living_room_center_5
+        - light.living_room_standing_light
+    - title: Other
+      type: entities
+      entities:
+        - light.touch_screen_back_light
+        - media_player.tv_livingroom
+        - media_player.tv_livingroom_chorme_cast
   - title: Other
     path: other
     badges: []
