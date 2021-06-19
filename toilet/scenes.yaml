@@ -1,24 +1,34 @@
-- name: Toilet Night Light
-  icon: "mdi:weather-night"
-  entities:
+- entities:
     light.toilet_lights:
-      state: "on"
       brightness: 61
       color_temp: 447
-- name: Toilet Day Light
-  icon: "mdi:weather-sunny"
-  entities:
+      state: 'on'
+  icon: mdi:weather-night
+  name: Toilet Night Light
+- entities:
     light.toilet_lights:
-      state: "on"
       brightness: 255
       color_temp: 349
-- name: Toilet Cleaning Light
-  entities:
+      state: 'on'
+  icon: mdi:weather-sunny
+  name: Toilet Day Light
+- entities:
     light.toilet_light_1:
       brightness: 255
       color_temp: 293
-      state: "on"
+      state: 'on'
     light.toilet_light_2:
       brightness: 255
       color_temp: 293
-      state: "on"
+      state: 'on'
+  name: Toilet Cleaning Light
+- entities:
+    light.toilet_light_1:
+      brightness: 135
+      color_temp: 369
+      state: 'on'
+    light.toilet_light_2:
+      brightness: 135
+      color_temp: 369
+      state: 'on'
+  name: Toilet Relaxed

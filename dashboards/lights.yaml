@@ -683,27 +683,109 @@ views:
                   styles:
                     card:
                       - height: 25px
-                - type: 'custom:button-card'
-                  icon: 'mdi:content-save-edit'
-                  color: 'rgb(28, 128, 199)'
-                  show_text: false
-                  styles:
-                    card:
-                      - height: 50px
-                      - width: 100px
-                  show_state: false
-                  tap_action:
-                    action: call-service
-                    service: script.turn_on
-                    service_data:
-                      entity_id: script.create_light_scene_from_group
-                      variables:
-                        group_name: group.all_toilet_lights
-                        scene_name_input_text: input_text.scene_generator_scene_name
-                        scene_prefix: Toilet
-                        timebased_scene_input_select: input_select.toilet_time_based_scenes
+                - type: 'custom:config-template-card'
+                  variables:
+                    SCENE_NAME: 'states[''input_text.scene_generator_scene_name''].state'
+                  entities:
+                    - input_text.scene_generator_scene_name
+                  card:
+                    type: 'custom:button-card'
+                    icon: 'mdi:content-save-edit'
+                    color: 'rgb(28, 128, 199)'
+                    show_text: false
+                    styles:
+                      card:
+                        - height: 50px
+                        - width: 100px
+                    show_state: false
+                    tap_action:
+                      action: call-service
+                      service: script.turn_on
+                      service_data:
+                        entity_id: script.fire_scene_creator_event
+                        variables:
+                          event_name: CREATE_SCENE
+                          light_group: light.toilet_lights
+                          scene_name: '${SCENE_NAME}'
+                          scene_group_prefix: Toilet
+                          timebased_scene_config: input_select.toilet_time_based_scenes
                 - type: 'custom:button-card'
                   color_type: blank-card
                   styles:
                     card:
                       - height: 25px
+            - entity: input_select.toilet_scene_generator_light_scene_generated
+              name: Update/Delete Scene
+            - type: 'custom:stack-in-card'
+              mode: horizontal
+              keep:
+                margins: false
+                outer_padding: false
+                background: false
+              cards:
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - height: 50px
+                - type: 'custom:config-template-card'
+                  variables:
+                    SCENE_NAME: >-
+                      states['input_select.toilet_scene_generator_light_scene_generated'].state
+                  entities:
+                    - input_select.toilet_scene_generator_light_scene_generated
+                  card:
+                    type: 'custom:button-card'
+                    icon: 'mdi:content-save-edit'
+                    color: 'rgb(28, 128, 199)'
+                    name: delete
+                    show_text: true
+                    styles:
+                      card:
+                        - height: 75px
+                        - width: 75px
+                    show_state: false
+                    tap_action:
+                      action: call-service
+                      service: script.turn_on
+                      service_data:
+                        entity_id: script.fire_scene_creator_event
+                        variables:
+                          event_name: DELETE_SCENE
+                          light_group: light.toilet_lights
+                          scene_name: '${SCENE_NAME}'
+                          scene_group_prefix: Toilet
+                          timebased_scene_config: input_select.toilet_time_based_scenes
+                - type: 'custom:config-template-card'
+                  variables:
+                    SCENE_NAME: >-
+                      states['input_select.toilet_scene_generator_light_scene_generated'].state
+                  entities:
+                    - input_select.toilet_scene_generator_light_scene_generated
+                  card:
+                    type: 'custom:button-card'
+                    icon: 'mdi:content-save-edit'
+                    color: 'rgb(28, 128, 199)'
+                    name: update
+                    show_text: true
+                    styles:
+                      card:
+                        - height: 75px
+                        - width: 75px
+                    show_state: false
+                    tap_action:
+                      action: call-service
+                      service: script.turn_on
+                      service_data:
+                        entity_id: script.fire_scene_creator_event
+                        variables:
+                          event_name: UPDATE_SCENE
+                          light_group: light.toilet_lights
+                          scene_name: '${SCENE_NAME}'
+                          scene_group_prefix: Toilet
+                          timebased_scene_config: input_select.toilet_time_based_scenes
+                - type: 'custom:button-card'
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - height: 50px
