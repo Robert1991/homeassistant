@@ -1,6 +1,10 @@
-- name: Kitchen Cooking 1
-  entities:
+- entities:
     light.kitchen_ceiling_light_light_switch:
+      state: 'on'
+    light.kitchen_led_spots_light:
+      brightness: 254
+      state: 'on'
+    light.kitchen_light_controller_black_light:
       state: 'on'
     light.kitchen_light_controller_light_strip:
       brightness: 255
@@ -9,15 +13,15 @@
       - 0
       - 63
       state: 'on'
+  name: Kitchen Cooking 1
+- entities:
+    light.kitchen_ceiling_light_light_switch:
+      state: 'on'
     light.kitchen_led_spots_light:
       brightness: 254
       state: 'on'
     light.kitchen_light_controller_black_light:
-      state: 'on'
-- name: Kitchen Cooking 2
-  entities:
-    light.kitchen_ceiling_light_light_switch:
-      state: 'on'
+      state: 'off'
     light.kitchen_light_controller_light_strip:
       brightness: 255
       rgb_color:
@@ -25,15 +29,15 @@
       - 255
       - 0
       state: 'on'
-    light.kitchen_led_spots_light:
-      brightness: 254
-      state: 'on'
-    light.kitchen_light_controller_black_light:
-      state: 'off'
-- name: Kitchen Night Light 1
-  entities:
+  name: Kitchen Cooking 2
+- entities:
     light.kitchen_ceiling_light_light_switch:
       state: 'off'
+    light.kitchen_led_spots_light:
+      brightness: 115
+      state: 'on'
+    light.kitchen_light_controller_black_light:
+      state: 'on'
     light.kitchen_light_controller_light_strip:
       brightness: 163
       rgb_color:
@@ -41,15 +45,15 @@
       - 126
       - 0
       state: 'on'
+  name: Kitchen Night Light 1
+- entities:
+    light.kitchen_ceiling_light_light_switch:
+      state: 'off'
     light.kitchen_led_spots_light:
-      brightness: 115
+      brightness: 190
       state: 'on'
     light.kitchen_light_controller_black_light:
       state: 'on'
-- name: Kitchen Indirect Light 1
-  entities:
-    light.kitchen_ceiling_light_light_switch:
-      state: 'off'
     light.kitchen_light_controller_light_strip:
       brightness: 250
       rgb_color:
@@ -57,15 +61,15 @@
       - 255
       - 255
       state: 'on'
+  name: Kitchen Indirect Light 1
+- entities:
+    light.kitchen_ceiling_light_light_switch:
+      state: 'off'
     light.kitchen_led_spots_light:
-      brightness: 190
+      brightness: 210
       state: 'on'
     light.kitchen_light_controller_black_light:
       state: 'on'
-- name: Kitchen Indirect Light 2
-  entities:
-    light.kitchen_ceiling_light_light_switch:
-      state: 'off'
     light.kitchen_light_controller_light_strip:
       brightness: 250
       rgb_color:
@@ -73,8 +77,4 @@
       - 0
       - 126
       state: 'on'
-    light.kitchen_led_spots_light:
-      brightness: 210
-      state: 'on'
-    light.kitchen_light_controller_black_light:
-      state: 'on'
+  name: Kitchen Indirect Light 2
