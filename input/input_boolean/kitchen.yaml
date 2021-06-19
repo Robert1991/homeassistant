@@ -12,16 +12,12 @@ kitchen_automatic_scene_mode_enabled:
 
 kitchen_right_plant_watering_automation_enabled:
   icon: mdi:water
-  initial: true
 
 kitchen_left_plant_watering_automation_enabled:
   icon: mdi:water
-  initial: true
 
 kitchen_plant_light_automation_enabled:
   icon: mdi:theme-light-dark
-  initial: true
 
 kitchen_plant_ventilation_automation_enabled:
   icon: mdi:fan
-  initial: true
