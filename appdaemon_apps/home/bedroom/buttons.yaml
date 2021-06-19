@@ -26,11 +26,11 @@ bedroom_night_light_switch_button:
   little_light_group: light.bedroom_bed_light
   light_group: light.all_bedroom_lights
   brightness_slider: input_number.bedroom_night_light_brightness
-  toggled_input_boolean: input_boolean.bedroom_time_depended_light_automation_is_enabled
+  toggled_input_boolean: input_boolean.bedroom_light_automation_is_enabled
   light_change_step_size: 20
 
 bedroom_reactivate_activity_based_light_in_the_morning:
   module: input_boolean
   class: DailyReactivationTimer
-  observed_input_boolean: input_boolean.bedroom_time_depended_light_automation_is_enabled
+  observed_input_boolean: input_boolean.bedroom_light_automation_is_enabled
   observed_input_datetime: input_datetime.bedroom_light_automation_reenable_time
