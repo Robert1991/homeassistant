@@ -2,8 +2,6 @@ bedroom_closet_light_was_turned_off_before:
   initial: false
 bedroom_light_automation_is_enabled:
   initial: true
-bedroom_time_depended_light_automation_is_enabled:
-  initial: true
 bedroom_light_intensity_based_light_control_enabled:
   initial: true
 bedroom_automatic_scene_mode_enabled:

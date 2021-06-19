@@ -3,16 +3,6 @@ bedroom_light_automation_reenable_time:
   has_date: false
   has_time: true
 
-bedroom_light_automation_end_time:
-  name: Light Turn On Automation End Time
-  has_date: false
-  has_time: true
-
-bedroom_light_automation_start_time:
-  name: Light Turn On Automation Start Time
-  has_date: false
-  has_time: true
-
 bedroom_light_automation_reactivation_timeout:
   name: Light Automation Reactivation Timeout
   has_date: false
