@@ -18,9 +18,13 @@
       friendly_name: "Robert Think-Pad is on"
       icon_template: mdi:monitor-dashboard
       value_template: >-
-        {{ is_state('sensor.robert_thinkpad_running', '1') }}
+        {% for state in states("sensor.promethues_up_query_state") | from_json -%}
+        {%- if state.name == "robert-thinkpad" %}{%- if state.up == "1" %}on{% else %}off{% endif -%}{% endif -%}
+        {%- endfor %}
     robert_work_laptop_is_on:
       friendly_name: "Work Laptop is on"
       icon_template: mdi:monitor-dashboard
       value_template: >-
-        {{ is_state('sensor.work_laptop_running', '1') }}
+        {% for state in states("sensor.promethues_up_query_state") | from_json -%}
+        {%- if state.name == "work-laptop" %}{%- if state.up == "1" %}on{% else %}off{% endif -%}{% endif -%}
+        {%- endfor %}

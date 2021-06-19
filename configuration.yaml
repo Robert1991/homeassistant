@@ -210,7 +210,6 @@ scene living_room: !include living_room/scenes.yaml
 scene toilet: !include toilet/scenes.yaml
 
 sensor bathroom: !include bathroom/sensors.yaml
-sensor bedroom: !include bedroom/sensors.yaml 
 sensor toilet: !include toilet/sensors.yaml
 sensor kitchen: !include kitchen/sensors.yaml
 sensor kitchen_grafana: !include kitchen/grafana_sensors.yaml

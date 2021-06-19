@@ -26,3 +26,7 @@
   json_attributes: 
     - total_updates
     - security_updates
+
+- platform: command_line
+  name: promethues_up_query_state
+  command: /config/scripts/./prometheus_up_sensor.py
