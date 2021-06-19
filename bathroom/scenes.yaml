@@ -1,23 +1,40 @@
-- name: Bathroom Night Light 1
-  entities:
-    light.bathroom_sensor_actor_spots:
-      state: "on"
+- entities:
     light.bathroom_sensor_actor_light_strip:
-      state: "off"
-- name: Bathroom Blue
-  entities:
+      state: 'off'
     light.bathroom_sensor_actor_spots:
-      state: "on"
+      state: 'on'
+  name: Bathroom Night Light 1
+- entities:
     light.bathroom_sensor_actor_light_strip:
       brightness: 255
       hs_color:
-        - 180.0
-        - 100.0
+      - 180.0
+      - 100.0
       rgb_color:
-        - 0
-        - 255
-        - 255
+      - 0
+      - 255
+      - 255
+      state: 'on'
       xy_color:
-        - 0.151
-        - 0.343
-      state: "on"
+      - 0.151
+      - 0.343
+    light.bathroom_sensor_actor_spots:
+      state: 'on'
+  name: Bathroom Blue
+- entities:
+    light.bathroom_sensor_actor_light_strip:
+      brightness: 255
+      hs_color:
+      - 120.0
+      - 100.0
+      rgb_color:
+      - 0
+      - 255
+      - 0
+      state: 'on'
+      xy_color:
+      - 0.172
+      - 0.747
+    light.bathroom_sensor_actor_spots:
+      state: 'on'
+  name: Bathroom Green
