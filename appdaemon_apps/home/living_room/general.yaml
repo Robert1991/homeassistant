@@ -1,4 +1,3 @@
-#living room
 turn_off_tv_when_its_idle_for_given_timeout:
   module: activity_based_turn_off_automations
   class: TurnOffAutomation
