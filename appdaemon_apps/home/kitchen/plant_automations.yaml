@@ -4,7 +4,7 @@ toggle_plant_light_after_given_time_frame:
   time_interval_start: input_datetime.kitchen_plant_light_turn_on_time
   time_interval_end: input_datetime.kitchen_plant_light_turn_off_time
   toggled_entity: switch.hue_smart_plug_1
-  input_constraint: input_boolean.kitchen_plant_light_automation_enabled
+  constrain_input_boolean: input_boolean.kitchen_plant_light_automation_enabled
 
 toggle_plant_ventilation_together_with_plant_automation_in_given_time_frame:
   module: time_based_toggle_automations
@@ -20,7 +20,7 @@ toggle_left_plant_watering_in_given_interval:
   on_interval_length: input_number.kitchen_left_plant_watering_duration
   off_interval_length: input_number.kitchen_left_plant_watering_interval
   toggled_entity: switch.kitchen_plant_controller_pump_relay_1
-  input_constraint: input_boolean.kitchen_left_plant_watering_automation_enabled
+  constrain_input_boolean: input_boolean.kitchen_left_plant_watering_automation_enabled
   skip_first: true
   on_constraint:
     entity: binary_sensor.kitchen_plant_controller_swimmer_sensor
@@ -32,7 +32,7 @@ toggle_right_plant_watering_in_given_interval:
   on_interval_length: input_number.kitchen_right_plant_watering_duration
   off_interval_length: input_number.kitchen_right_plant_watering_interval
   toggled_entity: switch.kitchen_plant_controller_pump_relay_2
-  input_constraint: input_boolean.kitchen_right_plant_watering_automation_enabled
+  constrain_input_boolean: input_boolean.kitchen_right_plant_watering_automation_enabled
   skip_first: true
   on_constraint:
     entity: binary_sensor.kitchen_plant_controller_swimmer_sensor
@@ -46,7 +46,7 @@ toggle_plant_ventilation_in_given_interval_at_night_time:
   toggled_entity: switch.hue_smart_plug_2
   interval_start: input_datetime.kitchen_plant_night_ventilation_turn_on_time
   interval_end: input_datetime.kitchen_plant_light_turn_on_time
-  input_constraint: input_boolean.kitchen_plant_ventilation_automation_enabled
+  constrain_input_boolean: input_boolean.kitchen_plant_ventilation_automation_enabled
 
 plant_status_lcd_display_rotation:
   module: lcd_display_rotation
