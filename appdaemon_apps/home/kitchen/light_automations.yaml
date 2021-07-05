@@ -41,3 +41,11 @@ turn_off_lights_when_there_is_no_activity_in_the_kitchen:
   turn_off_timeout: input_number.kitchen_light_turn_off_timeout
   observed_activity_sensor: binary_sensor.kitchen_sensor_motion_detected
   constrain_input_boolean: input_boolean.kitchen_light_automation_is_enabled
+
+kitchen_scene_switch:
+  module: input_select_scene_switch
+  class: InputSelectSceneSwitch
+  observed_input_select: input_select.kitchen_light_scene_generated
+  scene_prefix: kitchen
+  adapted_input_selects:
+    - input_select.kitchen_automatic_light_scene_generated
