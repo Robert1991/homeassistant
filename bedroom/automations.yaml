@@ -38,3 +38,36 @@
   action:
     - service:  input_select.select_next
       entity_id: input_select.bedroom_light_scene_generated
+
+
+- alias: Open Bedroom Blinds On Button Event
+  trigger:
+    - platform: state
+      entity_id: sensor.bedroom_blind_button_1_action
+      to: 'open'
+    - platform: state
+      entity_id: sensor.bedroom_blind_button_2_action
+      to: 'open'
+  action:
+    - service: cover.open_cover
+      target:
+        entity_id: cover.bedroom_blind_left
+    - service: cover.open_cover
+      target:
+        entity_id: cover.bedroom_blind_right
+
+- alias: Close Bedroom Blinds On Button Event
+  trigger:
+    - platform: state
+      entity_id: sensor.bedroom_blind_button_1_action
+      to: 'close'
+    - platform: state
+      entity_id: sensor.bedroom_blind_button_2_action
+      to: 'close'
+  action:
+      - service: cover.close_cover
+        target:
+          entity_id: cover.bedroom_blind_left
+      - service: cover.close_cover
+        target:
+          entity_id: cover.bedroom_blind_right
