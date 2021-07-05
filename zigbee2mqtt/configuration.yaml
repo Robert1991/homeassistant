@@ -8,6 +8,8 @@ mqtt:
 serial:
   port: /dev/ttyACM0
 devices:
+  '0x001788010866c45a':
+    friendly_name: Hue Motion Sensor 1
   '0x00178801091665a4':
     friendly_name: Hue Motion Sensor 2
   '0x0017880100112ed7':
@@ -39,6 +41,6 @@ devices:
   '0x5c0272fffe874f74':
     friendly_name: Bedroom Blind Left
   '0x5c0272fffe5c18e2':
-    friendly_name: 'Bedroom Blind Button 1'
+    friendly_name: Bedroom Blind Button 1
   '0x5c0272fffe5c1262':
-    friendly_name: 'Bedroom Blind Button 2'
+    friendly_name: Bedroom Blind Button 2
