@@ -4,6 +4,7 @@ bedroom_light_brightness:
   min: 39
   max: 255
   step: 36
+
 bedroom_night_light_brightness:
   name: Bedroom Bed Light Brightness Slider
   initial: 125
@@ -11,16 +12,7 @@ bedroom_night_light_brightness:
   max: 255
   step: 5
   icon: mdi:brightness-7
-bedroom_automatic_dim_light_turn_of_boundary:
-  name: Bedroom Automatic Dim Light Turn Off Boundary
-  min: 5
-  max: 255
-  step: 5
-bedroom_automatic_dim_step_size:
-  name: Bedroom Automatic Dim Step Size
-  min: 5
-  max: 50
-  step: 5
+
 bedroom_light_turn_off_timeout:
   name: Bedroom Light Turn Off Automation Timeout
   min: 10
@@ -28,6 +20,7 @@ bedroom_light_turn_off_timeout:
   step: 10
   unit_of_measurement: "s"
   icon: 'mdi:clock-in'
+
 bedroom_light_toogle_intensity_threshold:
   name: Bedroom Light Toogle Light Intensity Threshold
   min: 10

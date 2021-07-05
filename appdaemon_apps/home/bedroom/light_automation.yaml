@@ -4,44 +4,23 @@ reactivate_bedroom_light_automation_after_given_timeout:
   observed_input_boolean: input_boolean.bedroom_light_automation_is_enabled
   reactivation_timeout: input_datetime.bedroom_light_automation_reactivation_timeout
 
-dim_lights_under_threshold_in_bedroom:
-  module: dim_automation
-  class: DimLights
-  light_group: light.all_bedroom_lights
-  light_sensor: sensor.bedroom_sensor_light_intensity
-  light_intensity_toggle_threshold: input_number.bedroom_light_toogle_intensity_threshold
-  light_turn_off_boundary_brightness: input_number.bedroom_automatic_dim_light_turn_of_boundary
-  light_turn_off_step_size: input_number.bedroom_automatic_dim_step_size
-  constrain_input_boolean: input_boolean.bedroom_light_automation_is_enabled
-  dim_time_out: 1
-  toggle_delta: 3.5
-
-turn_off_lights_when_there_is_no_activity_in_the_bedroom:
-  module: activity_based_turn_off_automations
-  class: TurnOffAutomation
-  entity: light.all_bedroom_lights
-  turn_off_timeout: input_number.bedroom_light_turn_off_timeout
-  observed_activity_sensor: binary_sensor.activity_detected_in_bedroom
-  constrain_input_boolean: input_boolean.bedroom_light_automation_is_enabled
-
-turn_on_lights_when_there_is_activity_in_the_bedroom:
-  module: activity_based_light_control_automations
-  class: TurnOnAutomationWithSceneTransition
+activity_controlled_light_bedroom:
+  module: activity_based_automations
+  class: ActivityBasedLightControl
   dependencies: 
     - scene_utils
     - hass_utils
   observed_activity_sensor: binary_sensor.activity_detected_in_bedroom
   light_group: light.all_bedroom_lights
-  light_sensor: sensor.bedroom_sensor_light_intensity
-  scene_input_select: input_select.bedroom_automatic_light_scene_generated
-  scene_group_prefix: bedroom
-  light_intensity_toggle_threshold: input_number.bedroom_light_toogle_intensity_threshold
-  light_automation_start_time: input_datetime.bedroom_light_automation_start_time
-  light_automation_end_time: input_datetime.bedroom_light_automation_end_time
-  enable_time_depended_automation_input: input_boolean.bedroom_time_depended_light_automation_is_enabled
-  enable_automatic_scene_mode: input_boolean.bedroom_automatic_scene_mode_enabled
+  turn_off_timeout: input_number.bedroom_light_turn_off_timeout
   constrain_input_boolean: input_boolean.bedroom_light_automation_is_enabled
-  constrain_input_boolean: input_boolean.bedroom_time_depended_light_automation_is_enabled
+  time_based_scene_mode:
+    constrain_input_boolean: input_boolean.bedroom_automatic_scene_mode_enabled
+    scene_input_select: input_select.bedroom_automatic_light_scene_generated
+    scene_group_prefix: bedroom
+  light_sensor_control:
+    light_sensor: sensor.bedroom_sensor_light_intensity
+    light_intensity_toggle_threshold: input_number.bedroom_light_toogle_intensity_threshold
 
 set_bedroom_timebased_light_scene:
   module: time_based_scene_switch

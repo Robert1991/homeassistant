@@ -1,13 +1,3 @@
-living_room_automatic_dim_light_turn_of_boundary:
-  name: Bedroom Automatic Dim Light Turn Off Boundary
-  min: 5
-  max: 255
-  step: 5
-living_room_automatic_dim_step_size:
-  name: Bedroom Automatic Dim Step Size
-  min: 5
-  max: 50
-  step: 5
 living_room_light_turn_off_timeout:
   name: Bedroom Light Turn Off Automation Timeout
   min: 10
@@ -15,6 +5,7 @@ living_room_light_turn_off_timeout:
   step: 10
   unit_of_measurement: "s"
   icon: 'mdi:clock-in'
+
 living_touch_screen_back_light_turn_off_timeout:
   name: Bedroom Touch Screen Back Light Turn Off Automation Timeout
   min: 10
@@ -22,6 +13,7 @@ living_touch_screen_back_light_turn_off_timeout:
   step: 10
   unit_of_measurement: "s"
   icon: 'mdi:clock-in'
+
 living_room_light_toogle_intensity_threshold:
   name: Bedroom Light Toogle Light Intensity Threshold
   min: 10
@@ -29,10 +21,11 @@ living_room_light_toogle_intensity_threshold:
   step: 5
   unit_of_measurement: "%"
   icon: 'mdi:brightness-auto'
+
 tv_living_room_idle_turn_off_timeout:
   name: TV Living Room Idle Turn Off Timeout
   min: 10
-  max: 500
+  max: 1000
   step: 10
   unit_of_measurement: "s"
   icon: 'mdi:clock-in'

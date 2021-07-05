@@ -1,20 +1,18 @@
-turn_on_lights_when_there_is_activity_in_the_bathroom:
-  module: activity_based_light_control_automations
-  class: TurnOnAutomation
+
+activity_controlled_light_bathroom:
+  module: activity_based_automations
+  class: ActivityBasedLightControl
   dependencies: 
     - scene_utils
     - hass_utils
   observed_activity_sensor: binary_sensor.bathroom_motion_detector
   light_group: light.bathroom_lights
-  light_sensor: sensor.bathroom_light_intensity_percent
-  scene_input_select: input_select.bathroom_automatic_light_scene_generated
-  scene_group_prefix: bathroom
-  light_intensity_toggle_threshold: input_number.bathroom_light_toogle_intensity_threshold
-  light_automation_start_time: input_datetime.bathroom_light_automation_start_time
-  light_automation_end_time: input_datetime.bathroom_light_automation_end_time
-  enable_time_depended_automation_input: input_boolean.bathroom_time_depended_light_automation_is_enabled
-  enable_automatic_scene_mode: input_boolean.bathroom_automatic_scene_mode_enabled
+  turn_off_timeout: input_number.bathroom_light_turn_off_timeout
   constrain_input_boolean: input_boolean.bathroom_light_automation_is_enabled
+  time_based_scene_mode:
+    constrain_input_boolean: input_boolean.bathroom_automatic_scene_mode_enabled
+    scene_input_select: input_select.bathroom_automatic_light_scene_generated
+    scene_group_prefix: bathroom
 
 set_bathroom_timebased_light_scene:
   module: time_based_scene_switch
@@ -26,14 +24,6 @@ set_bathroom_timebased_light_scene:
   light_automatic_enabled: input_boolean.bathroom_light_automation_is_enabled
   scene_group_prefix: bathroom
   light_group: light.bathroom_lights
-
-turn_off_lights_when_there_is_no_activity_in_the_bathroom:
-  module: activity_based_turn_off_automations
-  class: TurnOffAutomation
-  entity: light.bathroom_lights
-  turn_off_timeout: input_number.bathroom_light_turn_off_timeout
-  observed_activity_sensor: binary_sensor.bathroom_motion_detector
-  constrain_input_boolean: input_boolean.bathroom_light_automation_is_enabled
 
 reactivate_bathroom_light_automation_after_given_timeout:
   module: input_boolean

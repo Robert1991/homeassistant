@@ -1,20 +1,7 @@
-bathroom_light_automation_end_time:
-    name: Light Turn On Automation End Time
-    has_date: false
-    has_time: true
-    initial: "23:59:59"
-
-bathroom_light_automation_start_time:
-    name: Light Turn On Automation Start Time
-    has_date: false
-    has_time: true
-    initial: "00:00:00"
-
 bathroom_light_automation_reactivation_timeout:
     name: Reactivation Timeout
     has_date: false
     has_time: true
-    initial: "00:30:00"
 
 bathroom_night_light_start_time:
     name: Night Light Start Time

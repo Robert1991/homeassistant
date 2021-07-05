@@ -5,12 +5,5 @@ toilet_light_turn_off_timeout:
   step: 10
   unit_of_measurement: "s"
   icon: 'mdi:clock-in'
-toilet_light_toogle_intensity_threshold:
-  name: Toilet Light Toogle Light Intensity Threshold
-  initial: 100
-  min: 10
-  max: 100
-  step: 5
-  unit_of_measurement: "%"
-  icon: 'mdi:brightness-auto'
+
   

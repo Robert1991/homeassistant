@@ -118,14 +118,6 @@ homekit:
         - input_boolean.bedroom_closet_light_was_turned_off_before
         - input_boolean.fride_door_was_left_open
         - input_boolean.zigbee2mqtt_force_remove
-        - input_boolean.toilet_time_depended_light_automation_is_enabled
-        - input_boolean.toilet_light_intensity_based_light_control_enabled
-        - input_boolean.bathroom_light_intensity_based_light_control_enabled
-        - input_boolean.living_room_time_depended_light_automation_is_enabled
-        - input_boolean.kitchen_time_depended_light_automation_is_enabled
-        - input_boolean.floor_time_depended_light_automation_is_enabled
-        - input_boolean.bathroom_time_depended_light_automation_is_enabled
-        - input_boolean.bedroom_time_depended_light_automation_is_enabled
         - input_boolean.touch_screen_back_light_automatic_enabled
     entity_config:
       switch.kitchen_plant_controller_pump_relay_1:

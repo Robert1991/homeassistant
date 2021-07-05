@@ -1,8 +1,4 @@
 bathroom_light_automation_is_enabled:
   initial: true
-bathroom_time_depended_light_automation_is_enabled:
-  initial: false
-bathroom_light_intensity_based_light_control_enabled:
-  initial: false
 bathroom_automatic_scene_mode_enabled:
   initial: true

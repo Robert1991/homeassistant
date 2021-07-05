@@ -1,11 +1,6 @@
 living_room_light_automation_is_enabled:
   icon: mdi:run
   initial: true
-living_room_time_depended_light_automation_is_enabled:
-  initial: false
-living_room_light_intensity_based_light_control_enabled:
-  icon: mdi:theme-light-dark
-  initial: true
 living_room_automatic_scene_mode_enabled:
   icon: mdi:theater
   initial: true

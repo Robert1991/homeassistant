@@ -72,15 +72,6 @@ views:
               entity: input_number.living_room_light_toogle_intensity_threshold
             - type: 'custom:fold-entity-row'
               head:
-                entity: input_boolean.living_room_light_intensity_based_light_control_enabled
-                name: Light intensity controlled light
-              entities:
-                - name: Auto. Dim Turn Off Boundary
-                  entity: input_number.living_room_automatic_dim_light_turn_of_boundary
-                - name: Auto. Dim Step
-                  entity: input_number.living_room_automatic_dim_step_size
-            - type: 'custom:fold-entity-row'
-              head:
                 entity: input_boolean.living_room_automatic_scene_mode_enabled
                 name: Timebased Scene Mode
               entities:

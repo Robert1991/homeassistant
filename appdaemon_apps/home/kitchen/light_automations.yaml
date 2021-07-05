@@ -1,21 +1,21 @@
 
-turn_on_lights_when_there_is_activity_in_the_kitchen:
-  module: activity_based_light_control_automations
-  class: TurnOnAutomation
+activity_controlled_light_kitchen:
+  module: activity_based_automations
+  class: ActivityBasedLightControl
   dependencies: 
     - scene_utils
     - hass_utils
   observed_activity_sensor: binary_sensor.kitchen_sensor_motion_detected
   light_group: light.kitchen_lights
-  light_sensor: sensor.kitchen_sensor_light_intensity
-  scene_input_select: input_select.kitchen_automatic_light_scene_generated
-  scene_group_prefix: kitchen
-  light_intensity_toggle_threshold: input_number.kitchen_light_toogle_intensity_threshold
-  light_automation_start_time: input_datetime.kitchen_light_automation_start_time
-  light_automation_end_time: input_datetime.kitchen_light_automation_end_time
-  enable_time_depended_automation_input: input_boolean.kitchen_time_depended_light_automation_is_enabled
-  enable_automatic_scene_mode: input_boolean.kitchen_automatic_scene_mode_enabled
+  turn_off_timeout: input_number.kitchen_light_turn_off_timeout
   constrain_input_boolean: input_boolean.kitchen_light_automation_is_enabled
+  time_based_scene_mode:
+    constrain_input_boolean: input_boolean.kitchen_automatic_scene_mode_enabled
+    scene_input_select: input_select.kitchen_automatic_light_scene_generated
+    scene_group_prefix: kitchen
+  light_sensor_control:
+    light_sensor: sensor.kitchen_sensor_light_intensity
+    light_intensity_toggle_threshold: input_number.kitchen_light_toogle_intensity_threshold
 
 set_kitchen_timebased_light_scene:
   module: time_based_scene_switch
@@ -33,14 +33,6 @@ reactivate_kitchen_light_automation_after_given_timeout:
   class: ReactivationTimer
   observed_input_boolean: input_boolean.kitchen_light_automation_is_enabled
   reactivation_timeout: input_datetime.kitchen_light_automation_reactivation_timeout
-
-turn_off_lights_when_there_is_no_activity_in_the_kitchen:
-  module: activity_based_turn_off_automations
-  class: TurnOffAutomation
-  entity: light.kitchen_lights
-  turn_off_timeout: input_number.kitchen_light_turn_off_timeout
-  observed_activity_sensor: binary_sensor.kitchen_sensor_motion_detected
-  constrain_input_boolean: input_boolean.kitchen_light_automation_is_enabled
 
 kitchen_scene_switch:
   module: input_select_scene_switch
