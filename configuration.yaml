@@ -164,6 +164,12 @@ logger:
 lovelace:
   mode: storage
   dashboards:
+    lovelace-floor-plan:
+      mode: yaml
+      title: Floor Plan
+      icon: mdi:floor-plan
+      show_in_sidebar: true
+      filename: dashboards/floor_plan.yaml
     lovelace-light:
       mode: yaml
       title: Lights

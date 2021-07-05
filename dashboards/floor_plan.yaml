@@ -1,0 +1,240 @@
+title: Floor Plan
+views:
+  - title: Floor Plan
+    path: floor_plan
+    panel: true
+    badges: []
+    cards:
+      - type: picture-elements
+        elements:
+          - type: state-icon
+            state_color: true
+            state_text: true
+            entity: binary_sensor.robert_think_pad_is_on
+            style:
+              top: 9.5%
+              left: 58.5%
+          - type: state-icon
+            state_color: true
+            state_text: true
+            entity: binary_sensor.robert_work_laptop_is_on
+            style:
+              top: 9.5%
+              left: 56.5%
+          - type: state-icon
+            state_color: true
+            state_text: true
+            entity: binary_sensor.activity_detected_in_bedroom
+            style:
+              top: 13.5%
+              left: 57%
+          - type: state-icon
+            state_color: true
+            state_text: true
+            entity: light.bedroom_bed_light
+            style:
+              top: 9.5%
+              left: 50.2%
+          - type: state-icon
+            state_color: true
+            state_text: true
+            entity: light.bedroom_workdesk_light
+            style:
+              top: 9.5%
+              left: 55%
+          - type: state-icon
+            state_color: true
+            state_text: true
+            entity: light.bedroom_ceiling_lights
+            style:
+              top: 15%
+              left: 51.7%
+          - type: state-icon
+            state_color: true
+            state_text: true
+            entity: binary_sensor.bedroom_sensor_motion_detected
+            style:
+              top: 27%
+              left: 47%
+          - type: state-label
+            state_color: true
+            state_text: true
+            entity: sensor.bedroom_sensor_light_intensity
+            style:
+              top: 30.5%
+              left: 54.5%
+          - type: state-icon
+            state_color: true
+            state_text: true
+            entity: sensor.bedroom_sensor_light_intensity
+            style:
+              top: 30.5%
+              left: 52%
+          - type: state-icon
+            state_color: true
+            state_text: true
+            entity: light.bedroom_neopixel_light
+            style:
+              top: 30.5%
+              left: 50%
+          - type: state-icon
+            state_color: true
+            state_text: true
+            entity: sensor.bedroom_sensor_humidity
+            style:
+              top: 20%
+              left: 55%
+          - type: state-label
+            state_color: true
+            state_text: true
+            entity: sensor.bedroom_sensor_humidity
+            style:
+              top: 20%
+              left: 57%
+          - type: state-icon
+            state_color: true
+            state_text: true
+            entity: sensor.bedroom_sensor_temperature
+            style:
+              top: 23%
+              left: 55%
+          - type: state-label
+            state_color: true
+            state_text: true
+            entity: sensor.bedroom_sensor_temperature
+            style:
+              top: 23%
+              left: 57%
+          - type: state-label
+            state_color: true
+            state_text: true
+            entity: sensor.toilet_temperature
+            style:
+              top: 6%
+              left: 36%
+          - type: state-icon
+            state_color: true
+            state_text: true
+            entity: sensor.toilet_temperature
+            style:
+              top: 6%
+              left: 34%
+          - type: state-icon
+            state_color: true
+            entity: binary_sensor.toilet_motion_detector
+            style:
+              top: 12%
+              left: 36%
+          - type: state-icon
+            state_color: true
+            entity: group.all_toilet_lights
+            style:
+              top: 16%
+              left: 37%
+          - type: state-label
+            state_color: true
+            state_text: true
+            entity: sensor.bathroom_sensor_actor_temperature
+            style:
+              top: 6%
+              left: 43%
+          - type: state-icon
+            state_color: true
+            state_text: true
+            entity: sensor.bathroom_sensor_actor_temperature
+            style:
+              top: 6%
+              left: 41%
+          - type: state-label
+            state_color: true
+            state_text: true
+            entity: sensor.bathroom_sensor_actor_humidity
+            style:
+              top: 11%
+              left: 43%
+          - type: state-icon
+            state_color: true
+            state_text: true
+            entity: sensor.bathroom_sensor_actor_humidity
+            style:
+              top: 11%
+              left: 41%
+          - type: state-icon
+            state_color: true
+            entity: binary_sensor.bathroom_motion_detector
+            style:
+              top: 16%
+              left: 42%
+          - type: state-icon
+            state_color: true
+            entity: light.bathroom_sensor_actor_light_strip
+            style:
+              top: 16%
+              left: 39%
+          - type: state-icon
+            state_color: true
+            entity: light.bathroom_sensor_actor_spots
+            style:
+              top: 12%
+              left: 39%
+          - type: state-label
+            state_color: true
+            state_text: true
+            entity: sensor.floor_sensor_actor_temperature
+            style:
+              top: 37%
+              left: 44%
+          - type: state-icon
+            state_color: true
+            state_text: true
+            entity: sensor.floor_sensor_actor_temperature
+            style:
+              top: 37%
+              left: 42%
+          - type: state-label
+            state_color: true
+            state_text: true
+            entity: sensor.floor_sensor_actor_light_intensity
+            style:
+              top: 44%
+              left: 38%
+          - type: state-icon
+            state_color: true
+            state_text: true
+            entity: sensor.floor_sensor_actor_light_intensity
+            style:
+              top: 44%
+              left: 36%
+          - type: state-label
+            state_color: true
+            state_text: true
+            entity: sensor.floor_sensor_actor_humidity
+            style:
+              top: 44%
+              left: 44%
+          - type: state-icon
+            state_color: true
+            state_text: true
+            entity: sensor.floor_sensor_actor_humidity
+            style:
+              top: 44%
+              left: 42%
+          - type: state-icon
+            state_color: true
+            entity: light.floor_light
+            style:
+              top: 30%
+              left: 40%
+          - type: state-icon
+            state_color: true
+            entity: light.floor_neo_pixel_light
+            style:
+              top: 38%
+              left: 36%
+          - type: state-icon
+            state_color: true
+            entity: binary_sensor.floor_sensor_actor_motion_detected
+            style:
+              top: 33%
+              left: 37%
+        image: /local/images/FloorPlan_2.png
