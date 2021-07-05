@@ -1,4 +1,3 @@
-# bathroom
 turn_on_lights_when_there_is_activity_in_the_bathroom:
   module: activity_based_light_control_automations
   class: TurnOnAutomation
@@ -36,8 +35,16 @@ turn_off_lights_when_there_is_no_activity_in_the_bathroom:
   observed_activity_sensor: binary_sensor.bathroom_motion_detector
   constrain_input_boolean: input_boolean.bathroom_light_automation_is_enabled
 
-reactivate_bathroom_light_automa2tion_after_given_timeout:
+reactivate_bathroom_light_automation_after_given_timeout:
   module: input_boolean
   class: ReactivationTimer
   observed_input_boolean: input_boolean.bathroom_light_automation_is_enabled
   reactivation_timeout: input_datetime.bathroom_light_automation_reactivation_timeout
+
+bathroom_scene_switch:
+  module: input_select_scene_switch
+  class: InputSelectSceneSwitch
+  observed_input_select: input_select.bathroom_light_scene_generated
+  scene_prefix: bathroom
+  adapted_input_selects:
+    - input_select.bathroom_automatic_light_scene_generated
