@@ -1,12 +1,12 @@
 
 activity_controlled_light_kitchen:
   module: activity_based_automations
-  class: ActivityBasedLightControl
+  class: ActivityBasedEntityControl
   dependencies: 
     - scene_utils
     - hass_utils
   observed_activity_sensor: binary_sensor.kitchen_sensor_motion_detected
-  light_group: light.kitchen_lights
+  entity: light.kitchen_lights
   turn_off_timeout: input_number.kitchen_light_turn_off_timeout
   constrain_input_boolean: input_boolean.kitchen_light_automation_is_enabled
   time_based_scene_mode:

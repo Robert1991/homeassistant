@@ -6,12 +6,12 @@ reactivate_bedroom_light_automation_after_given_timeout:
 
 activity_controlled_light_bedroom:
   module: activity_based_automations
-  class: ActivityBasedLightControl
+  class: ActivityEntityLightControl
   dependencies: 
     - scene_utils
     - hass_utils
   observed_activity_sensor: binary_sensor.activity_detected_in_bedroom
-  light_group: light.all_bedroom_lights
+  entity: light.all_bedroom_lights
   turn_off_timeout: input_number.bedroom_light_turn_off_timeout
   constrain_input_boolean: input_boolean.bedroom_light_automation_is_enabled
   time_based_scene_mode:

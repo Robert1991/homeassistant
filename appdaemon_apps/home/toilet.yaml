@@ -1,11 +1,11 @@
 activity_controlled_light_toilet:
   module: activity_based_automations
-  class: ActivityBasedLightControl
+  class: ActivityEntityLightControl
   dependencies: 
     - scene_utils
     - hass_utils
   observed_activity_sensor: binary_sensor.toilet_motion_detector
-  light_group: light.toilet_lights
+  entity: light.toilet_lights
   turn_off_timeout: input_number.toilet_light_turn_off_timeout
   constrain_input_boolean: input_boolean.toilet_light_automation_is_enabled
   time_based_scene_mode:

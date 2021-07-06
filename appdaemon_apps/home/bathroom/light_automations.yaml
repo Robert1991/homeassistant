@@ -1,12 +1,12 @@
 
 activity_controlled_light_bathroom:
   module: activity_based_automations
-  class: ActivityBasedLightControl
+  class: ActivityBasedEntityControl
   dependencies: 
     - scene_utils
     - hass_utils
   observed_activity_sensor: binary_sensor.bathroom_motion_detector
-  light_group: light.bathroom_lights
+  entity: light.bathroom_lights
   turn_off_timeout: input_number.bathroom_light_turn_off_timeout
   constrain_input_boolean: input_boolean.bathroom_light_automation_is_enabled
   time_based_scene_mode:

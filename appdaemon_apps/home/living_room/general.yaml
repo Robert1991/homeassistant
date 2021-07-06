@@ -8,11 +8,11 @@ turn_off_tv_when_its_idle_for_given_timeout:
 
 activity_controlled_light_touchscreen_backlight:
   module: activity_based_automations
-  class: ActivityBasedLightControl
+  class: ActivityEntityLightControl
   dependencies: 
     - scene_utils
     - hass_utils
   observed_activity_sensor: binary_sensor.living_room_sensor_actor_1_motion_detected
-  light_group: light.touch_screen_back_light
+  entity: light.touch_screen_back_light
   turn_off_timeout: input_number.living_touch_screen_back_light_turn_off_timeout
   constrain_input_boolean: input_boolean.touch_screen_back_light_automatic_enabled
