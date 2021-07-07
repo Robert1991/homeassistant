@@ -12,9 +12,9 @@ activity_controlled_light_floor:
     constrain_input_boolean: input_boolean.floor_automatic_scene_mode_enabled
     scene_input_select: input_select.floor_automatic_light_scene_generated
     scene_group_prefix: floor
-  light_sensor_control:
-    light_sensor: sensor.floor_sensor_actor_light_intensity
-    light_intensity_toggle_threshold: input_number.floor_light_toogle_intensity_threshold
+  threshold_control:
+    sensor: sensor.floor_sensor_actor_light_intensity
+    threshold: input_number.floor_light_toogle_intensity_threshold
 
 set_floor_timebased_light_scene:
   module: time_based_scene_switch

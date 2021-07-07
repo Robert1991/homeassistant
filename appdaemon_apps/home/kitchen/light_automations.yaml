@@ -13,9 +13,9 @@ activity_controlled_light_kitchen:
     constrain_input_boolean: input_boolean.kitchen_automatic_scene_mode_enabled
     scene_input_select: input_select.kitchen_automatic_light_scene_generated
     scene_group_prefix: kitchen
-  light_sensor_control:
-    light_sensor: sensor.kitchen_sensor_light_intensity
-    light_intensity_toggle_threshold: input_number.kitchen_light_toogle_intensity_threshold
+  threshold_control:
+    sensor: sensor.kitchen_sensor_light_intensity
+    threshold: input_number.kitchen_light_toogle_intensity_threshold
 
 set_kitchen_timebased_light_scene:
   module: time_based_scene_switch

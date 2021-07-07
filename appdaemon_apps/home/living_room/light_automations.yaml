@@ -6,7 +6,7 @@ reactivate_living_room_light_automation_after_given_timeout:
 
 activity_controlled_light_living_room:
   module: activity_based_automations
-  class: ActivityEntityLightControl
+  class: ActivityBasedEntityControl
   dependencies: 
     - scene_utils
     - hass_utils
@@ -18,9 +18,9 @@ activity_controlled_light_living_room:
     constrain_input_boolean: input_boolean.living_room_automatic_scene_mode_enabled
     scene_input_select: input_select.living_room_automatic_light_scene_generated
     scene_group_prefix: living_room
-  light_sensor_control:
-    light_sensor: sensor.living_room_sensor_actor_2_light_intensity
-    light_intensity_toggle_threshold: input_number.living_room_light_toogle_intensity_threshold
+  threshold_control:
+    sensor: sensor.living_room_sensor_actor_2_light_intensity
+    threshold: input_number.living_room_light_toogle_intensity_threshold
 
 set_living_room_timebased_light_scene:
   module: time_based_scene_switch

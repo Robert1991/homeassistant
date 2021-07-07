@@ -8,7 +8,7 @@ turn_off_tv_when_its_idle_for_given_timeout:
 
 activity_controlled_light_touchscreen_backlight:
   module: activity_based_automations
-  class: ActivityEntityLightControl
+  class: ActivityBasedEntityControl
   dependencies: 
     - scene_utils
     - hass_utils
