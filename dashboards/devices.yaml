@@ -1,3 +1,103 @@
+decluttering_templates:
+  zigbeeBatteryDeviceInfoRow:
+    variables:
+      - device_display_name: Bedroom Sensor 1
+      - device_name: bedroom_sensor
+    card:
+      type: 'custom:multiple-entity-row'
+      entity: 'sensor.[[device_name]]_battery'
+      name: '[[device_display_name]]'
+      tap_action:
+        action: navigate
+        navigation_path: /lovelace-device/zigbee_network
+      entities:
+        - name: Update
+          entity: 'binary_sensor.[[device_name]]_update_available'
+        - name: Linkquality
+          entity: 'sensor.[[device_name]]_linkquality'
+  zigbeeDeviceInfoRow:
+    variables:
+      - device_display_name: Bedroom Sensor 1
+      - device_name: bedroom_sensor
+    card:
+      type: 'custom:multiple-entity-row'
+      entity: 'sensor.[[device_name]]_linkquality'
+      name: '[[device_display_name]]'
+      tap_action:
+        action: navigate
+        navigation_path: /lovelace-device/zigbee_network
+      entities:
+        - name: Update
+          entity: binary_sensor.[[device_name]]_update_available
+  zigbeeDeviceEntities:
+    variables:
+      - device_display_name: Bedroom Closet Led Power Supply Light
+    card:
+        type: 'custom:auto-entities'
+        filter:
+          include:
+            - device: '/[[device_display_name]]/'
+        card:
+          type: 'custom:fold-entity-row'
+          head:
+            type: section
+            label: '[[device_display_name]]'
+  device_overview_template:
+    variables:
+      - sensor_display_name: Bedroom Sensor 1
+      - sensor_name: bedroom_sensor
+    card:
+      type: 'custom:vertical-stack-in-card'
+      title: '[[sensor_display_name]]'
+      cards:
+        - type: entities
+          state_color: true
+          show_header_toggle: false
+          title: null
+          entities:
+            - entity: 'binary_sensor.[[sensor_name]]_connection_status'
+              name: Device Status
+              secondary_info: last-updated
+              icon: 'hass:server-network'
+            - entity: 'sensor.[[sensor_name]]_uptime'
+              name: Uptime
+            - entity: 'sensor.[[sensor_name]]_wifi_signal'
+              name: Wifi Signal
+            - entity: 'alert.[[sensor_name]]_is_offline'
+              name: Offline Alert
+            - entity: 'switch.[[sensor_name]]_restart'
+              name: Restart
+            - entity: 'switch.[[sensor_name]]_shutdown'
+              name: Shutdown
+        - type: 'custom:uptime-card'
+          entity: 'binary_sensor.[[sensor_name]]_connection_status'
+          name: Uptime
+          hours_to_show: 144
+          ko: unavailable
+          status_adaptive_color: true
+          title_adaptive_color: false
+          icon_adaptive_color: true
+          ok: 'on'
+          alias:
+            ok: online
+            ko: offline
+        - type: custom:auto-entities
+          filter:
+            include:
+              - domain: light
+                entity_id: '*[[sensor_name]]*'
+              - domain: sensor
+                entity_id: '*[[sensor_name]]*'
+              - domain: binary_sensor
+                entity_id: '*[[sensor_name]]*'
+              - domain: switch
+                entity_id: '*[[sensor_name]]*'
+          card:
+            type: custom:fold-entity-row
+            head:
+              type: section
+              label: Entities
+
 title: Devices
 views:
   - title: Overview
@@ -58,260 +158,138 @@ views:
       state_color: true
     - type: entities
       entities:
-        - entity: sensor.bedroom_blind_button_1_linkquality
-          name: Bedroom Blind Button 1
-          type: custom:multiple-entity-row
-          tap_action:
-            action: navigate
-            navigation_path: /lovelace-device/zigbee_network
-          entities:
-            - name: Update
-              entity: binary_sensor.bedroom_blind_button_1_update_available
-        - entity: sensor.bedroom_blind_button_2_linkquality
-          name: Bedroom Blind Button 2
-          type: custom:multiple-entity-row
-          tap_action:
-            action: navigate
-            navigation_path: /lovelace-device/zigbee_network
-          entities:
-            - name: Update
-              entity: binary_sensor.bedroom_blind_button_2_update_available
-        - entity: sensor.bedroom_blind_left_linkquality
-          name: Bedroom Blind Left
-          type: custom:multiple-entity-row
-          tap_action:
-            action: navigate
-            navigation_path: /lovelace-device/zigbee_network
-          entities:
-            - name: Update
-              entity: binary_sensor.bedroom_blind_left_update_available
-        - entity: sensor.bedroom_blind_left_linkquality
-          name: Bedroom Blind Right
-          type: custom:multiple-entity-row
-          tap_action:
-            action: navigate
-            navigation_path: /lovelace-device/zigbee_network
-          entities:
-            - name: Update
-              entity: binary_sensor.bedroom_blind_right_update_available
-        - entity: sensor.bedroom_closet_led_power_supply_light_linkquality
-          name: Bedroom Closet Led Power Supply Light
-          type: custom:multiple-entity-row
-          tap_action:
-            action: navigate
-            navigation_path: /lovelace-device/zigbee_network
-          entities:
-            - name: Update
-              entity: binary_sensor.bedroom_closet_led_power_supply_light_update_available
-        - entity: sensor.hue_iris_light_linkquality
-          name: Hue Iris Light
-          type: custom:multiple-entity-row
-          tap_action:
-            action: navigate
-            navigation_path: /lovelace-device/zigbee_network
-          entities:
-            - name: Update
-              entity: binary_sensor.hue_iris_light_update_available
-        - entity: sensor.hue_motion_sensor_2_battery
-          name: Hue Motion Sensor 2
-          type: custom:multiple-entity-row
-          tap_action:
-            action: navigate
-            navigation_path: /lovelace-device/zigbee_network
-          entities:
-            - name: Update
-              entity: binary_sensor.hue_motion_sensor_2_update_available
-            - name: Linkquality
-              entity: sensor.hue_motion_sensor_2_linkquality
-        - entity: sensor.hue_smart_button_1_battery
-          name: Hue Smart Button 1
-          type: custom:multiple-entity-row
-          tap_action:
-            action: navigate
-            navigation_path: /lovelace-device/zigbee_network
-          entities:
-            - name: Update
-              entity: binary_sensor.hue_smart_button_1_update_available
-            - name: Linkquality
-              entity: sensor.hue_smart_button_1_linkquality
-        - entity: sensor.hue_smart_button_2_battery
-          name: Hue Smart Button 2
-          type: custom:multiple-entity-row
-          tap_action:
-            action: navigate
-            navigation_path: /lovelace-device/zigbee_network
-          entities:
-            - name: Update
-              entity: binary_sensor.hue_smart_button_2_update_available
-            - name: Linkquality
-              entity: sensor.hue_smart_button_2_linkquality
-        - entity: sensor.hue_smart_button_3_battery
-          name: Hue Smart Button 3
-          type: custom:multiple-entity-row
-          tap_action:
-            action: navigate
-            navigation_path: /lovelace-device/zigbee_network
-          entities:
-            - name: Update
-              entity: binary_sensor.hue_smart_button_3_update_available
-            - name: Linkquality
-              entity: sensor.hue_smart_button_3_linkquality
-        - entity: sensor.hue_smart_button_4_battery
-          name: Hue Smart Button 4
-          type: custom:multiple-entity-row
-          tap_action:
-            action: navigate
-            navigation_path: /lovelace-device/zigbee_network
-          entities:
-            - name: Update
-              entity: binary_sensor.hue_smart_button_4_update_available
-            - name: Linkquality
-              entity: sensor.hue_smart_button_4_linkquality
-        - entity: sensor.hue_smart_plug_1_linkquality
-          name: Hue Smart Plug 1
-          type: custom:multiple-entity-row
-          tap_action:
-            action: navigate
-            navigation_path: /lovelace-device/zigbee_network
-          entities:
-            - name: Update
-              entity: binary_sensor.hue_smart_plug_1_update_available
-        - entity: sensor.hue_smart_plug_2_linkquality
-          name: Hue Smart Plug 2
-          type: custom:multiple-entity-row
-          tap_action:
-            action: navigate
-            navigation_path: /lovelace-device/zigbee_network
-          entities:
-            - name: Update
-              entity: binary_sensor.hue_smart_plug_2_update_available
-        - entity: sensor.ikea_bathroom_smart_button_battery
-          name: Ikea Bathroom Smart Button
-          type: custom:multiple-entity-row
-          tap_action:
-            action: navigate
-            navigation_path: /lovelace-device/zigbee_network
-          entities:
-            - name: Update
-              entity: binary_sensor.ikea_bathroom_smart_button_update_available
-            - name: Linkquality
-              entity: sensor.ikea_bathroom_smart_button_linkquality
-        - entity: sensor.ikea_floor_smart_button_battery
-          name: Ikea Floor Smart Button
-          type: custom:multiple-entity-row
-          tap_action:
-            action: navigate
-            navigation_path: /lovelace-device/zigbee_network
-          entities:
-            - name: Update
-              entity: binary_sensor.ikea_floor_smart_button_update_available
-            - name: Linkquality
-              entity: sensor.ikea_floor_smart_button_linkquality
-        - entity: sensor.ikea_kitchen_smart_button_battery
-          name: Ikea Kitchen Smart Button
-          type: custom:multiple-entity-row
-          tap_action:
-            action: navigate
-            navigation_path: /lovelace-device/zigbee_network
-          entities:
-            - name: Update
-              entity: binary_sensor.ikea_kitchen_smart_button_update_available
-            - name: Linkquality
-              entity: sensor.ikea_kitchen_smart_button_linkquality
-        - entity: sensor.kitchen_led_spots_light_linkquality
-          name: Kitchen LED Spot Lights
-          type: custom:multiple-entity-row
-          tap_action:
-            action: navigate
-            navigation_path: /lovelace-device/zigbee_network
-          entities:
-            - name: Update
-              entity: binary_sensor.kitchen_led_spots_light_update_available
+        - type: custom:decluttering-card
+          template: zigbeeBatteryDeviceInfoRow
+          variables:  
+          - device_name: bedroom_blind_button_1
+          - device_display_name: Bedroom Blind Button 1
+        - type: custom:decluttering-card
+          template: zigbeeBatteryDeviceInfoRow
+          variables:  
+          - device_name: bedroom_blind_button_2
+          - device_display_name: Bedroom Blind Button 2
+        - type: custom:decluttering-card
+          template: zigbeeDeviceInfoRow
+          variables:  
+          - device_name: bedroom_blind_left
+          - device_display_name: Bedroom Blind Left
+        - type: custom:decluttering-card
+          template: zigbeeDeviceInfoRow
+          variables:  
+          - device_name: bedroom_blind_right
+          - device_display_name: Bedroom Blind Right
+        - type: custom:decluttering-card
+          template: zigbeeDeviceInfoRow
+          variables:  
+          - device_name: bedroom_closet_led_power_supply_light
+          - device_display_name: Bedroom Closet Led Power Supply Light
+        - type: custom:decluttering-card
+          template: zigbeeDeviceInfoRow
+          variables:  
+          - device_name: hue_iris_light
+          - device_display_name: Hue Iris Light
+        - type: custom:decluttering-card
+          template: zigbeeBatteryDeviceInfoRow
+          variables:  
+          - device_name: hue_motion_sensor_1
+          - device_display_name: Hue Motion Sensor 1
+        - type: custom:decluttering-card
+          template: zigbeeBatteryDeviceInfoRow
+          variables:  
+          - device_name: hue_motion_sensor_2
+          - device_display_name: Hue Motion Sensor 2
+        - type: custom:decluttering-card
+          template: zigbeeBatteryDeviceInfoRow
+          variables:  
+          - device_name: hue_smart_button_1
+          - device_display_name: Hue Smart Button 1
+        - type: custom:decluttering-card
+          template: zigbeeBatteryDeviceInfoRow
+          variables:  
+          - device_name: hue_smart_button_2
+          - device_display_name: Hue Smart Button 2
+        - type: custom:decluttering-card
+          template: zigbeeBatteryDeviceInfoRow
+          variables:  
+          - device_name: hue_smart_button_3
+          - device_display_name: Hue Smart Button 3
+        - type: custom:decluttering-card
+          template: zigbeeBatteryDeviceInfoRow
+          variables:  
+          - device_name: hue_smart_button_4
+          - device_display_name: Hue Smart Button 4
+        - type: custom:decluttering-card
+          template: zigbeeDeviceInfoRow
+          variables:  
+          - device_name: hue_smart_plug_1
+          - device_display_name: Hue Smart Plug 1
+        - type: custom:decluttering-card
+          template: zigbeeDeviceInfoRow
+          variables:  
+          - device_name: hue_smart_plug_2
+          - device_display_name: Hue Smart Plug 2
+        - type: custom:decluttering-card
+          template: zigbeeBatteryDeviceInfoRow
+          variables:  
+          - device_name: ikea_bathroom_smart_button
+          - device_display_name: Ikea Bathroom Smart Button
+        - type: custom:decluttering-card
+          template: zigbeeBatteryDeviceInfoRow
+          variables:  
+          - device_name: ikea_floor_smart_button
+          - device_display_name: Ikea Floor Smart Button
+        - type: custom:decluttering-card
+          template: zigbeeBatteryDeviceInfoRow
+          variables:  
+          - device_name: ikea_kitchen_smart_button
+          - device_display_name: Ikea Kitchen Smart Button
+        - type: custom:decluttering-card
+          template: zigbeeDeviceInfoRow
+          variables:  
+          - device_name: kitchen_led_spots_light
+          - device_display_name: Kitchen LED Spot Lights
       title: Zigbee2Mqtt Devices
       state_color: true
   - title: Bedroom
     path: bedroom
     badges: []
     cards:
-    - type: 'custom:vertical-stack-in-card'
-      title: Bedroom Sensor 1
-      cards:
-        - type: entities
-          state_color: true
-          show_header_toggle: false
-          entities:
-            - entity: binary_sensor.bedroom_sensor_connection_status
-              name: Device Status
-              secondary_info: last-updated
-              icon: 'hass:server-network'
-            - entity: sensor.bedroom_sensor_uptime
-              name: Uptime
-            - entity: sensor.bedroom_sensor_wifi_signal
-              name: Wifi Signal
-            - entity: alert.bedroom_sensor_is_offline
-              name: Offline Alert
-            - entity: switch.bedroom_sensor_restart
-              name: Restart
-            - entity: switch.bedroom_sensor_shutdown
-              name: Shutdown
-        - type: 'custom:uptime-card'
-          entity: binary_sensor.bedroom_sensor_connection_status
-          name: Uptime
-          hours_to_show: 144
-          ko: unavailable
-          status_adaptive_color: true
-          title_adaptive_color: false
-          icon_adaptive_color: true
-          ok: 'on'
-          alias:
-            ok: online
-            ko: offline
-        - type: 'custom:auto-entities'
-          filter:
-            include:
-              - domain: light
-                entity_id: '*bedroom_sensor*'
-              - domain: sensor
-                entity_id: '*bedroom_sensor*'
-              - domain: binary_sensor
-                entity_id: '*bedroom_sensor*'
-              - domain: switch
-                entity_id: '*bedroom_sensor*'
-          card:
-            type: 'custom:fold-entity-row'
-            head:
-              type: section
-              label: Entities
+    - type: custom:decluttering-card
+      template: device_overview_template
+      variables:  
+        - sensor_name: bedroom_sensor
+        - sensor_display_name: Bedroom Sensor
     - type: 'custom:vertical-stack-in-card'
       title: ZigBee2MQTT
       cards:
-      - type: 'custom:auto-entities'
-        filter:
-          include:
-            - device: /Bedroom Closet Led Power Supply Light/
-        card:
-          type: 'custom:fold-entity-row'
-          head:
-            type: section
-            label: Bedroom Closet Led Power Supply Light
-      - type: 'custom:auto-entities'
-        filter:
-          include:
-            - device: /Hue Smart Button 1/
-        card:
-          type: 'custom:fold-entity-row'
-          head:
-            type: section
-            label: Hue Smart Button 1
-      - type: 'custom:auto-entities'
-        filter:
-          include:
-            - device: /Hue Smart Button 3/
-        card:
-          type: 'custom:fold-entity-row'
-          head:
-            type: section
-            label: Hue Smart Button 3
+      - type: custom:decluttering-card
+        template: zigbeeDeviceEntities
+        variables:
+          - device_display_name: Bedroom Closet Led Power Supply Light
+      - type: custom:decluttering-card
+        template: zigbeeDeviceEntities
+        variables:
+          - device_display_name: Hue Smart Button 1
+      - type: custom:decluttering-card
+        template: zigbeeDeviceEntities
+        variables:
+          - device_display_name: Hue Smart Button 3
+      - type: custom:decluttering-card
+        template: zigbeeDeviceEntities
+        variables:
+          - device_display_name: Bedroom Blind Button 1
+      - type: custom:decluttering-card
+        template: zigbeeDeviceEntities
+        variables:
+          - device_display_name: Bedroom Blind Button 2
+      - type: custom:decluttering-card
+        template: zigbeeDeviceEntities
+        variables:
+          - device_display_name: Bedroom Blind Left
+      - type: custom:decluttering-card
+        template: zigbeeDeviceEntities
+        variables:
+          - device_display_name: Bedroom Blind Right
     - type: entities
       title: Philips Hue Bridge
       entities:
@@ -349,349 +327,76 @@ views:
     path: kitchen
     badges: []
     cards:
-    - type: 'custom:vertical-stack-in-card'
-      title: Kitchen Light Controller
-      cards:
-        - type: entities
-          state_color: true
-          show_header_toggle: false
-          entities:
-            - entity: binary_sensor.kitchen_light_controller_connection_status
-              name: Device Status
-              secondary_info: last-updated
-              icon: 'hass:server-network'
-            - entity: sensor.kitchen_light_controller_uptime
-              name: Uptime
-            - entity: sensor.kitchen_light_controller_wifi_signal
-              name: Wifi Signal
-            - entity: alert.kitchen_light_controller_is_offline
-              name: Offline Alert
-            - entity: switch.kitchen_light_controller_restart
-              name: Restart
-            - entity: switch.kitchen_light_controller_shutdown
-              name: Shutdown
-        - type: 'custom:auto-entities'
-          filter:
-            include:
-              - domain: light
-                entity_id: '*kitchen_light_controller*'
-              - domain: sensor
-                entity_id: '*kitchen_light_controller*'
-              - domain: binary_sensor
-                entity_id: '*kitchen_light_controller*'
-              - domain: switch
-                entity_id: '*kitchen_light_controller*'
-          card:
-            type: 'custom:fold-entity-row'
-            head:
-              type: section
-              label: Entities
-    - type: 'custom:vertical-stack-in-card'
-      title: Kitchen Sensor
-      cards:
-        - type: entities
-          state_color: true
-          show_header_toggle: false
-          entities:
-            - entity: binary_sensor.kitchen_sensor_connection_status
-              name: Device Status
-              secondary_info: last-updated
-              icon: 'hass:server-network'
-            - entity: sensor.kitchen_sensor_uptime
-              name: Uptime
-            - entity: sensor.kitchen_sensor_wifi_signal
-              name: Wifi Signal
-            - entity: alert.kitchen_sensor_is_offline
-              name: Offline Alert
-            - entity: switch.kitchen_sensor_restart
-              name: Restart
-            - entity: switch.kitchen_sensor_shutdown
-              name: Shutdown
-
-        - type: 'custom:auto-entities'
-          filter:
-            include:
-              - domain: light
-                entity_id: '*kitchen_sensor*'
-              - domain: sensor
-                entity_id: '*kitchen_sensor*'
-              - domain: binary_sensor
-                entity_id: '*kitchen_sensor*'
-              - domain: switch
-                entity_id: '*kitchen_sensor*'
-          card:
-            type: 'custom:fold-entity-row'
-            head:
-              type: section
-              label: Entities
-    - type: 'custom:vertical-stack-in-card'
-      title: Kitchen Plant Controller
-      cards:
-        - type: entities
-          state_color: true
-          show_header_toggle: false
-          entities:
-            - entity: binary_sensor.kitchen_plant_controller_connection_status
-              name: Device Status
-              secondary_info: last-updated
-              icon: 'hass:server-network'
-            - entity: sensor.kitchen_plant_controller_uptime
-              name: Uptime
-            - entity: sensor.kitchen_plant_controller_wifi_signal
-              name: Wifi Signal
-            - entity: alert.kitchen_plant_controller_is_offline
-              name: Offline Alert
-            - entity: switch.kitchen_plant_controller_restart
-              name: Restart
-            - entity: switch.kitchen_plant_controller_shutdown
-              name: Shutdown
-        - type: 'custom:auto-entities'
-          filter:
-            include:
-              - domain: light
-                entity_id: '*kitchen_plant_controller*'
-              - domain: sensor
-                entity_id: '*kitchen_plant_controller*'
-              - domain: binary_sensor
-                entity_id: '*kitchen_plant_controller*'
-              - domain: switch
-                entity_id: '*kitchen_plant_controller*'
-          card:
-            type: 'custom:fold-entity-row'
-            head:
-              type: section
-              label: Entities
-    - type: 'custom:vertical-stack-in-card'
-      title: MQTT LCD Display
-      cards:
-        - type: entities
-          state_color: true
-          show_header_toggle: false
-          entities:
-            - entity: binary_sensor.kitchen_mqtt_lcd_display_connection_status
-              name: Device Status
-              secondary_info: last-updated
-              icon: 'hass:server-network'
-            - entity: sensor.kitchen_mqtt_lcd_display_uptime
-              name: Uptime
-            - entity: sensor.kitchen_mqtt_lcd_display_wifi_signal
-              name: Wifi Signal
-            - entity: alert.kitchen_mqtt_lcd_display_is_offline
-              name: Offline Alert
-            - entity: switch.kitchen_mqtt_lcd_display_restart
-              name: Restart
-            - entity: switch.kitchen_mqtt_lcd_display_shutdown
-              name: Shutdown
-        - type: 'custom:auto-entities'
-          filter:
-            include:
-              - domain: light
-                entity_id: '*kitchen_mqtt_lcd_display*'
-              - domain: sensor
-                entity_id: '*kitchen_mqtt_lcd_display*'
-              - domain: binary_sensor
-                entity_id: '*kitchen_mqtt_lcd_display*'
-              - domain: switch
-                entity_id: '*kitchen_mqtt_lcd_display*'
-          card:
-            type: 'custom:fold-entity-row'
-            head:
-              type: section
-              label: Entities
-    - type: 'custom:vertical-stack-in-card'
-      title: Kitchen Ceiling Light
-      cards:
-        - type: entities
-          state_color: true
-          show_header_toggle: false
-          entities:
-            - entity: binary_sensor.kitchen_ceiling_light_connection_status
-              name: Device Status
-              secondary_info: last-updated
-              icon: 'hass:server-network'
-            - entity: sensor.kitchen_ceiling_light_uptime
-              name: Uptime
-            - entity: sensor.kitchen_ceiling_light_wifi_signal
-              name: Wifi Signal
-            - entity: alert.kitchen_ceiling_light_is_offline
-              name: Offline Alert
-            - entity: switch.kitchen_ceiling_light_restart
-              name: Restart
-            - entity: switch.kitchen_ceiling_light_shutdown
-              name: Shutdown
-        - type: 'custom:auto-entities'
-          filter:
-            include:
-              - domain: light
-                entity_id: '*kitchen_ceiling_light*'
-              - domain: sensor
-                entity_id: '*kitchen_ceiling_light*'
-              - domain: binary_sensor
-                entity_id: '*kitchen_ceiling_light*'
-              - domain: switch
-                entity_id: '*kitchen_ceiling_light*'
-          card:
-            type: 'custom:fold-entity-row'
-            head:
-              type: section
-              label: Entities
+    - type: custom:decluttering-card
+      template: device_overview_template
+      variables:  
+        - sensor_name: kitchen_light_controller
+        - sensor_display_name: Kitchen Light Controller
+    - type: custom:decluttering-card
+      template: device_overview_template
+      variables:  
+        - sensor_name: kitchen_sensor
+        - sensor_display_name: Kitchen Sensor
+    - type: custom:decluttering-card
+      template: device_overview_template
+      variables:  
+        - sensor_name: kitchen_plant_controller
+        - sensor_display_name: Kitchen Plant Controller
+    - type: custom:decluttering-card
+      template: device_overview_template
+      variables:  
+        - sensor_name: kitchen_mqtt_lcd_display
+        - sensor_display_name: MQTT LCD Display
+    - type: custom:decluttering-card
+      template: device_overview_template
+      variables:  
+        - sensor_name: kitchen_ceiling_light
+        - sensor_display_name: Kitchen Ceiling Light
     - type: 'custom:vertical-stack-in-card'
       title: ZigBee2MQTT
       cards:
-      - type: 'custom:auto-entities'
-        filter:
-          include:
-            - device: /Ikea Kitchen Smart Button/
-        card:
-          type: 'custom:fold-entity-row'
-          head:
-            type: section
-            label: Bedroom Closet Led Power Supply Light
-      - type: 'custom:auto-entities'
-        filter:
-          include:
-            - device: /Kitchen Led Spots Light/
-        card:
-          type: 'custom:fold-entity-row'
-          head:
-            type: section
-            label: Kitchen Led Spots Light
+      - type: custom:decluttering-card
+        template: zigbeeDeviceEntities
+        variables:
+          - device_display_name: Ikea Kitchen Smart Button
+      - type: custom:decluttering-card
+        template: zigbeeDeviceEntities
+        variables:
+          - device_display_name: Kitchen Led Spots Light
   - title: Living Room
     path: living_room
     badges: []
     cards:
-    - type: 'custom:vertical-stack-in-card'
-      title: Living Room Sensor/Actor 2
-      cards:
-        - type: entities
-          state_color: true
-          show_header_toggle: false
-          entities:
-            - entity: binary_sensor.living_room_sensor_actor_2_connection_status
-              name: Device Status
-              secondary_info: last-updated
-              icon: 'hass:server-network'
-            - entity: sensor.living_room_sensor_actor_2_uptime
-              name: Uptime
-            - entity: sensor.living_room_sensor_actor_2_wifi_signal
-              name: Wifi Signal
-            - entity: alert.living_room_sensor_actor_2_offline
-              name: Offline Alert
-            - entity: switch.living_room_sensor_actor_2_restart
-              name: Restart
-            - entity: switch.living_room_sensor_actor_2_shutdown
-              name: Shutdown
-        - type: 'custom:auto-entities'
-          filter:
-            include:
-              - domain: light
-                entity_id: '*living_room_sensor_actor_2*'
-              - domain: sensor
-                entity_id: '*living_room_sensor_actor_2*'
-              - domain: binary_sensor
-                entity_id: '*living_room_sensor_actor_2*'
-              - domain: switch
-                entity_id: '*living_room_sensor_actor_2*'
-          card:
-            type: 'custom:fold-entity-row'
-            head:
-              type: section
-              label: Entities
-    - type: 'custom:vertical-stack-in-card'
-      title: Living Room Sensor/Actor 1
-      cards:
-        - type: entities
-          state_color: true
-          show_header_toggle: false
-          entities:
-            - entity: binary_sensor.living_room_sensor_actor_1_connection_status
-              name: Device Status
-              secondary_info: last-updated
-              icon: 'hass:server-network'
-            - entity: sensor.living_room_sensor_actor_1_uptime
-              name: Uptime
-            - entity: sensor.living_room_sensor_actor_1_wifi_signal
-              name: Wifi Signal
-            - entity: alert.living_room_sensor_actor_1_is_offline
-              name: Offline Alert
-            - entity: switch.living_room_sensor_actor_1_restart
-              name: Restart
-            - entity: switch.living_room_sensor_actor_1_shutdown
-              name: Shutdown
-        - type: 'custom:auto-entities'
-          filter:
-            include:
-              - domain: light
-                entity_id: '*living_room_sensor_actor_1*'
-              - domain: sensor
-                entity_id: '*living_room_sensor_actor_1*'
-              - domain: binary_sensor
-                entity_id: '*living_room_sensor_actor_1*'
-              - domain: switch
-                entity_id: '*living_room_sensor_actor_1*'
-          card:
-            type: 'custom:fold-entity-row'
-            head:
-              type: section
-              label: Entities
-    - type: 'custom:vertical-stack-in-card'
-      title: Couch Light
-      cards:
-        - type: entities
-          state_color: true
-          show_header_toggle: false
-          entities:
-            - entity: binary_sensor.esp_couch_light_connection_status
-              name: Device Status
-              secondary_info: last-updated
-              icon: 'hass:server-network'
-            - entity: sensor.esp_couch_light_uptime
-              name: Uptime
-            - entity: sensor.esp_couch_light_wifi_signal
-              name: Wifi Signal
-            - entity: alert.esp_couch_light_is_offline
-              name: Offline Alert
-            - entity: switch.esp_couch_light_restart
-              name: Restart
-            - entity: switch.esp_couch_light_shutdown
-              name: Shutdown
-        - type: 'custom:auto-entities'
-          filter:
-            include:
-              - domain: light
-                entity_id: '*esp_couch_light*'
-              - domain: sensor
-                entity_id: '*esp_couch_light*'
-              - domain: binary_sensor
-                entity_id: '*esp_couch_light*'
-              - domain: switch
-                entity_id: '*esp_couch_light*'
-          card:
-            type: 'custom:fold-entity-row'
-            head:
-              type: section
-              label: Entities
+    - type: custom:decluttering-card
+      template: device_overview_template
+      variables:  
+        - sensor_name: living_room_sensor_actor_1
+        - sensor_display_name: Living Room Sensor/Actor 1
+    - type: custom:decluttering-card
+      template: device_overview_template
+      variables:  
+        - sensor_name: living_room_sensor_actor_2
+        - sensor_display_name: Living Room Sensor/Actor 2
+    - type: custom:decluttering-card
+      template: device_overview_template
+      variables:  
+        - sensor_name: esp_couch_light
+        - sensor_display_name: Couch Light
     - type: 'custom:vertical-stack-in-card'
       title: ZigBee2MQTT
       cards:
-      - type: 'custom:auto-entities'
-        filter:
-          include:
-            - device: /Hue Iris Light/
-        card:
-          type: 'custom:fold-entity-row'
-          head:
-            type: section
-            label: Hue Iris Light
-      - type: 'custom:auto-entities'
-        filter:
-          include:
-            - device: /Hue Smart Button 4/
-        card:
-          type: 'custom:fold-entity-row'
-          head:
-            type: section
-            label: Hue Smart Button 4
+      - type: custom:decluttering-card
+        template: zigbeeDeviceEntities
+        variables:
+          - device_display_name: Hue Iris Light
+      - type: custom:decluttering-card
+        template: zigbeeDeviceEntities
+        variables:
+          - device_display_name: Hue Smart Button 3
+      - type: custom:decluttering-card
+        template: zigbeeDeviceEntities
+        variables:
+          - device_display_name: Hue Smart Button 4
     - type: entities
       title: Philips Hue Bridge
       entities:
@@ -711,117 +416,21 @@ views:
     path: other
     badges: []
     cards:
-    - type: 'custom:vertical-stack-in-card'
-      title: Bathroom Sensor/Actor 1
-      cards:
-        - type: entities
-          state_color: true
-          show_header_toggle: false
-          entities:
-            - entity: binary_sensor.bathroom_sensor_actor_connection_status
-              name: Device Status
-              secondary_info: last-updated
-              icon: 'hass:server-network'
-            - entity: sensor.bathroom_sensor_actor_uptime
-              name: Uptime
-            - entity: sensor.bathroom_sensor_actor_wifi_signal
-              name: Wifi Signal
-            - entity: alert.bathroom_sensor_actor_is_offline
-              name: Offline Alert
-            - entity: switch.bathroom_sensor_actor_restart
-              name: Restart
-            - entity: switch.bathroom_sensor_actor_shutdown
-              name: Shutdown
-        - type: 'custom:auto-entities'
-          filter:
-            include:
-              - domain: light
-                entity_id: '*bathroom_sensor_actor*'
-              - domain: sensor
-                entity_id: '*bathroom_sensor_actor*'
-              - domain: binary_sensor
-                entity_id: '*bathroom_sensor_actor*'
-              - domain: switch
-                entity_id: '*bathroom_sensor_actor*'
-          card:
-            type: 'custom:fold-entity-row'
-            head:
-              type: section
-              label: Entities
-    - type: 'custom:vertical-stack-in-card'
-      title: Balcony Sensor/Actor
-      cards:
-        - type: entities
-          state_color: true
-          show_header_toggle: false
-          entities:
-            - entity: binary_sensor.balcony_sensor_actor_connection_status
-              name: Device Status
-              secondary_info: last-updated
-              icon: 'hass:server-network'
-            - entity: sensor.balcony_sensor_actor_uptime
-              name: Uptime
-            - entity: sensor.balcony_sensor_actor_wifi_signal
-              name: Wifi Signal
-            - entity: alert.balcony_sensor_actor_is_offline
-              name: Offline Alert
-            - entity: switch.balcony_sensor_actor_restart
-              name: Restart
-            - entity: switch.balcony_sensor_actor_shutdown
-              name: Shutdown
-        - type: 'custom:auto-entities'
-          filter:
-            include:
-              - domain: light
-                entity_id: '*balcony_sensor_actor*'
-              - domain: sensor
-                entity_id: '*balcony_sensor_actor*'
-              - domain: binary_sensor
-                entity_id: '*balcony_sensor_actor*'
-              - domain: switch
-                entity_id: '*balcony_sensor_actor*'
-          card:
-            type: 'custom:fold-entity-row'
-            head:
-              type: section
-              label: Entities
-    - type: 'custom:vertical-stack-in-card'
-      title: Floor Sensor/Actor 1
-      cards:
-        - type: entities
-          state_color: true
-          show_header_toggle: false
-          entities:
-            - entity: binary_sensor.floor_sensor_actor_connection_status
-              name: Device Status
-              secondary_info: last-updated
-              icon: 'hass:server-network'
-            - entity: sensor.floor_sensor_actor_uptime
-              name: Uptime
-            - entity: sensor.floor_sensor_actor_wifi_signal
-              name: Wifi Signal
-            - entity: alert.floor_sensor_actor_is_offline
-              name: Offline Alert
-            - entity: switch.floor_sensor_actor_restart
-              name: Restart
-            - entity: switch.floor_sensor_actor_shutdown
-              name: Shutdown
-        - type: 'custom:auto-entities'
-          filter:
-            include:
-              - domain: light
-                entity_id: '*floor_sensor_actor*'
-              - domain: sensor
-                entity_id: '*floor_sensor_actor*'
-              - domain: binary_sensor
-                entity_id: '*floor_sensor_actor*'
-              - domain: switch
-                entity_id: '*floor_sensor_actor*'
-          card:
-            type: 'custom:fold-entity-row'
-            head:
-              type: section
-              label: Entities
+    - type: custom:decluttering-card
+      template: device_overview_template
+      variables:  
+        - sensor_name: bathroom_sensor_actor
+        - sensor_display_name: Bathroom Sensor/Actor 1
+    - type: custom:decluttering-card
+      template: device_overview_template
+      variables:  
+        - sensor_name: balcony_sensor_actor
+        - sensor_display_name: Balcony Sensor/Actor
+    - type: custom:decluttering-card
+      template: device_overview_template
+      variables:  
+        - sensor_name: floor_sensor_actor
+        - sensor_display_name: Floor Sensor/Actor 1
   - title: Zigbee2MQTT
     path: zigbee2mqtt
     badges: []
@@ -878,165 +487,75 @@ views:
               --zigbee2mqtt-networkmap-node-coordinator-color: rgba(224, 78, 93, .7);
               --zigbee2mqtt-networkmap-node-router-color: rgba(0, 165, 255, .7);
             }
-        - type: 'custom:auto-entities'
-          filter:
-            include:
-              - device: /Bedroom Closet Led Power Supply Light/
-          card:
-            type: 'custom:fold-entity-row'
-            head:
-              type: section
-              label: Bedroom Closet Led Power Supply Light
-        - type: 'custom:auto-entities'
-          filter:
-            include:
-              - device: /Bedroom Blind Button 1/
-          card:
-            type: 'custom:fold-entity-row'
-            head:
-              type: section
-              label: Bedroom Blind Button 1
-        - type: 'custom:auto-entities'
-          filter:
-            include:
-              - device: /Bedroom Blind Button 2/
-          card:
-            type: 'custom:fold-entity-row'
-            head:
-              type: section
-              label: Bedroom Blind Button 2
-        - type: 'custom:auto-entities'
-          filter:
-            include:
-              - device: /Bedroom Blind Left/
-          card:
-            type: 'custom:fold-entity-row'
-            head:
-              type: section
-              label: Bedroom Blind Left
-        - type: 'custom:auto-entities'
-          filter:
-            include:
-              - device: /Bedroom Blind Right/
-          card:
-            type: 'custom:fold-entity-row'
-            head:
-              type: section
-              label: Bedroom Blind Right
-        - type: 'custom:auto-entities'
-          filter:
-            include:
-              - device: /Hue Iris Light/
-          card:
-            type: 'custom:fold-entity-row'
-            head:
-              type: section
-              label: Hue Iris Light
-        - type: 'custom:auto-entities'
-          filter:
-            include:
-              - device: /Hue Motion Sensor 1/
-          card:
-            type: 'custom:fold-entity-row'
-            head:
-              type: section
-              label: Hue Motion Sensor 1
-        - type: 'custom:auto-entities'
-          filter:
-            include:
-              - device: /Hue Motion Sensor 2/
-          card:
-            type: 'custom:fold-entity-row'
-            head:
-              type: section
-              label: Hue Motion Sensor 2
-        - type: 'custom:auto-entities'
-          filter:
-            include:
-              - device: /Hue Smart Button 1/
-          card:
-            type: 'custom:fold-entity-row'
-            head:
-              type: section
-              label: Hue Smart Button 1
-        - type: 'custom:auto-entities'
-          filter:
-            include:
-              - device: /Hue Smart Button 2/
-          card:
-            type: 'custom:fold-entity-row'
-            head:
-              type: section
-              label: Hue Smart Button 2
-        - type: 'custom:auto-entities'
-          filter:
-            include:
-              - device: /Hue Smart Button 3/
-          card:
-            type: 'custom:fold-entity-row'
-            head:
-              type: section
-              label: Hue Smart Button 3
-        - type: 'custom:auto-entities'
-          filter:
-            include:
-              - device: /Hue Smart Button 4/
-          card:
-            type: 'custom:fold-entity-row'
-            head:
-              type: section
-              label: Hue Smart Button 4
-        - type: 'custom:auto-entities'
-          filter:
-            include:
-              - device: /Hue Smart Plug 1/
-          card:
-            type: 'custom:fold-entity-row'
-            head:
-              type: section
-              label: Hue Smart Plug 1
-        - type: 'custom:auto-entities'
-          filter:
-            include:
-              - device: /Hue Smart Plug 2/
-          card:
-            type: 'custom:fold-entity-row'
-            head:
-              type: section
-              label: Hue Smart Plug 2
-        - type: 'custom:auto-entities'
-          filter:
-            include:
-              - device: /Ikea Bathroom Smart Button/
-          card:
-            type: 'custom:fold-entity-row'
-            head:
-              type: section
-              label: Ikea Bathroom Smart Button
-        - type: 'custom:auto-entities'
-          filter:
-            include:
-              - device: /Ikea Floor Smart Button/
-          card:
-            type: 'custom:fold-entity-row'
-            head:
-              type: section
-              label: Ikea Floor Smart Button
-        - type: 'custom:auto-entities'
-          filter:
-            include:
-              - device: /Ikea Kitchen Smart Button/
-          card:
-            type: 'custom:fold-entity-row'
-            head:
-              type: section
-              label: Ikea Kitchen Smart Button
-        - type: 'custom:auto-entities'
-          filter:
-            include:
-              - device: /Kitchen Led Spots Light/
-          card:
-            type: 'custom:fold-entity-row'
-            head:
-              type: section
-              label: Kitchen Led Spots Light
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Bedroom Closet Led Power Supply Light
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Bedroom Blind Button 1
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Bedroom Blind Button 2
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Bedroom Blind Left
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Bedroom Blind Right
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Hue Iris Light
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Hue Motion Sensor 1
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Hue Motion Sensor 2
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Hue Smart Button 1
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Hue Smart Button 2
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Hue Smart Button 3
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Hue Smart Button 4
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Hue Smart Plug 1
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Hue Smart Plug 2
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Ikea Bathroom Smart Button
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Ikea Floor Smart Button
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Ikea Kitchen Smart Button
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Kitchen Led Spots Light
