@@ -212,6 +212,7 @@ sensor toilet: !include toilet/sensors.yaml
 sensor kitchen: !include kitchen/sensors.yaml
 sensor kitchen_grafana: !include kitchen/grafana_sensors.yaml
 sensor general: !include general/sensors.yaml
+sensor general_zigbee2mqtt: !include general/zigbee2mqtt_sensors.yaml
 
 switch general: !include general/switches.yaml
 
