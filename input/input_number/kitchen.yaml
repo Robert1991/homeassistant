@@ -75,3 +75,11 @@ kitchen_smart_button_dim_step_size:
   max: 45
   step: 5
   icon: 'mdi:brightness-auto'
+
+kitchen_frigde_door_open_alarm_timeout:
+  name: Kitchen Frigde Door Open Alarm Timeout
+  min: 10
+  max: 120
+  step: 10
+  unit_of_measurement: "s"
+  icon: 'mdi:clock-in'

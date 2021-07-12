@@ -152,6 +152,7 @@ logger:
   logs:
     homeassistant.components.mqtt: info
     homeassistant.components.shell_command: debug
+    custom_components.pyscript: info
 
 lovelace:
   mode: storage
@@ -196,6 +197,8 @@ notify ios:
     services:
       - service: mobile_app_iphone_von_robert
 
+pyscript: !include pyscript/config.yaml
+
 script: !include scripts.yaml
 
 scene: !include scenes.yaml
@@ -215,10 +218,6 @@ sensor general: !include general/sensors.yaml
 sensor general_zigbee2mqtt: !include general/zigbee2mqtt_sensors.yaml
 
 switch general: !include general/switches.yaml
-
-shell_command:
-  update_home_server: >
-   /config/scripts/update_server.py
 
 spotify:
   client_id: !secret spotify_client_id

@@ -4,16 +4,15 @@
       entity_id: binary_sensor.kitchen_sensor_door_sensor
       to: 'on'
       for:
-        seconds: 45
+        seconds: "{{ states('input_number.kitchen_frigde_door_open_alarm_timeout') | float }}"
   action:
     - service: input_boolean.turn_on
       entity_id: input_boolean.fride_door_was_left_open
-    - service: script.turn_on
-      entity_id: script.let_light_blink
-      data:
-        variables:
-          light_entity_id: light.kitchen_ceiling_light_light_switch
-          observed_input_boolean: input_boolean.fride_door_was_left_open
+    - service: pyscript.light_blink
+      data: 
+        entity: light.kitchen_ceiling_light_light_switch
+        state_entity: binary_sensor.kitchen_sensor_door_sensor
+        target_state: "on"
 
 - alias: Reset Alarm when Fridge is closed
   trigger:
@@ -23,5 +22,3 @@
   action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.fride_door_was_left_open
-    - service: script.turn_off
-      entity_id: script.let_light_blink

@@ -17,28 +17,6 @@ fire_scene_creator_event:
         light_intensity_control: "{{ light_intensity_control }}"
         timebased_scene_config: "{{ timebased_scene_config }}"
 
-let_light_blink:
-  alias: Let ceiling light in kitchen blink
-  mode: restart
-  variables:
-    blink_timeout: 1
-    light_entity_id: 'light.kitchen_ceiling_light'
-    observed_input_boolean: 'input_boolean.fride_door_was_left_open'
-  sequence:
-    repeat:
-      while:
-        - condition: template
-          value_template: "{{ is_state(observed_input_boolean, 'on') }}"
-      sequence:
-        - service: light.turn_on
-          data_template:
-            entity_id: "{{ light_entity_id }}"
-        - delay: "{{ blink_timeout }}"
-        - service: light.turn_off
-          data_template:
-            entity_id: "{{ light_entity_id }}"
-        - delay: "{{ blink_timeout }}"
-
 zigbee2mqtt_rename:
   alias: Zigbee2MQTT Rename
   sequence:
