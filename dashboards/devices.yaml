@@ -431,6 +431,13 @@ views:
       variables:  
         - sensor_name: floor_sensor_actor
         - sensor_display_name: Floor Sensor/Actor 1
+    - type: map
+      entities:
+        - entity: device_tracker.iphone_von_robert
+        - entity: zone.home
+        - entity: zone.shopping
+      dark_mode: false
+      title: IPhone Device Tracker
   - title: Zigbee2MQTT
     path: zigbee2mqtt
     badges: []

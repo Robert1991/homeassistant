@@ -39,7 +39,7 @@ bedroom_relaxed_2_light_intensity:
   min: 0
   step: 1
 bedroom_work_1_light_intensity:
-  initial: 35
+  initial: 30
   max: 100
   min: 0
   step: 1
