@@ -1,3 +1,10 @@
 pyscript:
   allow_all_imports: true
   hass_is_global: true
+  global:
+    esp_home_automations:
+      esp_home_base_path: "/home/robert/docker/homeassistant/volumes/homeassistant/esphome"
+    host_server:
+      ssh_key: "/config/.ssh/id_rsa"
+      ssh_login: "robert@rpn-home-server"
+      ssh_sudo: !secret host_sudo

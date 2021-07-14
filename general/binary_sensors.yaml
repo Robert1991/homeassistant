@@ -2,7 +2,6 @@
   country: DE
   province: BW
 
-
 - platform: template
   sensors:
     home_server_updates_available:

@@ -5,10 +5,6 @@
       to: "on"
   action:
   - service: pyscript.update_host_machine
-    data:
-      host_login: "robert@rpn-home-server"
-      host_password: !secret host_sudo
-
   - service: persistent_notification.create
     data:
       message: "Check log files to see results"

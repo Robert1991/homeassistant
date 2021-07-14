@@ -69,6 +69,16 @@ decluttering_templates:
               name: Restart
             - entity: 'switch.[[sensor_name]]_shutdown'
               name: Shutdown
+            - type: button
+              tap_action:
+                action: call-service
+                service: pyscript.run_esp_home_device_update
+                service_data:
+                  esp_home_device_config: '[[sensor_name]].yaml'
+              name: Update Device
+              show_icon: true
+              icon: mdi:update
+              icon_height: 29px
         - type: 'custom:uptime-card'
           entity: 'binary_sensor.[[sensor_name]]_connection_status'
           name: Uptime
@@ -154,6 +164,15 @@ views:
           tap_action:
             action: navigate
             navigation_path: /lovelace-device/living_room
+        - type: button
+          tap_action:
+            action: call-service
+            service: pyscript.update_all_esp_home_devices
+          name: Update All Devices
+          show_icon: true
+          icon: mdi:update
+          icon_height: 29px
+
       title: ESP-Home Devices
       state_color: true
     - type: entities
@@ -169,12 +188,12 @@ views:
           - device_name: bedroom_blind_button_2
           - device_display_name: Bedroom Blind Button 2
         - type: custom:decluttering-card
-          template: zigbeeDeviceInfoRow
+          template: zigbeeBatteryDeviceInfoRow
           variables:  
           - device_name: bedroom_blind_left
           - device_display_name: Bedroom Blind Left
         - type: custom:decluttering-card
-          template: zigbeeDeviceInfoRow
+          template: zigbeeBatteryDeviceInfoRow
           variables:  
           - device_name: bedroom_blind_right
           - device_display_name: Bedroom Blind Right
