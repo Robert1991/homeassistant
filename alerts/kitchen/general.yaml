@@ -2,7 +2,7 @@ plants_need_water_refill:
   name: Pflanzenwasserbehälter ist leer
   done_message: Pflanzenwasserbehälter hat wieder aussreichend Wasser
   entity_id: binary_sensor.kitchen_plant_controller_swimmer_sensor
-  state: 'off'
+  state: "off"
   can_acknowledge: true
   skip_first: true
   repeat:
@@ -12,16 +12,5 @@ plants_need_water_refill:
     - 120
     - 360
     - 1140
-  notifiers:
-    - ios
-
-fridge_was_left_open_alert:
-  name: Kühlschrank wurde offen gelassen!
-  done_message: Kühlschrank wieder geschlossen
-  entity_id: binary_sensor.fride_door_open_to_long
-  state: 'on'
-  repeat: 1
-  can_acknowledge: true
-  skip_first: false
   notifiers:
     - ios

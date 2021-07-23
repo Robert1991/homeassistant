@@ -3,192 +3,204 @@ views:
   - title: Overview
     path: overview
     cards:
-    - type: 'custom:vertical-stack-in-card'
-      title: Sensors
-      cards:
-      - type: glance
-        entities:
-          - entity: sensor.kitchen_plant_controller_humidity
-            name: Humidity
-          - entity: sensor.kitchen_plant_controller_temperature
-            name: Temperature
-            show_name: true
-        card_mod: null
-        style: |
+      - type: "custom:vertical-stack-in-card"
+        title: Sensors
+        cards:
+          - type: glance
+            entities:
+              - entity: sensor.kitchen_plant_controller_humidity
+                name: Humidity
+              - entity: sensor.kitchen_plant_controller_temperature
+                name: Temperature
+                show_name: true
+            card_mod: null
+            style: |
               ha-card {
               margin-top: -30px;
               margin-bottom: -10px;
               }
-      - type: glance
-        entities:
-          - entity: sensor.kitchen_plant_controller_moisture_sensor_1
-            name: Moisture Left
-          - entity: sensor.kitchen_plant_controller_moisture_sensor_2
-            name: Moisture Right
-        style: |
-          ha-card {
-          margin-top: 0px;
-          margin-bottom: -10px;
-          }
-        show_name: true
-      - type: glance
-        entities:
-          - entity: binary_sensor.kitchen_plant_controller_swimmer_sensor
-            name: Water available
-          - entity: alert.plants_need_water_refill
-            name: Plantwater Refill Alert
-    - type: 'custom:vertical-stack-in-card'
-      title: Control
-      cards:
-      - type: 'custom:stack-in-card'
-        mode: horizontal
-        title: Switches
-        cards:
-          - type: button
-            entity: switch.hue_smart_plug_1
-            icon_height: 40px
-            name: Light
+          - type: glance
+            entities:
+              - entity: sensor.kitchen_plant_controller_moisture_sensor_1
+                name: Moisture Left
+              - entity: sensor.kitchen_plant_controller_moisture_sensor_2
+                name: Moisture Right
             style: |
               ha-card {
-              margin-top: -10px;
-              margin-bottom: 0px;
+              margin-top: 0px;
+              margin-bottom: -10px;
               }
-          - type: button
-            icon_height: 40px
-            entity: switch.hue_smart_plug_2
-            name: Ventilation
-            style: |
-              ha-card {
-              margin-top: -10px;
-              margin-bottom: 0px;
-              }
-      - type: 'custom:stack-in-card'
-        mode: horizontal
+            show_name: true
+          - type: glance
+            entities:
+              - entity: binary_sensor.kitchen_plant_controller_swimmer_sensor
+                name: Water available
+              - entity: alert.plants_need_water_refill
+                name: Plantwater Refill Alert
+      - type: "custom:vertical-stack-in-card"
+        title: Control
         cards:
-          - type: button
-            entity: switch.kitchen_plant_controller_pump_relay_1
-            name: Left Pump
-            icon_height: 40px
-          - type: button
-            entity: switch.kitchen_plant_controller_pump_relay_2
-            name: Right Pump
-            icon_height: 40px
-      - type: custom:fold-entity-row
-        head:
-          type: section
-          label: Automations
-        open: true
-        entities:
-          - type: 'custom:fold-entity-row'
+          - type: "custom:stack-in-card"
+            mode: horizontal
+            title: Switches
+            cards:
+              - type: button
+                entity: switch.hue_smart_plug_1
+                icon_height: 40px
+                name: Light
+                style: |
+                  ha-card {
+                  margin-top: -10px;
+                  margin-bottom: 0px;
+                  }
+              - type: button
+                icon_height: 40px
+                entity: switch.hue_smart_plug_2
+                name: Ventilation
+                style: |
+                  ha-card {
+                  margin-top: -10px;
+                  margin-bottom: 0px;
+                  }
+          - type: "custom:stack-in-card"
+            mode: horizontal
+            cards:
+              - type: button
+                entity: switch.kitchen_plant_controller_pump_relay_1
+                name: Left Pump
+                icon_height: 40px
+              - type: button
+                entity: switch.kitchen_plant_controller_pump_relay_2
+                name: Right Pump
+                icon_height: 40px
+          - type: custom:fold-entity-row
             head:
-              entity: input_boolean.kitchen_plant_light_automation_enabled
-              name: Plant Light Automation
+              type: section
+              label: Automations
+            open: true
             entities:
-              - name: Turn On Time
-                entity: input_datetime.kitchen_plant_light_turn_on_time
-              - name: Turn Off Time
-                entity: input_datetime.kitchen_plant_light_turn_off_time
-          - type: 'custom:fold-entity-row'
-            head:
-              entity: input_boolean.kitchen_plant_ventilation_automation_enabled
-              name: Night Time Plant Ventilation
-            entities:
-              - name: On Interval
-                entity: input_number.kitchen_plant_night_ventilation_on_interval
-                type: custom:slider-entity-row
-              - name: Off Interval
-                entity: input_number.kitchen_plant_night_ventilation_off_interval
-                type: custom:slider-entity-row
-              - name: Start Time
-                entity: input_datetime.kitchen_plant_night_ventilation_turn_on_time
-          - type: divider
-          - entity: alert.plants_need_water_refill
-            name: Plantwater Refill Alert
-          - type: 'custom:fold-entity-row'
-            head:
-              entity: input_boolean.kitchen_left_plant_watering_automation_enabled
-              name: Left Plant Watering
-            entities:
-              - name: Interval in h
-                entity: input_number.kitchen_left_plant_watering_interval
-                type: custom:slider-entity-row
-              - name: Pump Duration
-                entity: input_number.kitchen_left_plant_watering_duration
-                type: custom:slider-entity-row
-          - type: 'custom:fold-entity-row'
-            head:
-              entity: input_boolean.kitchen_right_plant_watering_automation_enabled
-              name: Right Plant Watering
-            entities:
-              - name: Interval in h
-                entity: input_number.kitchen_right_plant_watering_interval
-                type: custom:slider-entity-row
-              - name: Pump Duration
-                entity: input_number.kitchen_right_plant_watering_duration
-                type: custom:slider-entity-row
-    - type: 'custom:stack-in-card'
-      mode: vertical
-      cards:
-      - type: entity
-        entity: sensor.kitchen_left_plant_last_watering_duration
-        name: Left Plant Last Watering
-        icon: mdi:water
-      - type: entity
-        entity: sensor.kitchen_right_plant_last_watering_duration
-        name: Right Plant Last Watering
-        icon: mdi:water
-      - type: 'custom:stack-in-card'
-        mode: horizontal
+              - type: "custom:fold-entity-row"
+                head:
+                  entity: input_boolean.kitchen_plant_light_automation_enabled
+                  name: Plant Light Automation
+                entities:
+                  - name: Turn On Time
+                    entity: input_datetime.kitchen_plant_light_turn_on_time
+                  - name: Turn Off Time
+                    entity: input_datetime.kitchen_plant_light_turn_off_time
+              - type: "custom:fold-entity-row"
+                head:
+                  entity: input_boolean.kitchen_plant_ventilation_automation_enabled
+                  name: Night Time Plant Ventilation
+                entities:
+                  - name: On Interval
+                    entity: input_number.kitchen_plant_night_ventilation_on_interval
+                    type: custom:slider-entity-row
+                  - name: Off Interval
+                    entity: input_number.kitchen_plant_night_ventilation_off_interval
+                    type: custom:slider-entity-row
+                  - name: Start Time
+                    entity: input_datetime.kitchen_plant_night_ventilation_turn_on_time
+              - type: divider
+              - entity: alert.plants_need_water_refill
+                name: Plantwater Refill Alert
+              - type: "custom:fold-entity-row"
+                head:
+                  entity: binary_sensor.temperature_too_hot_in_plant_closet
+                  name: Temperature over alarm threshold
+                entities:
+                  - entity: input_number.kitchen_plant_closet_maximum_temperature
+                    name: Warning Temperature
+                  - entity: input_number.kitchen_plant_closet_maximum_temperature_notification_timeout
+                    name: Notification Timeout
+                  - entity: input_number.kitchen_plant_closet_release_temp_alarm_timeout
+                    name: Release Alarm Timeout
+
+              - type: "custom:fold-entity-row"
+                head:
+                  entity: input_boolean.kitchen_left_plant_watering_automation_enabled
+                  name: Left Plant Watering
+                entities:
+                  - name: Interval in h
+                    entity: input_number.kitchen_left_plant_watering_interval
+                    type: custom:slider-entity-row
+                  - name: Pump Duration
+                    entity: input_number.kitchen_left_plant_watering_duration
+                    type: custom:slider-entity-row
+              - type: "custom:fold-entity-row"
+                head:
+                  entity: input_boolean.kitchen_right_plant_watering_automation_enabled
+                  name: Right Plant Watering
+                entities:
+                  - name: Interval in h
+                    entity: input_number.kitchen_right_plant_watering_interval
+                    type: custom:slider-entity-row
+                  - name: Pump Duration
+                    entity: input_number.kitchen_right_plant_watering_duration
+                    type: custom:slider-entity-row
+      - type: "custom:stack-in-card"
+        mode: vertical
         cards:
-        - type: 'custom:logbook-card'
-          entity: switch.kitchen_plant_controller_pump_relay_1
-          title: Left Plant Watering History
-          show:
-            state: true
-            duration: true
-            start_date: true
-            end_date: false
-            icon: true
-            separator: false
-          max_items: 10
-          history: 2
-        - type: 'custom:logbook-card'
-          entity: switch.kitchen_plant_controller_pump_relay_2
-          title: Right Plant Watering History
-          show:
-            state: true
-            duration: true
-            start_date: true
-            end_date: false
-            icon: true
-            separator: false
-          max_items: 10
-          history: 2
+          - type: entity
+            entity: sensor.kitchen_left_plant_last_watering_duration
+            name: Left Plant Last Watering
+            icon: mdi:water
+          - type: entity
+            entity: sensor.kitchen_right_plant_last_watering_duration
+            name: Right Plant Last Watering
+            icon: mdi:water
+          - type: "custom:stack-in-card"
+            mode: horizontal
+            cards:
+              - type: "custom:logbook-card"
+                entity: switch.kitchen_plant_controller_pump_relay_1
+                title: Left Plant Watering History
+                show:
+                  state: true
+                  duration: true
+                  start_date: true
+                  end_date: false
+                  icon: true
+                  separator: false
+                max_items: 10
+                history: 2
+              - type: "custom:logbook-card"
+                entity: switch.kitchen_plant_controller_pump_relay_2
+                title: Right Plant Watering History
+                show:
+                  state: true
+                  duration: true
+                  start_date: true
+                  end_date: false
+                  icon: true
+                  separator: false
+                max_items: 10
+                history: 2
   - title: Graphs
     path: graphs
     panel: true
     cards:
-      - type: 'custom:stack-in-card'
+      - type: "custom:stack-in-card"
         mode: vertical
         title: Switches
         cards:
-        - type: picture-entity
-          entity: camera.grafana_plant_closet_temp
-          name: Plant Closet Temperature
-          camera_image: camera.grafana_plant_closet_temp
-          camera_view: live
-        - type: picture-entity
-          entity: camera.grafana_plant_closet_humidity
-          name: Plant Closet Humidity
-          camera_image: camera.grafana_plant_closet_humidity
-          camera_view: live
-        - type: picture-entity
-          entity: camera.grafana_plant_closet_left_plant_humidity
-          name: Left Plant Humidity
-          camera_image: camera.grafana_plant_closet_left_plant_humidity
-          camera_view: live
-        - type: picture-entity
-          entity: camera.grafana_plant_closet_right_plant_humidity
-          name: Right Plant Humidity
-          camera_image: camera.grafana_plant_closet_right_plant_humidity
-          camera_view: live
+          - type: picture-entity
+            entity: camera.grafana_plant_closet_temp
+            name: Plant Closet Temperature
+            camera_image: camera.grafana_plant_closet_temp
+            camera_view: live
+          - type: picture-entity
+            entity: camera.grafana_plant_closet_humidity
+            name: Plant Closet Humidity
+            camera_image: camera.grafana_plant_closet_humidity
+            camera_view: live
+          - type: picture-entity
+            entity: camera.grafana_plant_closet_left_plant_humidity
+            name: Left Plant Humidity
+            camera_image: camera.grafana_plant_closet_left_plant_humidity
+            camera_view: live
+          - type: picture-entity
+            entity: camera.grafana_plant_closet_right_plant_humidity
+            name: Right Plant Humidity
+            camera_image: camera.grafana_plant_closet_right_plant_humidity
+            camera_view: live

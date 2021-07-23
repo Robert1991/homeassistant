@@ -1,6 +1,50 @@
 pyscript:
   allow_all_imports: true
   hass_is_global: true
+apps:
+  state_observer:
+    trigger_alarm_when_fridge_is_open:
+      observed_entity: binary_sensor.kitchen_sensor_door_sensor
+      observed_state: "on"
+      timeout_input_number: input_number.kitchen_frigde_door_open_alarm_timeout
+      actions:
+        - service: notify.mobile_app_iphone_von_robert
+          arguments:
+            title: "Kühlschrank Tür offen!"
+            message: "Tür wurde offen gelassen"
+            data:
+              actions:
+                - action: "URI"
+                  title: "Küchenübersicht öffnen"
+                  uri: "/lovelace/kitchen"
+        - service: pyscript.light_blink
+          arguments:
+            entity: light.kitchen_ceiling_light_light_switch
+            state_entity: binary_sensor.kitchen_sensor_door_sensor
+            target_state: "on"
+      state_resolved_actions:
+        - service: notify.mobile_app_iphone_von_robert
+          arguments:
+            title: "Kühlschrank Tür zu."
+            message: "Wurde wieder geschlossen"
+    trigger_alarm_when_plant_closet_is_too_hot:
+      observed_entity: binary_sensor.temperature_too_hot_in_plant_closet
+      observed_state: "on"
+      actions:
+        - service: notify.mobile_app_iphone_von_robert
+          arguments:
+            title: "Temperatur Alarm"
+            message: "Pflanzenschrank Temperatur checken..."
+            data:
+              actions:
+                - action: "URI"
+                  title: "Küchenübersicht öffnen"
+                  uri: "/lovelace/kitchen"
+      state_resolved_actions:
+        - service: notify.mobile_app_iphone_von_robert
+          arguments:
+            title: "Temperatur Alarm aufgehoben"
+            message: "Temperatur im Pflanzenschrank wieder normal"
   global:
     esp_home_automations:
       esp_home_base_path: "/home/robert/docker/homeassistant/volumes/homeassistant/esphome"

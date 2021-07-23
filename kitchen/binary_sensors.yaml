@@ -1,10 +1,6 @@
 - platform: template
   sensors:
-    fride_door_open_to_long:
-      friendly_name: "Fride door is open to long"
-      value_template: >-
-        {{ is_state('input_boolean.fride_door_was_left_open', 'on') }}
     shopping_list_has_items:
       friendly_name: "Shopping list has items"
       value_template: >-
-        {{ states('sensor.shopping_list').split(',') | length > 0 }}
+        {% if states.sensor.shopping_list.state %}on{% else %}off{% endif %}

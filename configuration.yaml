@@ -13,7 +13,6 @@ tts:
 alert: !include_dir_merge_named alerts/
 
 automation bedroom: !include bedroom/automations.yaml
-automation kitchen: !include kitchen/automations.yaml
 automation general_zigbee: !include general/zigbee2mqtt_automations.yaml
 automation general_shopping: !include general/shopping_automations.yaml
 automation home_server: !include general/home_server_automations.yaml
@@ -116,7 +115,6 @@ homekit:
         - switch.lenovo_new_gen_suspend_switch
         - switch.zigbee2mqtt_main_join
         - input_boolean.bedroom_closet_light_was_turned_off_before
-        - input_boolean.fride_door_was_left_open
         - input_boolean.zigbee2mqtt_force_remove
         - input_boolean.touch_screen_back_light_automatic_enabled
     entity_config:
@@ -130,8 +128,6 @@ homekit:
     filter:
       include_domains:
         - media_player
-
-
 
 input_boolean: !include_dir_merge_named input/input_boolean/
 input_number: !include_dir_merge_named input/input_number/
@@ -231,19 +227,28 @@ template:
   - trigger:
     - platform: state
       entity_id: switch.kitchen_plant_controller_pump_relay_1
-      from: 'off'
-      to: 'on'
+        from: "off"
+        to: "on"
     sensor:
       - name: "Kitchen Left Plant Last Watering Time Stamp"
         state: "{{ now() }}"
   - trigger:
     - platform: state
       entity_id: switch.kitchen_plant_controller_pump_relay_2
-      from: 'off'
-      to: 'on'
+        from: "off"
+        to: "on"
     sensor:
       - name: "Kitchen Right Plant Last Watering Time Stamp"
         state: "{{ now() }}"
+  - binary_sensor:
+      - name: Temperature too hot in plant closet
+        icon: mdi:thermometer-alert
+        delay_on: >
+          {{ states("input_number.kitchen_plant_closet_maximum_temperature_notification_timeout") | float * 60 }}
+        delay_off: >
+          {{ states("input_number.kitchen_plant_closet_release_temp_alarm_timeout") | float * 60 }}
+        state: >
+          {{ states("sensor.kitchen_plant_controller_temperature") | float > states("input_number.kitchen_plant_closet_maximum_temperature") | float }}
 
 timer:
   zigbee_permit_join:
