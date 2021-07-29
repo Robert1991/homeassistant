@@ -16,6 +16,7 @@ sensor:
   - platform: wifi_signal
     name: ${node_verbose_name} WiFi Signal
     update_interval: 60s
+    icon: mdi:wifi
   - platform: uptime
     name: ${node_verbose_name} Uptime
 
@@ -25,12 +26,16 @@ text_sensor:
   - platform: wifi_info
     ip_address:
       name: ${node_verbose_name} IP Address
+      icon: mdi:information
     ssid:
       name: ${node_verbose_name} Connected SSID
+      icon: mdi:information
     bssid:
       name: ${node_verbose_name} Connected BSSID
+      icon: mdi:information
     mac_address:
       name: ${node_verbose_name} Mac Wifi Address
+      icon: mdi:information
 
 switch:
   - platform: restart
