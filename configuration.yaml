@@ -24,8 +24,6 @@ binary_sensor toilet: !include toilet/binary_sensors.yaml
 binary_sensor kitchen: !include kitchen/binary_sensors.yaml
 binary_sensor living_room: !include living_room/binary_sensors.yaml
 
-camera kitchen_grafana: !include cameras/grafana_kitchen_graphs.yaml
-
 device_tracker:
   - platform: luci
     host: RPNRouter
@@ -209,7 +207,6 @@ scene toilet: !include toilet/scenes.yaml
 sensor bathroom: !include bathroom/sensors.yaml
 sensor toilet: !include toilet/sensors.yaml
 sensor kitchen: !include kitchen/sensors.yaml
-sensor kitchen_grafana: !include kitchen/grafana_sensors.yaml
 sensor general: !include general/sensors.yaml
 sensor general_zigbee2mqtt: !include general/zigbee2mqtt_sensors.yaml
 

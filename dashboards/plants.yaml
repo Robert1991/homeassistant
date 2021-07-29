@@ -178,29 +178,64 @@ views:
                 history: 2
   - title: Graphs
     path: graphs
-    panel: true
+    panel: false
     cards:
-      - type: "custom:stack-in-card"
-        mode: vertical
-        title: Switches
+      - type: custom:layout-card
+        layout:
+          grid-template-columns: 600px
+          grid-template-rows: auto
+          grid-template-areas: |
+            "header"
+            "main"
+            "footer"
+          mediaquery:
+            "(max-width: 600px)":
+              grid-template-columns: 100%
+              grid-template-areas: |
+                "header"
+                "main"
+                "footer"
         cards:
-          - type: picture-entity
-            entity: camera.grafana_plant_closet_temp
-            name: Plant Closet Temperature
-            camera_image: camera.grafana_plant_closet_temp
-            camera_view: live
-          - type: picture-entity
-            entity: camera.grafana_plant_closet_humidity
-            name: Plant Closet Humidity
-            camera_image: camera.grafana_plant_closet_humidity
-            camera_view: live
-          - type: picture-entity
-            entity: camera.grafana_plant_closet_left_plant_humidity
-            name: Left Plant Humidity
-            camera_image: camera.grafana_plant_closet_left_plant_humidity
-            camera_view: live
-          - type: picture-entity
-            entity: camera.grafana_plant_closet_right_plant_humidity
-            name: Right Plant Humidity
-            camera_image: camera.grafana_plant_closet_right_plant_humidity
-            camera_view: live
+        - type: "custom:stack-in-card"
+          mode: vertical
+          title: Graphs
+          cards:
+            - type: custom:apexcharts-card
+              graph_span: 2d
+              header:
+                show: true
+                title: Plant Closet Temperature
+                show_states: true
+                colorize_states: true
+              series:
+                - entity: sensor.kitchen_plant_controller_temperature
+                  name: Temperature in °C
+                  color: blue
+              view_layout:
+                grid-area: header
+            - type: custom:apexcharts-card
+              graph_span: 2d
+              header:
+                show: true
+                title: Plant Closet Humidity
+                show_states: true
+                colorize_states: true
+              series:
+                - entity: sensor.kitchen_plant_controller_humidity
+                  name: Humidity in %
+                  color: blue
+              view_layout:
+                grid-area: main
+            - type: custom:apexcharts-card
+              graph_span: 15m
+              header:
+                show: true
+                title: Plant Soil Humidity
+                show_states: true
+                colorize_states: true
+              series:
+                - entity: sensor.kitchen_plant_controller_moisture_sensor_2
+                  name: Soil Humidity in %
+                  color: blue
+              view_layout:
+                grid-area: footer
