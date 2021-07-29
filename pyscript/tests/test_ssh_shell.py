@@ -1,4 +1,3 @@
-from unittest import mock
 from ..modules.testtools.function_decorators import pyscript_compile
 from ..modules.testtools.context_tools import load_file_to_global_context_without_imports
 from unittest.mock import patch
@@ -43,8 +42,10 @@ def test_run_remote_apt_command():
         command_result.stdout = "stdout"
         subprocess_mock.return_value = command_result
         with patch("builtins.open", mock_open(read_data="data")) as mock_file:
-            assert None == run_remote_apt_command("update",
-                                                  "foo@some_remote", ".ssh/id_rsa", "sudo_password")
+            std_out, std_err = run_remote_apt_command("update",
+                                                      "foo@some_remote", ".ssh/id_rsa", "sudo_password")
+            assert std_out == "stdout"
+            assert std_err == None
             assert_subprocess_called_with(
                 'ssh', '-i', '.ssh/id_rsa', 'foo@some_remote',
                 'echo', "sudo_password", "|", 'sudo', "-S", "apt-get", "-y", "update")
@@ -62,8 +63,11 @@ def test_run_remote_apt_command_when_error_occuors():
         command_result.stderr = "error!"
         subprocess_mock.return_value = command_result
         with patch("builtins.open", mock_open(read_data="data")) as mock_file:
-            assert "error!" == run_remote_apt_command("update",
+            std_out, std_err = run_remote_apt_command("update",
                                                       "foo@some_remote", ".ssh/id_rsa", "sudo_password")
+            assert std_out == None
+            assert std_err == "error!"
+
             assert_subprocess_called_with('ssh', '-i', '.ssh/id_rsa', 'foo@some_remote',
                                           'echo', "sudo_password", "|", 'sudo', "-S", "apt-get", "-y", "update")
 
