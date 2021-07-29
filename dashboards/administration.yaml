@@ -1,0 +1,319 @@
+decluttering_templates:
+  dockerContainerHeadControl:
+    variables:
+      - container_name: zigbee2mqtt
+    card:
+      type: entities
+      entities:
+          - entity: 'sensor.docker_[[container_name]]_state'
+            type: custom:multiple-entity-row
+            name: Container
+            entities:
+              - entity: 'sensor.docker_[[container_name]]_image'
+                name: Image
+              - type: entity
+                entity: 'switch.docker_[[container_name]]'
+                name: false
+                toggle: true
+  dockerContainerHeadWithUpdateControl:
+    variables:
+      - container_name: zigbee2mqtt
+      - update_sensor_name: binary_sensor.zigbee2mqtt_update_sensor
+    card:
+      type: entities
+      entities:
+          - entity: 'sensor.docker_[[container_name]]_state'
+            type: custom:multiple-entity-row
+            name: Container
+            entities:
+              - entity: 'sensor.docker_[[container_name]]_image'
+                name: Image
+              - type: entity
+                entity: 'switch.docker_[[container_name]]'
+                name: false
+                toggle: true
+          - entity: '[[update_sensor_name]]'
+            type: custom:multiple-entity-row
+            name: Update
+            entities:
+              - attribute: tag
+                name: Tag
+              - attribute: release_notes
+                name: Release
+  dockerQuickControl:
+    variables:
+      - container_name: zigbee2mqtt
+    card:
+      type: horizontal-stack
+      cards:
+        - type: entity
+          entity: 'sensor.docker_[[container_name]]_memory'
+          name: Memory
+        - type: entity
+          entity: 'sensor.docker_[[container_name]]_1cpu'
+          name: CPU
+        - type: button
+          tap_action:
+            action: call-service
+            service: pyscript.run_home_assistant_docker_compose_command
+            service_data:
+              command: 'restart [[container_name]]'
+            target: {}
+          name: Restart
+          show_icon: true
+  
+  dockerContainerUptime:
+    variables:
+      - container_name: zigbee2mqtt
+    card:
+      type: custom:uptime-card
+      entity: 'sensor.docker_[[container_name]]_state'
+      ok: running
+      ko: exited
+      hours_to_show: 78
+      name: Uptime
+
+  dockerContainerControlWithUpdate:
+    variables:
+      - container_display_name: Zigbee2Mqtt
+      - container_name: zigbee2mqtt
+      - update_sensor_name: binary_sensor.zigbee2mqtt_update_sensor
+    card:
+      type: custom:vertical-stack-in-card
+      title: '[[container_display_name]]'
+      cards:
+          - type: custom:decluttering-card
+            template: dockerContainerHeadWithUpdateControl
+            variables:  
+            - container_name: '[[container_name]]'
+            - update_sensor_name: '[[update_sensor_name]]'
+          - type: custom:decluttering-card
+            template: dockerContainerUptime
+            variables:  
+            - container_name: '[[container_name]]'
+          - type: custom:decluttering-card
+            template: dockerQuickControl
+            variables:  
+            - container_name: '[[container_name]]'
+  dockerContainerControl:
+    variables:
+      - container_display_name: Zigbee2Mqtt
+      - container_name: zigbee2mqtt
+    card:
+      type: custom:vertical-stack-in-card
+      title: '[[container_display_name]]'
+      cards:
+          - type: custom:decluttering-card
+            template: dockerContainerHeadControl
+            variables:  
+            - container_name: '[[container_name]]'
+          - type: custom:decluttering-card
+            template: dockerContainerUptime
+            variables:  
+            - container_name: '[[container_name]]'
+          - type: custom:decluttering-card
+            template: dockerQuickControl
+            variables:  
+            - container_name: '[[container_name]]'
+title: Administration
+views:
+  - title: Docker
+    panel: true
+    path: docker
+    cards:
+      - type: custom:layout-card
+        layout_type: custom:masonry-layout
+        layout:
+          width: 300
+          max_cols: 3
+        cards:
+          - type: custom:decluttering-card
+            template: dockerContainerControlWithUpdate
+            variables:  
+            - container_display_name: Home-Assistant
+            - container_name: home_assistant
+            - update_sensor_name: binary_sensor.homeassistant_docker_update_sensor
+          - type: custom:decluttering-card
+            template: dockerContainerControlWithUpdate
+            variables:  
+            - container_display_name: AppDaemon
+            - container_name: appdaemon
+            - update_sensor_name: binary_sensor.appdaemon_update_sensor
+          - type: custom:decluttering-card
+            template: dockerContainerControlWithUpdate
+            variables:  
+            - container_display_name: ESPHome
+            - container_name: esphome
+            - update_sensor_name: binary_sensor.esphome_update_sensor
+          - type: custom:decluttering-card
+            template: dockerContainerControlWithUpdate
+            variables:  
+            - container_display_name: Mosquitto
+            - container_name: mosquitto
+            - update_sensor_name: binary_sensor.eclipse_mosquitto_update_sensor
+          - type: custom:decluttering-card
+            template: dockerContainerControlWithUpdate
+            variables:  
+            - container_display_name: Zigbee2Mqtt
+            - container_name: zigbee2mqtt
+            - update_sensor_name: binary_sensor.zigbee2mqtt_update_sensor
+          - type: custom:decluttering-card
+            template: dockerContainerControl
+            variables:  
+            - container_display_name: InfluxDB
+            - container_name: homeassistant_influxdb_1
+          - type: custom:decluttering-card
+            template: dockerContainerControl
+            variables:  
+            - container_display_name: MariaDB
+            - container_name: mariadb
+
+  - title: Docker Statistics
+    type: custom:grid-layout
+    panel: false
+    path: docker_graphs
+    layout:
+      width: 1000
+      max_cols: 10
+    cards:
+      - type: custom:layout-card
+        layout_type: custom:masonry-layout
+        layout:
+          width: 900
+          max_cols: 1
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: gauge
+                entity: sensor.docker_1cpu
+                min: 0
+                max: 100
+                name: Overall CPU Usage
+              - type: gauge
+                entity: sensor.docker_memory_percent
+                min: 0
+                max: 100
+                name: Overall Memory Usage
+          - type: horizontal-stack
+            cards:
+              - type: entity
+                entity: sensor.docker_containers_total
+                name: Total
+              - type: entity
+                entity: sensor.docker_containers_running
+                name: Running
+              - type: entity
+                entity: sensor.docker_containers_stopped
+                name: Stopped
+      - type: custom:layout-card
+        layout_type: custom:horizontal-layout
+        layout:
+          width: 450
+          max_cols: 2
+        cards:
+          - type: custom:apexcharts-card
+            graph_span: 15m
+            header:
+              show: true
+              title: Overall Memory Usage
+              show_states: true
+              colorize_states: true
+            series:
+              - entity: sensor.docker_memory
+                name: Memory Usage in MB
+                color: blue
+          - type: custom:apexcharts-card
+            graph_span: 15m
+            header:
+              show: true
+              title: Overall CPU Usage
+              show_states: true
+              colorize_states: true
+            series:
+              - entity: sensor.docker_1cpu
+                name: CPU usage in percent
+                color: blue
+      - type: custom:layout-card
+        layout_type: custom:horizontal-layout
+        layout:
+          width: 450
+          max_cols: 2
+        cards:
+          - type: custom:apexcharts-card
+            graph_span: 15m
+            header:
+              show: true
+              title: Homeassistant Memory Usage
+              show_states: true
+              colorize_states: true
+            series:
+              - entity: sensor.docker_appdaemon_memory
+                name: AppDaemon
+              - entity: sensor.docker_esphome_memory
+                name: ESPHome
+              - entity: sensor.docker_home_assistant_memory
+                name: Homeassistant
+              - entity: sensor.docker_homeassistant_influxdb_1_memory
+                name: InfluxDB
+              - entity: sensor.docker_mariadb_memory
+                name: MariaDB
+              - entity: sensor.docker_mosquitto_memory
+                name: Mosquitto
+              - entity: sensor.docker_zigbee2mqtt_memory
+                name: Zigbee2MQTT
+          - type: custom:apexcharts-card
+            graph_span: 15m
+            header:
+              show: true
+              title: Homeassistant CPU Usage
+              show_states: true
+              colorize_states: true
+            series:
+              - entity: sensor.docker_appdaemon_1cpu
+                name: AppDaemon
+              - entity: sensor.docker_esphome_1cpu
+                name: ESPHome
+              - entity: sensor.docker_home_assistant_1cpu
+                name: Homeassistant
+              - entity: sensor.docker_homeassistant_influxdb_1_1cpu
+                name: InfluxDB
+              - entity: sensor.docker_mariadb_1cpu
+                name: MariaDB
+              - entity: sensor.docker_mosquitto_1cpu
+                name: Mosquitto
+              - entity: sensor.docker_zigbee2mqtt_1cpu
+                name: Zigbee2MQTT
+      - type: custom:layout-card
+        layout_type: custom:horizontal-layout
+        layout:
+          width: 450
+          max_cols: 2
+        cards:
+          - type: custom:apexcharts-card
+            graph_span: 15m
+            header:
+              show: true
+              title: Homeassistant Memory Usage
+              show_states: true
+              colorize_states: true
+            series:
+              - entity: sensor.docker_server_monitoring_grafana_1_memory
+                name: Grafana
+              - entity: sensor.docker_server_monitoring_node_exporter_1_memory
+                name: Node Exporter
+              - entity: sensor.docker_server_monitoring_prometheus_1_memory
+                name: Prometheus
+          - type: custom:apexcharts-card
+            graph_span: 15m
+            header:
+              show: true
+              title: Homeassistant CPU Usage
+              show_states: true
+              colorize_states: true
+            series:
+              - entity: sensor.docker_server_monitoring_grafana_1_1cpu
+                name: Grafana
+              - entity: sensor.docker_server_monitoring_node_exporter_1_1cpu
+                name: Node Exporter
+              - entity: sensor.docker_server_monitoring_prometheus_1_1cpu
+                name: Prometheus

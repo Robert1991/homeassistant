@@ -169,6 +169,12 @@ lovelace:
       icon: mdi:devices
       show_in_sidebar: true
       filename: dashboards/devices.yaml
+    lovelace-administration:
+      mode: yaml
+      title: Administration
+      icon: mdi:account-hard-hat
+      show_in_sidebar: true
+      filename: dashboards/administration.yaml
     lovelace-plants:
       mode: yaml
       title: Plants
@@ -180,6 +186,50 @@ media_player:
     host: !secret tv_living_room_ip
     name: "TV LivingRoom"
 
+monitor_docker:
+  - name: Docker
+    containers:
+      - appdaemon
+      - mosquitto
+      - esphome
+      - home-assistant
+      - zigbee2mqtt
+      - mariadb
+      - homeassistant_influxdb_1
+      - server_monitoring_renderer_1
+      - server_monitoring_grafana_1
+      - server_monitoring_node-exporter_1
+      - server_monitoring_prometheus_1
+    rename:
+      appdaemon: AppDaemon
+      mosquitto: Mosquitto
+      esphome: ESPHome
+      home-assistant: Homeassistant
+      zigbee2mqtt: zigbee2MQTT
+      homeassistant_influxdb_1: InfluxDB
+      mariadb: Homeassistant MariaDB
+      server_monitoring_grafana_1: Grafana
+      server_monitoring_node-exporter_1: Server Node Exporter
+      server_monitoring_prometheus_1: Prometheus
+    monitored_conditions:
+      - version
+      - containers_running
+      - containers_total
+      - containers_paused
+      - containers_stopped
+      - containers_cpu_percentage
+      - containers_1cpu_percentage
+      - containers_memory
+      - containers_memory_percentage
+      - state
+      - status
+      - memory
+      - memory_percentage
+      - health
+      - uptime
+      - image
+      - cpu_percentage
+      - 1cpu_percentage
 mqtt:
   broker: rpn-home-server
   username: !secret mqtt_username
