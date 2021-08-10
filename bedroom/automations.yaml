@@ -2,11 +2,11 @@
   trigger:
     platform: state
     entity_id: binary_sensor.bedroom_sensor_door_sensor
-    to: 'on'
+    to: "on"
   condition:
     - condition: state
       entity_id: light.bedroom_closet_led_power_supply_light
-      state: 'off'
+      state: "off"
   action:
     - service: light.turn_on
       entity_id: light.bedroom_closet_led_power_supply_light
@@ -17,11 +17,11 @@
   trigger:
     platform: state
     entity_id: binary_sensor.bedroom_sensor_door_sensor
-    to: 'off'
+    to: "off"
   condition:
     - condition: state
       entity_id: input_boolean.bedroom_closet_light_was_turned_off_before
-      state: 'on'
+      state: "on"
   action:
     - service: input_boolean.turn_off
       entity_id: input_boolean.bedroom_closet_light_was_turned_off_before
@@ -36,18 +36,17 @@
       actionID: ED3CF43F-E74C-43C7-A191-3EDF1AFD00A4
       sourceDeviceID: iphone_von_robert
   action:
-    - service:  input_select.select_next
+    - service: input_select.select_next
       entity_id: input_select.bedroom_light_scene_generated
-
 
 - alias: Open Bedroom Blinds On Button Event
   trigger:
     - platform: state
       entity_id: sensor.bedroom_blind_button_1_action
-      to: 'open'
+      to: "open"
     - platform: state
       entity_id: sensor.bedroom_blind_button_2_action
-      to: 'open'
+      to: "open"
   action:
     - service: cover.open_cover
       target:
@@ -60,14 +59,32 @@
   trigger:
     - platform: state
       entity_id: sensor.bedroom_blind_button_1_action
-      to: 'close'
+      to: "close"
     - platform: state
       entity_id: sensor.bedroom_blind_button_2_action
-      to: 'close'
+      to: "close"
   action:
-      - service: cover.close_cover
-        target:
-          entity_id: cover.bedroom_blind_left
-      - service: cover.close_cover
-        target:
-          entity_id: cover.bedroom_blind_right
+    - service: cover.close_cover
+      target:
+        entity_id: cover.bedroom_blind_left
+    - service: cover.close_cover
+      target:
+        entity_id: cover.bedroom_blind_right
+
+- alias: Close Bedroom Blinds When Sun Is Below Horizon
+  trigger:
+    - platform: state
+      entity_id: sun.sun
+      from: above_horizon
+      to: below_horizon
+  condition:
+    - condition: state
+      entity_id: cover.bedroom_blind_right
+      state: "open"
+  action:
+    - service: cover.close_cover
+      target:
+        entity_id: cover.bedroom_blind_left
+    - service: cover.close_cover
+      target:
+        entity_id: cover.bedroom_blind_right
