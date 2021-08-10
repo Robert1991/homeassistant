@@ -2,6 +2,8 @@ pyscript:
   allow_all_imports: true
   hass_is_global: true
 apps:
+  home_server_update:
+    update_log: /config/tmp/apt_update.log
   state_observer:
     trigger_alarm_when_fridge_is_open:
       observed_entity: binary_sensor.kitchen_sensor_door_sensor
@@ -52,3 +54,5 @@ apps:
       ssh_key: "/config/.ssh/id_rsa"
       ssh_login: "robert@rpn-home-server"
       ssh_sudo: !secret host_sudo
+    home_assistant_docker_compose: "/home/robert/docker/homeassistant/docker-compose.yaml"
+    server_monitoring_docker_compose: "/home/robert/docker/server_monitoring/docker-compose.yaml"
