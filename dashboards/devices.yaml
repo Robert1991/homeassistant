@@ -1,4 +1,22 @@
 decluttering_templates:
+  espHomeDeviceInfoRow:
+    variables:
+      - device_display_name: Bedroom Sensor 1
+      - device_name: bedroom_sensor
+      - navigate_to: bedroom
+    card:
+      type: 'custom:multiple-entity-row'
+      entity: 'binary_sensor.[[device_name]]_connection_status'
+      name: '[[device_display_name]]'
+      show_state: true
+      state_color: true
+      tap_action:
+        action: navigate
+        navigation_path: '/lovelace-device/[[navigate_to]]'
+      entities:
+        - name: Update
+          entity: 'binary_sensor.[[device_name]]_update_available'
+
   zigbeeBatteryDeviceInfoRow:
     variables:
       - device_display_name: Bedroom Sensor 1
@@ -116,54 +134,78 @@ views:
     cards:
     - type: entities
       entities:
-        - entity: binary_sensor.balcony_sensor_actor_connection_status
-          tap_action:
-            action: navigate
-            navigation_path: /lovelace-device/other
-        - entity: binary_sensor.bathroom_sensor_actor_connection_status
-          tap_action:
-            action: navigate
-            navigation_path: /lovelace-device/other
-        - entity: binary_sensor.bedroom_sensor_connection_status
-          tap_action:
-            action: navigate
-            navigation_path: /lovelace-device/bedroom
-        - entity: binary_sensor.esp_couch_light_connection_status
-          tap_action:
-            action: navigate
-            navigation_path: /lovelace-device/living_room
-        - entity: binary_sensor.floor_sensor_actor_connection_status
-          tap_action:
-            action: navigate
-            navigation_path: /lovelace-device/other
-        - entity: binary_sensor.living_room_sensor_actor_2_connection_status
-          tap_action:
-            action: navigate
-            navigation_path: /lovelace-device/living_room
-        - entity: binary_sensor.kitchen_light_controller_connection_status
-          tap_action:
-            action: navigate
-            navigation_path: /lovelace-device/kitchen
-        - entity: binary_sensor.kitchen_ceiling_light_connection_status
-          tap_action:
-            action: navigate
-            navigation_path: /lovelace-device/kitchen
-        - entity: binary_sensor.kitchen_plant_controller_connection_status
-          tap_action:
-            action: navigate
-            navigation_path: /lovelace-device/kitchen
-        - entity: binary_sensor.kitchen_sensor_connection_status
-          tap_action:
-            action: navigate
-            navigation_path: /lovelace-device/kitchen
-        - entity: binary_sensor.kitchen_mqtt_lcd_display_connection_status
-          tap_action:
-            action: navigate
-            navigation_path: /lovelace-device/kitchen
-        - entity: binary_sensor.living_room_sensor_actor_1_connection_status
-          tap_action:
-            action: navigate
-            navigation_path: /lovelace-device/living_room
+        - type: custom:decluttering-card
+          template: espHomeDeviceInfoRow
+          variables:  
+          - device_name: balcony_sensor_actor
+          - device_display_name: Balcony Sensor Actor
+          - navigate_to: other
+        - type: custom:decluttering-card
+          template: espHomeDeviceInfoRow
+          variables:  
+          - device_name: bathroom_sensor_actor
+          - device_display_name: Bathroom Sensor Actor
+          - navigate_to: other
+        - type: custom:decluttering-card
+          template: espHomeDeviceInfoRow
+          variables:  
+          - device_name: bedroom_sensor
+          - device_display_name: Bedroom Sensor Actor
+          - navigate_to: bedroom
+        - type: custom:decluttering-card
+          template: espHomeDeviceInfoRow
+          variables:  
+          - device_name: esp_couch_light
+          - device_display_name: ESP Couch Light
+          - navigate_to: living_room
+        - type: custom:decluttering-card
+          template: espHomeDeviceInfoRow
+          variables:  
+          - device_name: floor_sensor_actor
+          - device_display_name: Floor Sensor Actor
+          - navigate_to: other
+        - type: custom:decluttering-card
+          template: espHomeDeviceInfoRow
+          variables:  
+          - device_name: living_room_sensor_actor_1
+          - device_display_name: Living Room Sensor Actor 1
+          - navigate_to: living_room
+        - type: custom:decluttering-card
+          template: espHomeDeviceInfoRow
+          variables:  
+          - device_name: living_room_sensor_actor_2
+          - device_display_name: Living Room Sensor Actor 2
+          - navigate_to: living_room
+        - type: custom:decluttering-card
+          template: espHomeDeviceInfoRow
+          variables:  
+          - device_name: kitchen_light_controller
+          - device_display_name: Kitchen Light Controller
+          - navigate_to: kitchen
+        - type: custom:decluttering-card
+          template: espHomeDeviceInfoRow
+          variables:  
+          - device_name: kitchen_ceiling_light
+          - device_display_name: Kitchen Ceiling Light
+          - navigate_to: kitchen
+        - type: custom:decluttering-card
+          template: espHomeDeviceInfoRow
+          variables:  
+          - device_name: kitchen_plant_controller
+          - device_display_name: Kitchen Plant Controller
+          - navigate_to: kitchen
+        - type: custom:decluttering-card
+          template: espHomeDeviceInfoRow
+          variables:  
+          - device_name: kitchen_sensor
+          - device_display_name: Kitchen Sensor
+          - navigate_to: kitchen
+        - type: custom:decluttering-card
+          template: espHomeDeviceInfoRow
+          variables:  
+          - device_name: kitchen_mqtt_lcd_display
+          - device_display_name: MQTT LCD Display
+          - navigate_to: kitchen
         - type: button
           tap_action:
             action: call-service

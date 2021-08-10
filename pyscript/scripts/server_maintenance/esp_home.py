@@ -30,3 +30,5 @@ def run_esp_home_device_update(esp_home_device_config):
     else:
         log.info("esp home device update for " +
                  esp_home_device_config + " was successful")
+        notify.persistent_notification(title="ESP Home Device Update Successfull", message="Device update for " +
+                                       esp_home_device_config + " was successful.")

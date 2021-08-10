@@ -1,0 +1,50 @@
+- platform: template
+  sensors:
+    balcony_sensor_actor_update_available:
+      friendly_name: Balcony Sensor Actor Update Available
+      value_template: >
+        {{ is_state("binary_sensor.esphome_update_sensor", "off") and (state_attr("binary_sensor.esphome_update_sensor", "tag") != states("sensor.balcony_sensor_actor_os_version").split(" ")[0]) }}
+    bathroom_sensor_actor_update_available:
+      friendly_name: Bathroom Sensor Actor Update Available
+      value_template: >
+        {{ is_state("binary_sensor.esphome_update_sensor", "off") and (state_attr("binary_sensor.esphome_update_sensor", "tag") != states("sensor.bathroom_sensor_actor_os_version").split(" ")[0]) }}
+    bedroom_sensor_update_available:
+      friendly_name: Bedroom Sensor Update Available
+      value_template: >
+        {{ is_state("binary_sensor.esphome_update_sensor", "off") and (state_attr("binary_sensor.esphome_update_sensor", "tag") != states("sensor.bedroom_sensor_os_version").split(" ")[0]) }}
+    esp_couch_light_update_available:
+      friendly_name: ESP Couch Light Update Available
+      value_template: >
+        {{ is_state("binary_sensor.esphome_update_sensor", "off") and (state_attr("binary_sensor.esphome_update_sensor", "tag") != states("sensor.esp_couch_light_os_version").split(" ")[0]) }}
+    floor_sensor_actor_update_available:
+      friendly_name: Floor Sensor Actor Update Available
+      value_template: >
+        {{ is_state("binary_sensor.esphome_update_sensor", "off") and (state_attr("binary_sensor.esphome_update_sensor", "tag") != states("sensor.floor_sensor_actor_os_version").split(" ")[0]) }}
+    kitchen_ceiling_light_update_available:
+      friendly_name: Kitchen Ceiling Light Update Available
+      value_template: >
+        {{ is_state("binary_sensor.esphome_update_sensor", "off") and (state_attr("binary_sensor.esphome_update_sensor", "tag") != states("sensor.kitchen_ceiling_light_os_version").split(" ")[0]) }}
+    kitchen_light_controller_update_available:
+      friendly_name: Kitchen Light Controller Update Available
+      value_template: >
+        {{ is_state("binary_sensor.esphome_update_sensor", "off") and (state_attr("binary_sensor.esphome_update_sensor", "tag") != states("sensor.kitchen_light_controller_os_version").split(" ")[0]) }}
+    kitchen_mqtt_lcd_display_update_available:
+      friendly_name: Kitchen MQTT LCD Display Update Available
+      value_template: >
+        {{ is_state("binary_sensor.esphome_update_sensor", "off") and (state_attr("binary_sensor.esphome_update_sensor", "tag") != states("sensor.kitchen_mqtt_lcd_display_os_version").split(" ")[0]) }}
+    kitchen_plant_controller_update_available:
+      friendly_name: Kitchen Plant Controller Update Available
+      value_template: >
+        {{ is_state("binary_sensor.esphome_update_sensor", "off") and (state_attr("binary_sensor.esphome_update_sensor", "tag") != states("sensor.kitchen_plant_controller_os_version").split(" ")[0]) }}
+    kitchen_sensor_update_available:
+      friendly_name: Kitchen Sensor Actor Update Available
+      value_template: >
+        {{ is_state("binary_sensor.esphome_update_sensor", "off") and (state_attr("binary_sensor.esphome_update_sensor", "tag") != states("sensor.kitchen_sensor_os_version").split(" ")[0]) }}
+    living_room_sensor_actor_1_update_available:
+      friendly_name: Living Room Sensor Actor 1 Update Available
+      value_template: >
+        {{ is_state("binary_sensor.esphome_update_sensor", "off") and (state_attr("binary_sensor.esphome_update_sensor", "tag") != states("sensor.living_room_sensor_actor_1_os_version").split(" ")[0]) }}
+    living_room_sensor_actor_2_update_available:
+      friendly_name: Living Room Sensor Actor 2 Update Available
+      value_template: >
+        {{ is_state("binary_sensor.esphome_update_sensor", "off") and (state_attr("binary_sensor.esphome_update_sensor", "tag") != states("sensor.living_room_sensor_actor_2_os_version").split(" ")[0]) }}
