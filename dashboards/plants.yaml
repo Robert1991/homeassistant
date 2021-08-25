@@ -22,9 +22,9 @@ views:
           - type: glance
             entities:
               - entity: sensor.kitchen_plant_controller_moisture_sensor_1
-                name: Moisture Left
-              - entity: sensor.kitchen_plant_controller_moisture_sensor_2
                 name: Moisture Right
+              - entity: sensor.kitchen_plant_controller_moisture_sensor_2
+                name: Moisture Left
             style: |
               ha-card {
               margin-top: 0px;
@@ -227,10 +227,23 @@ views:
               view_layout:
                 grid-area: main
             - type: custom:apexcharts-card
-              graph_span: 15m
+                graph_span: 2d
               header:
                 show: true
-                title: Plant Soil Humidity
+                  title: Plant Soil Humidity 1
+                  show_states: true
+                  colorize_states: true
+                series:
+                  - entity: sensor.kitchen_plant_controller_moisture_sensor_1
+                    name: Soil Humidity in %
+                    color: blue
+                view_layout:
+                  grid-area: footer
+              - type: custom:apexcharts-card
+                graph_span: 2d
+                header:
+                  show: true
+                  title: Plant Soil Humidity 2
                 show_states: true
                 colorize_states: true
               series:
