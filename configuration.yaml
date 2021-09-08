@@ -292,9 +292,9 @@ template:
       - name: Temperature too hot in plant closet
         icon: mdi:thermometer-alert
         delay_on: >
-          {{ states("input_number.kitchen_plant_closet_maximum_temperature_notification_timeout") | float * 60 }}
+          {{ states("input_number.kitchen_plant_closet_maximum_temperature_notification_timeout") | int * 60 }}
         delay_off: >
-          {{ states("input_number.kitchen_plant_closet_release_temp_alarm_timeout") | float * 60 }}
+          {{ states("input_number.kitchen_plant_closet_release_temp_alarm_timeout") | int * 60 }}
         state: >
           {{ states("sensor.kitchen_plant_controller_temperature") | float > states("input_number.kitchen_plant_closet_maximum_temperature") | float }}
 
