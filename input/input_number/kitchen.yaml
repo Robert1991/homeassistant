@@ -107,3 +107,35 @@ kitchen_plant_closet_release_temp_alarm_timeout:
   step: 1
   unit_of_measurement: "min"
   icon: "mdi:clock-in"
+
+lcd_display_rotation_timeout:
+  name: LCD Display Rotation Timeout
+  min: 1
+  max: 20
+  step: 1
+  unit_of_measurement: "s"
+  icon: "mdi:clock-in"
+
+left_plant_harvest_age:
+  name: Left Plant Harvest Age
+  min: 1
+  max: 120
+  step: 1
+  unit_of_measurement: "days"
+  icon: "mdi:calendar-check"
+
+middle_plant_harvest_age:
+  name: Middle Plant Harvest Age
+  min: 1
+  max: 120
+  step: 1
+  unit_of_measurement: "days"
+  icon: "mdi:calendar-check"
+
+right_plant_harvest_age:
+  name: Right Plant Harvest Age
+  min: 1
+  max: 120
+  step: 1
+  unit_of_measurement: "days"
+  icon: "mdi:calendar-check"

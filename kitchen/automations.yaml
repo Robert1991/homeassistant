@@ -1,0 +1,21 @@
+- alias: Pump Switch Left Pump Automation
+  use_blueprint:
+    path: pump_switch.yaml
+    input:
+      button_entity: binary_sensor.kitchen_mqtt_lcd_display_button_left
+      pump_entity: switch.kitchen_plant_controller_pump_relay_3
+      swimmer_sensor_entity: binary_sensor.kitchen_plant_controller_swimmer_sensor
+- alias: Pump Switch Middle Pump Automation
+  use_blueprint:
+    path: pump_switch.yaml
+    input:
+      button_entity: binary_sensor.kitchen_mqtt_lcd_display_button_middle
+      pump_entity: switch.kitchen_plant_controller_pump_relay_1
+      swimmer_sensor_entity: binary_sensor.kitchen_plant_controller_swimmer_sensor
+- alias: Pump Switch Right Pump Automation
+  use_blueprint:
+    path: pump_switch.yaml
+    input:
+      button_entity: binary_sensor.kitchen_mqtt_lcd_display_button_right
+      pump_entity: switch.kitchen_plant_controller_pump_relay_2
+      swimmer_sensor_entity: binary_sensor.kitchen_plant_controller_swimmer_sensor

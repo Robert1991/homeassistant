@@ -10,7 +10,6 @@ light.balcony_sensor_actor_relay_light_2:
   friendly_name: "Balcony Ceiling Light"
   icon: "mdi:string-lights"
 
-
 # bathroom_sensor_actor
 light.bathroom_sensor_actor_spots:
   friendly_name: "Bathroom Spot Lights"
@@ -110,10 +109,16 @@ light.kitchen_ceiling_light_light_switch:
 
 # kitchen plant controller
 sensor.kitchen_plant_controller_moisture_sensor_1:
-  friendly_name: "Kitchen Plant Closet Left Plant Moisture"
+  friendly_name: "Kitchen Plant Closet Middle Plant Moisture"
 sensor.kitchen_plant_controller_moisture_sensor_2:
   friendly_name: "Kitchen Plant Closet Right Plant Moisture"
+sensor.kitchen_plant_controller_moisture_sensor_3:
+  friendly_name: "Kitchen Plant Closet Left Plant Moisture"
+
 switch.kitchen_plant_controller_pump_relay_1:
+  friendly_name: "Kitchen Plant Closet Middle Plant Pump"
+  icon: mdi:water-pump
+switch.kitchen_plant_controller_pump_relay_3:
   friendly_name: "Kitchen Plant Closet Left Plant Pump"
   icon: mdi:water-pump
 switch.kitchen_plant_controller_pump_relay_2:

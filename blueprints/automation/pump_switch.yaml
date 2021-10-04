@@ -1,0 +1,44 @@
+blueprint:
+  name: Pump Switch
+  description: Turn On Pump Given That Enough Water Is Present
+  domain: automation
+  input:
+    button_entity:
+      name: Button
+      description: Button with which the pump will be turned on
+      selector:
+        entity:
+          domain: binary_sensor
+    pump_entity:
+      name: Pump
+      description: Pump Entity which will be controlled
+      selector:
+        target:
+          entity:
+            domain: switch
+    swimmer_sensor_entity:
+      name: Swimmer Sensor
+      description: Swimmer sensor showing if there is still water
+      selector:
+        entity:
+          domain: binary_sensor
+
+trigger:
+  - platform: state
+    entity_id: !input button_entity
+
+variables:
+  swimmer_sensor: !input swimmer_sensor_entity
+  swimmer_sensor_state: "{{ states[swimmer_sensor].state }}"
+
+action:
+  service: >
+    {% if trigger.to_state.state == "on" %}
+      {% if swimmer_sensor_state == "on" %}
+        switch.turn_on
+      {% endif %}
+    {% else %}
+      switch.turn_off
+    {% endif %}
+  target:
+    entity_id: !input pump_entity

@@ -16,6 +16,7 @@ automation bedroom: !include bedroom/automations.yaml
 automation general_zigbee: !include general/zigbee2mqtt_automations.yaml
 automation general_shopping: !include general/shopping_automations.yaml
 automation home_server: !include general/home_server_automations.yaml
+automation kitchen: !include kitchen/automations.yaml
 
 binary_sensor general: !include general/binary_sensors.yaml 
 binary_sensor general_esphome: !include general/esphome_binary_sensors.yaml

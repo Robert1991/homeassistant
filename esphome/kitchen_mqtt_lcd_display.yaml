@@ -5,14 +5,37 @@ substitutions:
 
 packages:
   mqtt: !include mqtt.yaml
-  wifi: !include wifi.yaml 
+  wifi: !include wifi.yaml
   device_base: !include common/device_base.yaml
-    
+
 text_sensor:
   - platform: mqtt_subscribe
     name: "Kitchen MQTT LCD Display Display Topic"
     id: diplay_text_sensor
     topic: kitchen_mqtt_lcd_display/show
+
+binary_sensor:
+  - platform: gpio
+    pin:
+      number: D4
+      mode: INPUT
+      inverted: true
+
+    name: "Kitchen MQTT LCD Display Button Left"
+  - platform: gpio
+    pin:
+      number: D1
+      mode: INPUT
+      inverted: true
+
+    name: "Kitchen MQTT LCD Display Button Middle"
+  - platform: gpio
+    pin:
+      number: D0
+      mode: INPUT
+      inverted: true
+
+    name: "Kitchen MQTT LCD Display Button Right"
 
 display:
   - platform: lcd_gpio

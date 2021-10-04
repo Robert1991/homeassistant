@@ -1,45 +1,51 @@
+decluttering_templates:
+  plant_overview:
+    variables:
+      - plant_place: Left
+      - plant_place_lower: left
+      - moisture_sensor_number: 3
+      - pump_number: 3
+    card:
+      type: "custom:vertical-stack-in-card"
+      title: "[[plant_place]] Plant"
+      cards:
+        - type: glance
+          entities:
+            - entity: "sensor.kitchen_[[plant_place_lower]]_plant_age_in_days"
+              name: Age In Days
+            - entity: "input_number.[[plant_place_lower]]_plant_harvest_age"
+              icon: mdi:calendar-check
+              name: Harvest
+            - entity: "input_datetime.[[plant_place_lower]]_plant_planting_date"
+              name: Planting Date
+        - type: glance
+          entities:
+            - entity: "sensor.kitchen_plant_controller_moisture_sensor_[[moisture_sensor_number]]"
+              name: Moisture
+            - entity: "input_text.[[plant_place_lower]]_plant_name"
+              icon: mdi:flower
+              name: null
+            - type: button
+              entity: "switch.kitchen_plant_controller_pump_relay_[[pump_number]]"
+              name: Pump
+              icon_height: 40px
 title: Plants
 views:
   - title: Overview
     path: overview
     cards:
       - type: "custom:vertical-stack-in-card"
-        title: Sensors
+        title: General
         cards:
           - type: glance
             entities:
               - entity: sensor.kitchen_plant_controller_humidity
                 name: Humidity
+              - entity: binary_sensor.kitchen_plant_controller_swimmer_sensor
+                name: Water available
               - entity: sensor.kitchen_plant_controller_temperature
                 name: Temperature
                 show_name: true
-            card_mod: null
-            style: |
-              ha-card {
-              margin-top: -30px;
-              margin-bottom: -10px;
-              }
-          - type: glance
-            entities:
-              - entity: sensor.kitchen_plant_controller_moisture_sensor_1
-                name: Moisture Right
-              - entity: sensor.kitchen_plant_controller_moisture_sensor_2
-                name: Moisture Left
-            style: |
-              ha-card {
-              margin-top: 0px;
-              margin-bottom: -10px;
-              }
-            show_name: true
-          - type: glance
-            entities:
-              - entity: binary_sensor.kitchen_plant_controller_swimmer_sensor
-                name: Water available
-              - entity: alert.plants_need_water_refill
-                name: Plantwater Refill Alert
-      - type: "custom:vertical-stack-in-card"
-        title: Control
-        cards:
           - type: "custom:stack-in-card"
             mode: horizontal
             title: Switches
@@ -62,22 +68,11 @@ views:
                   margin-top: -10px;
                   margin-bottom: 0px;
                   }
-          - type: "custom:stack-in-card"
-            mode: horizontal
-            cards:
-              - type: button
-                entity: switch.kitchen_plant_controller_pump_relay_1
-                name: Left Pump
-                icon_height: 40px
-              - type: button
-                entity: switch.kitchen_plant_controller_pump_relay_2
-                name: Right Pump
-                icon_height: 40px
           - type: custom:fold-entity-row
             head:
               type: section
               label: Automations
-            open: true
+            open: false
             entities:
               - type: "custom:fold-entity-row"
                 head:
@@ -88,6 +83,13 @@ views:
                     entity: input_datetime.kitchen_plant_light_turn_on_time
                   - name: Turn Off Time
                     entity: input_datetime.kitchen_plant_light_turn_off_time
+              - type: "custom:fold-entity-row"
+                head:
+                  entity: input_boolean.kitchen_lcd_display_rotation_enabled
+                  name: Plant Status Display Rotation
+                entities:
+                  - name: Rotation Timeout
+                    entity: input_number.lcd_display_rotation_timeout
               - type: "custom:fold-entity-row"
                 head:
                   entity: input_boolean.kitchen_plant_ventilation_automation_enabled
@@ -138,44 +140,27 @@ views:
                   - name: Pump Duration
                     entity: input_number.kitchen_right_plant_watering_duration
                     type: custom:slider-entity-row
-      - type: "custom:stack-in-card"
-        mode: vertical
-        cards:
-          - type: entity
-            entity: sensor.kitchen_left_plant_last_watering_duration
-            name: Left Plant Last Watering
-            icon: mdi:water
-          - type: entity
-            entity: sensor.kitchen_right_plant_last_watering_duration
-            name: Right Plant Last Watering
-            icon: mdi:water
-          - type: "custom:stack-in-card"
-            mode: horizontal
-            cards:
-              - type: "custom:logbook-card"
-                entity: switch.kitchen_plant_controller_pump_relay_1
-                title: Left Plant Watering History
-                show:
-                  state: true
-                  duration: true
-                  start_date: true
-                  end_date: false
-                  icon: true
-                  separator: false
-                max_items: 10
-                history: 2
-              - type: "custom:logbook-card"
-                entity: switch.kitchen_plant_controller_pump_relay_2
-                title: Right Plant Watering History
-                show:
-                  state: true
-                  duration: true
-                  start_date: true
-                  end_date: false
-                  icon: true
-                  separator: false
-                max_items: 10
-                history: 2
+      - type: custom:decluttering-card
+        template: plant_overview
+        variables:
+          - plant_place: Left
+          - plant_place_lower: left
+          - moisture_sensor_number: 3
+          - pump_number: 3
+      - type: custom:decluttering-card
+        template: plant_overview
+        variables:
+          - plant_place: Middle
+          - plant_place_lower: middle
+          - moisture_sensor_number: 1
+          - pump_number: 1
+      - type: custom:decluttering-card
+        template: plant_overview
+        variables:
+          - plant_place: Right
+          - plant_place_lower: right
+          - moisture_sensor_number: 2
+          - pump_number: 2
   - title: Graphs
     path: graphs
     panel: false
