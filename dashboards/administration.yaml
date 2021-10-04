@@ -5,16 +5,16 @@ decluttering_templates:
     card:
       type: entities
       entities:
-          - entity: 'sensor.docker_[[container_name]]_state'
-            type: custom:multiple-entity-row
-            name: Container
-            entities:
-              - entity: 'sensor.docker_[[container_name]]_image'
-                name: Image
-              - type: entity
-                entity: 'switch.docker_[[container_name]]'
-                name: false
-                toggle: true
+        - entity: "sensor.docker_[[container_name]]_state"
+          type: custom:multiple-entity-row
+          name: Container
+          entities:
+            - entity: "sensor.docker_[[container_name]]_image"
+              name: Image
+            - type: entity
+              entity: "switch.docker_[[container_name]]"
+              name: false
+              toggle: true
   dockerContainerHeadWithUpdateControl:
     variables:
       - container_name: zigbee2mqtt
@@ -22,24 +22,57 @@ decluttering_templates:
     card:
       type: entities
       entities:
-          - entity: 'sensor.docker_[[container_name]]_state'
-            type: custom:multiple-entity-row
-            name: Container
-            entities:
-              - entity: 'sensor.docker_[[container_name]]_image'
-                name: Image
-              - type: entity
-                entity: 'switch.docker_[[container_name]]'
-                name: false
-                toggle: true
-          - entity: '[[update_sensor_name]]'
-            type: custom:multiple-entity-row
-            name: Update
-            entities:
-              - attribute: tag
-                name: Tag
-              - attribute: release_notes
-                name: Release
+        - entity: "sensor.docker_[[container_name]]_state"
+          type: custom:multiple-entity-row
+          name: Container
+          entities:
+            - entity: "sensor.docker_[[container_name]]_image"
+              name: Image
+            - type: entity
+              entity: "switch.docker_[[container_name]]"
+              name: false
+              toggle: true
+        - entity: "[[update_sensor_name]]"
+          type: custom:multiple-entity-row
+          name: Update
+          entities:
+            - attribute: tag
+              name: Tag
+            - attribute: release_notes
+              name: Release
+  dockerQuickControlWithUpdate:
+    variables:
+      - container_name: zigbee2mqtt
+    card:
+      type: horizontal-stack
+      cards:
+        - type: entity
+          entity: "sensor.docker_[[container_name]]_memory"
+          name: Memory
+        - type: entity
+          entity: "sensor.docker_[[container_name]]_1cpu"
+          name: CPU
+        - type: vertical-stack
+          cards:
+            - type: button
+              tap_action:
+                action: call-service
+                service: pyscript.run_home_assistant_docker_compose_command
+                service_data:
+                  command: "restart [[container_name]]"
+                target: {}
+              name: Restart
+              show_icon: true
+            - type: button
+              tap_action:
+                action: call-service
+                service: pyscript.run_home_assistant_docker_pull_container_command
+                service_data:
+                  container: "[[container_name]]"
+                target: {}
+              name: Update
+              show_icon: true
+
   dockerQuickControl:
     variables:
       - container_name: zigbee2mqtt
@@ -47,27 +80,27 @@ decluttering_templates:
       type: horizontal-stack
       cards:
         - type: entity
-          entity: 'sensor.docker_[[container_name]]_memory'
+          entity: "sensor.docker_[[container_name]]_memory"
           name: Memory
         - type: entity
-          entity: 'sensor.docker_[[container_name]]_1cpu'
+          entity: "sensor.docker_[[container_name]]_1cpu"
           name: CPU
         - type: button
           tap_action:
             action: call-service
             service: pyscript.run_home_assistant_docker_compose_command
             service_data:
-              command: 'restart [[container_name]]'
+              command: "restart [[container_name]]"
             target: {}
           name: Restart
           show_icon: true
-  
+
   dockerContainerUptime:
     variables:
       - container_name: zigbee2mqtt
     card:
       type: custom:uptime-card
-      entity: 'sensor.docker_[[container_name]]_state'
+      entity: "sensor.docker_[[container_name]]_state"
       ok: running
       ko: exited
       hours_to_show: 78
@@ -80,44 +113,44 @@ decluttering_templates:
       - update_sensor_name: binary_sensor.zigbee2mqtt_update_sensor
     card:
       type: custom:vertical-stack-in-card
-      title: '[[container_display_name]]'
+      title: "[[container_display_name]]"
       cards:
-          - type: custom:decluttering-card
-            template: dockerContainerHeadWithUpdateControl
-            variables:  
-            - container_name: '[[container_name]]'
-            - update_sensor_name: '[[update_sensor_name]]'
-          - type: custom:decluttering-card
-            template: dockerContainerUptime
-            variables:  
-            - container_name: '[[container_name]]'
-          - type: custom:decluttering-card
-            template: dockerQuickControl
-            variables:  
-            - container_name: '[[container_name]]'
+        - type: custom:decluttering-card
+          template: dockerContainerHeadWithUpdateControl
+          variables:
+            - container_name: "[[container_name]]"
+            - update_sensor_name: "[[update_sensor_name]]"
+        - type: custom:decluttering-card
+          template: dockerContainerUptime
+          variables:
+            - container_name: "[[container_name]]"
+        - type: custom:decluttering-card
+          template: dockerQuickControlWithUpdate
+          variables:
+            - container_name: "[[container_name]]"
   dockerContainerControl:
     variables:
       - container_display_name: Zigbee2Mqtt
       - container_name: zigbee2mqtt
     card:
       type: custom:vertical-stack-in-card
-      title: '[[container_display_name]]'
+      title: "[[container_display_name]]"
       cards:
-          - type: custom:decluttering-card
-            template: dockerContainerHeadControl
-            variables:  
-            - container_name: '[[container_name]]'
-          - type: custom:decluttering-card
-            template: dockerContainerUptime
-            variables:  
-            - container_name: '[[container_name]]'
-          - type: custom:decluttering-card
-            template: dockerQuickControl
-            variables:  
-            - container_name: '[[container_name]]'
+        - type: custom:decluttering-card
+          template: dockerContainerHeadControl
+          variables:
+            - container_name: "[[container_name]]"
+        - type: custom:decluttering-card
+          template: dockerContainerUptime
+          variables:
+            - container_name: "[[container_name]]"
+        - type: custom:decluttering-card
+          template: dockerQuickControl
+          variables:
+            - container_name: "[[container_name]]"
 title: Administration
 views:
-  - title: Docker
+  - title: Docker Homeassistant
     panel: true
     path: docker
     cards:
@@ -129,45 +162,72 @@ views:
         cards:
           - type: custom:decluttering-card
             template: dockerContainerControlWithUpdate
-            variables:  
-            - container_display_name: Home-Assistant
-            - container_name: home_assistant
-            - update_sensor_name: binary_sensor.homeassistant_docker_update_sensor
+            variables:
+              - container_display_name: Home-Assistant
+              - container_name: home_assistant
+              - update_sensor_name: binary_sensor.homeassistant_docker_update_sensor
           - type: custom:decluttering-card
             template: dockerContainerControlWithUpdate
-            variables:  
-            - container_display_name: AppDaemon
-            - container_name: appdaemon
-            - update_sensor_name: binary_sensor.appdaemon_update_sensor
+            variables:
+              - container_display_name: AppDaemon
+              - container_name: appdaemon
+              - update_sensor_name: binary_sensor.appdaemon_update_sensor
           - type: custom:decluttering-card
             template: dockerContainerControlWithUpdate
-            variables:  
-            - container_display_name: ESPHome
-            - container_name: esphome
-            - update_sensor_name: binary_sensor.esphome_update_sensor
+            variables:
+              - container_display_name: ESPHome
+              - container_name: esphome
+              - update_sensor_name: binary_sensor.esphome_update_sensor
           - type: custom:decluttering-card
             template: dockerContainerControlWithUpdate
-            variables:  
-            - container_display_name: Mosquitto
-            - container_name: mosquitto
-            - update_sensor_name: binary_sensor.eclipse_mosquitto_update_sensor
+            variables:
+              - container_display_name: Mosquitto
+              - container_name: mosquitto
+              - update_sensor_name: binary_sensor.eclipse_mosquitto_update_sensor
           - type: custom:decluttering-card
             template: dockerContainerControlWithUpdate
-            variables:  
-            - container_display_name: Zigbee2Mqtt
-            - container_name: zigbee2mqtt
-            - update_sensor_name: binary_sensor.zigbee2mqtt_update_sensor
+            variables:
+              - container_display_name: Zigbee2Mqtt
+              - container_name: zigbee2mqtt
+              - update_sensor_name: binary_sensor.zigbee2mqtt_update_sensor
+          - type: custom:layout-break
           - type: custom:decluttering-card
             template: dockerContainerControl
-            variables:  
-            - container_display_name: InfluxDB
-            - container_name: homeassistant_influxdb_1
+            variables:
+              - container_display_name: InfluxDB
+              - container_name: homeassistant_influxdb_1
           - type: custom:decluttering-card
             template: dockerContainerControl
-            variables:  
-            - container_display_name: MariaDB
-            - container_name: mariadb
-
+            variables:
+              - container_display_name: MariaDB
+              - container_name: mariadb
+  - title: Docker Server Monitoring
+    panel: true
+    path: docker_monitoring
+    cards:
+      - type: custom:layout-card
+        layout_type: custom:masonry-layout
+        layout:
+          width: 300
+          max_cols: 3
+        cards:
+          - type: custom:decluttering-card
+            template: dockerContainerControlWithUpdate
+            variables:
+              - container_display_name: Grafana
+              - container_name: server_monitoring_grafana_1
+              - update_sensor_name: binary_sensor.grafana_update_sensor
+          - type: custom:decluttering-card
+            template: dockerContainerControlWithUpdate
+            variables:
+              - container_display_name: Prometheus
+              - container_name: server_monitoring_prometheus_1
+              - update_sensor_name: binary_sensor.prometheus_update_sensor
+          - type: custom:decluttering-card
+            template: dockerContainerControl
+            variables:
+              - container_display_name: Node Exporter
+              - container_name: server_monitoring_node_exporter_1
   - title: Docker Statistics
     type: custom:grid-layout
     panel: false
