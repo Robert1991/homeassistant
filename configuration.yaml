@@ -153,18 +153,12 @@ logger:
 lovelace:
   mode: storage
   dashboards:
-    lovelace-floor-plan:
+    lovelace-overview:
       mode: yaml
-      title: Floor Plan
-      icon: mdi:floor-plan
+      title: Overview
+      icon: mdi:home-assistant
       show_in_sidebar: true
-      filename: dashboards/floor_plan.yaml
-    lovelace-light:
-      mode: yaml
-      title: Lights
-      icon: mdi:ceiling-light
-      show_in_sidebar: true
-      filename: dashboards/lights.yaml
+      filename: dashboards/overview.yaml
     lovelace-device:
       mode: yaml
       title: Devices
