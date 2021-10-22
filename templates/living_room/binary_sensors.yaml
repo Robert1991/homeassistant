@@ -1,0 +1,14 @@
+- binary_sensor:
+    - name: Living Room TV is playing
+      icon: mdi:television-play
+      state: >-
+        {{ is_state('media_player.tv_livingroom', 'playing') }}
+    - name: Living Room TV is on
+      icon: mdi:monitor-dashboard
+      state: >-
+        {{ not is_state('media_player.tv_livingroom', 'off') }}
+    - name: Activity detected in living room
+      icon: mdi:monitor-dashboard
+      state: >-
+        {{ is_state('binary_sensor.living_room_tv_is_playing', 'on') 
+        or is_state('binary_sensor.living_room_sensor_actor_1_motion_detected', 'on') }}

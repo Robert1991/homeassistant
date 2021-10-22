@@ -1,0 +1,29 @@
+- sensor:
+    - name: Plant Closet Master Switch Power In Watt
+      state: "{{ states('sensor.plant_closet_master_switch_power') | int / 10 | int }}"
+      unit_of_measurement: Watt
+      icon: mdi:lightning-bolt-outline
+- trigger:
+    - platform: state
+      entity_id: switch.kitchen_plant_controller_pump_relay_3
+      from: "off"
+      to: "on"
+  sensor:
+    - name: "Kitchen Left Plant Last Watering Time Stamp"
+      state: "{{ now() | as_timestamp | timestamp_custom('%Y-%m-%d %H:%M:%S') }}"
+- trigger:
+    - platform: state
+      entity_id: switch.kitchen_plant_controller_pump_relay_1
+      from: "off"
+      to: "on"
+  sensor:
+    - name: "Kitchen Middle Plant Last Watering Time Stamp"
+      state: "{{ now() | as_timestamp | timestamp_custom('%Y-%m-%d %H:%M:%S') }}"
+- trigger:
+    - platform: state
+      entity_id: switch.kitchen_plant_controller_pump_relay_2
+      from: "off"
+      to: "on"
+  sensor:
+    - name: "Kitchen Right Plant Last Watering Time Stamp"
+      state: "{{ now() | as_timestamp | timestamp_custom('%Y-%m-%d %H:%M:%S') }}"

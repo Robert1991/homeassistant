@@ -23,8 +23,6 @@ binary_sensor general_esphome: !include general/esphome_binary_sensors.yaml
 binary_sensor bathroom: !include bathroom/binary_sensors.yaml
 binary_sensor bedroom: !include bedroom/binary_sensors.yaml
 binary_sensor toilet: !include toilet/binary_sensors.yaml
-binary_sensor kitchen: !include kitchen/binary_sensors.yaml
-binary_sensor living_room: !include living_room/binary_sensors.yaml
 
 device_tracker:
   - platform: luci
@@ -266,32 +264,7 @@ spotcast:
   sp_dc: !secret sp_dc
   sp_key: !secret sp_key
 
-template:
-  - trigger:
-    - platform: state
-      entity_id: switch.kitchen_plant_controller_pump_relay_1
-        from: "off"
-        to: "on"
-    sensor:
-      - name: "Kitchen Left Plant Last Watering Time Stamp"
-        state: "{{ now() }}"
-  - trigger:
-    - platform: state
-      entity_id: switch.kitchen_plant_controller_pump_relay_2
-        from: "off"
-        to: "on"
-    sensor:
-      - name: "Kitchen Right Plant Last Watering Time Stamp"
-        state: "{{ now() }}"
-  - binary_sensor:
-      - name: Temperature too hot in plant closet
-        icon: mdi:thermometer-alert
-        delay_on: >
-          {{ states("input_number.kitchen_plant_closet_maximum_temperature_notification_timeout") | int * 60 }}
-        delay_off: >
-          {{ states("input_number.kitchen_plant_closet_release_temp_alarm_timeout") | int * 60 }}
-        state: >
-          {{ states("sensor.kitchen_plant_controller_temperature") | float > states("input_number.kitchen_plant_closet_maximum_temperature") | float }}
+template: !include_dir_merge_list templates/
 
 timer:
   zigbee_permit_join:

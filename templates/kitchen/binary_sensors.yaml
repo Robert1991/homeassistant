@@ -1,0 +1,4 @@
+- binary_sensor:
+    - name: "Shopping list has items"
+      state: >
+        {% if states.sensor.shopping_list.state %}on{% else %}off{% endif %}

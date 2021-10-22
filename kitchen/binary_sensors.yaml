@@ -1,6 +1,0 @@
-- platform: template
-  sensors:
-    shopping_list_has_items:
-      friendly_name: "Shopping list has items"
-      value_template: >-
-        {% if states.sensor.shopping_list.state %}on{% else %}off{% endif %}
