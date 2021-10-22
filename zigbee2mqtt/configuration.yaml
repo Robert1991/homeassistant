@@ -4,47 +4,49 @@ mqtt:
   base_topic: zigbee2mqtt
   server: mqtt://rpn-home-server
   user: zigbee2mqtt
-  password: '!secret mqtt_password'
+  password: "!secret mqtt_password"
 serial:
   port: /dev/ttyACM0
 devices:
-  '0x001788010866c45a':
+  "0x001788010866c45a":
     friendly_name: Hue Motion Sensor 1
-  '0x00178801091665a4':
+  "0x00178801091665a4":
     friendly_name: Hue Motion Sensor 2
-  '0x0017880100112ed7':
+  "0x0017880100112ed7":
     friendly_name: Hue Iris Light
-  '0x680ae2fffe416061':
+  "0x680ae2fffe416061":
     friendly_name: Bedroom Closet Led Power Supply Light
-  '0x680ae2fffe9361a1':
+  "0x680ae2fffe9361a1":
     friendly_name: Ikea Kitchen Smart Button
-  '0x680ae2fffe41499c':
+  "0x680ae2fffe41499c":
     friendly_name: Kitchen Led Spots Light
-  '0x001788010607b42e':
+  "0x001788010607b42e":
     friendly_name: Hue Smart Button 2
-  '0x001788010606ff0d':
+  "0x001788010606ff0d":
     friendly_name: Hue Smart Button 3
-  '0x0017880106051fb6':
+  "0x0017880106051fb6":
     friendly_name: Hue Smart Button 1
-  '0x0017880108fbce9d':
+  "0x0017880108fbce9d":
     friendly_name: Hue Smart Plug 1
-  '0x0017880108fbda30':
+  "0x0017880108fbda30":
     friendly_name: Hue Smart Plug 2
-  '0xd0cf5efffe20ba19':
+  "0xd0cf5efffe20ba19":
     friendly_name: Ikea Bathroom Smart Button
-  '0x0017880108935396':
+  "0x0017880108935396":
     friendly_name: Hue Smart Button 4
-  '0x90fd9ffffede5ba1':
+  "0x90fd9ffffede5ba1":
     friendly_name: Ikea Floor Smart Button
-  '0x5c0272fffe5c18e2':
+  "0x5c0272fffe5c18e2":
     friendly_name: Bedroom Blind Button 1
-  '0x5c0272fffe5c1262':
+  "0x5c0272fffe5c1262":
     friendly_name: Bedroom Blind Button 2
-  '0xbc33acfffe113c21':
+  "0xbc33acfffe113c21":
     friendly_name: IKEA Repeater
-  '0x680ae2fffef46b27':
+  "0x680ae2fffef46b27":
     friendly_name: Bedroom Blind Right
-  '0x5c0272fffe874f74':
+  "0x5c0272fffe874f74":
     friendly_name: Bedroom Blind Left
+  "0x00124b00072a7a2b":
+    friendly_name: Plant Closet Master Switch
 advanced:
   channel: 15

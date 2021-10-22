@@ -20,6 +20,9 @@ decluttering_templates:
               name: Planting Date
         - type: glance
           entities:
+            - entity: "input_text.[[plant_place_lower]]_plant_name"
+              icon: mdi:flower
+              name: Type
             - entity: "sensor.kitchen_plant_controller_moisture_sensor_[[moisture_sensor_number]]"
               name: Moisture
             - entity: "input_text.[[plant_place_lower]]_plant_name"
@@ -41,11 +44,15 @@ views:
             entities:
               - entity: sensor.kitchen_plant_controller_humidity
                 name: Humidity
-              - entity: binary_sensor.kitchen_plant_controller_swimmer_sensor
-                name: Water available
               - entity: sensor.kitchen_plant_controller_temperature
                 name: Temperature
                 show_name: true
+          - type: glance
+            entities:
+              - entity: sensor.plant_closet_master_switch_power_in_watt
+                name: Energy Consumption
+              - entity: binary_sensor.kitchen_plant_controller_swimmer_sensor
+                name: Water available
           - type: "custom:stack-in-card"
             mode: horizontal
             title: Switches
