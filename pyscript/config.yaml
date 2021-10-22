@@ -47,6 +47,26 @@ apps:
           arguments:
             title: "Temperatur Alarm aufgehoben"
             message: "Temperatur im Pflanzenschrank wieder normal"
+  lcd_display_rotation:
+    display_topic: kitchen_mqtt_lcd_display/show
+    rotate_timeout_entity: input_number.lcd_display_rotation_timeout
+    rotation_enabled_entity: input_boolean.kitchen_lcd_display_rotation_enabled
+    displayed_entities:
+      - entity: sensor.kitchen_plant_controller_humidity
+        name: Humidity
+        unit: "%"
+      - entity: sensor.kitchen_plant_controller_temperature
+        name: Temperature
+        unit: "deg. C"
+      - entity: sensor.kitchen_plant_controller_moisture_sensor_3
+        name: Moisture Left
+        unit: "%"
+      - entity: sensor.kitchen_plant_controller_moisture_sensor_1
+        name: Moisture Middle
+        unit: "%"
+      - entity: sensor.kitchen_plant_controller_moisture_sensor_2
+        name: Moisture Right
+        unit: "%"
   global:
     esp_home_automations:
       esp_home_base_path: "/home/robert/docker/homeassistant/volumes/homeassistant/esphome"
