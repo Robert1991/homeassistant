@@ -298,7 +298,7 @@
       - 0.41
   name: Bedroom Relaxed 2
 - entities:
-    input_number.bedroom_light_toogle_intensity_threshold: '30'
+    input_number.bedroom_light_toogle_intensity_threshold: '20'
     light.bedroom_bed_light:
       state: 'off'
     light.bedroom_ceiling_1:
@@ -341,7 +341,6 @@
       - 0.39
       - 0.372
     light.bedroom_closet_led_power_supply_light:
-      brightness: 161
       state: 'off'
     light.bedroom_sensor_neopixel_partition_light_1:
       brightness: 169
