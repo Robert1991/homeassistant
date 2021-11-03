@@ -28,6 +28,12 @@
         {{ ((now() | as_timestamp - states("input_datetime.middle_plant_planting_date") | as_timestamp) / (24*60*60)) | int }}
       unit_of_measurement: days
       icon_template: mdi:sort-clock-descending-outline
+    kitchen_middle_back_plant_age_in_days:
+      value_template: >
+        {{ ((now() | as_timestamp - states("input_datetime.middle_back_plant_planting_date") | as_timestamp) / (24*60*60)) | int }}
+      unit_of_measurement: days
+      icon_template: mdi:sort-clock-descending-outline
+
     kitchen_right_plant_age_in_days:
       value_template: >
         {{ ((now() | as_timestamp - states("input_datetime.right_plant_planting_date") | as_timestamp) / (24*60*60)) | int }}

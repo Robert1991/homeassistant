@@ -132,6 +132,14 @@ middle_plant_harvest_age:
   unit_of_measurement: "days"
   icon: "mdi:calendar-check"
 
+middle_back_plant_harvest_age:
+  name: Middle Plant Harvest Age
+  min: 1
+  max: 120
+  step: 1
+  unit_of_measurement: "days"
+  icon: "mdi:calendar-check"
+
 right_plant_harvest_age:
   name: Right Plant Harvest Age
   min: 1

@@ -6,14 +6,6 @@ toggle_plant_light_after_given_time_frame:
   toggled_entity: switch.hue_smart_plug_1
   constrain_input_boolean: input_boolean.kitchen_plant_light_automation_enabled
 
-toggle_plant_ventilation_together_with_plant_automation_in_given_time_frame:
-  module: time_based_toggle_automations
-  class: TimeBasedToggleAutomation
-  time_interval_start: input_datetime.kitchen_plant_light_turn_on_time
-  time_interval_end: input_datetime.kitchen_plant_light_turn_off_time
-  toggled_entity: switch.hue_smart_plug_2
-  input_constraint: input_boolean.kitchen_plant_light_automation_enabled
-
 toggle_left_plant_watering_in_given_interval:
   module: time_based_toggle_automations
   class: TurnOnOffInterval
