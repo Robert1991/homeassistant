@@ -48,3 +48,8 @@ middle_plant_planting_date:
     name: Middle Plant Planting Date
     has_date: true
     has_time: false
+
+middle_back_plant_planting_date:
+    name: Middle Back Plant Planting Date
+    has_date: true
+    has_time: false
