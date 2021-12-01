@@ -31,6 +31,7 @@ light:
     id: neopixellight
     name: ${node_verbose_name} NeoPixel Light
     internal: true
+    variant: 800KBPS
   - platform: partition
     name: ${node_verbose_name} NeoPixel Partition Light 1
     id: neopixellight_segment_1

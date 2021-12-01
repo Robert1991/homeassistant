@@ -1,6 +1,7 @@
 # esphome
 esphome/.gitignore
 esphome/.esphome/
+esphome/build/
 **/.pioenvs/
 **/.piolibdeps/
 **/lib/

@@ -28,6 +28,7 @@ light:
     num_leds: 144
     id: neopixellight
     name: ${node_verbose_name} NeoPixel Light
+    variant: 800KBPS
     internal: true
   - platform: partition
     name: ${node_verbose_name} NeoPixel Partition Light 1
