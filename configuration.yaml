@@ -237,6 +237,9 @@ notify ios:
 
 pyscript: !include pyscript/config.yaml
 
+remote_homeassistant:
+  instances:
+
 script: !include scripts.yaml
 
 scene: !include scenes.yaml
