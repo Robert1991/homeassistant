@@ -5,38 +5,6 @@ kitchen_light_brightness:
   max: 255
   step: 15
 
-kitchen_left_plant_watering_duration:
-  name: Kitchen Plant Watering Duration
-  min: 1
-  max: 100
-  step: 1
-  unit_of_measurement: "s"
-  icon: "mdi:clock-in"
-
-kitchen_left_plant_watering_interval:
-  name: Kitchen Plant Watering Interval
-  min: 1
-  max: 48
-  step: 1
-  unit_of_measurement: "h"
-  icon: "mdi:clock-in"
-
-kitchen_right_plant_watering_interval:
-  name: Kitchen Plant Watering Interval
-  min: 1
-  max: 48
-  step: 1
-  unit_of_measurement: "h"
-  icon: "mdi:clock-in"
-
-kitchen_right_plant_watering_duration:
-  name: Kitchen Plant Watering Duration
-  min: 1
-  max: 100
-  step: 1
-  unit_of_measurement: "s"
-  icon: "mdi:clock-in"
-
 kitchen_plant_night_ventilation_on_interval:
   name: Kitchen Plant Night Ventilation On Interval
   min: 1
@@ -118,6 +86,14 @@ lcd_display_rotation_timeout:
 
 left_plant_harvest_age:
   name: Left Plant Harvest Age
+  min: 1
+  max: 120
+  step: 1
+  unit_of_measurement: "days"
+  icon: "mdi:calendar-check"
+
+left_back_plant_harvest_age:
+  name: Left Back Plant Harvest Age
   min: 1
   max: 120
   step: 1

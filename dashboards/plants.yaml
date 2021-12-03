@@ -1,32 +1,8 @@
 decluttering_templates:
-  plane_plant_overview:
-    variables:
-      - plant_place: Left
-      - plant_place_lower: left
-    card:
-      type: "custom:vertical-stack-in-card"
-      title: "[[plant_place]] Plant"
-      cards:
-        - type: glance
-          entities:
-            - entity: "sensor.kitchen_[[plant_place_lower]]_plant_age_in_days"
-              name: Age In Days
-            - entity: "input_number.[[plant_place_lower]]_plant_harvest_age"
-              icon: mdi:calendar-check
-              name: Harvest
-            - entity: "input_datetime.[[plant_place_lower]]_plant_planting_date"
-              name: Planting Date
-        - type: glance
-          entities:
-            - entity: "input_text.[[plant_place_lower]]_plant_name"
-              icon: mdi:flower
-              name: Type
   plant_overview:
     variables:
       - plant_place: Left
       - plant_place_lower: left
-      - moisture_sensor_number: 3
-      - pump_number: 3
     card:
       type: "custom:vertical-stack-in-card"
       title: "[[plant_place]] Plant"
@@ -38,30 +14,25 @@ decluttering_templates:
             - entity: "input_number.[[plant_place_lower]]_plant_harvest_age"
               icon: mdi:calendar-check
               name: Harvest
-            - entity: "input_datetime.[[plant_place_lower]]_plant_planting_date"
-              name: Planting Date
         - type: glance
           entities:
+            - entity: "input_datetime.[[plant_place_lower]]_plant_planting_date"
+              name: Planting Date
             - entity: "input_text.[[plant_place_lower]]_plant_name"
               icon: mdi:flower
               name: Type
-            - entity: "sensor.kitchen_plant_controller_moisture_sensor_[[moisture_sensor_number]]"
-              name: Moisture
-        - entity: switch.kitchen_plant_controller_pump_relay_[[pump_number]]
-          type: custom:multiple-entity-row
-          name: Pump
-          toggle: true
-          state_color: true
-          entities:
-            - entity: sensor.kitchen_[[plant_place_lower]]_plant_last_watering_duration
-              name: Last Watering
 title: Plants
 views:
   - title: Overview
     path: overview
+    type: custom:horizontal-layout
+    layout:
+      max_cols: 3
     cards:
       - type: "custom:vertical-stack-in-card"
         title: General
+        view_layout:
+          column: 1
         cards:
           - type: glance
             entities:
@@ -74,8 +45,6 @@ views:
             entities:
               - entity: sensor.plant_closet_master_switch_power_in_watt
                 name: Energy Consumption
-              - entity: binary_sensor.kitchen_plant_controller_swimmer_sensor
-                name: Water available
           - type: "custom:stack-in-card"
             mode: horizontal
             title: Switches
@@ -134,8 +103,6 @@ views:
                   - name: Start Time
                     entity: input_datetime.kitchen_plant_night_ventilation_turn_on_time
               - type: divider
-              - entity: alert.plants_need_water_refill
-                name: Plantwater Refill Alert
               - type: "custom:fold-entity-row"
                 head:
                   entity: binary_sensor.temperature_too_hot_in_plant_closet
@@ -147,55 +114,41 @@ views:
                     name: Notification Timeout
                   - entity: input_number.kitchen_plant_closet_release_temp_alarm_timeout
                     name: Release Alarm Timeout
-
-              - type: "custom:fold-entity-row"
-                head:
-                  entity: input_boolean.kitchen_left_plant_watering_automation_enabled
-                  name: Left Plant Watering
-                entities:
-                  - name: Interval in h
-                    entity: input_number.kitchen_left_plant_watering_interval
-                    type: custom:slider-entity-row
-                  - name: Pump Duration
-                    entity: input_number.kitchen_left_plant_watering_duration
-                    type: custom:slider-entity-row
-              - type: "custom:fold-entity-row"
-                head:
-                  entity: input_boolean.kitchen_right_plant_watering_automation_enabled
-                  name: Right Plant Watering
-                entities:
-                  - name: Interval in h
-                    entity: input_number.kitchen_right_plant_watering_interval
-                    type: custom:slider-entity-row
-                  - name: Pump Duration
-                    entity: input_number.kitchen_right_plant_watering_duration
-                    type: custom:slider-entity-row
       - type: custom:decluttering-card
         template: plant_overview
+        view_layout:
+          column: 2
         variables:
           - plant_place: Left
           - plant_place_lower: left
-          - moisture_sensor_number: 3
-          - pump_number: 3
       - type: custom:decluttering-card
         template: plant_overview
+        view_layout:
+          column: 3
+        variables:
+          - plant_place: Left Back
+          - plant_place_lower: left_back
+      - type: custom:decluttering-card
+        template: plant_overview
+        view_layout:
+          column: 2
         variables:
           - plant_place: Middle
           - plant_place_lower: middle
-          - moisture_sensor_number: 1
-          - pump_number: 1
       - type: custom:decluttering-card
-        template: plane_plant_overview
+        template: plant_overview
+        view_layout:
+          column: 3
         variables:
           - plant_place: Middle Back
           - plant_place_lower: middle_back
       - type: custom:decluttering-card
         template: plant_overview
+        view_layout:
+          column: 2
         variables:
           - plant_place: Right
           - plant_place_lower: right
-          - moisture_sensor_number: 2
-          - pump_number: 2
   - title: Graphs
     path: graphs
     panel: false
@@ -250,25 +203,12 @@ views:
                 graph_span: 2d
                 header:
                   show: true
-                  title: Plant Soil Humidity 1
+                  title: Plant Power Consumption
                   show_states: true
                   colorize_states: true
                 series:
-                  - entity: sensor.kitchen_plant_controller_moisture_sensor_1
-                    name: Soil Humidity in %
+                  - entity: sensor.plant_closet_master_switch_power_in_watt
+                    name: Power in W
                     color: blue
                 view_layout:
-                  grid-area: footer
-              - type: custom:apexcharts-card
-                graph_span: 2d
-                header:
-                  show: true
-                  title: Plant Soil Humidity 2
-                  show_states: true
-                  colorize_states: true
-                series:
-                  - entity: sensor.kitchen_plant_controller_moisture_sensor_2
-                    name: Soil Humidity in %
-                    color: blue
-                view_layout:
-                  grid-area: footer
+                  grid-area: main

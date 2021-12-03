@@ -1,5 +1,7 @@
 left_plant_name:
   name: Left Plant Name
+left_back_plant_name:
+  name: Left Back Plant Name
 middle_plant_name:
   name: Middle Plant Name
 middle_back_plant_name:
