@@ -75,7 +75,7 @@ decluttering_templates:
             - type: custom:config-template-card
               variables:
                 SCENE_NAME: >-
-                  'states["[[scene_control_input_select]]"].state'
+                  states['[[scene_control_input_select]]'].state
               entities:
                 - "[[scene_control_input_select]]"
               card:
@@ -104,7 +104,7 @@ decluttering_templates:
             - type: custom:config-template-card
               variables:
                 SCENE_NAME: >-
-                  'states["[[scene_control_input_select]]"].state'
+                  states['[[scene_control_input_select]]'].state
               entities:
                 - "[[scene_control_input_select]]"
               card:
@@ -283,7 +283,6 @@ views:
                   - name: Turn Off Timeout
                     entity: >-
                       input_number.living_touch_screen_back_light_turn_off_timeout
-                  - type: custom:decluttering-card
       - type: "custom:vertical-stack-in-card"
         title: Light Scenes
         cards:

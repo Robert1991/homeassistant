@@ -28,3 +28,5 @@ zigbee2mqtt/log/
 zigbee2mqtt/database.db
 zigbee2mqtt/secret.yaml
 zigbee2mqtt/state.json
+zigbee2mqtt/coordinator_backup.json
+zigbee.db

@@ -2,7 +2,7 @@
   name: home_server_update_state
   command: /config/scripts/update_sensor.py
   value_template: "{{ value_json['total_updates'] }}"
-  json_attributes: 
+  json_attributes:
     - total_updates
     - security_updates
 
