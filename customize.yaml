@@ -131,6 +131,9 @@ light.hue_iris_light:
   friendly_name: "TV Philips Hue Bubble Light"
   icon: mdi:wall-sconce-round-variant
 
+light.hue_portable_light_bulb:
+  icon: mdi:wall-sconce-round-variant
+
 light.floor_neo_pixel_light:
   friendly_name: "Floor Neo Pixel Lightstrip"
   icon: mdi:led-strip-variant
