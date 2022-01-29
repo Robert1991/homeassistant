@@ -198,3 +198,16 @@ switch.hue_smart_plug_1:
 switch.hue_smart_plug_2:
   friendly_name: "Kitchen Plant Ventilation"
   icon: mdi:fan
+
+# general
+sensor.homeassistant_version:
+  friendly_name: "Homeassistant Version"
+  icon: mdi:new-box
+
+sensor.home_server_update_state:
+  friendly_name: "Homeserver Updates"
+  icon: mdi:new-box
+
+binary_sensor.home_server_updates_available:
+  friendly_name: "Homeserver Update State"
+  icon: mdi:new-box

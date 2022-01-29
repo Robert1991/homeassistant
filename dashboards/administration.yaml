@@ -150,6 +150,66 @@ decluttering_templates:
             - container_name: "[[container_name]]"
 title: Administration
 views:
+  - title: Overview
+    path: overview
+    cards:
+      - type: custom:vertical-stack-in-card
+        cards:
+          - type: entities
+            title: Homeassistant
+            entities:
+              - entity: sensor.homeassistant_version
+                name: Version
+              - type: custom:multiple-entity-row
+                entity: binary_sensor.updater
+                name: Update
+                secondary_info:
+                  attribute: newest_version
+                  name: Current version
+              - entity: sensor.cert_expiry_timestamp_robertnator_duckdns_org
+                name: Certificate Expiry
+          - type: entities
+            title: Homeserver
+            entities:
+              - type: custom:multiple-entity-row
+                entity: binary_sensor.home_server_updates_available
+                name: Update
+                entities:
+                  - entity: sensor.home_server_update_state
+                    name: Total
+                  - entity: sensor.home_server_update_state
+                    name: Security
+                    attribute: security_updates
+      - type: custom:vertical-stack-in-card
+        title: Internet Connection 
+        cards:
+        - type: entities
+          entities:
+            - entity: sensor.speedtest_download
+              name: Download Speed
+            - entity: sensor.speedtest_upload
+              name: Upload Speed
+            - entity: sensor.speedtest_ping
+              name: Ping
+        - type: statistics-graph
+          entities:
+            - sensor.speedtest_download
+            - sensor.speedtest_upload
+          days_to_show: 7
+          stat_types:
+            - mean
+          chart_type: line
+      - type: entities
+        title: Docker Updates
+        entities:
+          - entity: binary_sensor.appdaemon_update_sensor
+            name: AppDaemon
+          - entity: binary_sensor.esphome_update_sensor
+            name: ESPHome
+          - entity: binary_sensor.eclipse_mosquitto_update_sensor
+            name: Mosquitto
+          - entity: binary_sensor.zigbee2mqtt_update_sensor
+            name: Zigbee2Mqtt
   - title: Docker Homeassistant
     panel: true
     path: docker

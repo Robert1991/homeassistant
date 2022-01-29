@@ -512,12 +512,12 @@ views:
           - type: glance
             entities:
               - entity: binary_sensor.kitchen_sensor_motion_detected
-                name: null
+                name: ""
               - entity: sensor.kitchen_sensor_humidity
-                name: null
+                name: ""
               - entity: sensor.kitchen_sensor_temperature
-                name: null
-              - name: null
+                name: ""
+              - name: ""
                 entity: sensor.kitchen_sensor_light_intensity
               - name: Fridge
                 entity: binary_sensor.kitchen_sensor_door_sensor
