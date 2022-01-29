@@ -107,30 +107,11 @@ light.kitchen_ceiling_light_light_switch:
   friendly_name: "Kitchen Ceiling Light"
   icon: mdi:ceiling-light
 
-# kitchen plant controller
-sensor.kitchen_plant_controller_moisture_sensor_1:
-  friendly_name: "Kitchen Plant Closet Middle Plant Moisture"
-sensor.kitchen_plant_controller_moisture_sensor_2:
-  friendly_name: "Kitchen Plant Closet Right Plant Moisture"
-sensor.kitchen_plant_controller_moisture_sensor_3:
-  friendly_name: "Kitchen Plant Closet Left Plant Moisture"
-
-switch.kitchen_plant_controller_pump_relay_1:
-  friendly_name: "Kitchen Plant Closet Middle Plant Pump"
-  icon: mdi:water-pump
-switch.kitchen_plant_controller_pump_relay_3:
-  friendly_name: "Kitchen Plant Closet Left Plant Pump"
-  icon: mdi:water-pump
-switch.kitchen_plant_controller_pump_relay_2:
-  friendly_name: "Kitchen Plant Closet Right Plant Pump"
-  icon: mdi:water-pump
-sensor.kitchen_plant_controller_humidity:
+# kitchen_mqtt_lcd_display
+sensor.kitchen_mqtt_lcd_display_humidity:
   friendly_name: "Kitchen Plant Closet Humidity"
-sensor.kitchen_plant_controller_temperature:
+sensor.kitchen_mqtt_lcd_display_temperature:
   friendly_name: "Kitchen Plant Closet Temperature"
-binary_sensor.kitchen_plant_controller_swimmer_sensor:
-  friendly_name: "Kitchen Plant Closet Swimmer"
-  icon: mdi:water-check
 
 # esp_couch_light
 light.esp_couch_light_rgb_i2c_light:

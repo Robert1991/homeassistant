@@ -1,8 +1,14 @@
 registered_lcd_display_rotation_trigger = None
 
 
+def get_next_for_display_name(next_for_display):
+    if "name_entity" in next_for_display:
+        return state.get(next_for_display["name_entity"])
+    return next_for_display["name"]
+
+
 def format_message(next_for_display):
-    display_message = next_for_display["name"] + \
+    display_message = get_next_for_display_name(next_for_display) + \
         ":\n" + state.get(next_for_display["entity"])
     if next_for_display["unit"]:
         unit = next_for_display["unit"].replace("\\\\", "\\")

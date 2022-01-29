@@ -103,13 +103,6 @@ a8_7e_ea_70_39_7e:
   picture:
   track: true
 
-8c_aa_b5_7a_63_b6:
-  name: kitchen_plant_controller
-  mac: 8C:AA:B5:7A:63:B6
-  icon:
-  picture:
-  track: true
-
 e8_db_84_c5_6c_d7:
   name: kitchen_mqtt_lcd_display
   mac: E8:DB:84:C5:6C:D7

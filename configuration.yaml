@@ -16,7 +16,6 @@ automation bedroom: !include bedroom/automations.yaml
 automation general_zigbee: !include general/zigbee2mqtt_automations.yaml
 automation general_shopping: !include general/shopping_automations.yaml
 automation home_server: !include general/home_server_automations.yaml
-automation kitchen: !include kitchen/automations.yaml
 
 binary_sensor general: !include general/binary_sensors.yaml 
 binary_sensor general_esphome: !include general/esphome_binary_sensors.yaml
@@ -115,11 +114,6 @@ homekit:
         - input_boolean.bedroom_closet_light_was_turned_off_before
         - input_boolean.zigbee2mqtt_force_remove
         - input_boolean.touch_screen_back_light_automatic_enabled
-    entity_config:
-      switch.kitchen_plant_controller_pump_relay_1:
-        type: faucet
-      switch.kitchen_plant_controller_pump_relay_2:
-        type: faucet
   - name: HASS Accessory Bridge
     port: 21065
     mode: accessory

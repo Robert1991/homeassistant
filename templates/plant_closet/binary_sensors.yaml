@@ -6,4 +6,4 @@
       delay_off: >
         {{ states("input_number.kitchen_plant_closet_release_temp_alarm_timeout") | int * 60 }}
       state: >
-        {{ states("sensor.kitchen_plant_controller_temperature") | float > states("input_number.kitchen_plant_closet_maximum_temperature") | float }}
+        {{ states("sensor.kitchen_mqtt_lcd_display_temperature") | float > states("input_number.kitchen_plant_closet_maximum_temperature") | float }}

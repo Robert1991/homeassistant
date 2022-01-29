@@ -52,27 +52,37 @@ apps:
     rotate_timeout_entity: input_number.lcd_display_rotation_timeout
     rotation_enabled_entity: input_boolean.kitchen_lcd_display_rotation_enabled
     displayed_entities:
-      - entity: sensor.kitchen_plant_controller_humidity
+      - entity: sensor.kitchen_mqtt_lcd_display_humidity
         name: Humidity
         unit: "%"
-      - entity: sensor.kitchen_plant_controller_temperature
+      - entity: sensor.kitchen_mqtt_lcd_display_temperature
         name: Temperature
         unit: "deg. C"
-      - entity: sensor.kitchen_plant_controller_moisture_sensor_3
-        name: Moisture Left
-        unit: "%"
-      - entity: sensor.kitchen_plant_controller_moisture_sensor_1
-        name: Moisture Middle
-        unit: "%"
-      - entity: sensor.kitchen_plant_controller_moisture_sensor_2
-        name: Moisture Right
-        unit: "%"
-  global:
-    esp_home_automations:
-      esp_home_base_path: "/home/robert/docker/homeassistant/volumes/homeassistant/esphome"
-    host_server:
-      ssh_key: "/config/.ssh/id_rsa"
-      ssh_login: "robert@rpn-home-server"
-      ssh_sudo: !secret host_sudo
+      - entity: sensor.plant_closet_master_switch_power_in_watt
+        name: Energy Cons.
+        unit: "W"
+      - entity: sensor.kitchen_left_plant_age_in_days
+        name_entity: input_text.left_plant_name
+        unit: "days"
+      - entity: sensor.kitchen_left_back_plant_age_in_days
+        name_entity: input_text.left_back_plant_name
+        unit: "days"
+      - entity: sensor.kitchen_middle_plant_age_in_days
+        name_entity: input_text.middle_plant_name
+        unit: "days"
+      - entity: sensor.kitchen_middle_back_plant_age_in_days
+        name_entity: input_text.middle_back_plant_name
+        unit: "days"
+      - entity: sensor.kitchen_right_plant_age_in_days
+        name_entity: input_text.right_plant_name
+        unit: "days"
+
+global:
+  esp_home_automations:
+    esp_home_base_path: "/home/robert/docker/homeassistant/volumes/homeassistant/esphome"
+  host_server:
+    ssh_key: "/config/.ssh/id_rsa"
+    ssh_login: "robert@rpn-home-server"
+    ssh_sudo: !secret host_sudo
     home_assistant_docker_compose: "/home/robert/docker/homeassistant/docker-compose.yaml"
     server_monitoring_docker_compose: "/home/robert/docker/server_monitoring/docker-compose.yaml"

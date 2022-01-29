@@ -36,9 +36,9 @@ views:
         cards:
           - type: glance
             entities:
-              - entity: sensor.kitchen_plant_controller_humidity
+              - entity: sensor.kitchen_mqtt_lcd_display_humidity
                 name: Humidity
-              - entity: sensor.kitchen_plant_controller_temperature
+              - entity: sensor.kitchen_mqtt_lcd_display_temperature
                 name: Temperature
                 show_name: true
           - type: glance
@@ -181,7 +181,7 @@ views:
                   show_states: true
                   colorize_states: true
                 series:
-                  - entity: sensor.kitchen_plant_controller_temperature
+                  - entity: sensor.kitchen_mqtt_lcd_display_temperature
                     name: Temperature in °C
                     color: blue
                 view_layout:
@@ -194,7 +194,7 @@ views:
                   show_states: true
                   colorize_states: true
                 series:
-                  - entity: sensor.kitchen_plant_controller_humidity
+                  - entity: sensor.kitchen_mqtt_lcd_display_humidity
                     name: Humidity in %
                     color: blue
                 view_layout:

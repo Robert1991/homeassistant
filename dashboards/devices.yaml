@@ -191,12 +191,6 @@ views:
         - type: custom:decluttering-card
           template: espHomeDeviceInfoRow
           variables:  
-          - device_name: kitchen_plant_controller
-          - device_display_name: Kitchen Plant Controller
-          - navigate_to: kitchen
-        - type: custom:decluttering-card
-          template: espHomeDeviceInfoRow
-          variables:  
           - device_name: kitchen_sensor
           - device_display_name: Kitchen Sensor
           - navigate_to: kitchen
@@ -398,11 +392,6 @@ views:
       variables:  
         - sensor_name: kitchen_sensor
         - sensor_display_name: Kitchen Sensor
-    - type: custom:decluttering-card
-      template: device_overview_template
-      variables:  
-        - sensor_name: kitchen_plant_controller
-        - sensor_display_name: Kitchen Plant Controller
     - type: custom:decluttering-card
       template: device_overview_template
       variables:  

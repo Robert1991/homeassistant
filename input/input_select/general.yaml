@@ -19,7 +19,6 @@ esp_home_devices:
     - kitchen_ceiling_light
     - kitchen_light_controller
     - kitchen_mqtt_lcd_display
-    - kitchen_plant_controller
     - kitchen_sensor
     - living_room_sensor_actor_1
     - living_room_sensor_actor_2

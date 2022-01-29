@@ -2,6 +2,8 @@ substitutions:
   node_name: kitchen_mqtt_lcd_display
   node_board: nodemcuv2
   node_verbose_name: Kitchen MQTT LCD Display
+  dht_pin: D4
+  dht_type: DHT22
 
 packages:
   mqtt: !include mqtt.yaml
@@ -14,21 +16,17 @@ text_sensor:
     id: diplay_text_sensor
     topic: kitchen_mqtt_lcd_display/show
 
-binary_sensor:
-  - platform: gpio
-    pin:
-      number: D4
-      mode: INPUT
-      inverted: true
+sensor:
+  - <<: !include common/sensor/dht.yaml
 
-    name: "Kitchen MQTT LCD Display Button Left"
+binary_sensor:
   - platform: gpio
     pin:
       number: D1
       mode: INPUT
       inverted: true
 
-    name: "Kitchen MQTT LCD Display Button Middle"
+    name: "Kitchen MQTT LCD Display Button Left"
   - platform: gpio
     pin:
       number: D0

@@ -32,10 +32,6 @@
       friendly_name: Kitchen MQTT LCD Display Update Available
       value_template: >
         {{ is_state("binary_sensor.esphome_update_sensor", "off") and (state_attr("binary_sensor.esphome_update_sensor", "tag") != states("sensor.kitchen_mqtt_lcd_display_os_version").split(" ")[0]) }}
-    kitchen_plant_controller_update_available:
-      friendly_name: Kitchen Plant Controller Update Available
-      value_template: >
-        {{ is_state("binary_sensor.esphome_update_sensor", "off") and (state_attr("binary_sensor.esphome_update_sensor", "tag") != states("sensor.kitchen_plant_controller_os_version").split(" ")[0]) }}
     kitchen_sensor_update_available:
       friendly_name: Kitchen Sensor Actor Update Available
       value_template: >

@@ -6,30 +6,6 @@ toggle_plant_light_after_given_time_frame:
   toggled_entity: switch.hue_smart_plug_1
   constrain_input_boolean: input_boolean.kitchen_plant_light_automation_enabled
 
-toggle_left_plant_watering_in_given_interval:
-  module: time_based_toggle_automations
-  class: TurnOnOffInterval
-  on_interval_length: input_number.kitchen_left_plant_watering_duration
-  off_interval_length: input_number.kitchen_left_plant_watering_interval
-  toggled_entity: switch.kitchen_plant_controller_pump_relay_1
-  constrain_input_boolean: input_boolean.kitchen_left_plant_watering_automation_enabled
-  skip_first: true
-  on_constraint:
-    entity: binary_sensor.kitchen_plant_controller_swimmer_sensor
-    state: "on"
-
-toggle_right_plant_watering_in_given_interval:
-  module: time_based_toggle_automations
-  class: TurnOnOffInterval
-  on_interval_length: input_number.kitchen_right_plant_watering_duration
-  off_interval_length: input_number.kitchen_right_plant_watering_interval
-  toggled_entity: switch.kitchen_plant_controller_pump_relay_2
-  constrain_input_boolean: input_boolean.kitchen_right_plant_watering_automation_enabled
-  skip_first: true
-  on_constraint:
-    entity: binary_sensor.kitchen_plant_controller_swimmer_sensor
-    state: "on"
-
 toggle_plant_ventilation_in_given_interval_at_night_time:
   module: time_based_toggle_automations
   class: TurnOnOffInterval

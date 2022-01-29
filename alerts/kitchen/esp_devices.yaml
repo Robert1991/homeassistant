@@ -21,17 +21,6 @@ kitchen_sensor_is_offline:
   notifiers:
     - ios
 
-kitchen_plant_controller_is_offline:
-  name: Kitchen Plant Controller offline
-  done_message: Kitchen Plant Controller online again
-  entity_id: binary_sensor.kitchen_plant_controller_connection_status
-  state: 'unavailable'
-  repeat: 30
-  can_acknowledge: true
-  skip_first: false
-  notifiers:
-    - ios
-
 kitchen_mqtt_lcd_display_is_offline:
   name: Kitchen MQTT LCD Display offline
   done_message: Kitchen MQTT LCD Display online again
