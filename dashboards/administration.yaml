@@ -158,7 +158,7 @@ views:
           - type: entities
             title: Homeassistant
             entities:
-              - entity: sensor.homeassistant_version
+              - entity: sensor.current_version
                 name: Version
               - type: custom:multiple-entity-row
                 entity: binary_sensor.updater

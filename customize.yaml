@@ -184,10 +184,6 @@ switch.hue_smart_plug_2:
   icon: mdi:fan
 
 # general
-sensor.homeassistant_version:
-  friendly_name: "Homeassistant Version"
-  icon: mdi:new-box
-
 sensor.home_server_update_state:
   friendly_name: "Homeserver Updates"
   icon: mdi:new-box

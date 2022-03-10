@@ -7,9 +7,5 @@
     - security_updates
 
 - platform: command_line
-  name: homeassistant_version
-  command: /config/scripts/./homeassistant_version_sensor.py
-
-- platform: command_line
   name: promethues_up_query_state
   command: /config/scripts/./prometheus_up_sensor.py
