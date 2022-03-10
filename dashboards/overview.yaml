@@ -6,135 +6,144 @@ decluttering_templates:
       - timebased_scene_config: input_select.living_room_time_based_scenes
       - scene_control_input_select: input_select.living_room_scene_generator_light_scene_generated
       - light_intensity_control: ""
+      - current_scene_input: ""
+      - toggle_scene_input: input_select.bedroom_day_light_choosen_scene
     card:
-      type: custom:fold-entity-row
-      head:
-        type: section
-        label: Scene Creation
+      type: entities
+      title: Light Scenes
       entities:
-        - entity: input_text.scene_generator_scene_name
-          name: New Scene name
-        - type: custom:stack-in-card
-          mode: horizontal
-          keep:
-            margins: true
-            outer_padding: true
-            background: true
-          cards:
-            - type: custom:button-card
-              color_type: blank-card
-              styles:
-                card:
-                  - height: 25px
-            - type: custom:config-template-card
-              variables:
-                SCENE_NAME: states['input_text.scene_generator_scene_name'].state
-              entities:
-                - input_text.scene_generator_scene_name
-              card:
-                type: custom:button-card
-                icon: mdi:content-save-edit
-                color: rgb(28, 128, 199)
-                show_text: false
-                styles:
+        - name: Current Scene
+          entity: "[[current_scene_input]]"
+        - name: Toggle Scene
+          entity: "[[toggle_scene_input]]"
+        - type: custom:fold-entity-row
+          head:
+            type: section
+            label: Scene Creation
+          entities:
+            - entity: input_text.scene_generator_scene_name
+              name: New Scene name
+            - type: custom:stack-in-card
+              mode: horizontal
+              keep:
+                margins: true
+                outer_padding: true
+                background: true
+              cards:
+                - type: custom:button-card
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - height: 25px
+                - type: custom:config-template-card
+                  variables:
+                    SCENE_NAME: states['input_text.scene_generator_scene_name'].state
+                  entities:
+                    - input_text.scene_generator_scene_name
                   card:
-                    - height: 50px
-                    - width: 100px
-                show_state: false
-                tap_action:
-                  action: call-service
-                  service: script.turn_on
-                  service_data:
-                    entity_id: script.fire_scene_creator_event
-                    variables:
-                      event_name: CREATE_SCENE
-                      light_group: "[[light_group]]"
-                      scene_name: ${SCENE_NAME}
-                      scene_group_prefix: "[[scene_group_prefix]]"
-                      timebased_scene_config: "[[timebased_scene_config]]"
-                      light_intensity_control: "[[light_intensity_control]]"
-            - type: custom:button-card
-              color_type: blank-card
-              styles:
-                card:
-                  - height: 25px
-        - entity: "[[scene_control_input_select]]"
-          name: Update/Delete Scene
-        - type: custom:stack-in-card
-          mode: horizontal
-          keep:
-            margins: false
-            outer_padding: false
-            background: false
-          cards:
-            - type: custom:button-card
-              color_type: blank-card
-              styles:
-                card:
-                  - height: 50px
-            - type: custom:config-template-card
-              variables:
-                SCENE_NAME: >-
-                  states['[[scene_control_input_select]]'].state
-              entities:
-                - "[[scene_control_input_select]]"
-              card:
-                type: custom:button-card
-                icon: mdi:content-save-edit
-                color: rgb(28, 128, 199)
-                name: delete
-                show_text: true
-                styles:
+                    type: custom:button-card
+                    icon: mdi:content-save-edit
+                    color: rgb(28, 128, 199)
+                    show_text: false
+                    styles:
+                      card:
+                        - height: 50px
+                        - width: 100px
+                    show_state: false
+                    tap_action:
+                      action: call-service
+                      service: script.turn_on
+                      service_data:
+                        entity_id: script.fire_scene_creator_event
+                        variables:
+                          event_name: CREATE_SCENE
+                          light_group: "[[light_group]]"
+                          scene_name: ${SCENE_NAME}
+                          scene_group_prefix: "[[scene_group_prefix]]"
+                          timebased_scene_config: "[[timebased_scene_config]]"
+                          light_intensity_control: "[[light_intensity_control]]"
+                - type: custom:button-card
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - height: 25px
+            - entity: "[[scene_control_input_select]]"
+              name: Update/Delete Scene
+            - type: custom:stack-in-card
+              mode: horizontal
+              keep:
+                margins: false
+                outer_padding: false
+                background: false
+              cards:
+                - type: custom:button-card
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - height: 50px
+                - type: custom:config-template-card
+                  variables:
+                    SCENE_NAME: >-
+                      states['[[scene_control_input_select]]'].state
+                  entities:
+                    - "[[scene_control_input_select]]"
                   card:
-                    - height: 75px
-                    - width: 75px
-                show_state: false
-                tap_action:
-                  action: call-service
-                  service: script.turn_on
-                  service_data:
-                    entity_id: script.fire_scene_creator_event
-                    variables:
-                      event_name: DELETE_SCENE
-                      light_group: "[[light_group]]"
-                      scene_name: ${SCENE_NAME}
-                      scene_group_prefix: "[[scene_group_prefix]]"
-                      timebased_scene_config: "[[timebased_scene_config]]"
-                      light_intensity_control: "[[light_intensity_control]]"
-            - type: custom:config-template-card
-              variables:
-                SCENE_NAME: >-
-                  states['[[scene_control_input_select]]'].state
-              entities:
-                - "[[scene_control_input_select]]"
-              card:
-                type: custom:button-card
-                icon: mdi:content-save-edit
-                color: rgb(28, 128, 199)
-                name: update
-                show_text: true
-                styles:
+                    type: custom:button-card
+                    icon: mdi:content-save-edit
+                    color: rgb(28, 128, 199)
+                    name: delete
+                    show_text: true
+                    styles:
+                      card:
+                        - height: 75px
+                        - width: 75px
+                    show_state: false
+                    tap_action:
+                      action: call-service
+                      service: script.turn_on
+                      service_data:
+                        entity_id: script.fire_scene_creator_event
+                        variables:
+                          event_name: DELETE_SCENE
+                          light_group: "[[light_group]]"
+                          scene_name: ${SCENE_NAME}
+                          scene_group_prefix: "[[scene_group_prefix]]"
+                          timebased_scene_config: "[[timebased_scene_config]]"
+                          light_intensity_control: "[[light_intensity_control]]"
+                - type: custom:config-template-card
+                  variables:
+                    SCENE_NAME: >-
+                      states['[[scene_control_input_select]]'].state
+                  entities:
+                    - "[[scene_control_input_select]]"
                   card:
-                    - height: 75px
-                    - width: 75px
-                show_state: false
-                tap_action:
-                  action: call-service
-                  service: script.turn_on
-                  service_data:
-                    entity_id: script.fire_scene_creator_event
-                    variables:
-                      event_name: UPDATE_SCENE
-                      light_group: "[[light_group]]"
-                      scene_name: ${SCENE_NAME}
-                      scene_group_prefix: "[[scene_group_prefix]]"
-                      timebased_scene_config: "[[timebased_scene_config]]"
-                      light_intensity_control: "[[light_intensity_control]]"
-            - type: custom:button-card
-              color_type: blank-card
-              styles:
-                card:
-                  - height: 50px
+                    type: custom:button-card
+                    icon: mdi:content-save-edit
+                    color: rgb(28, 128, 199)
+                    name: update
+                    show_text: true
+                    styles:
+                      card:
+                        - height: 75px
+                        - width: 75px
+                    show_state: false
+                    tap_action:
+                      action: call-service
+                      service: script.turn_on
+                      service_data:
+                        entity_id: script.fire_scene_creator_event
+                        variables:
+                          event_name: UPDATE_SCENE
+                          light_group: "[[light_group]]"
+                          scene_name: ${SCENE_NAME}
+                          scene_group_prefix: "[[scene_group_prefix]]"
+                          timebased_scene_config: "[[timebased_scene_config]]"
+                          light_intensity_control: "[[light_intensity_control]]"
+                - type: custom:button-card
+                  color_type: blank-card
+                  styles:
+                    card:
+                      - height: 50px
 
 title: Home
 views:
@@ -166,29 +175,6 @@ views:
               - type: button
                 entity: light.living_room_indirect_lights
                 name: Indirect
-          - type: "custom:light-entity-card"
-            entity: light.living_room_lights
-            shorten_cards: true
-            consolidate_entities: true
-            color_wheel: false
-            persist_features: false
-            brightness: true
-            color_temp: false
-            white_value: true
-            color_picker: false
-            smooth_color_wheel: false
-            hide_header: true
-            child_card: false
-            show_slider_percent: false
-            full_width_sliders: true
-            brightness_icon: weather-sunny
-            white_icon: file-word-box
-            temperature_icon: thermometer
-            effects_list: false
-          - type: entities
-            entities:
-              - name: Current Scene
-                entity: input_select.living_room_automatic_light_scene_generated
           - type: "custom:fold-entity-row"
             head:
               type: section
@@ -283,25 +269,16 @@ views:
                   - name: Turn Off Timeout
                     entity: >-
                       input_number.living_touch_screen_back_light_turn_off_timeout
-      - type: "custom:vertical-stack-in-card"
-        title: Light Scenes
-        cards:
-          - type: custom:decluttering-card
-            template: scene_creator_card_template
-            variables:
-              - light_group: light.living_room_lights
-              - scene_group_prefix: Living Room
-              - timebased_scene_config: input_select.living_room_time_based_scenes
-              - light_intensity_control: input_number.living_room_light_toogle_intensity_threshold
-              - scene_control_input_select: input_select.living_room_scene_generator_light_scene_generated
-          - type: custom:select-list-card
-            entity: input_select.living_room_light_scene_generated
-            icon: mdi:string-lights
-            truncate: true
-            show_toggle: true
-            scroll_to_selected: true
-            max_options: 0
-            title: Light Scenes
+      - type: custom:decluttering-card
+        template: scene_creator_card_template
+        variables:
+          - light_group: light.living_room_lights
+          - scene_group_prefix: Living Room
+          - timebased_scene_config: input_select.living_room_time_based_scenes
+          - light_intensity_control: input_number.living_room_light_toogle_intensity_threshold
+          - scene_control_input_select: input_select.living_room_scene_generator_light_scene_generated
+          - toggle_scene_input: input_select.living_room_light_scene_generated
+          - current_scene_input: input_select.living_room_automatic_light_scene_generated
       - type: "custom:vertical-stack-in-card"
         title: Media
         cards:
@@ -391,27 +368,31 @@ views:
               - type: custom:fold-entity-row
                 head: group.bedroom_indirect_lights
                 icon: mdi:bulb-group-outline
-          - type: entities
-            entities:
-              - entity: cover.bedroom_blind_left
-              - entity: cover.bedroom_blind_right
-              - entity: switch.bedroom_desk_plug
-            title: Switches
+          - type: custom:decluttering-card
+            template: scene_creator_card_template
+            variables:
+              - light_group: light.all_bedroom_lights
+              - scene_group_prefix: Bedroom
+              - timebased_scene_config: input_select.bedroom_time_based_scenes
+              - light_intensity_control: input_number.bedroom_light_toogle_intensity_threshold
+              - scene_control_input_select: input_select.bedroom_scene_generator_light_scene_generated
+              - toggle_scene_input: input_select.bedroom_light_scene_generated
+              - current_scene_input: input_select.bedroom_automatic_light_scene_generated
+      - type: entities
+        entities:
+          - entity: cover.bedroom_blind_left
+          - entity: cover.bedroom_blind_center
+          - entity: cover.bedroom_blind_right
+          - entity: switch.bedroom_desk_plug
+        title: Switches
+      - type: entities
+        title: Automations
+        entities:
           - type: custom:fold-entity-row
             head:
-              type: section
-              label: Light Automation
+              entity: input_boolean.bedroom_light_automation_is_enabled
+              name: Light Automation
             entities:
-              - type: custom:fold-entity-row
-                head:
-                  entity: input_boolean.bedroom_light_automation_is_enabled
-                  name: Enabled
-                entities:
-                  - name: Reactivation Timeout
-                    entity: >-
-                      input_datetime.bedroom_light_automation_reactivation_timeout
-                  - name: Reenable time
-                    entity: input_datetime.bedroom_light_automation_reenable_time
               - name: Turn Off Timeout
                 entity: input_number.bedroom_light_turn_off_timeout
               - name: Min. Light Intesity
@@ -423,7 +404,7 @@ views:
                 entities:
                   - name: Current Scene
                     entity: input_select.bedroom_automatic_light_scene_generated
-                  - type: custom:fold-entity-row
+                  - type: custom:fold-entity-row                      
                     head:
                       type: section
                       label: Day Mode
@@ -488,25 +469,6 @@ views:
           - entity: cover.bedroom_blind_right
             name: Right
             buttons_position: left
-      - type: custom:vertical-stack-in-card
-        title: Light Scenes
-        cards:
-          - type: custom:decluttering-card
-            template: scene_creator_card_template
-            variables:
-              - light_group: light.all_bedroom_lights
-              - scene_group_prefix: Bedroom
-              - timebased_scene_config: input_select.bedroom_time_based_scenes
-              - light_intensity_control: input_number.bedroom_light_toogle_intensity_threshold
-              - scene_control_input_select: input_select.bedroom_scene_generator_light_scene_generated
-          - type: custom:select-list-card
-            entity: input_select.bedroom_light_scene_generated
-            icon: mdi:string-lights
-            truncate: true
-            show_toggle: true
-            scroll_to_selected: true
-            max_options: 0
-            title: Light Scenes
 
   - title: Kitchen
     path: kitchen
@@ -557,10 +519,6 @@ views:
                 icon_height: 35px
                 entity: light.kitchen_indirect_lights
                 name: Indirect
-          - type: entities
-            entities:
-              - name: Current Scene
-                entity: input_select.kitchen_automatic_light_scene_generated
           - type: "custom:fold-entity-row"
             head:
               type: section
@@ -626,9 +584,6 @@ views:
                         entity: input_datetime.kitchen_night_light_start_time
                       - name: Light Scene
                         entity: input_select.kitchen_night_light_choosen_scene
-      - type: "custom:vertical-stack-in-card"
-        title: Light Scenes
-        cards:
           - type: custom:decluttering-card
             template: scene_creator_card_template
             variables:
@@ -637,14 +592,8 @@ views:
               - timebased_scene_config: input_select.kitchen_time_based_scenes
               - light_intensity_control: input_number.kitchen_light_toogle_intensity_threshold
               - scene_control_input_select: input_select.kitchen_scene_generator_light_scene_generated
-          - type: custom:select-list-card
-            entity: input_select.kitchen_light_scene_generated
-            icon: mdi:string-lights
-            truncate: true
-            show_toggle: true
-            scroll_to_selected: true
-            max_options: 0
-            title: Light Scenes
+              - toggle_scene_input: input_select.kitchen_light_scene_generated
+              - current_scene_input: input_select.kitchen_automatic_light_scene_generated
       - type: shopping-list
         title: Shopping List
   - title: Bathroom & Toilet
@@ -686,10 +635,6 @@ views:
                         name: Strip
                         entity: light.bathroom_sensor_actor_light_strip
                         icon_height: 50px
-                  - type: entities
-                    entities:
-                      - name: Current Scene
-                        entity: input_select.bathroom_automatic_light_scene_generated
                   - type: "custom:fold-entity-row"
                     head:
                       type: section
@@ -737,14 +682,8 @@ views:
                       - timebased_scene_config: input_select.bathroom_time_based_scenes
                       - light_intensity_control: ""
                       - scene_control_input_select: input_select.bathroom_scene_generator_light_scene_generated
-                  - type: custom:select-list-card
-                    entity: input_select.toilet_light_scene_generated
-                    icon: mdi:string-lights
-                    truncate: true
-                    show_toggle: true
-                    scroll_to_selected: true
-                    max_options: 0
-                    title: Light Scenes
+                      - toggle_scene_input: input_select.bathroom_light_scene_generated
+                      - current_scene_input: input_select.bathroom_automatic_light_scene_generated
                   - type: sensor
                     entity: sensor.bathroom_sensor_actor_temperature
                     graph: line
@@ -770,10 +709,6 @@ views:
                 show_name: false
                 entity: light.toilet_lights
                 icon_height: 50px
-              - type: entities
-                entities:
-                  - name: Current Scene
-                    entity: input_select.toilet_automatic_light_scene_generated
               - type: "custom:fold-entity-row"
                 head:
                   type: section
@@ -821,14 +756,8 @@ views:
                   - timebased_scene_config: input_select.toilet_time_based_scenes
                   - light_intensity_control: ""
                   - scene_control_input_select: input_select.toilet_scene_generator_light_scene_generated
-              - type: custom:select-list-card
-                entity: input_select.toilet_light_scene_generated
-                icon: mdi:string-lights
-                truncate: true
-                show_toggle: true
-                scroll_to_selected: true
-                max_options: 0
-                title: Light Scenes
+                  - toggle_scene_input: input_select.toilet_light_scene_generated
+                  - current_scene_input: input_select.toilet_automatic_light_scene_generated
           - type: sensor
             entity: sensor.toilet_temperature
             graph: line
@@ -878,10 +807,6 @@ views:
                 entity: light.floor_sensor_actor_neopixel_partition_light_4
                 name: Neo Part 4
                 icon_height: 30px
-          - type: entities
-            entities:
-              - name: Current Scene
-                entity: input_select.floor_automatic_light_scene_generated
           - type: "custom:fold-entity-row"
             head:
               type: section
@@ -923,9 +848,6 @@ views:
                         entity: input_datetime.floor_night_light_start_time
                       - name: Light Scene
                         entity: input_select.floor_night_light_choosen_scene
-      - type: "custom:vertical-stack-in-card"
-        title: Light Scenes
-        cards:
           - type: custom:decluttering-card
             template: scene_creator_card_template
             variables:
@@ -934,14 +856,8 @@ views:
               - timebased_scene_config: input_select.floor_time_based_scenes
               - light_intensity_control: ""
               - scene_control_input_select: input_select.floor_scene_generator_light_scene_generated
-          - type: custom:select-list-card
-            entity: input_select.floor_light_scene_generated
-            icon: mdi:string-lights
-            truncate: true
-            show_toggle: true
-            scroll_to_selected: true
-            max_options: 0
-            title: Light Scenes
+              - toggle_scene_input: input_select.floor_light_scene_generated
+              - current_scene_input: input_select.floor_automatic_light_scene_generated
   - title: Balcony
     path: balcony
     badges: []

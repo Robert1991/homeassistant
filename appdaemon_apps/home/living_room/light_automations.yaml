@@ -39,4 +39,4 @@ living_room_scene_switch:
   observed_input_select: input_select.living_room_light_scene_generated
   scene_prefix: living_room
   adapted_input_selects:
-    - input_select.living_room_automatic_light_scene_generated
+    - input_select.living_room_light_scene_generated
