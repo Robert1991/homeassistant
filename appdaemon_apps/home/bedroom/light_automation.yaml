@@ -1,9 +1,3 @@
-reactivate_bedroom_light_automation_after_given_timeout:
-  module: input_boolean
-  class: ReactivationTimer
-  observed_input_boolean: input_boolean.bedroom_light_automation_is_enabled
-  reactivation_timeout: input_datetime.bedroom_light_automation_reactivation_timeout
-
 activity_controlled_light_bedroom:
   module: activity_based_automations
   class: ActivityBasedEntityControl

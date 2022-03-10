@@ -474,11 +474,16 @@ views:
             entities:
               - name: Turn Off Timeout
                 entity: input_number.bedroom_workstation_power_turn_off_timeout
+          - name: Blind Automation
+            entity: input_boolean.bedroom_blind_automation_is_enabled
       - type: custom:shutter-card
         title: Bedroom Blinds
         entities:
           - entity: cover.bedroom_blind_left
             name: Left
+            buttons_position: left
+          - entity: cover.bedroom_blind_center
+            name: Center
             buttons_position: left
           - entity: cover.bedroom_blind_right
             name: Right

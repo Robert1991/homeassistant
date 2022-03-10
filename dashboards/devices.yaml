@@ -231,6 +231,11 @@ views:
         - type: custom:decluttering-card
           template: zigbeeBatteryDeviceInfoRow
           variables:  
+          - device_name: bedroom_blind_center
+          - device_display_name: Bedroom Blind Center
+        - type: custom:decluttering-card
+          template: zigbeeBatteryDeviceInfoRow
+          variables:  
           - device_name: bedroom_blind_right
           - device_display_name: Bedroom Blind Right
         - type: custom:decluttering-card
