@@ -10,7 +10,9 @@ decluttering_templates:
         - type: glance
           entities:
             - entity: "sensor.kitchen_[[plant_place_lower]]_plant_age_in_days"
-              name: Age In Days
+              name: Since Planting
+            - entity: "sensor.kitchen_[[plant_place_lower]]_plant_age_in_weeks"
+              name: ""
             - entity: "input_number.[[plant_place_lower]]_plant_harvest_age"
               icon: mdi:calendar-check
               name: Harvest
