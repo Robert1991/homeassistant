@@ -215,10 +215,6 @@ monitor_docker:
       - image
       - cpu_percentage
       - 1cpu_percentage
-mqtt:
-  broker: rpn-home-server
-  username: !secret mqtt_username
-  password: !secret mqtt_password
 
 notify ios:
   - name: iOS

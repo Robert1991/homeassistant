@@ -1,6 +1,5 @@
-pyscript:
-  allow_all_imports: true
-  hass_is_global: true
+allow_all_imports: true
+hass_is_global: true
 apps:
   home_server_update:
     update_log: /config/tmp/apt_update.log
