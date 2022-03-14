@@ -14,7 +14,6 @@ esp_home_devices:
     - balcony_sensor_actor
     - bathroom_sensor_actor
     - bedroom_sensor
-    - esp_couch_light
     - floor_sensor_actor
     - kitchen_ceiling_light
     - kitchen_light_controller

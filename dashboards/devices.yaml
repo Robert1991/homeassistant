@@ -155,12 +155,6 @@ views:
         - type: custom:decluttering-card
           template: espHomeDeviceInfoRow
           variables:  
-          - device_name: esp_couch_light
-          - device_display_name: ESP Couch Light
-          - navigate_to: living_room
-        - type: custom:decluttering-card
-          template: espHomeDeviceInfoRow
-          variables:  
           - device_name: floor_sensor_actor
           - device_display_name: Floor Sensor Actor
           - navigate_to: other
@@ -432,11 +426,6 @@ views:
       variables:  
         - sensor_name: living_room_sensor_actor_2
         - sensor_display_name: Living Room Sensor/Actor 2
-    - type: custom:decluttering-card
-      template: device_overview_template
-      variables:  
-        - sensor_name: esp_couch_light
-        - sensor_display_name: Couch Light
     - type: 'custom:vertical-stack-in-card'
       title: ZigBee2MQTT
       cards:

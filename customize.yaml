@@ -113,11 +113,6 @@ sensor.kitchen_mqtt_lcd_display_humidity:
 sensor.kitchen_mqtt_lcd_display_temperature:
   friendly_name: "Kitchen Plant Closet Temperature"
 
-# esp_couch_light
-light.esp_couch_light_rgb_i2c_light:
-  friendly_name: "Couch RGB Light"
-  icon: mdi:sofa
-
 # lights
 light.floor_light:
   friendly_name: "Floor Ceiling Light"

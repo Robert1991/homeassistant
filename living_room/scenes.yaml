@@ -1,18 +1,5 @@
 - entities:
     input_number.living_room_light_toogle_intensity_threshold: '15.0'
-    light.esp_couch_light_rgb_i2c_light:
-      brightness: 185
-      hs_color:
-      - 164.941
-      - 100.0
-      rgb_color:
-      - 0
-      - 255
-      - 190
-      state: 'on'
-      xy_color:
-      - 0.157
-      - 0.459
     light.hue_iris_light:
       brightness: 184
       hs_color:
@@ -122,19 +109,6 @@
   name: Living Room Afrika
 - entities:
     input_number.living_room_light_toogle_intensity_threshold: '30.0'
-    light.esp_couch_light_rgb_i2c_light:
-      brightness: 210
-      hs_color:
-      - 164.706
-      - 100.0
-      rgb_color:
-      - 0
-      - 255
-      - 190
-      state: 'on'
-      xy_color:
-      - 0.157
-      - 0.459
     light.hue_iris_light:
       brightness: 209
       hs_color:
@@ -244,8 +218,6 @@
   name: Living Room Afrika 2
 - entities:
     input_number.living_room_light_toogle_intensity_threshold: '40'
-    light.esp_couch_light_rgb_i2c_light:
-      state: 'off'
     light.hue_iris_light:
       state: 'off'
     light.living_room_center_1:
@@ -339,19 +311,6 @@
   name: Living Room Work
 - entities:
     input_number.living_room_light_toogle_intensity_threshold: '20.0'
-    light.esp_couch_light_rgb_i2c_light:
-      brightness: 156
-      hs_color:
-      - 15.068
-      - 85.882
-      rgb_color:
-      - 255
-      - 90
-      - 36
-      state: 'on'
-      xy_color:
-      - 0.644
-      - 0.333
     light.hue_iris_light:
       brightness: 117
       hs_color:
@@ -454,19 +413,6 @@
   name: Living Room TV 1
 - entities:
     input_number.living_room_light_toogle_intensity_threshold: '25.0'
-    light.esp_couch_light_rgb_i2c_light:
-      brightness: 35
-      hs_color:
-      - 15.082
-      - 71.765
-      rgb_color:
-      - 255
-      - 117
-      - 71
-      state: 'on'
-      xy_color:
-      - 0.594
-      - 0.343
     light.hue_iris_light:
       brightness: 30
       hs_color:
@@ -578,19 +524,6 @@
   name: Living Room Casa Cabron
 - entities:
     input_number.living_room_light_toogle_intensity_threshold: '20'
-    light.esp_couch_light_rgb_i2c_light:
-      brightness: 245
-      hs_color:
-      - 315.059
-      - 100.0
-      rgb_color:
-      - 255
-      - 0
-      - 190
-      state: 'on'
-      xy_color:
-      - 0.478
-      - 0.197
     light.hue_iris_light:
       brightness: 228
       hs_color:

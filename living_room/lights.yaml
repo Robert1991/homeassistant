@@ -4,7 +4,6 @@
     - light.hue_iris_light
     - light.living_room_sensor_actor_1_closet_rgb_lights
     - light.living_room_standing_light
-    - light.esp_couch_light_rgb_i2c_light
     - light.living_room_sensor_actor_2_light_strings
 - platform: group
   name: Living Room Ceiling Lights
@@ -25,5 +24,4 @@
     - light.hue_iris_light
     - light.living_room_sensor_actor_1_closet_rgb_lights
     - light.living_room_standing_light
-    - light.esp_couch_light_rgb_i2c_light
     - light.living_room_sensor_actor_2_light_strings

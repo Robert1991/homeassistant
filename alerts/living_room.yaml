@@ -23,18 +23,3 @@ living_room_sensor_actor_2_is_offline:
   skip_first: true
   notifiers:
     - ios
-esp_couch_light_is_offline:
-  name: Couch Light is offline
-  done_message: Couch Light is online again
-  entity_id: binary_sensor.esp_couch_light_connection_status
-  state: 'off'
-  repeat:
-    - 2
-    - 30
-    - 120
-    - 360
-    - 1140
-  can_acknowledge: true
-  skip_first: true
-  notifiers:
-    - ios
