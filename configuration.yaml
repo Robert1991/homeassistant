@@ -45,75 +45,71 @@ http:
 
 homekit:
   - filter:
-      include_domains:
-        - binary_sensor
-        - light
-        #- media_player
-        - scene
-        - sensor
-        - switch
-        - input_boolean
-      exclude_entity_globs:
-        - binary_sensor.*_connection_status
-        - binary_sensor.*_update_available
-        - binary_sensor.*_led_indication
-        - binary_sensor.lenovo_new_gen_*
-        - binary_sensor.living_room_tv_*
-        - binary_sensor.pixel_4a_*
-        - sensor.*_connected_bssid
-        - sensor.*_connected_ssid
-        - sensor.*_ip_address
-        - sensor.*_mac_wifi_address
-        - sensor.*_uptime
-        - sensor.*_wifi_signal
-        - sensor.*_linkquality
-        - sensor.*_update_state
-        - sensor.*_battery_level
-        - sensor.*_battery_state*
-        - sensor.*_battery
-        - sensor.*_illuminance_lux
-        - sensor.*_motion_sensitivity
-        - sensor.*_occupancy_timeout
-        - sensor.*_action
-        - sensor.download_*
-        - sensor.iphone_von_robert_*
-        - sensor.pixel_4a_*
-        - sensor.*_last_watering_duration
-        - sensor.*_last_watering_time_stamp
-        - sensor.*_raw_value
-        - sensor.zigbee2mqtt_*
-        - sensor.uptime_sensor*
-        - sensor.hue_motion_sensor_*_temperature
-        - switch.*_shutdown
-        - input_boolean.*_automatic_scene_mode_enabled
       include_entities:
+      # living room
+        - sensor.living_room_sensor_actor_1_temperature
+        - sensor.living_room_sensor_actor_1_humidity
+        - binary_sensor.living_room_sensor_actor_1_motion_detected
+        - light.living_room_center_1
+        - light.living_room_center_2
+        - light.living_room_center_3
+        - light.living_room_center_4
+        - light.living_room_center_5
+        - light.hue_iris_light
+        - light.living_room_sensor_actor_1_closet_rgb_lights
+        - light.living_room_standing_light
         - light.living_room_sensor_actor_2_light_strings
-      exclude_entities:
-        - binary_sensor.robert_think_pad_is_on
-        - binary_sensor.robert_work_laptop_is_on
-        - binary_sensor.shopping_list_has_items
-        - binary_sensor.updater
-        - binary_sensor.work_laptop_activity
-        - binary_sensor.workday_sensor
-        - binary_sensor.hue_motion_sensor_2_occupancy
-        - light.my_custom_light
-        - sensor.cert_expiry_timestamp_robertnator_duckdns_org
-        - sensor.coordinator_version
-        - sensor.data_from_topic
-        - sensor.hacs
-        - sensor.iphone_von_robert_activity
-        - sensor.iphone_von_robert_average_active_pace
-        - sensor.iphone_von_robert_battery_state
-        - sensor.kitchen_mqtt_lcd_display_display_topic
-        - sensor.robert_thinkpad_running
-        - sensor.shopping_list
-        - sensor.bathroom_temperature
-        - switch.lenovo_new_gen_backup_switch_switch
-        - switch.lenovo_new_gen_suspend_switch
-        - switch.zigbee2mqtt_main_join
-        - input_boolean.bedroom_closet_light_was_turned_off_before
-        - input_boolean.zigbee2mqtt_force_remove
-        - input_boolean.touch_screen_back_light_automatic_enabled
+        - input_boolean.living_room_light_automation_is_enabled
+      # bedroom
+        - sensor.bedroom_sensor_humidity
+        - sensor.bedroom_sensor_temperature
+        - binary_sensor.bedroom_sensor_motion_detected
+        - binary_sensor.bedroom_activity_detected_on_pcs
+        - light.bedroom_ceiling_1
+        - light.bedroom_ceiling_2
+        - light.bedroom_ceiling_3
+        - light.bedroom_neopixel_light
+        - light.bedroom_workdesk_light
+        - light.bedroom_closet_led_power_supply_light
+        - light.bedroom_bed_light
+        - switch.bedroom_desk_plug
+        - input_boolean.bedroom_light_automation_is_enabled
+        - input_boolean.bedroom_blind_automation_is_enabled
+        - cover.bedroom_blind_left
+        - cover.bedroom_blind_center
+        - cover.bedroom_blind_right
+      # kitchen
+        - binary_sensor.kitchen_sensor_motion_detected
+        - binary_sensor.kitchen_sensor_door_sensor
+        - sensor.kitchen_sensor_humidity
+        - sensor.kitchen_sensor_temperature
+        - light.kitchen_ceiling_light_light_switch
+        - light.kitchen_led_spots_light
+        - light.kitchen_light_controller_black_light
+        - light.kitchen_light_controller_light_strip
+        - input_boolean.kitchen_light_automation_is_enabled
+      # bathroom
+        - binary_sensor.bathroom_motion_detector
+        - sensor.bathroom_sensor_actor_humidity
+        - sensor.bathroom_sensor_actor_temperature
+        - light.bathroom_sensor_actor_spots
+        - light.bathroom_sensor_actor_light_strip
+        - input_boolean.bathroom_light_automation_is_enabled
+      # toilet
+        - binary_sensor.toilet_motion_detector
+        - sensor.toilet_temperature
+        - light.toilet_lights
+      # floor
+        - binary_sensor.floor_sensor_actor_motion_detected
+        - sensor.floor_sensor_actor_temperature
+        - sensor.floor_sensor_actor_humidity
+        - light.floor_light
+        - light.floor_neo_pixel_light
+      # balcony
+        - sensor.balcony_sensor_actor_humidity
+        - sensor.balcony_sensor_actor_temperature
+        - light.balcony_sensor_actor_relay_light_1
+        - light.balcony_sensor_actor_relay_light_2
   - name: HASS Accessory Bridge
     port: 21065
     mode: accessory
@@ -169,6 +165,7 @@ lovelace:
       icon: mdi:flower-tulip-outline
       show_in_sidebar: true
       filename: dashboards/plants.yaml
+
 media_player:
   - platform: androidtv
     host: !secret tv_living_room_ip
