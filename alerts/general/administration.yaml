@@ -1,11 +1,10 @@
 homeassistant_update_available:
   name: Homeassistant Update Available
   done_message: Homeassitant Updated
-  entity_id: binary_sensor.updater
+  entity_id: binary_sensor.home_assistant_versions_update_available
   state: 'on'
   message: >
-    Homeassistant version {{ state_attr('binary_sensor.updater', 'newest_version') }} available. 
-    See {{ state_attr('binary_sensor.updater', 'release_notes') }}
+    Homeassistant version {{ states('sensor.home_assistant_versions') }} available.
   repeat:       
     - 1440
   can_acknowledge: true

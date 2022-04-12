@@ -161,7 +161,7 @@ views:
               - entity: sensor.current_version
                 name: Version
               - type: custom:multiple-entity-row
-                entity: binary_sensor.updater
+                entity: binary_sensor.home_assistant_versions_update_available
                 name: Update
                 secondary_info:
                   entity: sensor.home_assistant_versions
@@ -199,6 +199,8 @@ views:
         cards:
         - type: entities
           entities:
+            - entity: sensor.myip
+              name: IP
             - entity: sensor.speedtest_download
               name: Download Speed
             - entity: sensor.speedtest_upload
