@@ -9,3 +9,11 @@
 - platform: command_line
   name: promethues_up_query_state
   command: /config/scripts/./prometheus_up_sensor.py
+
+- platform: command_line
+  name: home_server_diskusage
+  command: /config/scripts/./prometheus_disk_usage_sensor.py
+  value_template: "{{ value_json['disk_usage'] }}"
+  json_attributes:
+    - available_space
+    - filesystem_size

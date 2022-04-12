@@ -10,7 +10,8 @@ if server_up_request["status"] == "success":
     if server_up_request["data"]["resultType"] == "vector":
         server_up_request_result = []
         for result in server_up_request["data"]["result"]:
-            server_up_request_result.append({"name" : result["metric"]["job"], "up" : result["value"][1]})
+            server_up_request_result.append(
+                {"name": result["metric"]["job"], "up": result["value"][1]})
         print(json.dumps(server_up_request_result))
 else:
     print("unavailable")

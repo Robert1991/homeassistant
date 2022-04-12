@@ -184,6 +184,16 @@ views:
                   - entity: sensor.home_server_update_state
                     name: Security
                     attribute: security_updates
+          - type: gauge
+            entity: sensor.home_server_diskusage
+            unit: '%'
+            name: Disk Usage
+            needle: false
+            severity:
+                green: 44
+                yellow: 75
+                red: 90
+
       - type: custom:vertical-stack-in-card
         title: Internet Connection 
         cards:
