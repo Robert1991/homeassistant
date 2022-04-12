@@ -557,6 +557,10 @@ views:
         - type: custom:decluttering-card
           template: zigbeeDeviceEntities
           variables:
+            - device_display_name: Bedroom Blind Center
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
             - device_display_name: Bedroom Blind Right
         - type: custom:decluttering-card
           template: zigbeeDeviceEntities

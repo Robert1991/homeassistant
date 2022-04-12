@@ -13,9 +13,9 @@ tts:
 alert: !include_dir_merge_named alerts/
 
 automation bedroom: !include bedroom/automations.yaml
-automation general_zigbee: !include general/zigbee2mqtt_automations.yaml
 automation general_shopping: !include general/shopping_automations.yaml
 automation home_server: !include general/home_server_automations.yaml
+automation zigbee2mqtt: !include zigbee2mqtt/automations.yaml
 
 binary_sensor general: !include general/binary_sensors.yaml 
 binary_sensor general_esphome: !include general/esphome_binary_sensors.yaml
@@ -242,9 +242,9 @@ sensor bathroom: !include bathroom/sensors.yaml
 sensor toilet: !include toilet/sensors.yaml
 sensor kitchen: !include kitchen/sensors.yaml
 sensor general: !include general/sensors.yaml
-sensor general_zigbee2mqtt: !include general/zigbee2mqtt_sensors.yaml
+sensor zigbee2mqtt: !include zigbee2mqtt/sensors.yaml
 
-switch general: !include general/switches.yaml
+switch zigbee2mqtt: !include zigbee2mqtt/switches.yaml
 
 spotify:
   client_id: !secret spotify_client_id
