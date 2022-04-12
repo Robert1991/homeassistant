@@ -1,0 +1,7 @@
+
+- sensor:
+    - name: Certificate Expiry In Days
+      unit_of_measurement: days
+      icon: mdi:certificate
+      state: >
+        {{ ((((states('sensor.cert_expiry_timestamp_robertnator_duckdns_org') | as_timestamp)) - (now() | as_timestamp)) / (24*60*60)) | int }}

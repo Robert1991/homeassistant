@@ -164,10 +164,14 @@ views:
                 entity: binary_sensor.updater
                 name: Update
                 secondary_info:
-                  attribute: newest_version
-                  name: Current version
-              - entity: sensor.cert_expiry_timestamp_robertnator_duckdns_org
+                  entity: sensor.home_assistant_versions
+                  name: Update version
+              - type: custom:multiple-entity-row
+                entity: sensor.cert_expiry_timestamp_robertnator_duckdns_org
                 name: Certificate Expiry
+                entities:
+                  - entity: sensor.certificate_expiry_in_days
+                    name: Days
           - type: entities
             title: Homeserver
             entities:

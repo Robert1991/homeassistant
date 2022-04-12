@@ -9,3 +9,17 @@
     data:
       message: "Check log files to see results"
       title: "Home-Sever update executed"
+
+- alias: Renew Certificates
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.certificate_expiry_in_days
+      below: 21
+  action:
+    - service: pyscript.renew_certificates
+      data:
+        url: robertnator.duckdns.org
+        email: !secret letsencrypt_email
+        token: !secret duckdns_token
+        path_to_certificates: /home/robert/docker/homeassistant/certificates
+        path_to_lets_encrypt_volume: /home/robert/docker/homeassistant/volumes/letsencrypt
