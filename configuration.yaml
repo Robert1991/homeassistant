@@ -18,7 +18,6 @@ automation home_server: !include general/home_server_automations.yaml
 automation zigbee2mqtt: !include zigbee2mqtt/automations.yaml
 
 binary_sensor general: !include general/binary_sensors.yaml 
-binary_sensor general_esphome: !include general/esphome_binary_sensors.yaml
 binary_sensor bathroom: !include bathroom/binary_sensors.yaml
 binary_sensor bedroom: !include bedroom/binary_sensors.yaml
 binary_sensor toilet: !include toilet/binary_sensors.yaml

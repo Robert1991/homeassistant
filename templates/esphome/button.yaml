@@ -1,0 +1,76 @@
+- button:
+    name: Update all ESP Home Devices
+    icon: mdi:update
+    press:
+      - service: pyscript.update_all_esp_home_devices
+        data: {}
+- button:
+    name: Update Balcony Sensor Actor
+    icon: mdi:update
+    press:
+      - service: pyscript.run_esp_home_device_update
+        data:
+          esp_home_device_config: balcony_sensor_actor.yaml
+- button:
+    name: Update Bathroom Sensor Actor
+    icon: mdi:update
+    press:
+      - service: pyscript.run_esp_home_device_update
+        data:
+          esp_home_device_config: bathroom_sensor_actor.yaml
+- button:
+    name: Update Bedroom Sensor
+    icon: mdi:update
+    press:
+      - service: pyscript.run_esp_home_device_update
+        data:
+          esp_home_device_config: bedroom_sensor.yaml
+- button:
+    name: Update Floor Sensor Actor
+    icon: mdi:update
+    press:
+      - service: pyscript.run_esp_home_device_update
+        data:
+          esp_home_device_config: floor_sensor_actor.yaml
+- button:
+    name: Update Kitchen Ceiling Light
+    icon: mdi:update
+    press:
+      - service: pyscript.run_esp_home_device_update
+        data:
+          esp_home_device_config: kitchen_ceiling_light.yaml
+- button:
+    name: Update Kitchen Light Controller
+    icon: mdi:update
+    press:
+      - service: pyscript.run_esp_home_device_update
+        data:
+          esp_home_device_config: kitchen_light_controller.yaml
+- button:
+    name: Update Kitchen MQTT LCD Display
+    icon: mdi:update
+    press:
+      - service: pyscript.run_esp_home_device_update
+        data:
+          esp_home_device_config: kitchen_mqtt_lcd_display.yaml
+- button:
+    name: Update Kitchen Sensor
+    icon: mdi:update
+    press:
+      - service: pyscript.run_esp_home_device_update
+        data:
+          esp_home_device_config: kitchen_sensor.yaml
+- button:
+    name: Update Living Room Sensor Actor 1
+    icon: mdi:update
+    press:
+      - service: pyscript.run_esp_home_device_update
+        data:
+          esp_home_device_config: living_room_sensor_actor_1.yaml
+- button:
+    name: Update Living Room Sensor Actor 2
+    icon: mdi:update
+    press:
+      - service: pyscript.run_esp_home_device_update
+        data:
+          esp_home_device_config: living_room_sensor_actor_2.yaml

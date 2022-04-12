@@ -88,15 +88,11 @@ decluttering_templates:
             - entity: 'switch.[[sensor_name]]_shutdown'
               name: Shutdown
             - type: button
+              entity: 'button.update_[[sensor_name]]'
               tap_action:
-                action: call-service
-                service: pyscript.run_esp_home_device_update
-                service_data:
-                  esp_home_device_config: '[[sensor_name]].yaml'
-              name: Update Device
+                action: toggle
+              name: Update
               show_icon: true
-              icon: mdi:update
-              icon_height: 29px
         - type: 'custom:uptime-card'
           entity: 'binary_sensor.[[sensor_name]]_connection_status'
           name: Uptime
