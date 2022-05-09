@@ -52,9 +52,18 @@ views:
             title: Switches
             cards:
               - type: button
+                entity: switch.hue_smart_plug_3
+                icon_height: 40px
+                name: Small Light
+                style: |
+                  ha-card {
+                  margin-top: -10px;
+                  margin-bottom: 0px;
+                  }
+              - type: button
                 entity: switch.hue_smart_plug_1
                 icon_height: 40px
-                name: Light
+                name: Big Light
                 style: |
                   ha-card {
                   margin-top: -10px;

@@ -50,3 +50,5 @@ devices:
     friendly_name: Bedroom Blind Left
   '0x5c0272fffe5c18e2':
     friendly_name: Bedroom Blind Button 1
+  '0x001788010bdfb073':
+    friendly_name: Hue Smart Plug 3

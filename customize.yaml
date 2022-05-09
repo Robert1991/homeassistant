@@ -172,8 +172,13 @@ light.touch_screen_back_light:
 
 # switches
 switch.hue_smart_plug_1:
-  friendly_name: "Kitchen Plant Light"
+  friendly_name: "Kitchen Big Plant Light"
   icon: mdi:flower-tulip
+
+switch.hue_smart_plug_3:
+  friendly_name: "Kitchen Small Plant Light"
+  icon: mdi:flower-tulip
+
 switch.hue_smart_plug_2:
   friendly_name: "Kitchen Plant Ventilation"
   icon: mdi:fan

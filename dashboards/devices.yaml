@@ -279,6 +279,11 @@ views:
           - device_name: hue_smart_plug_2
           - device_display_name: Hue Smart Plug 2
         - type: custom:decluttering-card
+          template: zigbeeDeviceInfoRow
+          variables:  
+          - device_name: hue_smart_plug_3
+          - device_display_name: Hue Smart Plug 3
+        - type: custom:decluttering-card
           template: zigbeeBatteryDeviceInfoRow
           variables:  
           - device_name: ikea_bathroom_smart_button
