@@ -28,3 +28,21 @@ unknown_wifi_devices_in_network:
   skip_first: false
   notifiers:
     - ios
+
+karlfriedrich_connection_loss:
+  name: No Heartbeat received from Karlfriedrich
+  done_message: Karlfriedrich online again
+  entity_id: binary_sensor.karlfriedrich_connected
+  state: 'off'
+  message: >
+    No heartbeat received from Karlfriedrich in 2 minutes.
+  repeat:       
+    - 5
+    - 15
+    - 60
+    - 120
+    - 1440
+  can_acknowledge: true
+  skip_first: true
+  notifiers:
+    - ios

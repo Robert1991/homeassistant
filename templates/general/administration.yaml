@@ -1,3 +1,13 @@
+- trigger:
+    - platform: webhook
+      webhook_id: !secret karlfriedrich_connected_webhook_id
+  binary_sensor:
+    - name: Karlfriedrich Connected
+      state: "{{ 'on' }}"
+      auto_off: "00:02:00"
+      attributes:
+        time_stamp: "{{ trigger.json.time_stamp }}"
+        ip_address: "{{ trigger.json.ip_address }}"
 
 - binary_sensor:
     - name: Unknown WIFI Devices Present In Network

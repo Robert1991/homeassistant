@@ -193,7 +193,13 @@ views:
                 green: 44
                 yellow: 75
                 red: 90
-
+      - type: entities
+        entities:
+        - entity: binary_sensor.karlfriedrich_connected
+          name: Connected
+        - entity: alert.karlfriedrich_connection_loss
+          name: Connection Lost
+        title: Smart Home Karlfriedrichstraße
       - type: entities
         title: Docker Updates
         entities:
