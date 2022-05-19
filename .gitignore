@@ -23,6 +23,9 @@ passwd.dat
 .shopping_list.json
 .ssh/
 
+# pyscript
+pyscript/*
+
 # zigbee2mqtt
 zigbee2mqtt/log/
 zigbee2mqtt/database.db
