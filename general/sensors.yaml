@@ -19,8 +19,9 @@
 
 - platform: command_line
   name: home_server_diskusage
-  command: /config/scripts/./prometheus_disk_usage_sensor.py
+  command: /config/scripts/prometheus_disk_usage_sensor.py
   value_template: "{{ value_json['disk_usage'] }}"
+  unit_of_measurement: "%"
   json_attributes:
     - available_space
     - filesystem_size
