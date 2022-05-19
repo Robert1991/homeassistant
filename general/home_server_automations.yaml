@@ -10,6 +10,24 @@
       message: "Check log files to see results"
       title: "Home-Sever update executed"
 
+- alias: List Wifi Devices
+  trigger:
+    - platform: time_pattern
+      minutes: "/1"
+  action:
+    - service: pyscript.export_connected_clients
+      data:
+        file_path: /config/tmp/connected_wifi_clients.yaml
+
+- alias: List Active DHCP Leases
+  trigger:
+    - platform: time_pattern
+      minutes: "/1"
+  action:
+    - service: pyscript.export_active_dhcp_leases
+      data:
+        file_path: /config/tmp/active_dhcp_leases.yaml
+
 - alias: Renew Certificates
   trigger:
     - platform: numeric_state

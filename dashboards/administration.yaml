@@ -194,6 +194,20 @@ views:
                 yellow: 75
                 red: 90
 
+      - type: entities
+        title: Docker Updates
+        entities:
+          - entity: binary_sensor.appdaemon_update_sensor
+            name: AppDaemon
+          - entity: binary_sensor.esphome_update_sensor
+            name: ESPHome
+          - entity: binary_sensor.eclipse_mosquitto_update_sensor
+            name: Mosquitto
+          - entity: binary_sensor.zigbee2mqtt_update_sensor
+            name: Zigbee2Mqtt
+  - title: Network
+    path: network
+    cards:
       - type: custom:vertical-stack-in-card
         title: Internet Connection 
         cards:
@@ -215,17 +229,71 @@ views:
           stat_types:
             - mean
           chart_type: line
-      - type: entities
-        title: Docker Updates
+      - type: conditional
+        conditions:
+        - entity: binary_sensor.unknown_wifi_devices_present_in_network
+          state: 'on'
+        card:
+          type: vertical-stack
+          title: Unknown WiFi Devices
+          cards:
+            - type: entity
+              entity: alert.unknown_wifi_devices_in_network
+              name: Unknown Device Present
+              icon: mdi:alarm-light
+              state_color: true
+            - type: custom:flex-table-card
+              entities:
+                include: sensor.unknown_wifi_devices
+              columns:
+                - name: Hostname
+                  data: devices
+                  modify: x["hostname"]
+                - name: IP
+                  data: devices
+                  modify: x["ip"]
+                - name: MAC-Address
+                  data: devices
+                  modify: x["mac_address"]
+      - type: custom:flex-table-card
+        title: Active Wifi Connections
         entities:
-          - entity: binary_sensor.appdaemon_update_sensor
-            name: AppDaemon
-          - entity: binary_sensor.esphome_update_sensor
-            name: ESPHome
-          - entity: binary_sensor.eclipse_mosquitto_update_sensor
-            name: Mosquitto
-          - entity: binary_sensor.zigbee2mqtt_update_sensor
-            name: Zigbee2Mqtt
+          include: sensor.wifi_connections_sensor
+        columns:
+        - name: Hostname
+          data: connections
+          modify: x["hostname"]
+        - name: IP
+          data: connections
+          modify: x["ip"]
+        - name: MAC-Address
+          data: connections
+          modify: x["mac_address"]
+      - type: custom:flex-table-card
+        title: Active DHCP Leases
+        entities:
+          include: sensor.active_dhcp_leases
+        columns:
+        - name: Hostname
+          data: leases
+          modify: x["hostname"]
+        - name: IP
+          data: leases
+          modify: x["ip"]
+        - name: MAC-Address
+          data: leases
+          modify: x["mac_address"]
+      - type: custom:flex-table-card
+        title: Known Devices
+        entities:
+          include: sensor.known_devices
+        columns:
+        - name: Name
+          data: devices
+          modify: x["name"]
+        - name: MAC-Address
+          data: devices
+          modify: x["mac"]
   - title: Docker Homeassistant
     panel: true
     path: docker

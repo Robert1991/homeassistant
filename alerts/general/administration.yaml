@@ -11,3 +11,20 @@ homeassistant_update_available:
   skip_first: false
   notifiers:
     - ios
+
+unknown_wifi_devices_in_network:
+  name: Unknown WIFI Devices in Network detected
+  done_message: No unknown wifi devices in network
+  entity_id: binary_sensor.unknown_wifi_devices_present_in_network
+  state: 'on'
+  message: >
+    {% set unknown_devices = state_attr("sensor.unknown_wifi_devices", "devices") %}
+    Detected {{ states("sensor.unknown_wifi_devices") }} unknown device(s) in wifi network:{% for device in unknown_devices %}
+    hostname: {{ device["hostname"] }}; ip address: {{ device["ip"] }}
+    {%- endfor %}
+  repeat:       
+    - 1440
+  can_acknowledge: true
+  skip_first: false
+  notifiers:
+    - ios

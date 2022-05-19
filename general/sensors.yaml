@@ -8,7 +8,14 @@
 
 - platform: command_line
   name: promethues_up_query_state
-  command: /config/scripts/./prometheus_up_sensor.py
+  command: /config/scripts/prometheus_up_sensor.py
+
+- platform: command_line
+  name: wifi_connections_sensor
+  command: /config/scripts/wifi_connections_sensor.py
+  value_template: "{{ value_json['connection_count'] }}"
+  json_attributes:
+    - connections
 
 - platform: command_line
   name: home_server_diskusage
@@ -17,3 +24,24 @@
   json_attributes:
     - available_space
     - filesystem_size
+
+- platform: command_line
+  name: unknown_wifi_devices
+  value_template: "{{ value_json['devices'] | length }}"
+  command: /config/scripts/unknown_wifi_connections_sensor.py
+  json_attributes:
+    - devices
+
+- platform: command_line
+  name: known_devices
+  value_template: "{{ value_json['count'] }}"
+  command: /config/scripts/known_devices_sensor.py
+  json_attributes:
+    - devices
+
+- platform: command_line
+  name: active_dhcp_leases
+  value_template: "{{ value_json['count'] }}"
+  command: /config/scripts/active_dhcp_leases_sensor.py
+  json_attributes:
+    - leases

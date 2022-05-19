@@ -1,4 +1,8 @@
 
+- binary_sensor:
+    - name: Unknown WIFI Devices Present In Network
+      state: "{{ states('sensor.unknown_wifi_devices') | int > 0 }}"
+
 - sensor:
     - name: Certificate Expiry In Days
       unit_of_measurement: days

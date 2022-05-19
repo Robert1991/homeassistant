@@ -10,7 +10,6 @@ def run_remote_shell_command(command, ssh_login, ssh_key_path, sudo_password=Non
     else:
         command_array = ['ssh', '-i', ssh_key_path,
                          ssh_login] + command_array
-
     return subprocess.run(command_array, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
 

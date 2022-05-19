@@ -22,12 +22,6 @@ binary_sensor bathroom: !include bathroom/binary_sensors.yaml
 binary_sensor bedroom: !include bedroom/binary_sensors.yaml
 binary_sensor toilet: !include toilet/binary_sensors.yaml
 
-device_tracker:
-  - platform: luci
-    host: RPNRouter
-    username: !secret luci_login
-    password: !secret luci_password
-
 group: !include_dir_merge_named groups/
 
 influxdb:
@@ -35,7 +29,11 @@ influxdb:
   database: home_assistant
   username: !secret influx_user
   password: !secret influx_password
-
+  exclude:
+    entities:
+      - sensor.active_dhcp_leases
+      - sensor.known_devices
+      - sensor.wifi_connections_sensor
 http:
   ssl_certificate: !secret ssl_certificate_path
   ssl_key: !secret ssl_certificate_key_path
