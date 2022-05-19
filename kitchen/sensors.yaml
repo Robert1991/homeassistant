@@ -54,4 +54,4 @@
       icon_template: mdi:sort-clock-descending-outline
 - platform: command_line
   name: shopping_list
-  command: /config/scripts/shopping_list.py
+  command: /config/pyscript/sensors/shopping_list.py
