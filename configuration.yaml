@@ -219,7 +219,7 @@ notify ios:
     services:
       - service: mobile_app_iphone_von_robert
 
-pyscript: !include pyscript/config.yaml
+pyscript: !include pyscript_config.yaml
 
 remote_homeassistant:
   instances:
@@ -241,6 +241,7 @@ sensor kitchen: !include kitchen/sensors.yaml
 sensor general: !include general/sensors.yaml
 sensor zigbee2mqtt: !include zigbee2mqtt/sensors.yaml
 
+switch kitchen: !include kitchen/switches.yaml
 switch zigbee2mqtt: !include zigbee2mqtt/switches.yaml
 
 spotify:
