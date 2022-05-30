@@ -19,7 +19,7 @@ automation zigbee2mqtt: !include zigbee2mqtt/automations.yaml
 
 binary_sensor general: !include general/binary_sensors.yaml 
 binary_sensor bathroom: !include bathroom/binary_sensors.yaml
-binary_sensor bedroom: !include bedroom/binary_sensors.yaml
+binary_sensor office: !include office/binary_sensors.yaml
 binary_sensor toilet: !include toilet/binary_sensors.yaml
 
 group: !include_dir_merge_named groups/
@@ -61,15 +61,12 @@ homekit:
         - sensor.bedroom_sensor_humidity
         - sensor.bedroom_sensor_temperature
         - binary_sensor.bedroom_sensor_motion_detected
-        - binary_sensor.bedroom_activity_detected_on_pcs
         - light.bedroom_ceiling_1
         - light.bedroom_ceiling_2
         - light.bedroom_ceiling_3
         - light.bedroom_neopixel_light
-        - light.bedroom_workdesk_light
         - light.bedroom_closet_led_power_supply_light
         - light.bedroom_bed_light
-        - switch.bedroom_desk_plug
         - input_boolean.bedroom_light_automation_is_enabled
         - input_boolean.bedroom_blind_automation_is_enabled
         - cover.bedroom_blind_left
@@ -107,6 +104,12 @@ homekit:
         - sensor.balcony_sensor_actor_temperature
         - light.balcony_sensor_actor_relay_light_1
         - light.balcony_sensor_actor_relay_light_2
+      # office
+        - light.office_workdesk_light
+        - light.office_ceiling_light_1
+        - light.office_ceiling_light_2
+        - light.office_ceiling_light_3
+        - switch.office_desk_plug
   - name: HASS Accessory Bridge
     port: 21065
     mode: accessory
@@ -127,6 +130,7 @@ light floor: !include floor/lights.yaml
 light living_room: !include living_room/lights.yaml
 light kitchen: !include kitchen/lights.yaml
 light bedroom: !include bedroom/lights.yaml
+light office: !include office/lights.yaml
 
 logger:
   default: warning
@@ -233,6 +237,7 @@ scene balcony: !include balcony/scenes.yaml
 scene floor: !include floor/scenes.yaml
 scene kitchen: !include kitchen/scenes.yaml
 scene living_room: !include living_room/scenes.yaml
+scene office: !include office/scenes.yaml
 scene toilet: !include toilet/scenes.yaml
 
 sensor bathroom: !include bathroom/sensors.yaml
@@ -255,6 +260,8 @@ spotcast:
 template: !include_dir_merge_list templates/
 
 timer:
+  office_light_turn_off_timer:
+    name: Office Light Turnout Timer
   zigbee_permit_join:
     name: Time remaining
     duration: 120

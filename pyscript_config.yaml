@@ -3,6 +3,22 @@ hass_is_global: true
 apps:
   home_server_update:
     update_log: /config/tmp/apt_update.log
+  light_control:
+    office_light_control:
+      light_group_entity: light.all_office_lights
+      motion_sensor_entity: binary_sensor.office_activity_detected
+      motion_triggered_light_enabled_entity: input_boolean.office_light_automation_is_enabled
+      turn_off_timeout_entity: input_number.office_light_turn_off_timeout
+      turn_off_timer_entity: timer.office_light_turn_off_timer
+      scene_toggle_entity: input_select.office_automatic_light_scene_generated
+      scene_group_prefix: office
+      time_based_scene_switch:
+        scene_switch_configuration_entity: input_select.office_time_based_scenes
+        automation_enabled_entity: input_boolean.office_automatic_scene_mode_enabled
+      light_intensity_control:
+        threshold_entity: input_number.office_light_toogle_intensity_threshold
+        light_sensor_entity: sensor.office_motion_sensor_illuminance_lux
+
   state_observer:
     trigger_alarm_when_fridge_is_open:
       observed_entity: binary_sensor.kitchen_sensor_door_sensor

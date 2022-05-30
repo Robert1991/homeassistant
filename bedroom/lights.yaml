@@ -1,7 +1,6 @@
 - platform: group
   name: Bedroom Indirect Lights
   entities:
-    - light.bedroom_workdesk_light
     - light.bedroom_closet_led_power_supply_light
     - light.bedroom_bed_light
 - platform: group
@@ -26,5 +25,4 @@
     - light.bedroom_sensor_neopixel_partition_light_2
     - light.bedroom_sensor_neopixel_partition_light_3
     - light.bedroom_bed_light
-    - light.bedroom_workdesk_light
     - light.bedroom_closet_led_power_supply_light

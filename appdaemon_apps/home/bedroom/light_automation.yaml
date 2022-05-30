@@ -4,7 +4,7 @@ activity_controlled_light_bedroom:
   dependencies: 
     - scene_utils
     - hass_utils
-  observed_activity_sensor: binary_sensor.activity_detected_in_bedroom
+  observed_activity_sensor: binary_sensor.bedroom_sensor_motion_detected
   entity: light.all_bedroom_lights
   turn_off_timeout: input_number.bedroom_light_turn_off_timeout
   constrain_input_boolean: input_boolean.bedroom_light_automation_is_enabled

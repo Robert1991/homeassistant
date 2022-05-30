@@ -1,0 +1,4 @@
+office_time_based_scenes:
+  options:
+    - office_night_light_start_time/office_night_light_choosen_scene
+    - office_day_light_start_time/office_day_light_choosen_scene

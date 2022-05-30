@@ -286,6 +286,138 @@ views:
             entity: media_player.tv_livingroom
           - type: media-control
             entity: media_player.spotify_1122251111
+  - title: Office
+    path: office
+    badges: []
+    cards:
+      - type: custom:stack-in-card
+        title: Sensors
+        mode: vertical
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: glance
+                entities:
+                  - entity: sensor.office_motion_sensor_temperature
+                  - entity: binary_sensor.office_motion_sensor_occupancy
+                  - entity: sensor.office_motion_sensor_illuminance_lux
+                show_name: false
+          - type: glance
+            entities:
+              - entity: binary_sensor.office_activity_detected_on_pcs
+                name: Work
+            show_name: true
+            state_color: true
+            show_state: false
+      - type: custom:stack-in-card
+        title: Devices
+        mode: vertical
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: glance
+                entities:
+                  - entity: binary_sensor.robert_work_laptop_is_on
+                    name: Work Laptop
+                  - entity: binary_sensor.robert_think_pad_is_on
+                    name: Think Pad
+                state_color: true
+                show_state: false
+          - type: glance
+            title: Work Laptop
+            entities:
+              - entity: binary_sensor.work_laptop_powerline_connected
+                name: Powerline
+              - entity: binary_sensor.work_laptop_unlocked
+                name: Unlocked
+              - entity: binary_sensor.work_laptop_activity
+                name: Activity
+            state_color: true
+            show_state: false
+      - type: custom:vertical-stack-in-card
+        title: Light Control
+        cards:
+          - type: custom:stack-in-card
+            mode: horizontal
+            cards:
+              - type: button
+                entity: light.all_office_lights
+                name: All
+              - type: button
+                entity: light.office_ceiling_lights
+                name: Ceiling
+                icon: mdi:ceiling-light
+              - type: button
+                entity: light.office_workdesk_light
+                name: Workdesk
+          - type: custom:decluttering-card
+            template: scene_creator_card_template
+            variables:
+              - light_group: light.all_office_lights
+              - scene_group_prefix: Office
+              - timebased_scene_config: input_select.office_time_based_scenes
+              - light_intensity_control: input_number.office_light_toogle_intensity_threshold
+              - scene_control_input_select: input_select.office_scene_generator_light_scene_generated
+              - toggle_scene_input: input_select.office_light_scene_generated
+              - current_scene_input: input_select.office_automatic_light_scene_generated
+      - type: entities
+        entities:
+          - entity: switch.office_desk_plug
+        title: Switches
+      - type: entities
+        title: Automations
+        entities:
+          - type: custom:fold-entity-row
+            head:
+              entity: input_boolean.office_workstation_toggle_automatic_enabled
+              name: Workstation Power Control
+            entities:
+              - name: Turn Off Timeout
+                entity: input_number.office_workstation_power_turn_off_timeout
+          - type: custom:fold-entity-row
+            head:
+              entity: input_boolean.office_light_automation_is_enabled
+              name: Light Automation
+            entities:
+              - name: Turn Off Timeout
+                entity: input_number.office_light_turn_off_timeout
+              - name: Min. Light Intesity
+                entity: input_number.office_light_toogle_intensity_threshold
+              - type: custom:fold-entity-row
+                head:
+                  entity: input_boolean.office_automatic_scene_mode_enabled
+                  name: Time based Scene Mode
+                entities:
+                  - name: Current Scene
+                    entity: input_select.office_automatic_light_scene_generated
+                  - type: custom:fold-entity-row                      
+                    head:
+                      type: section
+                      label: Day Mode
+                    entities:
+                      - name: Start Time
+                        entity: input_datetime.office_day_light_start_time
+                        type: custom:time-picker-card
+                        layout:
+                          name: inside
+                          align_controls: right
+                          embedded: true
+                      - name: Light Scene
+                        entity: input_select.office_day_light_choosen_scene
+                  - type: custom:fold-entity-row
+                    head:
+                      type: section
+                      label: Night Mode
+                    entities:
+                      - name: Start Time
+                        entity: input_datetime.office_night_light_start_time
+                        type: custom:time-picker-card
+                        layout:
+                          name: inside
+                          align_controls: right
+                          embedded: true
+                      - name: Light Scene
+                        entity: input_select.office_night_light_choosen_scene
   - title: Bedroom
     path: bedroom
     badges: []
@@ -306,38 +438,9 @@ views:
             entities:
               - entity: binary_sensor.bedroom_sensor_motion_detected
                 name: Motion
-              - entity: binary_sensor.bedroom_activity_detected_on_pcs
-                name: Work
               - entity: binary_sensor.bedroom_sensor_door_sensor
                 name: Closet
             show_name: true
-            state_color: true
-            show_state: false
-      - type: custom:stack-in-card
-        title: Devices
-        mode: vertical
-        cards:
-          - type: horizontal-stack
-            cards:
-              - type: glance
-                entities:
-                  - entity: binary_sensor.robert_work_laptop_is_on
-                    name: Work Laptop
-                  - entity: binary_sensor.robert_think_pad_is_on
-                    name: Think Pad
-                  - entity: binary_sensor.bedroom_sensor_connection_status
-                    name: Sensor
-                state_color: true
-                show_state: false
-          - type: glance
-            title: Work Laptop
-            entities:
-              - entity: binary_sensor.work_laptop_powerline_connected
-                name: Powerline
-              - entity: binary_sensor.work_laptop_unlocked
-                name: Unlocked
-              - entity: binary_sensor.work_laptop_activity
-                name: Activity
             state_color: true
             show_state: false
       - type: custom:vertical-stack-in-card
@@ -383,7 +486,6 @@ views:
           - entity: cover.bedroom_blind_left
           - entity: cover.bedroom_blind_center
           - entity: cover.bedroom_blind_right
-          - entity: switch.bedroom_desk_plug
         title: Switches
       - type: entities
         title: Automations
@@ -448,13 +550,6 @@ views:
                         entity: input_select.bedroom_night_light_choosen_scene
               - name: Bed Light Brightness
                 entity: input_number.bedroom_night_light_brightness
-          - type: custom:fold-entity-row
-            head:
-              entity: input_boolean.bedroom_workstation_toggle_automatic_enabled
-              name: Workstation Power Control
-            entities:
-              - name: Turn Off Timeout
-                entity: input_number.bedroom_workstation_power_turn_off_timeout
           - name: Blind Automation
             entity: input_boolean.bedroom_blind_automation_is_enabled
       - type: custom:shutter-card

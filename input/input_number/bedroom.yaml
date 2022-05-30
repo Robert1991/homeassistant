@@ -21,14 +21,6 @@ bedroom_light_turn_off_timeout:
   unit_of_measurement: "s"
   icon: 'mdi:clock-in'
 
-bedroom_workstation_power_turn_off_timeout:
-  name: Bedroom Workstation Power Turn Off Automation Timeout
-  min: 1
-  max: 180
-  step: 1
-  unit_of_measurement: "min"
-  icon: 'mdi:clock-in'
-
 bedroom_light_toogle_intensity_threshold:
   name: Bedroom Light Toogle Light Intensity Threshold
   min: 10

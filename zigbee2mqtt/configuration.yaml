@@ -1,5 +1,5 @@
 homeassistant: true
-permit_join: true
+permit_join: false
 mqtt:
   base_topic: zigbee2mqtt
   server: mqtt://rpn-home-server
@@ -52,3 +52,11 @@ devices:
     friendly_name: Bedroom Blind Button 1
   '0x001788010bdfb073':
     friendly_name: Hue Smart Plug 3
+  '0x001788010bc69edb':
+    friendly_name: Office Ceiling Light 1
+  '0x0017880109150295':
+    friendly_name: Office Ceiling Light 2
+  '0x001788010c3e5e8c':
+    friendly_name: Office Ceiling Light 3
+  '0x001788010bcff64f':
+    friendly_name: Office Motion Sensor

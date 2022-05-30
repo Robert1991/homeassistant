@@ -303,6 +303,26 @@ views:
           variables:  
           - device_name: kitchen_led_spots_light
           - device_display_name: Kitchen LED Spot Lights
+        - type: custom:decluttering-card
+          template: zigbeeDeviceInfoRow
+          variables:  
+          - device_name: office_ceiling_light_1
+          - device_display_name: Office Ceiling Light 1
+        - type: custom:decluttering-card
+          template: zigbeeDeviceInfoRow
+          variables:  
+          - device_name: office_ceiling_light_2
+          - device_display_name: Office Ceiling Light 2
+        - type: custom:decluttering-card
+          template: zigbeeDeviceInfoRow
+          variables:  
+          - device_name: office_ceiling_light_3
+          - device_display_name: Office Ceiling Light 3
+        - type: custom:decluttering-card
+          template: zigbeeBatteryDeviceInfoRow
+          variables:  
+          - device_name: office_motion_sensor
+          - device_display_name: Office Motion Sensor
       title: Zigbee2Mqtt Devices
       state_color: true
   - title: Bedroom
@@ -351,7 +371,6 @@ views:
         - light.bedroom_ceiling_1
         - light.bedroom_ceiling_2
         - light.bedroom_ceiling_3
-        - light.bedroom_workdesk_light
         - light.bedroom_bed_light
     - type: 'custom:vertical-stack-in-card'
       title: Other
@@ -615,3 +634,19 @@ views:
           template: zigbeeDeviceEntities
           variables:
             - device_display_name: Kitchen Led Spots Light
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Office Ceiling Light 1
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Office Ceiling Light 2
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Office Ceiling Light 3
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Office Motion Sensor

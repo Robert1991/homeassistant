@@ -133,8 +133,8 @@ light.floor_neo_pixel_light:
   friendly_name: "Floor Neo Pixel Lightstrip"
   icon: mdi:led-strip-variant
 
-light.bedroom_workdesk_light:
-  friendly_name: "Bedroom Workdesk Light"
+light.office_workdesk_light:
+  friendly_name: "Office Workdesk Light"
   icon: mdi:desk-lamp
 
 light.bedroom_bed_light:

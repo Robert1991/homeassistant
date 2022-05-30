@@ -84,19 +84,6 @@
       xy_color:
       - 0.528
       - 0.446
-    light.bedroom_workdesk_light:
-      brightness: 200
-      hs_color:
-      - 26.667
-      - 88.235
-      rgb_color:
-      - 255
-      - 130
-      - 30
-      state: 'on'
-      xy_color:
-      - 0.602
-      - 0.373
   name: Bedroom Colorful 1
 - entities:
     input_number.bedroom_light_toogle_intensity_threshold: '30'
@@ -184,19 +171,6 @@
       xy_color:
       - 0.528
       - 0.446
-    light.bedroom_workdesk_light:
-      brightness: 166
-      hs_color:
-      - 35.714
-      - 65.882
-      rgb_color:
-      - 255
-      - 186
-      - 87
-      state: 'on'
-      xy_color:
-      - 0.503
-      - 0.411
   name: Bedroom Relaxed 1
 - entities:
     input_number.bedroom_light_toogle_intensity_threshold: '20'
@@ -283,19 +257,6 @@
       xy_color:
       - 0.528
       - 0.446
-    light.bedroom_workdesk_light:
-      brightness: 194
-      hs_color:
-      - 38.667
-      - 52.941
-      rgb_color:
-      - 255
-      - 207
-      - 120
-      state: 'on'
-      xy_color:
-      - 0.457
-      - 0.41
   name: Bedroom Relaxed 2
 - entities:
     input_number.bedroom_light_toogle_intensity_threshold: '20'
@@ -381,19 +342,6 @@
       xy_color:
       - 0.385
       - 0.384
-    light.bedroom_workdesk_light:
-      brightness: 144
-      hs_color:
-      - 37.982
-      - 42.745
-      rgb_color:
-      - 255
-      - 215
-      - 146
-      state: 'on'
-      xy_color:
-      - 0.429
-      - 0.396
   name: Bedroom Work 1
 - entities:
     input_number.bedroom_light_toogle_intensity_threshold: '20'
@@ -481,8 +429,6 @@
       xy_color:
       - 0.454
       - 0.433
-    light.bedroom_workdesk_light:
-      state: 'off'
   name: Bedroom Night Light 1
 - entities:
     input_number.bedroom_light_toogle_intensity_threshold: '25'
@@ -570,19 +516,6 @@
       xy_color:
       - 0.528
       - 0.446
-    light.bedroom_workdesk_light:
-      brightness: 137
-      hs_color:
-      - 11.465
-      - 61.569
-      rgb_color:
-      - 255
-      - 127
-      - 97
-      state: 'on'
-      xy_color:
-      - 0.559
-      - 0.337
   name: Bedroom Colorful 2
 - entities:
     input_number.bedroom_light_toogle_intensity_threshold: '40'
@@ -670,19 +603,6 @@
       xy_color:
       - 0.58
       - 0.244
-    light.bedroom_workdesk_light:
-      brightness: 173
-      hs_color:
-      - 41.429
-      - 82.353
-      rgb_color:
-      - 255
-      - 190
-      - 44
-      state: 'on'
-      xy_color:
-      - 0.52
-      - 0.437
   name: Bedroom Colorful 3
 - entities:
     input_number.bedroom_light_toogle_intensity_threshold: '10'
@@ -769,8 +689,6 @@
       xy_color:
       - 0.454
       - 0.433
-    light.bedroom_workdesk_light:
-      state: 'off'
   name: Bedroom Night Light 2
 - entities:
     input_number.bedroom_light_toogle_intensity_threshold: '30'
@@ -858,17 +776,4 @@
       xy_color:
       - 0.441
       - 0.511
-    light.bedroom_workdesk_light:
-      brightness: 185
-      hs_color:
-      - 91.233
-      - 28.627
-      rgb_color:
-      - 217
-      - 255
-      - 182
-      state: 'on'
-      xy_color:
-      - 0.327
-      - 0.42
   name: Bedroom Eves Light

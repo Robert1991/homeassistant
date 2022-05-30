@@ -24,24 +24,10 @@ views:
           - type: state-icon
             state_color: true
             state_text: true
-            entity: binary_sensor.activity_detected_in_bedroom
-            style:
-              top: 13.5%
-              left: 57%
-          - type: state-icon
-            state_color: true
-            state_text: true
             entity: light.bedroom_bed_light
             style:
               top: 9.5%
               left: 50.2%
-          - type: state-icon
-            state_color: true
-            state_text: true
-            entity: light.bedroom_workdesk_light
-            style:
-              top: 9.5%
-              left: 55%
           - type: state-icon
             state_color: true
             state_text: true

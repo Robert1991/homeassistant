@@ -6,5 +6,3 @@ bedroom_light_automation_is_enabled:
   initial: true
 bedroom_automatic_scene_mode_enabled:
   initial: true
-bedroom_workstation_toggle_automatic_enabled:
-  initial: true
