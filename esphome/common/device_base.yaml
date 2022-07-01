@@ -1,8 +1,11 @@
 esphome:
   name: ${node_name}
-  platform: ESP8266
-  board: ${node_board}
   build_path: ./build/${node_name}
+
+esp8266:
+  board: ${node_board}
+  framework:
+    type: arduino
 
 captive_portal:
 logger:
