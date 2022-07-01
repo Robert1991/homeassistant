@@ -198,6 +198,8 @@ views:
                   - name: Reactivation Timeout
                     entity: >-
                       input_datetime.living_room_light_automation_reactivation_timeout
+                  - name: Turn Off Timer
+                    entity: timer.living_room_light_turn_off_timer
                   - name: Turn Off Timeout
                     entity: input_number.living_room_light_turn_off_timeout
                   - name: Min. Light Intesity
@@ -257,6 +259,8 @@ views:
                     input_boolean.living_room_turn_off_tv_when_idle_automation_enabled
                   name: TV Turn Off Automation
                 entities:
+                  - name: Turn Off Timer
+                    entity: timer.living_room_tv_auto_off
                   - name: Turn Off Timeout
                     entity: input_number.tv_living_room_idle_turn_off_timeout
               - type: custom:fold-entity-row
@@ -264,6 +268,8 @@ views:
                   entity: input_boolean.touch_screen_back_light_automatic_enabled
                   name: Touchscreen Back Light Toggle
                 entities:
+                  - name: Turn Off Timer
+                    entity: timer.living_touch_screen_back_light_turn_off_timer
                   - name: Back Light
                     entity: light.touch_screen_back_light
                   - name: Turn Off Timeout
@@ -372,6 +378,8 @@ views:
               entity: input_boolean.office_workstation_toggle_automatic_enabled
               name: Workstation Power Control
             entities:
+              - name: Timer
+                entity: timer.workstation_power_control
               - name: Turn Off Timeout
                 entity: input_number.office_workstation_power_turn_off_timeout
           - type: custom:fold-entity-row
@@ -379,6 +387,8 @@ views:
               entity: input_boolean.office_light_automation_is_enabled
               name: Light Automation
             entities:
+              - name: Turn off Timer
+                entity: timer.office_light_turn_off_timer
               - name: Turn Off Timeout
                 entity: input_number.office_light_turn_off_timeout
               - name: Min. Light Intesity
@@ -495,6 +505,8 @@ views:
               entity: input_boolean.bedroom_light_automation_is_enabled
               name: Light Automation
             entities:
+              - name: Turn Off Timer
+                entity: timer.bedroom_light_turn_off_timer
               - name: Turn Off Timeout
                 entity: input_number.bedroom_light_turn_off_timeout
               - name: Min. Light Intesity
@@ -641,6 +653,8 @@ views:
                 entities:
                   - name: Reactivation Timeout
                     entity: input_datetime.kitchen_light_automation_reactivation_timeout
+              - name: Turn Off Timer
+                entity: timer.kitchen_light_turn_off_timer
               - name: Turn Off Timeout
                 entity: input_number.kitchen_light_turn_off_timeout
               - name: Min. Light Intesity
@@ -742,6 +756,8 @@ views:
                         entities:
                           - name: Reactivation Timeout
                             entity: input_datetime.bathroom_light_automation_reactivation_timeout
+                      - name: Turn Off Timer
+                        entity: timer.bathroom_light_turn_off_timer
                       - name: Turn Off Timeout
                         entity: input_number.bathroom_light_turn_off_timeout
                       - type: "custom:fold-entity-row"
@@ -816,6 +832,8 @@ views:
                     entities:
                       - name: Reactivation Timeout
                         entity: input_datetime.toilet_light_automation_reactivation_timeout
+                  - name: Turn Off Timer
+                    entity: timer.toilet_light_turn_off_timer
                   - name: Turn Off Timeout
                     entity: input_number.toilet_light_turn_off_timeout
                   - type: "custom:fold-entity-row"
@@ -914,6 +932,8 @@ views:
                 entities:
                   - name: Reactivation Timeout
                     entity: input_datetime.floor_light_automation_reactivation_timeout
+              - name: Turn Off Timer
+                entity: timer.floor_light_turn_off_timer
               - name: Turn Off Timeout
                 entity: input_number.floor_light_turn_off_timeout
               - name: Light Intensity (Kitchen Sensor)

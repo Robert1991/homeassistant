@@ -1,33 +1,3 @@
-activity_controlled_light_bedroom:
-  module: activity_based_automations
-  class: ActivityBasedEntityControl
-  dependencies: 
-    - scene_utils
-    - hass_utils
-  observed_activity_sensor: binary_sensor.bedroom_sensor_motion_detected
-  entity: light.all_bedroom_lights
-  turn_off_timeout: input_number.bedroom_light_turn_off_timeout
-  constrain_input_boolean: input_boolean.bedroom_light_automation_is_enabled
-  time_based_scene_mode:
-    constrain_input_boolean: input_boolean.bedroom_automatic_scene_mode_enabled
-    scene_input_select: input_select.bedroom_automatic_light_scene_generated
-    scene_group_prefix: bedroom
-  threshold_control:
-    sensor: sensor.bedroom_sensor_light_intensity
-    threshold: input_number.bedroom_light_toogle_intensity_threshold
-
-set_bedroom_timebased_light_scene:
-  module: time_based_scene_switch
-  class: TimeBasedSceneSwitch
-  dependencies: 
-    - scene_utils
-  scene_switch_input_select: input_select.bedroom_time_based_scenes
-  toggled_scene_input_select: input_select.bedroom_automatic_light_scene_generated
-  light_automatic_enabled: input_boolean.bedroom_light_automation_is_enabled
-  light_group: light.all_bedroom_lights
-  light_intensity_control: input_number.bedroom_light_toogle_intensity_threshold
-  scene_group_prefix: bedroom
-
 bedroom_scene_switch:
   module: input_select_scene_switch
   class: InputSelectSceneSwitch

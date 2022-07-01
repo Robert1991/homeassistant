@@ -3,22 +3,26 @@ hass_is_global: true
 apps:
   home_server_update:
     update_log: /config/tmp/apt_update.log
-  light_control:
-    office_light_control:
-      light_group_entity: light.all_office_lights
-      motion_sensor_entity: binary_sensor.office_activity_detected
-      motion_triggered_light_enabled_entity: input_boolean.office_light_automation_is_enabled
-      turn_off_timeout_entity: input_number.office_light_turn_off_timeout
-      turn_off_timer_entity: timer.office_light_turn_off_timer
-      scene_toggle_entity: input_select.office_automatic_light_scene_generated
-      scene_group_prefix: office
-      time_based_scene_switch:
-        scene_switch_configuration_entity: input_select.office_time_based_scenes
-        automation_enabled_entity: input_boolean.office_automatic_scene_mode_enabled
-      light_intensity_control:
-        threshold_entity: input_number.office_light_toogle_intensity_threshold
-        light_sensor_entity: sensor.office_motion_sensor_illuminance_lux
-
+  battery_observer:
+    default_threshold_entity: input_number.default_battery_alert_threshold
+    observed_entities: 
+      - entity: sensor.bedroom_blind_button_1_battery
+    reminder_timeout: 720
+  activity_based_entity_control: 
+    - !include light_control.yaml
+    - workstation_power_control:
+        entity: switch.office_desk_plug
+        motion_sensor_entity: binary_sensor.office_workstation_power_required
+        automation_enabled_entity: input_boolean.office_workstation_toggle_automatic_enabled
+        turn_off_timeout_entity: input_number.office_workstation_power_turn_off_timeout
+        turn_off_timer_entity: timer.workstation_power_control
+    - living_room_tv_auto_off:
+        entity: media_player.tv_livingroom
+        motion_sensor_entity: binary_sensor.living_room_tv_is_playing
+        automation_enabled_entity: input_boolean.living_room_turn_off_tv_when_idle_automation_enabled
+        turn_off_timeout_entity: input_number.tv_living_room_idle_turn_off_timeout
+        turn_off_timer_entity: timer.living_room_tv_auto_off
+        skip_turn_on: true
   state_observer:
     trigger_alarm_when_fridge_is_open:
       observed_entity: binary_sensor.kitchen_sensor_door_sensor
