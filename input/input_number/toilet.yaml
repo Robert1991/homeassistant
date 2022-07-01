@@ -5,5 +5,3 @@ toilet_light_turn_off_timeout:
   step: 10
   unit_of_measurement: "s"
   icon: 'mdi:clock-in'
-
-  
