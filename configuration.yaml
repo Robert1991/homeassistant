@@ -167,11 +167,6 @@ lovelace:
       show_in_sidebar: true
       filename: dashboards/plants.yaml
 
-media_player:
-  - platform: androidtv
-    host: !secret tv_living_room_ip
-    name: "TV LivingRoom"
-
 monitor_docker:
   - name: Docker
     containers:
