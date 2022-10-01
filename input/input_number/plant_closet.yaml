@@ -1,0 +1,47 @@
+plant_1_harvest_age:
+  name: Back 3 Plant Harvest Age
+  min: 1
+  max: 120
+  step: 1
+  unit_of_measurement: "days"
+  icon: "mdi:calendar-check"
+
+plant_2_harvest_age:
+  name: Plant 2 Harvest Age
+  min: 1
+  max: 120
+  step: 1
+  unit_of_measurement: "days"
+  icon: "mdi:calendar-check"
+
+plant_3_harvest_age:
+  name: Plant 3 Harvest Age
+  min: 1
+  max: 120
+  step: 1
+  unit_of_measurement: "days"
+  icon: "mdi:calendar-check"
+
+plant_4_harvest_age:
+  name: Plant 4 Harvest Age
+  min: 1
+  max: 120
+  step: 1
+  unit_of_measurement: "days"
+  icon: "mdi:calendar-check"
+
+plant_5_harvest_age:
+  name: Plant 5 Harvest Age
+  min: 1
+  max: 120
+  step: 1
+  unit_of_measurement: "days"
+  icon: "mdi:calendar-check"
+
+plant_6_harvest_age:
+  name: Plant 6 Harvest Age
+  min: 1
+  max: 120
+  step: 1
+  unit_of_measurement: "days"
+  icon: "mdi:calendar-check"

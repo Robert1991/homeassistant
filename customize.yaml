@@ -191,3 +191,6 @@ sensor.home_server_update_state:
 binary_sensor.home_server_updates_available:
   friendly_name: "Homeserver Update State"
   icon: mdi:new-box
+
+sensor.plant_closet_harvest:
+  icon: mdi:barley

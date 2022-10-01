@@ -2,27 +2,30 @@ decluttering_templates:
   plant_overview:
     variables:
       - plant_place: Left
-      - plant_place_lower: left
+      - pot_number: left
     card:
       type: "custom:vertical-stack-in-card"
-      title: "[[plant_place]] Plant"
+      title: "Pot [[pot_number]]"
       cards:
         - type: glance
           entities:
-            - entity: "sensor.kitchen_[[plant_place_lower]]_plant_age_in_days"
+            - entity: "sensor.plant_[[pot_number]]_age_in_days"
               name: Since Planting
-            - entity: "sensor.kitchen_[[plant_place_lower]]_plant_age_in_weeks"
+            - entity: "sensor.plant_[[pot_number]]_age_in_weeks"
               name: ""
-            - entity: "input_number.[[plant_place_lower]]_plant_harvest_age"
+            - entity: "input_number.plant_[[pot_number]]_harvest_age"
               icon: mdi:calendar-check
               name: Harvest
         - type: glance
           entities:
-            - entity: "input_datetime.[[plant_place_lower]]_plant_planting_date"
+            - entity: "input_datetime.plant_[[pot_number]]_planting_date"
               name: Planting Date
-            - entity: "input_text.[[plant_place_lower]]_plant_name"
+            - entity: "input_text.plant_[[pot_number]]_name"
               icon: mdi:flower
               name: Type
+            - entity: "input_boolean.plant_[[pot_number]]_big_pot"
+              icon: mdi:pot
+              name: Big Pot
 title: Plants
 views:
   - title: Overview
@@ -47,6 +50,8 @@ views:
             entities:
               - entity: sensor.plant_closet_master_switch_power_in_watt
                 name: Energy Consumption
+              - entity: sensor.kitchen_sensor_temperature
+                name: Kitchen Temperature
           - type: "custom:stack-in-card"
             mode: horizontal
             title: Switches
@@ -130,36 +135,68 @@ views:
         view_layout:
           column: 2
         variables:
-          - plant_place: Left
-          - plant_place_lower: left
+          - pot_number: 1
       - type: custom:decluttering-card
         template: plant_overview
         view_layout:
           column: 3
         variables:
-          - plant_place: Left Back
-          - plant_place_lower: left_back
+          - pot_number: 2
       - type: custom:decluttering-card
         template: plant_overview
         view_layout:
           column: 2
         variables:
-          - plant_place: Middle
-          - plant_place_lower: middle
+          - pot_number: 3
       - type: custom:decluttering-card
         template: plant_overview
         view_layout:
           column: 3
         variables:
-          - plant_place: Middle Back
-          - plant_place_lower: middle_back
+          - pot_number: 4
       - type: custom:decluttering-card
         template: plant_overview
         view_layout:
           column: 2
         variables:
-          - plant_place: Right
-          - plant_place_lower: right
+          - pot_number: 5
+      - type: custom:decluttering-card
+        template: plant_overview
+        view_layout:
+          column: 3
+        variables:
+          - pot_number: 6
+  - title: Harvest
+    path: harvest
+    type: custom:horizontal-layout
+    layout:
+      max_cols: 3
+    cards:
+      - type: "custom:vertical-stack-in-card"
+        title: General
+        view_layout:
+          column: 1
+        cards:
+          - type: glance
+            entities:
+              - entity: sensor.plant_closet_harvest
+                name: Overall Harvest
+              - entity: sensor.plant_closet_plants_harvested
+                name: Plants
+      - type: custom:flex-table-card
+        title: Harvests
+        entities:
+          include: sensor.plant_closet_harvest
+        columns:
+          - name: Plant
+            data: harvests
+            modify: x["type"]
+          - name: Date
+            data: harvests
+            modify: x["date"]
+          - name: Amount
+            data: harvests
+            modify: x["amount"]
   - title: Graphs
     path: graphs
     panel: false

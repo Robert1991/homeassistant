@@ -34,27 +34,3 @@ kitchen_relaxed_light_start_time:
     has_date: false
     has_time: true
 
-left_plant_planting_date:
-    name: Left Plant Planting Date
-    has_date: true
-    has_time: false
-
-left_back_plant_planting_date:
-    name: Left Back Plant Planting Date
-    has_date: true
-    has_time: false
-
-right_plant_planting_date:
-    name: Right Plant Planting Date
-    has_date: true
-    has_time: false
-
-middle_plant_planting_date:
-    name: Middle Plant Planting Date
-    has_date: true
-    has_time: false
-
-middle_back_plant_planting_date:
-    name: Middle Back Plant Planting Date
-    has_date: true
-    has_time: false

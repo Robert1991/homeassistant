@@ -80,20 +80,23 @@ apps:
       - entity: sensor.plant_closet_master_switch_power_in_watt
         name: Energy Cons.
         unit: "W"
-      - entity: sensor.kitchen_left_plant_age_in_days
-        name_entity: input_text.left_plant_name
+      - entity: sensor.plant_1_age_in_days
+        name_entity: input_text.plant_1_name
         unit: "days"
-      - entity: sensor.kitchen_left_back_plant_age_in_days
-        name_entity: input_text.left_back_plant_name
+      - entity: sensor.plant_2_age_in_days
+        name_entity: input_text.plant_2_name
         unit: "days"
-      - entity: sensor.kitchen_middle_plant_age_in_days
-        name_entity: input_text.middle_plant_name
+      - entity: sensor.plant_3_age_in_days
+        name_entity: input_text.plant_3_name
         unit: "days"
-      - entity: sensor.kitchen_middle_back_plant_age_in_days
-        name_entity: input_text.middle_back_plant_name
+      - entity: sensor.plant_4_age_in_days
+        name_entity: input_text.plant_4_name
         unit: "days"
-      - entity: sensor.kitchen_right_plant_age_in_days
-        name_entity: input_text.right_plant_name
+      - entity: sensor.plant_5_age_in_days
+        name_entity: input_text.plant_5_name
+        unit: "days"
+      - entity: sensor.plant_6_age_in_days
+        name_entity: input_text.plant_6_name
         unit: "days"
 
 global:

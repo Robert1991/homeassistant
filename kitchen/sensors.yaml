@@ -1,57 +1,83 @@
 - platform: template
   sensors:
-    kitchen_left_plant_age_in_days:
+
+    plant_1_age_in_days:
       value_template: >
-        {{ ((now() | as_timestamp - states("input_datetime.left_plant_planting_date") | as_timestamp) / (24*60*60)) | int }}
+        {{ ((now() | as_timestamp - states("input_datetime.plant_1_planting_date") | as_timestamp) / (24*60*60)) | int }}
       unit_of_measurement: days
       icon_template: mdi:sort-clock-descending-outline
-    kitchen_left_plant_age_in_weeks:
+    plant_1_age_in_weeks:
       value_template: >
-        {{ ((now() | as_timestamp - states("input_datetime.left_plant_planting_date") | as_timestamp) / (24*60*60*7)) | int }}
+        {{ ((now() | as_timestamp - states("input_datetime.plant_1_planting_date") | as_timestamp) / (24*60*60*7)) | int + 1 }}
+      unit_of_measurement: week
+      icon_template: mdi:sort-clock-descending-outline
+    plant_2_age_in_days:
+      value_template: >
+        {{ ((now() | as_timestamp - states("input_datetime.plant_2_planting_date") | as_timestamp) / (24*60*60)) | int }}
+      unit_of_measurement: days
+      icon_template: mdi:sort-clock-descending-outline
+    plant_2_age_in_weeks:
+      value_template: >
+        {{ ((now() | as_timestamp - states("input_datetime.plant_2_planting_date") | as_timestamp) / (24*60*60*7)) | int + 1 }}
+      unit_of_measurement: week
+      icon_template: mdi:sort-clock-descending-outline
+    plant_3_age_in_days:
+      value_template: >
+        {{ ((now() | as_timestamp - states("input_datetime.plant_3_planting_date") | as_timestamp) / (24*60*60)) | int }}
+      unit_of_measurement: days
+      icon_template: mdi:sort-clock-descending-outline
+    plant_3_age_in_weeks:
+      value_template: >
+        {{ ((now() | as_timestamp - states("input_datetime.plant_3_planting_date") | as_timestamp) / (24*60*60*7)) | int + 1 }}
       unit_of_measurement: week
       icon_template: mdi:sort-clock-descending-outline
 
-    kitchen_left_back_plant_age_in_days:
+    plant_4_age_in_days:
       value_template: >
-        {{ ((now() | as_timestamp - states("input_datetime.left_back_plant_planting_date") | as_timestamp) / (24*60*60)) | int }}
+        {{ ((now() | as_timestamp - states("input_datetime.plant_4_planting_date") | as_timestamp) / (24*60*60)) | int }}
       unit_of_measurement: days
       icon_template: mdi:sort-clock-descending-outline
-    kitchen_left_back_plant_age_in_weeks:
+    plant_4_age_in_weeks:
       value_template: >
-        {{ ((now() | as_timestamp - states("input_datetime.left_back_plant_planting_date") | as_timestamp) / (24*60*60*7)) | int }}
+        {{ ((now() | as_timestamp - states("input_datetime.plant_4_planting_date") | as_timestamp) / (24*60*60*7)) | int + 1 }}
       unit_of_measurement: week
       icon_template: mdi:sort-clock-descending-outline
-
-    kitchen_middle_plant_age_in_days:
+    plant_5_age_in_days:
       value_template: >
-        {{ ((now() | as_timestamp - states("input_datetime.middle_plant_planting_date") | as_timestamp) / (24*60*60)) | int }}
+        {{ ((now() | as_timestamp - states("input_datetime.plant_5_planting_date") | as_timestamp) / (24*60*60)) | int }}
       unit_of_measurement: days
       icon_template: mdi:sort-clock-descending-outline
-    kitchen_middle_plant_age_in_weeks:
+    plant_5_age_in_weeks:
       value_template: >
-        {{ ((now() | as_timestamp - states("input_datetime.middle_plant_planting_date") | as_timestamp) / (24*60*60*7)) | int }}
+        {{ ((now() | as_timestamp - states("input_datetime.plant_5_planting_date") | as_timestamp) / (24*60*60*7)) | int + 1 }}
       unit_of_measurement: week
       icon_template: mdi:sort-clock-descending-outline
-    kitchen_middle_back_plant_age_in_days:
+    plant_6_age_in_days:
       value_template: >
-        {{ ((now() | as_timestamp - states("input_datetime.middle_back_plant_planting_date") | as_timestamp) / (24*60*60)) | int }}
+        {{ ((now() | as_timestamp - states("input_datetime.plant_6_planting_date") | as_timestamp) / (24*60*60)) | int }}
       unit_of_measurement: days
       icon_template: mdi:sort-clock-descending-outline
-    kitchen_middle_back_plant_age_in_weeks:
+    plant_6_age_in_weeks:
       value_template: >
-        {{ ((now() | as_timestamp - states("input_datetime.middle_back_plant_planting_date") | as_timestamp) / (24*60*60*7)) | int }}
-      unit_of_measurement: week
-      icon_template: mdi:sort-clock-descending-outline
-    kitchen_right_plant_age_in_days:
-      value_template: >
-        {{ ((now() | as_timestamp - states("input_datetime.right_plant_planting_date") | as_timestamp) / (24*60*60)) | int }}
-      unit_of_measurement: days
-      icon_template: mdi:sort-clock-descending-outline
-    kitchen_right_plant_age_in_weeks:
-      value_template: >
-        {{ ((now() | as_timestamp - states("input_datetime.right_plant_planting_date") | as_timestamp) / (24*60*60*7)) | int }}
+        {{ ((now() | as_timestamp - states("input_datetime.plant_6_planting_date") | as_timestamp) / (24*60*60*7)) | int + 1 }}
       unit_of_measurement: week
       icon_template: mdi:sort-clock-descending-outline
 - platform: command_line
   name: shopping_list
   command: /config/pyscript/sensors/shopping_list.py
+
+- platform: command_line
+  name: plant_closet_harvest
+  value_template: "{{ value_json['overall'] }}"
+  command: /config/pyscript/sensors/plant_closet/overall_harvest_sensor.py
+  unit_of_measurement: g
+  json_attributes:
+    - last
+    - harvested_count
+    - harvests
+
+- platform: command_line
+  name: plant_closet_plants_harvested
+  value_template: "{{ value_json['harvested_count'] }}"
+  command: /config/pyscript/sensors/plant_closet/overall_harvest_sensor.py
+

@@ -1,0 +1,29 @@
+plant_1_planting_date:
+    name: Plant 1 Planting Date
+    has_date: true
+    has_time: false
+
+plant_2_planting_date:
+    name: Plant 2 Planting Date
+    has_date: true
+    has_time: false
+
+plant_3_planting_date:
+    name: Plant 3 Planting Date
+    has_date: true
+    has_time: false
+
+plant_4_planting_date:
+    name: Plant 4 Planting Date
+    has_date: true
+    has_time: false
+
+plant_5_planting_date:
+    name: Plant 5 Planting Date
+    has_date: true
+    has_time: false
+
+plant_6_planting_date:
+    name: Plant 6 Planting Date
+    has_date: true
+    has_time: false
