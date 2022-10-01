@@ -4,7 +4,7 @@ substitutions:
   node_verbose_name: Living Room Sensor Actor 2
   # sensors
   light_intensity_sensor_pin: A0
-  light_intensity_sensor_update_interval: 1s
+  light_intensity_sensor_update_interval: 10s
 
 packages:
   mqtt: !include mqtt.yaml
