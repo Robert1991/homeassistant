@@ -15,3 +15,9 @@ plant_5_big_pot:
 
 plant_6_big_pot:
     name: Plant 6 Big Pot
+
+plant_closet_light_automation_enabled:
+  icon: mdi:theme-light-dark
+
+plant_closet_lcd_display_rotation_enabled:
+  initial: true

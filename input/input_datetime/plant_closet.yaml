@@ -27,3 +27,13 @@ plant_6_planting_date:
     name: Plant 6 Planting Date
     has_date: true
     has_time: false
+
+plant_closet_light_turn_on_time:
+    name: Plant Light Turn On Time
+    has_date: false
+    has_time: true
+
+plant_closet_light_turn_off_time:
+    name: Plant Light Turn Off Time
+    has_date: false
+    has_time: true

@@ -4,12 +4,3 @@ kitchen_time_based_scenes:
     - kitchen_day_light_start_time/kitchen_day_light_choosen_scene
     - kitchen_relaxed_light_start_time/kitchen_relaxed_light_choosen_scene
 
-plant_closet_pot:
-  options:
-    - 1
-    - 2
-    - 3
-    - 4
-    - 5
-    - 6
-

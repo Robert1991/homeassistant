@@ -91,44 +91,31 @@ views:
             entities:
               - type: "custom:fold-entity-row"
                 head:
-                  entity: input_boolean.kitchen_plant_light_automation_enabled
+                  entity: input_boolean.plant_closet_light_automation_enabled
                   name: Plant Light Automation
                 entities:
                   - name: Turn On Time
-                    entity: input_datetime.kitchen_plant_light_turn_on_time
+                    entity: input_datetime.plant_closet_light_turn_on_time
                   - name: Turn Off Time
-                    entity: input_datetime.kitchen_plant_light_turn_off_time
+                    entity: input_datetime.plant_closet_light_turn_off_time
               - type: "custom:fold-entity-row"
                 head:
-                  entity: input_boolean.kitchen_lcd_display_rotation_enabled
+                  entity: input_boolean.plant_closet_lcd_display_rotation_enabled
                   name: Plant Status Display Rotation
                 entities:
                   - name: Rotation Timeout
                     entity: input_number.lcd_display_rotation_timeout
-              - type: "custom:fold-entity-row"
-                head:
-                  entity: input_boolean.kitchen_plant_ventilation_automation_enabled
-                  name: Night Time Plant Ventilation
-                entities:
-                  - name: On Interval
-                    entity: input_number.kitchen_plant_night_ventilation_on_interval
-                    type: custom:slider-entity-row
-                  - name: Off Interval
-                    entity: input_number.kitchen_plant_night_ventilation_off_interval
-                    type: custom:slider-entity-row
-                  - name: Start Time
-                    entity: input_datetime.kitchen_plant_night_ventilation_turn_on_time
               - type: divider
               - type: "custom:fold-entity-row"
                 head:
                   entity: binary_sensor.temperature_too_hot_in_plant_closet
                   name: Temperature over alarm threshold
                 entities:
-                  - entity: input_number.kitchen_plant_closet_maximum_temperature
+                  - entity: input_number.plant_closet_maximum_temperature
                     name: Warning Temperature
-                  - entity: input_number.kitchen_plant_closet_maximum_temperature_notification_timeout
+                  - entity: input_number.plant_closet_maximum_temperature_notification_timeout
                     name: Notification Timeout
-                  - entity: input_number.kitchen_plant_closet_release_temp_alarm_timeout
+                  - entity: input_number.plant_closet_release_temp_alarm_timeout
                     name: Release Alarm Timeout
       - type: custom:decluttering-card
         template: plant_overview

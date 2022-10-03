@@ -23,6 +23,13 @@ apps:
         turn_off_timeout_entity: input_number.tv_living_room_idle_turn_off_timeout
         turn_off_timer_entity: timer.living_room_tv_auto_off
         skip_turn_on: true
+  time_based_entity_control:
+    - plant_closet_light_control:
+        entity: switch.kitchen_plant_closet_lights
+        interval_start: input_datetime.plant_closet_light_turn_on_time
+        interval_end: input_datetime.plant_closet_light_turn_off_time
+        target_state: "on"
+        automation_enabled_entity: input_boolean.plant_closet_light_automation_enabled
   state_observer:
     trigger_alarm_when_fridge_is_open:
       observed_entity: binary_sensor.kitchen_sensor_door_sensor
@@ -69,7 +76,7 @@ apps:
   lcd_display_rotation:
     display_topic: kitchen_mqtt_lcd_display/show
     rotate_timeout_entity: input_number.lcd_display_rotation_timeout
-    rotation_enabled_entity: input_boolean.kitchen_lcd_display_rotation_enabled
+    rotation_enabled_entity: input_boolean.plant_closet_lcd_display_rotation_enabled
     displayed_entities:
       - entity: sensor.kitchen_mqtt_lcd_display_humidity
         name: Humidity

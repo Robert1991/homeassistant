@@ -1,18 +1,3 @@
-kitchen_plant_night_ventilation_turn_on_time:
-    name: Plant Night Ventilation Turn On Time
-    has_date: false
-    has_time: true
-
-kitchen_plant_light_turn_on_time:
-    name: Plant Light Turn On Time
-    has_date: false
-    has_time: true
-
-kitchen_plant_light_turn_off_time:
-    name: Plant Light Turn Off Time
-    has_date: false
-    has_time: true
-
 kitchen_light_automation_reactivation_timeout:
     name: Reactivation Timeout
     has_date: false

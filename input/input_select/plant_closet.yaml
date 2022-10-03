@@ -1,0 +1,12 @@
+plant_closet_pot:
+  options:
+    - 1
+    - 2
+    - 3
+    - 4
+    - 5
+    - 6
+
+currently_drying_harvest:
+  options:
+    - None
