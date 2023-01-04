@@ -1,8 +1,3 @@
-- sensor:
-    - name: Plant Closet Master Switch Power In Watt
-      state: "{{ states('sensor.plant_closet_master_switch_power') | int / 10 | int }}"
-      unit_of_measurement: Watt
-      icon: mdi:lightning-bolt-outline
 - trigger:
     - platform: state
       entity_id: binary_sensor.kitchen_mqtt_lcd_display_button_left

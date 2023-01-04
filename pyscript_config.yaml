@@ -84,7 +84,7 @@ apps:
       - entity: sensor.kitchen_mqtt_lcd_display_temperature
         name: Temperature
         unit: "deg. C"
-      - entity: sensor.plant_closet_master_switch_power_in_watt
+      - entity: sensor.plant_closet_master_switch_power
         name: Energy Cons.
         unit: "W"
       - entity: sensor.plant_1_age_in_days
@@ -109,9 +109,13 @@ apps:
 global:
   esp_home_automations:
     esp_home_base_path: "/home/robert/docker/homeassistant/volumes/homeassistant/esphome"
+  ssh:
+    ssh_key: "/config/.ssh/id_rsa"
   host_server:
     ssh_key: "/config/.ssh/id_rsa"
     ssh_login: "robert@rpn-home-server"
     ssh_sudo: !secret host_sudo
     home_assistant_docker_compose: "/home/robert/docker/homeassistant/docker-compose.yaml"
     server_monitoring_docker_compose: "/home/robert/docker/server_monitoring/docker-compose.yaml"
+  openwrt:
+    ssh_login: "root@RPNRouter"
