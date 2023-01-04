@@ -81,3 +81,9 @@
   value_template: "{{ value_json['harvested_count'] }}"
   command: /config/pyscript/sensors/plant_closet/overall_harvest_sensor.py
 
+- platform: command_line
+  name: plant_closet_harvest_drying
+  value_template: "{{ value_json['overall'] }}"
+  command: /config/pyscript/sensors/plant_closet/drying_harvest_sensor.py
+  json_attributes:
+    - drying
