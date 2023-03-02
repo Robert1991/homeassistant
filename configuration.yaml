@@ -170,7 +170,6 @@ lovelace:
 monitor_docker:
   - name: Docker
     containers:
-      - appdaemon
       - mosquitto
       - esphome
       - home-assistant
@@ -182,7 +181,6 @@ monitor_docker:
       - server_monitoring_node-exporter_1
       - server_monitoring_prometheus_1
     rename:
-      appdaemon: AppDaemon
       mosquitto: Mosquitto
       esphome: ESPHome
       home-assistant: Homeassistant

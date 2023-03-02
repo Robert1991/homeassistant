@@ -1,8 +1,0 @@
-bathroom_ikea_light_switch_controller:
-  module: ikea_light_switch
-  class: IkeaLightSwitch
-  light_group: light.bathroom_lights
-  light_switch_sensor: sensor.ikea_bathroom_smart_button_action
-  scene_input_select: input_select.bathroom_automatic_light_scene_generated
-  dim_step_size: input_number.bathroom_smart_button_dim_step_size
-  scene_prefix: Bathroom

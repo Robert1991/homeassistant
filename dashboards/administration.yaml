@@ -203,8 +203,6 @@ views:
       - type: entities
         title: Docker Updates
         entities:
-          - entity: binary_sensor.appdaemon_update_sensor
-            name: AppDaemon
           - entity: binary_sensor.esphome_update_sensor
             name: ESPHome
           - entity: binary_sensor.eclipse_mosquitto_update_sensor
@@ -316,12 +314,6 @@ views:
               - container_display_name: Home-Assistant
               - container_name: home_assistant
               - update_sensor_name: binary_sensor.homeassistant_docker_update_sensor
-          - type: custom:decluttering-card
-            template: dockerContainerControlWithUpdate
-            variables:
-              - container_display_name: AppDaemon
-              - container_name: appdaemon
-              - update_sensor_name: binary_sensor.appdaemon_update_sensor
           - type: custom:decluttering-card
             template: dockerContainerControlWithUpdate
             variables:
@@ -457,8 +449,6 @@ views:
               show_states: true
               colorize_states: true
             series:
-              - entity: sensor.docker_appdaemon_memory
-                name: AppDaemon
               - entity: sensor.docker_esphome_memory
                 name: ESPHome
               - entity: sensor.docker_home_assistant_memory
@@ -479,8 +469,6 @@ views:
               show_states: true
               colorize_states: true
             series:
-              - entity: sensor.docker_appdaemon_1cpu
-                name: AppDaemon
               - entity: sensor.docker_esphome_1cpu
                 name: ESPHome
               - entity: sensor.docker_home_assistant_1cpu

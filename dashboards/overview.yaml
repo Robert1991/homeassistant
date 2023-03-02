@@ -52,16 +52,13 @@ decluttering_templates:
                     show_state: false
                     tap_action:
                       action: call-service
-                      service: script.turn_on
+                      service: pyscript.create_light_scene
                       service_data:
-                        entity_id: script.fire_scene_creator_event
-                        variables:
-                          event_name: CREATE_SCENE
-                          light_group: "[[light_group]]"
-                          scene_name: ${SCENE_NAME}
-                          scene_group_prefix: "[[scene_group_prefix]]"
-                          timebased_scene_config: "[[timebased_scene_config]]"
-                          light_intensity_control: "[[light_intensity_control]]"
+                        light_group: "[[light_group]]"
+                        scene_name: ${SCENE_NAME}
+                        scene_group: "[[scene_group_prefix]]"
+                        time_based_scene_config: "[[timebased_scene_config]]"
+                        light_intensity_control: "[[light_intensity_control]]"
                 - type: custom:button-card
                   color_type: blank-card
                   styles:
@@ -100,16 +97,11 @@ decluttering_templates:
                     show_state: false
                     tap_action:
                       action: call-service
-                      service: script.turn_on
+                      service: pyscript.delete_light_scene
                       service_data:
-                        entity_id: script.fire_scene_creator_event
-                        variables:
-                          event_name: DELETE_SCENE
-                          light_group: "[[light_group]]"
-                          scene_name: ${SCENE_NAME}
-                          scene_group_prefix: "[[scene_group_prefix]]"
-                          timebased_scene_config: "[[timebased_scene_config]]"
-                          light_intensity_control: "[[light_intensity_control]]"
+                        scene_name: ${SCENE_NAME}
+                        scene_group: "[[scene_group_prefix]]"
+                        time_based_scene_config: "[[timebased_scene_config]]"
                 - type: custom:config-template-card
                   variables:
                     SCENE_NAME: >-
@@ -129,16 +121,12 @@ decluttering_templates:
                     show_state: false
                     tap_action:
                       action: call-service
-                      service: script.turn_on
+                      service: pyscript.update_light_scene
                       service_data:
-                        entity_id: script.fire_scene_creator_event
-                        variables:
-                          event_name: UPDATE_SCENE
-                          light_group: "[[light_group]]"
-                          scene_name: ${SCENE_NAME}
-                          scene_group_prefix: "[[scene_group_prefix]]"
-                          timebased_scene_config: "[[timebased_scene_config]]"
-                          light_intensity_control: "[[light_intensity_control]]"
+                        light_group: "[[light_group]]"
+                        scene_name: ${SCENE_NAME}
+                        scene_group: "[[scene_group_prefix]]"
+                        light_intensity_control: "[[light_intensity_control]]"
                 - type: custom:button-card
                   color_type: blank-card
                   styles:

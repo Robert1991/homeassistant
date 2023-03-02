@@ -1,7 +1,0 @@
-bedroom_scene_switch:
-  module: input_select_scene_switch
-  class: InputSelectSceneSwitch
-  observed_input_select: input_select.bedroom_light_scene_generated
-  scene_prefix: bedroom
-  adapted_input_selects:
-    - input_select.bedroom_automatic_light_scene_generated
