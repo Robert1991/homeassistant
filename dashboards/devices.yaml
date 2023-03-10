@@ -133,12 +133,6 @@ views:
         - type: custom:decluttering-card
           template: espHomeDeviceInfoRow
           variables:  
-          - device_name: balcony_sensor_actor
-          - device_display_name: Balcony Sensor Actor
-          - navigate_to: other
-        - type: custom:decluttering-card
-          template: espHomeDeviceInfoRow
-          variables:  
           - device_name: bathroom_sensor_actor
           - device_display_name: Bathroom Sensor Actor
           - navigate_to: other
@@ -151,44 +145,20 @@ views:
         - type: custom:decluttering-card
           template: espHomeDeviceInfoRow
           variables:  
-          - device_name: floor_sensor_actor
-          - device_display_name: Floor Sensor Actor
-          - navigate_to: other
-        - type: custom:decluttering-card
-          template: espHomeDeviceInfoRow
-          variables:  
-          - device_name: living_room_sensor_actor_1
-          - device_display_name: Living Room Sensor Actor 1
-          - navigate_to: living_room
-        - type: custom:decluttering-card
-          template: espHomeDeviceInfoRow
-          variables:  
           - device_name: living_room_sensor_actor_2
           - device_display_name: Living Room Sensor Actor 2
           - navigate_to: living_room
         - type: custom:decluttering-card
           template: espHomeDeviceInfoRow
           variables:  
-          - device_name: kitchen_light_controller
-          - device_display_name: Kitchen Light Controller
+          - device_name: kitchen_sensor_actor
+          - device_display_name: Kitchen Sensor Actor
           - navigate_to: kitchen
         - type: custom:decluttering-card
           template: espHomeDeviceInfoRow
           variables:  
           - device_name: kitchen_ceiling_light
           - device_display_name: Kitchen Ceiling Light
-          - navigate_to: kitchen
-        - type: custom:decluttering-card
-          template: espHomeDeviceInfoRow
-          variables:  
-          - device_name: kitchen_sensor
-          - device_display_name: Kitchen Sensor
-          - navigate_to: kitchen
-        - type: custom:decluttering-card
-          template: espHomeDeviceInfoRow
-          variables:  
-          - device_name: kitchen_mqtt_lcd_display
-          - device_display_name: MQTT LCD Display
           - navigate_to: kitchen
         - type: button
           tap_action:
@@ -203,6 +173,21 @@ views:
       state_color: true
     - type: entities
       entities:
+        - type: custom:decluttering-card
+          template: zigbeeDeviceInfoRow
+          variables:  
+          - device_name: bathroom_fan
+          - device_display_name: Bathroom Fan
+        - type: custom:decluttering-card
+          template: zigbeeDeviceInfoRow
+          variables:  
+          - device_name: bathroom_indirect_light
+          - device_display_name: Bathroom Indirect Light
+        - type: custom:decluttering-card
+          template: zigbeeDeviceInfoRow
+          variables:  
+          - device_name: bedroom_bed_light
+          - device_display_name: Bedroom Bed Light
         - type: custom:decluttering-card
           template: zigbeeBatteryDeviceInfoRow
           variables:  
@@ -221,33 +206,33 @@ views:
         - type: custom:decluttering-card
           template: zigbeeBatteryDeviceInfoRow
           variables:  
-          - device_name: bedroom_blind_center
-          - device_display_name: Bedroom Blind Center
-        - type: custom:decluttering-card
-          template: zigbeeBatteryDeviceInfoRow
-          variables:  
           - device_name: bedroom_blind_right
           - device_display_name: Bedroom Blind Right
         - type: custom:decluttering-card
           template: zigbeeDeviceInfoRow
           variables:  
-          - device_name: bedroom_closet_led_power_supply_light
-          - device_display_name: Bedroom Closet Led Power Supply Light
+          - device_name: bedroom_ceiling_light
+          - device_display_name: Bedroom Ceiling Light
         - type: custom:decluttering-card
           template: zigbeeDeviceInfoRow
           variables:  
-          - device_name: hue_iris_light
-          - device_display_name: Hue Iris Light
+          - device_name: bedroom_desk_plug_1
+          - device_display_name: Bedroom Desk Plug 1
         - type: custom:decluttering-card
-          template: zigbeeBatteryDeviceInfoRow
+          template: zigbeeDeviceInfoRow
           variables:  
-          - device_name: hue_motion_sensor_1
-          - device_display_name: Hue Motion Sensor 1
+          - device_name: bedroom_desk_plug_2
+          - device_display_name: Bedroom Desk Plug 2
         - type: custom:decluttering-card
-          template: zigbeeBatteryDeviceInfoRow
+          template: zigbeeDeviceInfoRow
           variables:  
-          - device_name: hue_motion_sensor_2
-          - device_display_name: Hue Motion Sensor 2
+          - device_name: bedroom_workdesk_light
+          - device_display_name: Bedroom Workdesk Light
+        - type: custom:decluttering-card
+          template: zigbeeDeviceInfoRow
+          variables:  
+          - device_name: hue_portable_light_bulb
+          - device_display_name: Hue Portable Light Bulb
         - type: custom:decluttering-card
           template: zigbeeBatteryDeviceInfoRow
           variables:  
@@ -269,35 +254,35 @@ views:
           - device_name: hue_smart_button_4
           - device_display_name: Hue Smart Button 4
         - type: custom:decluttering-card
-          template: zigbeeDeviceInfoRow
-          variables:  
-          - device_name: hue_smart_plug_1
-          - device_display_name: Hue Smart Plug 1
-        - type: custom:decluttering-card
-          template: zigbeeDeviceInfoRow
-          variables:  
-          - device_name: hue_smart_plug_2
-          - device_display_name: Hue Smart Plug 2
-        - type: custom:decluttering-card
-          template: zigbeeDeviceInfoRow
-          variables:  
-          - device_name: hue_smart_plug_3
-          - device_display_name: Hue Smart Plug 3
-        - type: custom:decluttering-card
           template: zigbeeBatteryDeviceInfoRow
           variables:  
-          - device_name: ikea_bathroom_smart_button
-          - device_display_name: Ikea Bathroom Smart Button
-        - type: custom:decluttering-card
-          template: zigbeeBatteryDeviceInfoRow
-          variables:  
-          - device_name: ikea_floor_smart_button
-          - device_display_name: Ikea Floor Smart Button
+          - device_name: ikea_bedroom_smart_button
+          - device_display_name: Ikea Bedroom Smart Button
         - type: custom:decluttering-card
           template: zigbeeBatteryDeviceInfoRow
           variables:  
           - device_name: ikea_kitchen_smart_button
           - device_display_name: Ikea Kitchen Smart Button
+        - type: custom:decluttering-card
+          template: zigbeeBatteryDeviceInfoRow
+          variables:  
+          - device_name: ikea_living_room_smart_button
+          - device_display_name: Ikea Living Room Smart Button
+        - type: custom:decluttering-card
+          template: zigbeeDeviceInfoRow
+          variables:  
+          - device_name: kitchen_cabinet_light_1
+          - device_display_name: Kitchen Cabinet Light 1
+        - type: custom:decluttering-card
+          template: zigbeeDeviceInfoRow
+          variables:  
+          - device_name: kitchen_cabinet_light_2
+          - device_display_name: Kitchen Cabinet Light 2
+        - type: custom:decluttering-card
+          template: zigbeeDeviceInfoRow
+          variables:  
+          - device_name: kitchen_entrance_light
+          - device_display_name: Kitchen Entrance Light
         - type: custom:decluttering-card
           template: zigbeeDeviceInfoRow
           variables:  
@@ -306,25 +291,71 @@ views:
         - type: custom:decluttering-card
           template: zigbeeDeviceInfoRow
           variables:  
-          - device_name: office_ceiling_light_1
-          - device_display_name: Office Ceiling Light 1
+          - device_name: kitchen_shelf_light
+          - device_display_name: Kitchen Shelf Light
         - type: custom:decluttering-card
           template: zigbeeDeviceInfoRow
           variables:  
-          - device_name: office_ceiling_light_2
-          - device_display_name: Office Ceiling Light 2
+          - device_name: living_room_ceiling_light
+          - device_display_name: Living Room Ceiling Light
         - type: custom:decluttering-card
           template: zigbeeDeviceInfoRow
           variables:  
-          - device_name: office_ceiling_light_3
-          - device_display_name: Office Ceiling Light 3
+          - device_name: living_room_globe_light
+          - device_display_name: Living Room Globe Light
+        - type: custom:decluttering-card
+          template: zigbeeDeviceInfoRow
+          variables:  
+          - device_name: living_room_hue_light_bulb
+          - device_display_name: Living Room Hue Light Bulb
         - type: custom:decluttering-card
           template: zigbeeBatteryDeviceInfoRow
           variables:  
-          - device_name: office_motion_sensor
-          - device_display_name: Office Motion Sensor
+          - device_name: living_room_motion_sensor
+          - device_display_name: Living Room Motion Sensor
+        - type: custom:decluttering-card
+          template: zigbeeDeviceInfoRow
+          variables:  
+          - device_name: living_room_round_light
+          - device_display_name: Living Room Round Light
+        - type: custom:decluttering-card
+          template: zigbeeDeviceInfoRow
+          variables:  
+          - device_name: living_room_standing_light_1
+          - device_display_name: Living Room Standing Light 1
+        - type: custom:decluttering-card
+          template: zigbeeDeviceInfoRow
+          variables:  
+          - device_name: living_room_standing_light_2
+          - device_display_name: Living Room Standing Light 2
       title: Zigbee2Mqtt Devices
       state_color: true
+  - title: Zigbee2MQTT
+    path: zigbee2mqtt
+    badges: []
+    cards:
+    - type: entities
+      show_header_toggle: false
+      entities:
+        - entity: sensor.zigbee2mqtt_bridge_state
+        - entity: sensor.zigbee2mqtt_version
+        - entity: sensor.coordinator_version
+        - entity: input_select.zigbee2mqtt_log_level
+        - type: divider
+        - entity: switch.zigbee2mqtt_main_join
+        - entity: input_number.zigbee2mqtt_join_minutes
+        - entity: timer.zigbee_permit_join
+        - type: divider
+        - entity: input_text.zigbee2mqtt_old_name
+        - entity: input_text.zigbee2mqtt_new_name
+        - entity: script.zigbee2mqtt_rename
+        - type: divider
+        - entity: input_text.zigbee2mqtt_update_name
+        - entity: script.zigbee2mqtt_update
+        - type: divider
+        - entity: input_text.zigbee2mqtt_remove
+        - entity: input_boolean.zigbee2mqtt_force_remove
+        - entity: script.zigbee2mqtt_remove
   - title: Bedroom
     path: bedroom
     badges: []
@@ -340,15 +371,7 @@ views:
       - type: custom:decluttering-card
         template: zigbeeDeviceEntities
         variables:
-          - device_display_name: Bedroom Closet Led Power Supply Light
-      - type: custom:decluttering-card
-        template: zigbeeDeviceEntities
-        variables:
-          - device_display_name: Hue Smart Button 1
-      - type: custom:decluttering-card
-        template: zigbeeDeviceEntities
-        variables:
-          - device_display_name: Hue Smart Button 3
+          - device_display_name: Bedroom Bed Light
       - type: custom:decluttering-card
         template: zigbeeDeviceEntities
         variables:
@@ -365,13 +388,30 @@ views:
         template: zigbeeDeviceEntities
         variables:
           - device_display_name: Bedroom Blind Right
-    - type: entities
-      title: Philips Hue Bridge
-      entities:
-        - light.bedroom_ceiling_1
-        - light.bedroom_ceiling_2
-        - light.bedroom_ceiling_3
-        - light.bedroom_bed_light
+      - type: custom:decluttering-card
+        template: zigbeeDeviceEntities
+        variables:
+          - device_display_name: Bedroom Ceiling Light
+      - type: custom:decluttering-card
+        template: zigbeeDeviceEntities
+        variables:
+          - device_display_name: Bedroom Desk Plug 1
+      - type: custom:decluttering-card
+        template: zigbeeDeviceEntities
+        variables:
+          - device_display_name: Bedroom Desk Plug 2
+      - type: custom:decluttering-card
+        template: zigbeeDeviceEntities
+        variables:
+          - device_display_name: Bedroom Workdesk Light
+      - type: custom:decluttering-card
+        template: zigbeeDeviceEntities
+        variables:
+          - device_display_name: Hue Smart Button 2
+      - type: custom:decluttering-card
+        template: zigbeeDeviceEntities
+        variables:
+          - device_display_name: Hue Smart Button 4
     - type: 'custom:vertical-stack-in-card'
       title: Other
       cards:
@@ -404,18 +444,8 @@ views:
     - type: custom:decluttering-card
       template: device_overview_template
       variables:  
-        - sensor_name: kitchen_light_controller
-        - sensor_display_name: Kitchen Light Controller
-    - type: custom:decluttering-card
-      template: device_overview_template
-      variables:  
-        - sensor_name: kitchen_sensor
-        - sensor_display_name: Kitchen Sensor
-    - type: custom:decluttering-card
-      template: device_overview_template
-      variables:  
-        - sensor_name: kitchen_mqtt_lcd_display
-        - sensor_display_name: MQTT LCD Display
+        - sensor_name: kitchen_sensor_actor
+        - sensor_display_name: Kitchen Sensor Actor
     - type: custom:decluttering-card
       template: device_overview_template
       variables:  
@@ -431,16 +461,28 @@ views:
       - type: custom:decluttering-card
         template: zigbeeDeviceEntities
         variables:
+          - device_display_name: Kitchen Cabinet Light 1
+      - type: custom:decluttering-card
+        template: zigbeeDeviceEntities
+        variables:
+          - device_display_name: Kitchen Cabinet Light 2
+      - type: custom:decluttering-card
+        template: zigbeeDeviceEntities
+        variables:
+          - device_display_name: Kitchen Entrance Light
+      - type: custom:decluttering-card
+        template: zigbeeDeviceEntities
+        variables:
           - device_display_name: Kitchen Led Spots Light
+      - type: custom:decluttering-card
+        template: zigbeeDeviceEntities
+        variables:
+          - device_display_name: Kitchen Shelf Light
+
   - title: Living Room
     path: living_room
     badges: []
     cards:
-    - type: custom:decluttering-card
-      template: device_overview_template
-      variables:  
-        - sensor_name: living_room_sensor_actor_1
-        - sensor_display_name: Living Room Sensor/Actor 1
     - type: custom:decluttering-card
       template: device_overview_template
       variables:  
@@ -456,78 +498,55 @@ views:
       - type: custom:decluttering-card
         template: zigbeeDeviceEntities
         variables:
-          - device_display_name: Hue Smart Button 3
+          - device_display_name: Living Room Ceiling Light
       - type: custom:decluttering-card
         template: zigbeeDeviceEntities
         variables:
-          - device_display_name: Hue Smart Button 4
-    - type: entities
-      title: Philips Hue Bridge
-      entities:
-        - light.living_room_center_1
-        - light.living_room_center_2
-        - light.living_room_center_3
-        - light.living_room_center_4
-        - light.living_room_center_5
-        - light.living_room_standing_light
+          - device_display_name: Living Room Globe Light
+      - type: custom:decluttering-card
+        template: zigbeeDeviceEntities
+        variables:
+          - device_display_name: Living Room Hue Light Bulb
+      - type: custom:decluttering-card
+        template: zigbeeDeviceEntities
+        variables:
+          - device_display_name: Living Room Motion Sensor
+      - type: custom:decluttering-card
+        template: zigbeeDeviceEntities
+        variables:
+          - device_display_name: Living Room Round Light
+      - type: custom:decluttering-card
+        template: zigbeeDeviceEntities
+        variables:
+          - device_display_name: Living Room Standing Light 1
+      - type: custom:decluttering-card
+        template: zigbeeDeviceEntities
+        variables:
+          - device_display_name: Living Room Standing Light 2
     - title: Other
       type: entities
       entities:
-        - light.touch_screen_back_light
         - media_player.tv_livingroom
-        - media_player.tv_livingroom_chorme_cast
-  - title: Other
-    path: other
+  - title: Bathroom
+    path: bathroom
     badges: []
     cards:
     - type: custom:decluttering-card
       template: device_overview_template
       variables:  
         - sensor_name: bathroom_sensor_actor
-        - sensor_display_name: Bathroom Sensor/Actor 1
-    - type: custom:decluttering-card
-      template: device_overview_template
-      variables:  
-        - sensor_name: balcony_sensor_actor
-        - sensor_display_name: Balcony Sensor/Actor
-    - type: custom:decluttering-card
-      template: device_overview_template
-      variables:  
-        - sensor_name: floor_sensor_actor
-        - sensor_display_name: Floor Sensor/Actor 1
-    - type: map
-      entities:
-        - entity: device_tracker.iphone_von_robert
-        - entity: zone.home
-        - entity: zone.shopping
-      dark_mode: false
-      title: IPhone Device Tracker
-  - title: Zigbee2MQTT
-    path: zigbee2mqtt
-    badges: []
-    cards:
-    - type: entities
-      show_header_toggle: false
-      entities:
-        - entity: sensor.zigbee2mqtt_bridge_state
-        - entity: sensor.zigbee2mqtt_version
-        - entity: sensor.coordinator_version
-        - entity: input_select.zigbee2mqtt_log_level
-        - type: divider
-        - entity: switch.zigbee2mqtt_main_join
-        - entity: input_number.zigbee2mqtt_join_minutes
-        - entity: timer.zigbee_permit_join
-        - type: divider
-        - entity: input_text.zigbee2mqtt_old_name
-        - entity: input_text.zigbee2mqtt_new_name
-        - entity: script.zigbee2mqtt_rename
-        - type: divider
-        - entity: input_text.zigbee2mqtt_update_name
-        - entity: script.zigbee2mqtt_update
-        - type: divider
-        - entity: input_text.zigbee2mqtt_remove
-        - entity: input_boolean.zigbee2mqtt_force_remove
-        - entity: script.zigbee2mqtt_remove
+        - sensor_display_name: Bathroom Sensor/Actor
+    - type: 'custom:vertical-stack-in-card'
+      title: ZigBee2MQTT
+      cards:
+      - type: custom:decluttering-card
+        template: zigbeeDeviceEntities
+        variables:
+          - device_display_name: Bathroom Fan
+      - type: custom:decluttering-card
+        template: zigbeeDeviceEntities
+        variables:
+          - device_display_name: Bathroom Indirect Light
   - title: Zigbee Network
     path: zigbee_network
     panel: true # this renders the first card on full width, other cards in this view will not be rendered
@@ -561,7 +580,23 @@ views:
         - type: custom:decluttering-card
           template: zigbeeDeviceEntities
           variables:
-            - device_display_name: Bedroom Closet Led Power Supply Light
+            - device_display_name: Bathroom Fan
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Bathroom Indirect Light
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Bedroom Bed Light
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Bedroom Blind Left
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Bedroom Blind Right
         - type: custom:decluttering-card
           template: zigbeeDeviceEntities
           variables:
@@ -573,27 +608,23 @@ views:
         - type: custom:decluttering-card
           template: zigbeeDeviceEntities
           variables:
-            - device_display_name: Bedroom Blind Left
+            - device_display_name: Bedroom Ceiling Light
         - type: custom:decluttering-card
           template: zigbeeDeviceEntities
           variables:
-            - device_display_name: Bedroom Blind Center
+            - device_display_name: Bedroom Desk Plug 1
         - type: custom:decluttering-card
           template: zigbeeDeviceEntities
           variables:
-            - device_display_name: Bedroom Blind Right
+            - device_display_name: Bedroom Desk Plug 2
         - type: custom:decluttering-card
           template: zigbeeDeviceEntities
           variables:
-            - device_display_name: Hue Iris Light
+            - device_display_name: Bedroom Workdesk Light
         - type: custom:decluttering-card
           template: zigbeeDeviceEntities
           variables:
-            - device_display_name: Hue Motion Sensor 1
-        - type: custom:decluttering-card
-          template: zigbeeDeviceEntities
-          variables:
-            - device_display_name: Hue Motion Sensor 2
+            - device_display_name: Hue Portable Light Bulb
         - type: custom:decluttering-card
           template: zigbeeDeviceEntities
           variables:
@@ -613,19 +644,7 @@ views:
         - type: custom:decluttering-card
           template: zigbeeDeviceEntities
           variables:
-            - device_display_name: Hue Smart Plug 1
-        - type: custom:decluttering-card
-          template: zigbeeDeviceEntities
-          variables:
-            - device_display_name: Hue Smart Plug 2
-        - type: custom:decluttering-card
-          template: zigbeeDeviceEntities
-          variables:
-            - device_display_name: Ikea Bathroom Smart Button
-        - type: custom:decluttering-card
-          template: zigbeeDeviceEntities
-          variables:
-            - device_display_name: Ikea Floor Smart Button
+            - device_display_name: Ikea Bedroom Smart Button
         - type: custom:decluttering-card
           template: zigbeeDeviceEntities
           variables:
@@ -633,20 +652,52 @@ views:
         - type: custom:decluttering-card
           template: zigbeeDeviceEntities
           variables:
+            - device_display_name: Ikea Living Room Smart Button
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Kitchen Cabinet Light 1
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Kitchen Cabinet Light 2
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Kitchen Entrance Light
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
             - device_display_name: Kitchen Led Spots Light
         - type: custom:decluttering-card
           template: zigbeeDeviceEntities
           variables:
-            - device_display_name: Office Ceiling Light 1
+            - device_display_name: Kitchen Shelf Light
         - type: custom:decluttering-card
           template: zigbeeDeviceEntities
           variables:
-            - device_display_name: Office Ceiling Light 2
+            - device_display_name: Living Room Ceiling Light
         - type: custom:decluttering-card
           template: zigbeeDeviceEntities
           variables:
-            - device_display_name: Office Ceiling Light 3
+            - device_display_name: Living Room Globe Light
         - type: custom:decluttering-card
           template: zigbeeDeviceEntities
           variables:
-            - device_display_name: Office Motion Sensor
+            - device_display_name: Living Room Hue Light Bulb
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Living Room Motion Sensor
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Living Room Round Light
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Living Room Standing Light 1
+        - type: custom:decluttering-card
+          template: zigbeeDeviceEntities
+          variables:
+            - device_display_name: Living Room Standing Light 2
