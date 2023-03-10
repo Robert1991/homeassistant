@@ -1,5 +1,0 @@
-- platform: group    
-  name: Kitchen Plant Closet Lights
-  entities:
-    - switch.hue_smart_plug_1
-    - switch.hue_smart_plug_3

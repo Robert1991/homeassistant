@@ -1,80 +1,182 @@
 - entities:
-    light.kitchen_ceiling_light_light_switch:
-      state: 'on'
-    light.kitchen_led_spots_light:
-      brightness: 254
-      state: 'on'
-    light.kitchen_light_controller_black_light:
-      state: 'on'
-    light.kitchen_light_controller_light_strip:
+    input_number.kitchen_light_toogle_intensity_threshold: '15'
+    light.kitchen_cabinet_light_1:
       brightness: 255
+      hs_color:
+      - 28.0
+      - 64.706
       rgb_color:
       - 255
-      - 0
-      - 63
+      - 167
+      - 90
       state: 'on'
+      xy_color:
+      - 0.525
+      - 0.386
+    light.kitchen_cabinet_light_2:
+      brightness: 255
+      hs_color:
+      - 28.0
+      - 64.706
+      rgb_color:
+      - 255
+      - 167
+      - 90
+      state: 'on'
+      xy_color:
+      - 0.525
+      - 0.386
+    light.kitchen_ceiling_light_light_switch:
+      state: 'on'
+    light.kitchen_entrance_light:
+      brightness: 167
+      hs_color:
+      - 269.663
+      - 69.804
+      rgb_color:
+      - 165
+      - 77
+      - 255
+      state: 'on'
+      xy_color:
+      - 0.259
+      - 0.122
+    light.kitchen_led_spots_light:
+      brightness: 189
+      state: 'on'
+    light.kitchen_sensor_actor_neopixel_partition_light_1:
+      brightness: 255
+      hs_color:
+      - 30.0
+      - 37.647
+      rgb_color:
+      - 255
+      - 207
+      - 159
+      state: 'on'
+      xy_color:
+      - 0.425
+      - 0.373
+    light.kitchen_sensor_actor_neopixel_partition_light_2:
+      brightness: 255
+      hs_color:
+      - 30.0
+      - 37.647
+      rgb_color:
+      - 255
+      - 207
+      - 159
+      state: 'on'
+      xy_color:
+      - 0.425
+      - 0.373
+    light.kitchen_sensor_actor_neopixel_partition_light_3:
+      brightness: 255
+      hs_color:
+      - 30.0
+      - 37.647
+      rgb_color:
+      - 255
+      - 207
+      - 159
+      state: 'on'
+      xy_color:
+      - 0.425
+      - 0.373
+    light.kitchen_sensor_actor_neopixel_partition_light_4:
+      brightness: 255
+      hs_color:
+      - 30.0
+      - 37.647
+      rgb_color:
+      - 255
+      - 207
+      - 159
+      state: 'on'
+      xy_color:
+      - 0.425
+      - 0.373
+    light.kitchen_shelf_light:
+      brightness: 255
+      hs_color:
+      - 299.754
+      - 95.686
+      rgb_color:
+      - 254
+      - 11
+      - 255
+      state: 'on'
+      xy_color:
+      - 0.385
+      - 0.155
   name: Kitchen Cooking 1
 - entities:
-    light.kitchen_ceiling_light_light_switch:
-      state: 'on'
-    light.kitchen_led_spots_light:
-      brightness: 254
-      state: 'on'
-    light.kitchen_light_controller_black_light:
-      state: 'off'
-    light.kitchen_light_controller_light_strip:
-      brightness: 255
-      rgb_color:
-      - 190
-      - 255
-      - 0
-      state: 'on'
-  name: Kitchen Cooking 2
-- entities:
-    light.kitchen_ceiling_light_light_switch:
-      state: 'off'
-    light.kitchen_led_spots_light:
+    input_number.kitchen_light_toogle_intensity_threshold: '15'
+    light.kitchen_cabinet_light_1:
       brightness: 115
-      state: 'on'
-    light.kitchen_light_controller_black_light:
-      state: 'on'
-    light.kitchen_light_controller_light_strip:
-      brightness: 163
+      hs_color:
+      - 28.0
+      - 64.706
       rgb_color:
       - 255
-      - 126
-      - 0
+      - 167
+      - 90
       state: 'on'
-  name: Kitchen Night Light 1
-- entities:
+      xy_color:
+      - 0.525
+      - 0.386
+    light.kitchen_cabinet_light_2:
+      brightness: 115
+      hs_color:
+      - 28.0
+      - 64.706
+      rgb_color:
+      - 255
+      - 167
+      - 90
+      state: 'on'
+      xy_color:
+      - 0.525
+      - 0.386
     light.kitchen_ceiling_light_light_switch:
       state: 'off'
+    light.kitchen_entrance_light:
+      brightness: 94
+      color_temp: 447
+      hs_color:
+      - 29.667
+      - 82.994
+      rgb_color:
+      - 255
+      - 148
+      - 43
+      state: 'on'
+      xy_color:
+      - 0.575
+      - 0.389
     light.kitchen_led_spots_light:
       brightness: 190
       state: 'on'
-    light.kitchen_light_controller_black_light:
-      state: 'on'
-    light.kitchen_light_controller_light_strip:
-      brightness: 250
-      rgb_color:
-      - 255
-      - 255
-      - 255
-      state: 'on'
-  name: Kitchen Indirect Light 1
-- entities:
-    light.kitchen_ceiling_light_light_switch:
+    light.kitchen_sensor_actor_neopixel_partition_light_1:
       state: 'off'
-    light.kitchen_led_spots_light:
-      brightness: 210
-      state: 'on'
-    light.kitchen_light_controller_black_light:
-      state: 'on'
-    light.kitchen_light_controller_light_strip:
-      brightness: 250
+    light.kitchen_sensor_actor_neopixel_partition_light_2:
+      state: 'off'
+    light.kitchen_sensor_actor_neopixel_partition_light_3:
+      state: 'off'
+    light.kitchen_sensor_actor_neopixel_partition_light_4:
+      state: 'off'
+    light.kitchen_shelf_light:
+      brightness: 191
+      color_temp: 481
+      hs_color:
+      - 30.261
+      - 90.417
       rgb_color:
       - 255
-      - 0
-      - 126
+      - 140
+      - 24
       state: 'on'
-  name: Kitchen Indirect Light 2
+      xy_color:
+      - 0.592
+      - 0.385
+  name: Kitchen Night Light 1

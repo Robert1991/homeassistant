@@ -1,15 +1,3 @@
-- alias: Update Home Server
-  trigger:
-    - platform: state
-      entity_id: binary_sensor.home_server_updates_available
-      to: "on"
-  action:
-  - service: pyscript.update_host_machine
-  - service: persistent_notification.create
-    data:
-      message: "Check log files to see results"
-      title: "Home-Sever update executed"
-
 - alias: List Wifi Devices
   trigger:
     - platform: time_pattern

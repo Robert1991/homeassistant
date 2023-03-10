@@ -1,9 +1,3 @@
-kitchen_light_automation_reactivation_timeout:
-    name: Reactivation Timeout
-    has_date: false
-    has_time: true
-    initial: "00:30:00"
-
 kitchen_night_light_start_time:
     name: Night Light Start Time
     has_date: false

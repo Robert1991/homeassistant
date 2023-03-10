@@ -3,37 +3,31 @@ substitutions:
   node_board: nodemcuv2
   node_verbose_name: Bathroom Sensor Actor
   # sensors
-  dht_pin: D8
+  motion_sensor_pin: D3
+  dht_pin: D4
   dht_type: DHT22
+  light_intensity_sensor_pin: A0
+  light_intensity_sensor_update_interval: 10s
 
 packages:
   mqtt: !include mqtt.yaml
   wifi: !include wifi.yaml 
   device_base: !include common/device_base.yaml
 
+binary_sensor:
+  - <<: !include common/binary_sensor/motion.yaml
+
 sensor:
   - <<: !include common/sensor/dht.yaml
+  - <<: !include common/sensor/light_intensity.yaml
 
 output:
   - platform: gpio
     id: relay
-    pin: D1
-  - platform: esp8266_pwm
-    id: strip_red
-    pin: D5
-  - platform: esp8266_pwm
-    id: strip_green
+    inverted: true
     pin: D2
-  - platform: esp8266_pwm
-    id: strip_blue
-    pin: D6
 
 light:
   - platform: binary
-    name: ${node_verbose_name} Spots
+    name: ${node_verbose_name} Light
     output: relay
-  - platform: rgb
-    name: ${node_verbose_name} Light Strip
-    red: strip_red
-    green: strip_green
-    blue: strip_blue

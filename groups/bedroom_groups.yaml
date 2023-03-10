@@ -2,46 +2,20 @@ all_bedroom_lights:
   name: "All Bedroom Lights"
   icon: "mdi:lightbulb-group-outline"
   entities:
-    - light.bedroom_ceiling_1
-    - light.bedroom_ceiling_2
-    - light.bedroom_ceiling_3
-    - light.bedroom_closet_led_power_supply_light
-    - light.bedroom_bed_light
+    - light.bedroom_workdesk_light
+    - light.bedroom_ceiling_light
+    - light.bedroom_neopixel_light
     - light.bedroom_sensor_neopixel_partition_light_1
     - light.bedroom_sensor_neopixel_partition_light_2
     - light.bedroom_sensor_neopixel_partition_light_3
-bedroom_ceiling_lights:
-  name: "Bedroom Ceiling Lights"
-  icon: "mdi:ceiling-light"
-  entities:
-    - light.bedroom_ceiling_1
-    - light.bedroom_ceiling_2
-    - light.bedroom_ceiling_3
+    - light.bedroom_bed_light
 bedroom_indirect_lights:
   name: "Indirect Bedroom Lights"
   icon: "mdi:lightbulb-group-outline"
   entities:
+    - light.bedroom_workdesk_light
     - light.bedroom_neopixel_light
-    - light.bedroom_closet_led_power_supply_light
-    - light.bedroom_bed_light
     - light.bedroom_sensor_neopixel_partition_light_1
     - light.bedroom_sensor_neopixel_partition_light_2
     - light.bedroom_sensor_neopixel_partition_light_3
-all_bedroom_scenes:
-  name: "All Bedroom Scenes"
-  icon: "mdi:string-lights"
-  entities:
-    - scene.bedroom_romantic
-    - scene.bedroom_relaxed
-    - scene.bedroom_bright
-    - scene.bedroom_work_1
-    - scene.bedroom_dimmed
-    - scene.bedroom_night_light
-    - scene.bedroom_1313
-bedroom_light_automation_control_entities:
-  name: "Bedroom Light Automation Control Entities"
-  icon: "mdi:home-assistant"
-  entities:
-    - input_boolean.bedroom_light_automation_is_enabled
-    - input_number.bedroom_light_turn_off_timeout
-    - input_number.bedroom_light_toogle_intensity_threshold
+    - light.bedroom_bed_light

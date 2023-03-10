@@ -6,65 +6,33 @@ d4_6d_6d_c4_05_4f:
   name: robert-ThinkPad-NewGen
   mac: D4:6D:6D:C4:05:4F
 
-b8_27_eb_80_c2_46:
-  name: raspberrypanel
-  mac: B8:27:EB:80:C2:46
-
 1c_83_41_28_4a_15:
   name: rpn-home-server
   mac: 1C:83:41:28:4A:15
-
-ec_b5_fa_32_45_2d:
-  name: Philips-hue
-  mac: EC:B5:FA:32:45:2D
 
 bc_42_8c_94_2e_6e:
   name: thermomix-942e6e
   mac: BC:42:8C:94:2E:6E
 
-48_3f_da_4b_e5_9e:
-  name: balcony_sensor_actor
-  mac: 48:3F:DA:4B:E5:9E
-
 48_3f_da_02_78_5a:
   name: living_room_sensor_actor_2
   mac: 48:3F:DA:02:78:5A
 
-10_52_1c_02_45_7f:
-  name: floor_sensor_actor
+10_52_1c_02_45_7F:
+  name: kitchen_sensor_actor
   mac: 10:52:1C:02:45:7F
-
-10_52_1c_02_22_74:
-  name: kitchen_sensor
-  mac: 10:52:1C:02:22:74
 
 50_02_91_fd_5b_04:
   name: bedroom_sensor
   mac: 50:02:91:FD:5B:04
 
-d8_bf_c0_14_12_a5:
-  name: living_room_sensor_actor_1
-  mac: D8:BF:C0:14:12:A5
-
-48_3f_da_4b_30_d3:
-  name: kitchen_light_controller
-  mac: 48:3F:DA:4B:30:D3
-
-10_52_1c_02_46_21:
+48_3f_da_4b_30_D3:
   name: bathroom_sensor_actor
-  mac: 10:52:1C:02:46:21
+  mac: 48:3F:DA:4B:30:D3
 
 a8_7e_ea_70_39_7e:
   name: L64978-WDD
   mac: A8:7E:EA:70:39:7E
-
-e8_db_84_c5_6c_d7:
-  name: kitchen_mqtt_lcd_display
-  mac: E8:DB:84:C5:6C:D7
-
-8c_aa_b5_7c_af_79:
-  name: esp_couch_light
-  mac: 8C:AA:B5:7C:AF:79
 
 bc_dd_c2_7b_3a_cd:
   name: kitchen_ceiling_light

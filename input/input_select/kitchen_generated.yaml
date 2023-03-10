@@ -1,42 +1,24 @@
 kitchen_automatic_light_scene_generated:
   options:
   - Cooking 1
-  - Cooking 2
-  - Indirect Light 1
-  - Indirect Light 2
   - Night Light 1
 kitchen_day_light_choosen_scene:
   options:
   - Cooking 1
-  - Cooking 2
-  - Indirect Light 1
-  - Indirect Light 2
   - Night Light 1
 kitchen_light_scene_generated:
   options:
   - Cooking 1
-  - Cooking 2
-  - Indirect Light 1
-  - Indirect Light 2
   - Night Light 1
 kitchen_night_light_choosen_scene:
   options:
   - Cooking 1
-  - Cooking 2
-  - Indirect Light 1
-  - Indirect Light 2
   - Night Light 1
 kitchen_relaxed_light_choosen_scene:
   options:
   - Cooking 1
-  - Cooking 2
-  - Indirect Light 1
-  - Indirect Light 2
   - Night Light 1
 kitchen_scene_generator_light_scene_generated:
   options:
   - Cooking 1
-  - Cooking 2
-  - Indirect Light 1
-  - Indirect Light 2
   - Night Light 1

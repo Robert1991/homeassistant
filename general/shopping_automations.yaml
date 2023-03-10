@@ -2,8 +2,17 @@
   trigger:
     - platform: zone
       entity_id: person.robert
-      zone: zone.shopping
+      zone: zone.edeka
       event: enter
+    - platform: zone
+      entity_id: person.robert
+      zone: zone.aldi
+      event: enter
+    - platform: zone
+      entity_id: person.robert
+      zone: zone.lidl
+      event: enter
+
   condition: "{{ states('binary_sensor.shopping_list_has_items') == 'on' }}"
   action:
   - service: notify.mobile_app_iphone_von_robert

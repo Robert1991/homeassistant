@@ -1,4 +1,0 @@
-floor_time_based_scenes:
-  options:
-    - floor_night_light_start_time/floor_night_light_choosen_scene
-    - floor_day_light_start_time/floor_day_light_choosen_scene

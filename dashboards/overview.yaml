@@ -135,15 +135,215 @@ decluttering_templates:
 
 title: Home
 views:
+  - title: Bedroom
+    path: bedroom
+    badges: []
+    cards:
+      - type: custom:stack-in-card
+        title: Sensors
+        mode: vertical
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: glance
+                entities:
+                  - entity: sensor.bedroom_sensor_humidity
+                  - entity: sensor.bedroom_sensor_temperature
+                show_name: false
+          - type: glance
+            entities:
+              - entity: binary_sensor.bedroom_sensor_motion_detected
+                name: Motion
+              - entity: sensor.bedroom_sensor_light_intensity
+            show_name: false
+            state_color: true
+            show_state: true
+      - type: custom:vertical-stack-in-card
+        title: Light Control
+        cards:
+          - type: custom:stack-in-card
+            mode: horizontal
+            cards:
+              - type: button
+                entity: light.all_bedroom_lights
+                name: All
+              - type: button
+                entity: light.bedroom_ceiling_light
+                name: Ceiling
+                icon: mdi:ceiling-light
+              - type: button
+                entity: light.bedroom_indirect_lights
+                name: Indirect
+          - type: "custom:fold-entity-row"
+            head:
+              type: section
+              label: Manual
+            entities:
+                - type: "custom:slider-entity-row"
+                  entity: light.bedroom_ceiling_light
+                  name: Ceiling
+                  toggle: true
+                  hide_when_off: true
+                - type: "custom:slider-entity-row"
+                  entity: light.bedroom_workdesk_light
+                  name: Workdesk
+                  toggle: true
+                  hide_when_off: true
+                - type: "custom:fold-entity-row"
+                  head:
+                    entity: light.bedroom_neopixel_light
+                    name: NeoPixel Light
+                  entities:
+                  - type: "custom:slider-entity-row"
+                    entity: light.bedroom_sensor_neopixel_partition_light_1
+                    name: Partition 1
+                    toggle: true
+                    hide_when_off: true
+                  - type: "custom:slider-entity-row"
+                    entity: light.bedroom_sensor_neopixel_partition_light_2
+                    name: Partition 2
+                    toggle: true
+                    hide_when_off: true
+                  - type: "custom:slider-entity-row"
+                    entity: light.bedroom_sensor_neopixel_partition_light_3
+                    name: Partition 3
+                    toggle: true
+                    hide_when_off: true
+                - entity: light.bedroom_bed_light
+                  name: Bed
+          - type: custom:decluttering-card
+            template: scene_creator_card_template
+            variables:
+              - light_group: light.all_bedroom_lights
+              - scene_group_prefix: Bedroom
+              - timebased_scene_config: input_select.bedroom_time_based_scenes
+              - light_intensity_control: input_number.bedroom_light_toogle_intensity_threshold
+              - scene_control_input_select: input_select.bedroom_scene_generator_light_scene_generated
+              - toggle_scene_input: input_select.bedroom_light_scene_generated
+              - current_scene_input: input_select.bedroom_automatic_light_scene_generated
+      - type: custom:stack-in-card
+        title: Devices
+        mode: vertical
+        cards:
+          - type: horizontal-stack
+            cards:
+              - type: glance
+                entities:
+                  - entity: binary_sensor.robert_work_laptop_is_on
+                    name: Work Laptop
+                  - entity: binary_sensor.robert_think_pad_is_on
+                    name: Think Pad
+                state_color: true
+                show_state: false
+          - type: glance
+            title: Work Laptop
+            entities:
+              - entity: binary_sensor.work_laptop_powerline_connected
+                name: Powerline
+              - entity: binary_sensor.work_laptop_unlocked
+                name: Unlocked
+              - entity: binary_sensor.work_laptop_activity
+                name: Activity
+            state_color: true
+            show_state: false
+      - type: entities
+        entities:
+          - entity: cover.bedroom_blind_left
+          - entity: cover.bedroom_blind_right
+          - entity: switch.work_station_power_switch
+        title: Switches
+      - type: entities
+        title: Automations
+        entities:
+          - type: custom:fold-entity-row
+            head:
+              entity: input_boolean.bedroom_light_automation_is_enabled
+              name: Light Automation
+            entities:
+              - name: Turn Off Timer
+                entity: timer.bedroom_light_turn_off_timer
+              - name: Turn Off Timeout
+                entity: input_number.bedroom_light_turn_off_timeout
+              - name: Min. Light Intesity
+                entity: input_number.bedroom_light_toogle_intensity_threshold
+              - type: custom:fold-entity-row
+                head:
+                  entity: input_boolean.bedroom_automatic_scene_mode_enabled
+                  name: Time based Scene Mode
+                entities:
+                  - name: Current Scene
+                    entity: input_select.bedroom_automatic_light_scene_generated
+                  - type: custom:fold-entity-row                      
+                    head:
+                      type: section
+                      label: Day Mode
+                    entities:
+                      - name: Start Time
+                        entity: input_datetime.bedroom_day_light_start_time
+                        type: custom:time-picker-card
+                        layout:
+                          name: inside
+                          align_controls: right
+                          embedded: true
+                      - name: Light Scene
+                        entity: input_select.bedroom_day_light_choosen_scene
+                  - type: custom:fold-entity-row
+                    head:
+                      type: section
+                      label: Evening Mode
+                    entities:
+                      - name: Start Time
+                        entity: input_datetime.bedroom_evening_light_start_time
+                        type: custom:time-picker-card
+                        layout:
+                          name: inside
+                          align_controls: right
+                          embedded: true
+                      - name: Light Scene
+                        entity: input_select.bedroom_evening_light_choosen_scene
+                  - type: custom:fold-entity-row
+                    head:
+                      type: section
+                      label: Night Mode
+                    entities:
+                      - name: Start Time
+                        entity: input_datetime.bedroom_night_light_start_time
+                        type: custom:time-picker-card
+                        layout:
+                          name: inside
+                          align_controls: right
+                          embedded: true
+                      - name: Light Scene
+                        entity: input_select.bedroom_night_light_choosen_scene
+          - type: custom:fold-entity-row
+            head:
+              entity: input_boolean.bedroom_workstation_toggle_automatic_enabled
+              name: Workstation Power Control
+            entities:
+              - name: Timer
+                entity: timer.workstation_power_control
+              - name: Turn Off Timeout
+                entity: input_number.bedroom_workstation_power_turn_off_timeout
+          - name: Blind Automation
+            entity: input_boolean.bedroom_blind_automation_is_enabled
+      - type: custom:shutter-card
+        title: Bedroom Blinds
+        entities:
+          - entity: cover.bedroom_blind_left
+            name: Left
+            buttons_position: left
+          - entity: cover.bedroom_blind_right
+            name: Right
+            buttons_position: left
   - title: Living Room
     path: living-room
     badges: []
     cards:
       - type: glance
         entities:
-          - entity: sensor.living_room_sensor_actor_1_temperature
-          - entity: sensor.living_room_sensor_actor_1_humidity
-          - entity: binary_sensor.living_room_sensor_actor_1_motion_detected
+          - entity: sensor.living_room_sensor_actor_2_temperature
+          - entity: sensor.living_room_sensor_actor_2_humidity
+          - entity: binary_sensor.living_room_motion_sensor_occupancy
           - entity: sensor.living_room_sensor_actor_2_light_intensity
         title: Sensors
         show_name: false
@@ -158,7 +358,7 @@ views:
                 entity: light.living_room_lights
                 name: All
               - type: button
-                entity: group.living_room_ceiling_lights
+                entity: light.living_room_ceiling_light
                 name: Ceiling
               - type: button
                 entity: light.living_room_indirect_lights
@@ -168,11 +368,39 @@ views:
               type: section
               label: Manual
             entities:
-              - type: "custom:fold-entity-row"
-                head: group.living_room_ceiling_lights
-                icon: "mdi:bulb-group-outline"
-              - type: "custom:fold-entity-row"
-                head: group.living_room_indirect_lights
+              - type: "custom:slider-entity-row"
+                entity: light.living_room_ceiling_light
+                name: Ceiling
+                toggle: true
+                hide_when_off: true
+              - type: "custom:slider-entity-row"
+                entity: light.living_room_standing_light_1
+                name: Standing 1
+                toggle: true
+                hide_when_off: true
+              - type: "custom:slider-entity-row"
+                entity: light.living_room_standing_light_2
+                name: Standing 2
+                toggle: true
+                hide_when_off: true
+              - type: "custom:slider-entity-row"
+                entity: light.living_room_hue_light_bulb
+                name: Hue Light Bulb
+                toggle: true
+                hide_when_off: true
+              - type: "custom:slider-entity-row"
+                entity: light.living_room_globe_light
+                name: Globe
+                toggle: true
+                hide_when_off: true
+              - type: "custom:slider-entity-row"
+                entity: light.living_room_round_light
+                name: Round
+                toggle: true
+                hide_when_off: true
+              - entity: light.living_room_sensor_actor_2_light_strings
+                name: Light Strings
+
           - type: custom:fold-entity-row
             head:
               type: section
@@ -280,291 +508,6 @@ views:
             entity: media_player.tv_livingroom
           - type: media-control
             entity: media_player.spotify_1122251111
-  - title: Office
-    path: office
-    badges: []
-    cards:
-      - type: custom:stack-in-card
-        title: Sensors
-        mode: vertical
-        cards:
-          - type: horizontal-stack
-            cards:
-              - type: glance
-                entities:
-                  - entity: sensor.office_motion_sensor_temperature
-                  - entity: binary_sensor.office_motion_sensor_occupancy
-                  - entity: sensor.office_motion_sensor_illuminance_lux
-                show_name: false
-          - type: glance
-            entities:
-              - entity: binary_sensor.office_activity_detected_on_pcs
-                name: Work
-            show_name: true
-            state_color: true
-            show_state: false
-      - type: custom:stack-in-card
-        title: Devices
-        mode: vertical
-        cards:
-          - type: horizontal-stack
-            cards:
-              - type: glance
-                entities:
-                  - entity: binary_sensor.robert_work_laptop_is_on
-                    name: Work Laptop
-                  - entity: binary_sensor.robert_think_pad_is_on
-                    name: Think Pad
-                state_color: true
-                show_state: false
-          - type: glance
-            title: Work Laptop
-            entities:
-              - entity: binary_sensor.work_laptop_powerline_connected
-                name: Powerline
-              - entity: binary_sensor.work_laptop_unlocked
-                name: Unlocked
-              - entity: binary_sensor.work_laptop_activity
-                name: Activity
-            state_color: true
-            show_state: false
-      - type: custom:vertical-stack-in-card
-        title: Light Control
-        cards:
-          - type: custom:stack-in-card
-            mode: horizontal
-            cards:
-              - type: button
-                entity: light.all_office_lights
-                name: All
-              - type: button
-                entity: light.office_ceiling_lights
-                name: Ceiling
-                icon: mdi:ceiling-light
-              - type: button
-                entity: light.office_workdesk_light
-                name: Workdesk
-          - type: custom:decluttering-card
-            template: scene_creator_card_template
-            variables:
-              - light_group: light.all_office_lights
-              - scene_group_prefix: Office
-              - timebased_scene_config: input_select.office_time_based_scenes
-              - light_intensity_control: input_number.office_light_toogle_intensity_threshold
-              - scene_control_input_select: input_select.office_scene_generator_light_scene_generated
-              - toggle_scene_input: input_select.office_light_scene_generated
-              - current_scene_input: input_select.office_automatic_light_scene_generated
-      - type: entities
-        entities:
-          - entity: switch.office_desk_plug
-        title: Switches
-      - type: entities
-        title: Automations
-        entities:
-          - type: custom:fold-entity-row
-            head:
-              entity: input_boolean.office_workstation_toggle_automatic_enabled
-              name: Workstation Power Control
-            entities:
-              - name: Timer
-                entity: timer.workstation_power_control
-              - name: Turn Off Timeout
-                entity: input_number.office_workstation_power_turn_off_timeout
-          - type: custom:fold-entity-row
-            head:
-              entity: input_boolean.office_light_automation_is_enabled
-              name: Light Automation
-            entities:
-              - name: Turn off Timer
-                entity: timer.office_light_turn_off_timer
-              - name: Turn Off Timeout
-                entity: input_number.office_light_turn_off_timeout
-              - name: Min. Light Intesity
-                entity: input_number.office_light_toogle_intensity_threshold
-              - type: custom:fold-entity-row
-                head:
-                  entity: input_boolean.office_automatic_scene_mode_enabled
-                  name: Time based Scene Mode
-                entities:
-                  - name: Current Scene
-                    entity: input_select.office_automatic_light_scene_generated
-                  - type: custom:fold-entity-row                      
-                    head:
-                      type: section
-                      label: Day Mode
-                    entities:
-                      - name: Start Time
-                        entity: input_datetime.office_day_light_start_time
-                        type: custom:time-picker-card
-                        layout:
-                          name: inside
-                          align_controls: right
-                          embedded: true
-                      - name: Light Scene
-                        entity: input_select.office_day_light_choosen_scene
-                  - type: custom:fold-entity-row
-                    head:
-                      type: section
-                      label: Night Mode
-                    entities:
-                      - name: Start Time
-                        entity: input_datetime.office_night_light_start_time
-                        type: custom:time-picker-card
-                        layout:
-                          name: inside
-                          align_controls: right
-                          embedded: true
-                      - name: Light Scene
-                        entity: input_select.office_night_light_choosen_scene
-  - title: Bedroom
-    path: bedroom
-    badges: []
-    cards:
-      - type: custom:stack-in-card
-        title: Sensors
-        mode: vertical
-        cards:
-          - type: horizontal-stack
-            cards:
-              - type: glance
-                entities:
-                  - entity: sensor.bedroom_sensor_humidity
-                  - entity: sensor.bedroom_sensor_temperature
-                  - entity: sensor.bedroom_sensor_light_intensity
-                show_name: false
-          - type: glance
-            entities:
-              - entity: binary_sensor.bedroom_sensor_motion_detected
-                name: Motion
-              - entity: binary_sensor.bedroom_sensor_door_sensor
-                name: Closet
-            show_name: true
-            state_color: true
-            show_state: false
-      - type: custom:vertical-stack-in-card
-        title: Light Control
-        cards:
-          - type: custom:stack-in-card
-            mode: horizontal
-            cards:
-              - type: button
-                entity: light.all_bedroom_lights
-                name: All
-              - type: button
-                entity: light.bedroom_ceiling_lights
-                name: Ceiling
-                icon: mdi:ceiling-light
-              - type: button
-                entity: light.bedroom_indirect_lights
-                name: Indirect
-          - type: entities
-            show_header_toggle: false
-            entities:
-              - type: custom:fold-entity-row
-                head: group.bedroom_ceiling_lights
-                icon: mdi:bulb-group-outline
-          - type: entities
-            show_header_toggle: false
-            entities:
-              - type: custom:fold-entity-row
-                head: group.bedroom_indirect_lights
-                icon: mdi:bulb-group-outline
-          - type: custom:decluttering-card
-            template: scene_creator_card_template
-            variables:
-              - light_group: light.all_bedroom_lights
-              - scene_group_prefix: Bedroom
-              - timebased_scene_config: input_select.bedroom_time_based_scenes
-              - light_intensity_control: input_number.bedroom_light_toogle_intensity_threshold
-              - scene_control_input_select: input_select.bedroom_scene_generator_light_scene_generated
-              - toggle_scene_input: input_select.bedroom_light_scene_generated
-              - current_scene_input: input_select.bedroom_automatic_light_scene_generated
-      - type: entities
-        entities:
-          - entity: cover.bedroom_blind_left
-          - entity: cover.bedroom_blind_center
-          - entity: cover.bedroom_blind_right
-        title: Switches
-      - type: entities
-        title: Automations
-        entities:
-          - type: custom:fold-entity-row
-            head:
-              entity: input_boolean.bedroom_light_automation_is_enabled
-              name: Light Automation
-            entities:
-              - name: Turn Off Timer
-                entity: timer.bedroom_light_turn_off_timer
-              - name: Turn Off Timeout
-                entity: input_number.bedroom_light_turn_off_timeout
-              - name: Min. Light Intesity
-                entity: input_number.bedroom_light_toogle_intensity_threshold
-              - type: custom:fold-entity-row
-                head:
-                  entity: input_boolean.bedroom_automatic_scene_mode_enabled
-                  name: Time based Scene Mode
-                entities:
-                  - name: Current Scene
-                    entity: input_select.bedroom_automatic_light_scene_generated
-                  - type: custom:fold-entity-row                      
-                    head:
-                      type: section
-                      label: Day Mode
-                    entities:
-                      - name: Start Time
-                        entity: input_datetime.bedroom_day_light_start_time
-                        type: custom:time-picker-card
-                        layout:
-                          name: inside
-                          align_controls: right
-                          embedded: true
-                      - name: Light Scene
-                        entity: input_select.bedroom_day_light_choosen_scene
-                  - type: custom:fold-entity-row
-                    head:
-                      type: section
-                      label: Evening Mode
-                    entities:
-                      - name: Start Time
-                        entity: input_datetime.bedroom_evening_light_start_time
-                        type: custom:time-picker-card
-                        layout:
-                          name: inside
-                          align_controls: right
-                          embedded: true
-                      - name: Light Scene
-                        entity: input_select.bedroom_evening_light_choosen_scene
-                  - type: custom:fold-entity-row
-                    head:
-                      type: section
-                      label: Night Mode
-                    entities:
-                      - name: Start Time
-                        entity: input_datetime.bedroom_night_light_start_time
-                        type: custom:time-picker-card
-                        layout:
-                          name: inside
-                          align_controls: right
-                          embedded: true
-                      - name: Light Scene
-                        entity: input_select.bedroom_night_light_choosen_scene
-              - name: Bed Light Brightness
-                entity: input_number.bedroom_night_light_brightness
-          - name: Blind Automation
-            entity: input_boolean.bedroom_blind_automation_is_enabled
-      - type: custom:shutter-card
-        title: Bedroom Blinds
-        entities:
-          - entity: cover.bedroom_blind_left
-            name: Left
-            buttons_position: left
-          - entity: cover.bedroom_blind_center
-            name: Center
-            buttons_position: left
-          - entity: cover.bedroom_blind_right
-            name: Right
-            buttons_position: left
-
   - title: Kitchen
     path: kitchen
     badges: []
@@ -573,29 +516,24 @@ views:
         cards:
           - type: glance
             entities:
-              - entity: binary_sensor.kitchen_sensor_motion_detected
+              - entity: binary_sensor.kitchen_sensor_actor_motion_detected
                 name: ""
-              - entity: sensor.kitchen_sensor_humidity
+              - entity: sensor.kitchen_sensor_actor_humidity
                 name: ""
-              - entity: sensor.kitchen_sensor_temperature
+              - entity: sensor.kitchen_sensor_actor_temperature
                 name: ""
               - name: ""
-                entity: sensor.kitchen_sensor_light_intensity
-              - name: Fridge
-                entity: binary_sensor.kitchen_sensor_door_sensor
+                entity: sensor.kitchen_sensor_actor_light_intensity
             title: Sensors
             show_name: true
           - type: sensor
-            entity: sensor.kitchen_sensor_temperature
+            entity: sensor.kitchen_sensor_actor_temperature
             graph: line
             name: Temperature
           - type: sensor
-            entity: sensor.kitchen_sensor_humidity
+            entity: sensor.kitchen_sensor_actor_humidity
             graph: line
             name: Humidity
-          - type: entity
-            entity: input_number.kitchen_frigde_door_open_alarm_timeout
-            name: Frigde door open alarm timeout
       - type: "custom:vertical-stack-in-card"
         title: Lights
         cards:
@@ -620,15 +558,58 @@ views:
               label: Manual
             entities:
               - entity: light.kitchen_ceiling_light_light_switch
-                icon: "mdi:ceiling-light"
+                name: Table
               - type: "custom:slider-entity-row"
-                entity: light.kitchen_led_spots_light
-                name: Spots
+                entity: light.kitchen_entrance_light
+                name: Entrance
                 toggle: true
                 hide_when_off: true
-                icon: "mdi:lightbulb-multiple"
-              - entity: light.kitchen_light_controller_black_light
-              - entity: light.kitchen_light_controller_light_strip
+              - type: "custom:slider-entity-row"
+                entity: light.kitchen_led_spots_light
+                name: Cooking
+                toggle: true
+                hide_when_off: true
+              - type: "custom:slider-entity-row"
+                entity: light.kitchen_shelf_light
+                name: Shelf
+                toggle: true
+                hide_when_off: true
+              - type: "custom:slider-entity-row"
+                entity: light.kitchen_cabinet_light_1
+                name: Cabinet 1
+                toggle: true
+                hide_when_off: true
+              - type: "custom:slider-entity-row"
+                entity: light.kitchen_cabinet_light_2
+                name: Cabinet 2
+                toggle: true
+                hide_when_off: true
+              - type: "custom:fold-entity-row"
+                head:
+                  entity: light.kitchen_neo_pixel_light
+                  name: NeoPixel Light
+                entities:
+                - type: "custom:slider-entity-row"
+                  entity: light.kitchen_sensor_actor_neopixel_partition_light_1
+                  name: Partition 1
+                  toggle: true
+                  hide_when_off: true
+                - type: "custom:slider-entity-row"
+                  entity: light.kitchen_sensor_actor_neopixel_partition_light_2
+                  name: Partition 2
+                  toggle: true
+                  hide_when_off: true
+                - type: "custom:slider-entity-row"
+                  entity: light.kitchen_sensor_actor_neopixel_partition_light_3
+                  name: Partition 3
+                  toggle: true
+                  hide_when_off: true
+                - type: "custom:slider-entity-row"
+                  entity: light.kitchen_sensor_actor_neopixel_partition_light_4
+                  name: Partition 4
+                  toggle: true
+                  hide_when_off: true
+
           - type: "custom:fold-entity-row"
             head:
               type: section
@@ -697,22 +678,23 @@ views:
     path: bathroom--and--toilet
     badges: []
     cards:
+      - type: glance
+        entities:
+          - entity: sensor.bathroom_sensor_actor_humidity
+          - entity: sensor.bathroom_sensor_actor_temperature
+          - entity: sensor.bathroom_sensor_actor_light_intensity
+          - entity: binary_sensor.bathroom_sensor_actor_motion_detected
+        show_name: false
+        title: Sensors
       - type: vertical-stack
         cards:
-          - type: glance
-            entities:
-              - entity: sensor.bathroom_sensor_actor_humidity
-              - entity: sensor.bathroom_sensor_actor_temperature
-              - entity: sensor.bathroom_light_intensity_percent
-              - entity: binary_sensor.bathroom_motion_detector
-            show_name: false
-            title: Bathroom
           - type: custom:vertical-stack-in-card
             cards:
               - type: "custom:vertical-stack-in-card"
                 cards:
                   - type: "custom:stack-in-card"
                     mode: horizontal
+                    title: Lights
                     cards:
                       - type: button
                         tap_action:
@@ -723,463 +705,102 @@ views:
                       - type: button
                         tap_action:
                           action: toggle
-                        name: Halogen
-                        entity: light.bathroom_sensor_actor_spots
+                        name: Main
+                        entity: light.bathroom_sensor_actor_light
                         icon_height: 50px
                       - type: button
                         tap_action:
                           action: toggle
-                        name: Strip
-                        entity: light.bathroom_sensor_actor_light_strip
+                        name: Indirect
+                        entity: light.bathroom_indirect_light
                         icon_height: 50px
-                  - type: "custom:fold-entity-row"
-                    head:
-                      type: section
-                      label: Automation
-                    entities:
-                      - type: "custom:fold-entity-row"
-                        head:
-                          entity: input_boolean.bathroom_light_automation_is_enabled
-                          name: Enabled
+                  - type: "custom:stack-in-card"
+                    mode: horizontal
+                    title: Switches
+                    cards:
+                      - type: entities
                         entities:
-                          - name: Reactivation Timeout
-                            entity: input_datetime.bathroom_light_automation_reactivation_timeout
-                      - name: Turn Off Timer
-                        entity: timer.bathroom_light_turn_off_timer
-                      - name: Turn Off Timeout
-                        entity: input_number.bathroom_light_turn_off_timeout
-                      - type: "custom:fold-entity-row"
-                        head:
-                          entity: input_boolean.bathroom_automatic_scene_mode_enabled
-                          name: Timebased Scene Mode
-                        entities:
-                          - name: Current Scene
-                            entity: input_select.bathroom_automatic_light_scene_generated
-                          - type: "custom:fold-entity-row"
-                            head:
-                              type: section
-                              label: Day Mode
-                            entities:
-                              - name: Start Time
-                                entity: input_datetime.bathroom_day_light_start_time
-                              - name: Light Scene
-                                entity: input_select.bathroom_day_light_choosen_scene
-                          - type: "custom:fold-entity-row"
-                            head:
-                              type: section
-                              label: Night Mode
-                            entities:
-                              - name: Start Time
-                                entity: input_datetime.bathroom_night_light_start_time
-                              - name: Light Scene
-                                entity: input_select.bathroom_night_light_choosen_scene
-                  - type: custom:decluttering-card
-                    template: scene_creator_card_template
-                    variables:
-                      - light_group: light.bathroom_lights
-                      - scene_group_prefix: Bathroom
-                      - timebased_scene_config: input_select.bathroom_time_based_scenes
-                      - light_intensity_control: ""
-                      - scene_control_input_select: input_select.bathroom_scene_generator_light_scene_generated
-                      - toggle_scene_input: input_select.bathroom_light_scene_generated
-                      - current_scene_input: input_select.bathroom_automatic_light_scene_generated
-                  - type: sensor
-                    entity: sensor.bathroom_sensor_actor_temperature
-                    graph: line
-                    name: Temperature
-                  - type: sensor
-                    entity: sensor.bathroom_sensor_actor_humidity
-                    graph: line
-                    name: Humidity
+                          - entity: fan.bathroom_fan
       - type: vertical-stack
         cards:
-          - type: glance
-            entities:
-              - entity: binary_sensor.toilet_motion_detector
-              - entity: sensor.toilet_temperature
-              - entity: sensor.toilet_light_intensity_percent
-            show_name: false
-            title: Toilet
-          - type: "custom:vertical-stack-in-card"
+          - type: custom:vertical-stack-in-card
             cards:
-              - type: button
-                tap_action:
-                  action: toggle
-                show_name: false
-                entity: light.toilet_lights
-                icon_height: 50px
               - type: "custom:fold-entity-row"
                 head:
                   type: section
-                  label: Automation
+                  label: Light Automation
                 entities:
                   - type: "custom:fold-entity-row"
                     head:
-                      entity: input_boolean.toilet_light_automation_is_enabled
+                      entity: input_boolean.bathroom_light_automation_is_enabled
                       name: Enabled
                     entities:
                       - name: Reactivation Timeout
-                        entity: input_datetime.toilet_light_automation_reactivation_timeout
+                        entity: input_datetime.bathroom_light_automation_reactivation_timeout
                   - name: Turn Off Timer
-                    entity: timer.toilet_light_turn_off_timer
+                    entity: timer.bathroom_light_turn_off_timer
                   - name: Turn Off Timeout
-                    entity: input_number.toilet_light_turn_off_timeout
+                    entity: input_number.bathroom_light_turn_off_timeout
+                  - name: Min. Light Intesity
+                    entity: input_number.bathroom_light_toogle_intensity_threshold
                   - type: "custom:fold-entity-row"
                     head:
-                      entity: input_boolean.toilet_automatic_scene_mode_enabled
+                      entity: input_boolean.bathroom_automatic_scene_mode_enabled
                       name: Timebased Scene Mode
                     entities:
                       - name: Current Scene
-                        entity: input_select.toilet_automatic_light_scene_generated
+                        entity: input_select.bathroom_automatic_light_scene_generated
                       - type: "custom:fold-entity-row"
                         head:
                           type: section
                           label: Day Mode
                         entities:
                           - name: Start Time
-                            entity: input_datetime.toilet_day_light_start_time
+                            entity: input_datetime.bathroom_day_light_start_time
                           - name: Light Scene
-                            entity: input_select.toilet_day_light_choosen_scene
+                            entity: input_select.bathroom_day_light_choosen_scene
                       - type: "custom:fold-entity-row"
                         head:
                           type: section
                           label: Night Mode
                         entities:
                           - name: Start Time
-                            entity: input_datetime.toilet_night_light_start_time
+                            entity: input_datetime.bathroom_night_light_start_time
                           - name: Light Scene
-                            entity: input_select.toilet_night_light_choosen_scene
+                            entity: input_select.bathroom_night_light_choosen_scene
               - type: custom:decluttering-card
                 template: scene_creator_card_template
                 variables:
-                  - light_group: light.toilet_lights
-                  - scene_group_prefix: Toilet
-                  - timebased_scene_config: input_select.toilet_time_based_scenes
-                  - light_intensity_control: ""
-                  - scene_control_input_select: input_select.toilet_scene_generator_light_scene_generated
-                  - toggle_scene_input: input_select.toilet_light_scene_generated
-                  - current_scene_input: input_select.toilet_automatic_light_scene_generated
-          - type: sensor
-            entity: sensor.toilet_temperature
-            graph: line
-            name: Temperature
-  - title: Floor
-    path: floor
-    badges: []
-    cards:
-      - type: glance
-        entities:
-          - entity: binary_sensor.floor_sensor_actor_motion_detected
-          - entity: sensor.floor_sensor_actor_temperature
-          - entity: sensor.floor_sensor_actor_humidity
-          - entity: sensor.floor_sensor_actor_light_intensity
-        title: Sensors
-        show_name: false
-      - type: "custom:vertical-stack-in-card"
-        title: Light Control
-        cards:
-          - type: "custom:stack-in-card"
-            mode: horizontal
+                  - light_group: light.bathroom_lights
+                  - scene_group_prefix: Bathroom
+                  - timebased_scene_config: input_select.bathroom_time_based_scenes
+                  - light_intensity_control: input_number.bathroom_light_toogle_intensity_threshold
+                  - scene_control_input_select: input_select.bathroom_scene_generator_light_scene_generated
+                  - toggle_scene_input: input_select.bathroom_light_scene_generated
+                  - current_scene_input: input_select.bathroom_automatic_light_scene_generated
+          - type: vertical-stack
             cards:
-              - type: button
-                entity: light.floor_light
-                name: Ceiling
-                icon_height: 30px
-              - type: button
-                entity: light.floor_neo_pixel_light
-                name: Strip
-                icon_height: 30px
-          - type: "custom:stack-in-card"
-            mode: horizontal
-            cards:
-              - type: button
-                entity: light.floor_sensor_actor_neopixel_partition_light_1
-                name: Neo Part 1
-                icon_height: 30px
-              - type: button
-                entity: light.floor_sensor_actor_neopixel_partition_light_2
-                name: Neo Part 2
-                icon_height: 30px
-              - type: button
-                entity: light.floor_sensor_actor_neopixel_partition_light_3
-                name: Neo Part 3
-                icon_height: 30px
-              - type: button
-                entity: light.floor_sensor_actor_neopixel_partition_light_4
-                name: Neo Part 4
-                icon_height: 30px
-          - type: "custom:fold-entity-row"
-            head:
-              type: section
-              label: Automation
-            entities:
-              - type: "custom:fold-entity-row"
-                head:
-                  entity: input_boolean.floor_light_automation_is_enabled
-                  name: Enabled
-                entities:
-                  - name: Reactivation Timeout
-                    entity: input_datetime.floor_light_automation_reactivation_timeout
-              - name: Turn Off Timer
-                entity: timer.floor_light_turn_off_timer
-              - name: Turn Off Timeout
-                entity: input_number.floor_light_turn_off_timeout
-              - name: Light Intensity (Kitchen Sensor)
-                entity: input_number.floor_light_toogle_intensity_threshold
-              - type: "custom:fold-entity-row"
-                head:
-                  entity: input_boolean.floor_automatic_scene_mode_enabled
-                  name: Timebased Scene Mode
-                entities:
-                  - name: Current Scene
-                    entity: input_select.floor_automatic_light_scene_generated
+              - type: custom:vertical-stack-in-card
+                cards:
                   - type: "custom:fold-entity-row"
                     head:
                       type: section
-                      label: Day Mode
+                      label: Fan Automation
                     entities:
-                      - name: Start Time
-                        entity: input_datetime.floor_day_light_start_time
-                      - name: Light Scene
-                        entity: input_select.floor_day_light_choosen_scene
-                  - type: "custom:fold-entity-row"
-                    head:
-                      type: section
-                      label: Night Mode
-                    entities:
-                      - name: Start Time
-                        entity: input_datetime.floor_night_light_start_time
-                      - name: Light Scene
-                        entity: input_select.floor_night_light_choosen_scene
-          - type: custom:decluttering-card
-            template: scene_creator_card_template
-            variables:
-              - light_group: light.floor_lights
-              - scene_group_prefix: Floor
-              - timebased_scene_config: input_select.floor_time_based_scenes
-              - light_intensity_control: ""
-              - scene_control_input_select: input_select.floor_scene_generator_light_scene_generated
-              - toggle_scene_input: input_select.floor_light_scene_generated
-              - current_scene_input: input_select.floor_automatic_light_scene_generated
-  - title: Balcony
-    path: balcony
-    badges: []
-    cards:
-      - type: glance
-        entities:
-          - entity: sensor.balcony_sensor_actor_humidity
-          - entity: sensor.balcony_sensor_actor_temperature
-        show_name: false
-        title: Sensors
-        state_color: true
-      - type: weather-forecast
-        entity: weather.home
-      - type: custom:vertical-stack-in-card
-        title: Light Control
-        cards:
-          - type: custom:stack-in-card
-            mode: horizontal
-            cards:
-              - type: button
-                entity: light.balcony_lights
-                name: All
-                icon_height: 45px
-              - type: button
-                entity: light.balcony_sensor_actor_relay_light_1
-                name: Indirect
-                icon_height: 45px
-              - type: button
-                entity: light.balcony_sensor_actor_relay_light_2
-                name: Ceiling Light
-                icon_height: 45px
-  - title: Panel
-    path: panel
-    panel: true
-    badges: []
-    cards:
-      - type: custom:vertical-stack-in-card
-        cards:
-          - type: glance
-            entities:
-              - entity: sensor.living_room_sensor_actor_1_temperature
-              - entity: sensor.living_room_sensor_actor_1_humidity
-              - entity: binary_sensor.living_room_sensor_actor_1_motion_detected
-              - entity: sensor.living_room_sensor_actor_2_light_intensity
-              - entity: binary_sensor.living_room_tv_is_playing
-            show_name: false
-            show_state: true
-          - type: custom:stack-in-card
-            mode: horizontal
-            cards:
-              - type: button
-                entity: light.living_room_lights
-                name: All
-                icon_height: 40px
-              - type: button
-                entity: group.living_room_ceiling_lights
-                name: Ceiling
-                icon_height: 40px
-              - type: button
-                entity: light.living_room_indirect_lights
-                name: Indirect
-                icon_height: 40px
-          - type: entities
-            entities:
-              - name: Current Scene
-                entity: input_select.living_room_automatic_light_scene_generated
-              - type: custom:fold-entity-row
-                head:
-                  entity: input_boolean.living_room_light_automation_is_enabled
-                  name: Light Automatic
-                entities:
-                  - name: Reactivation Timeout
-                    entity: >-
-                      input_datetime.living_room_light_automation_reactivation_timeout
-          - type: custom:select-list-card
-            entity: input_select.living_room_light_scene_generated
-            icon: mdi:string-lights
-            truncate: true
-            show_toggle: true
-            scroll_to_selected: true
-            max_options: 0
-            title: Light Scenes
-  - title: Overview
-    path: overview
-    panel: true
-    badges: []
-    cards:
-      - type: picture-elements
-        elements:
-          - type: state-label
-            state_color: true
-            state_text: true
-            entity: sensor.toilet_temperature
-            style:
-              top: 6%
-              left: 36%
-          - type: state-icon
-            state_color: true
-            state_text: true
-            entity: sensor.toilet_temperature
-            style:
-              top: 6%
-              left: 34%
-          - type: state-icon
-            state_color: true
-            entity: binary_sensor.toilet_motion_detector
-            style:
-              top: 12%
-              left: 36%
-          - type: state-icon
-            state_color: true
-            entity: group.all_toilet_lights
-            style:
-              top: 16%
-              left: 37%
-          - type: state-label
-            state_color: true
-            state_text: true
-            entity: sensor.bathroom_sensor_actor_temperature
-            style:
-              top: 6%
-              left: 43%
-          - type: state-icon
-            state_color: true
-            state_text: true
-            entity: sensor.bathroom_sensor_actor_temperature
-            style:
-              top: 6%
-              left: 41%
-          - type: state-label
-            state_color: true
-            state_text: true
-            entity: sensor.bathroom_sensor_actor_humidity
-            style:
-              top: 11%
-              left: 43%
-          - type: state-icon
-            state_color: true
-            state_text: true
-            entity: sensor.bathroom_sensor_actor_humidity
-            style:
-              top: 11%
-              left: 41%
-          - type: state-icon
-            state_color: true
-            entity: binary_sensor.bathroom_motion_detector
-            style:
-              top: 16%
-              left: 42%
-          - type: state-icon
-            state_color: true
-            entity: light.bathroom_sensor_actor_light_strip
-            style:
-              top: 16%
-              left: 39%
-          - type: state-icon
-            state_color: true
-            entity: light.bathroom_sensor_actor_spots
-            style:
-              top: 12%
-              left: 39%
-          - type: state-label
-            state_color: true
-            state_text: true
-            entity: sensor.floor_sensor_actor_temperature
-            style:
-              top: 37%
-              left: 44%
-          - type: state-icon
-            state_color: true
-            state_text: true
-            entity: sensor.floor_sensor_actor_temperature
-            style:
-              top: 37%
-              left: 42%
-          - type: state-label
-            state_color: true
-            state_text: true
-            entity: sensor.floor_sensor_actor_light_intensity
-            style:
-              top: 44%
-              left: 38%
-          - type: state-icon
-            state_color: true
-            state_text: true
-            entity: sensor.floor_sensor_actor_light_intensity
-            style:
-              top: 44%
-              left: 36%
-          - type: state-label
-            state_color: true
-            state_text: true
-            entity: sensor.floor_sensor_actor_humidity
-            style:
-              top: 44%
-              left: 44%
-          - type: state-icon
-            state_color: true
-            state_text: true
-            entity: sensor.floor_sensor_actor_humidity
-            style:
-              top: 44%
-              left: 42%
-          - type: state-icon
-            state_color: true
-            entity: light.floor_light
-            style:
-              top: 30%
-              left: 40%
-          - type: state-icon
-            state_color: true
-            entity: light.floor_neo_pixel_light
-            style:
-              top: 38%
-              left: 36%
-          - type: state-icon
-            state_color: true
-            entity: binary_sensor.floor_sensor_actor_motion_detected
-            style:
-              top: 33%
-              left: 37%
-        image: /local/images/FloorPlan_2.png
+                    - name: Humidity Too High Alert
+                      entity: binary_sensor.humidity_too_high_in_bathroom
+                    - name: Toggle Timeout
+                      entity: input_number.bathroom_humidity_alarm_toggle_timeout
+                    - name: Maximum Humidity
+                      entity: input_number.bathroom_maximum_humidity
+                    - name: Turn Off Timeout on Button Press
+                      entity: input_datetime.bathroom_fan_turn_off_timeout
+              - type: sensor
+                entity: sensor.bathroom_sensor_actor_temperature
+                graph: line
+                name: Temperature
+              - type: sensor
+                entity: sensor.bathroom_sensor_actor_humidity
+                graph: line
+                name: Humidity
+      

@@ -1,25 +1,25 @@
 bathroom_automatic_light_scene_generated:
   options:
-  - Blue
-  - Green
-  - Night Light 1
+  - Day Light 1
+  - Day Light Color
+  - Night Light
 bathroom_day_light_choosen_scene:
   options:
-  - Blue
-  - Green
-  - Night Light 1
+  - Day Light 1
+  - Day Light Color
+  - Night Light
 bathroom_light_scene_generated:
   options:
-  - Blue
-  - Green
-  - Night Light 1
+  - Day Light 1
+  - Day Light Color
+  - Night Light
 bathroom_night_light_choosen_scene:
   options:
-  - Blue
-  - Green
-  - Night Light 1
+  - Day Light 1
+  - Day Light Color
+  - Night Light
 bathroom_scene_generator_light_scene_generated:
   options:
-  - Blue
-  - Green
-  - Night Light 1
+  - Day Light 1
+  - Day Light Color
+  - Night Light

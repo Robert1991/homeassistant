@@ -1,0 +1,26 @@
+kitchen_actor_sensor_is_offline:
+  name: Kitchen Sensor Actor Offline
+  done_message: Kitchen Sensor online again
+  entity_id: binary_sensor.kitchen_sensor_actor_connection_status
+  state: 'unavailable'
+  repeat: 30
+  can_acknowledge: true
+  skip_first: false
+  notifiers:
+    - ios
+
+kitchen_ceiling_light_is_offline:
+  name: Kitchen Ceiling Light is offline
+  done_message: Kitchen Ceiling Light is online again
+  entity_id: binary_sensor.kitchen_ceiling_light_connection_status
+  state: 'unavailable'
+  repeat:
+    - 2
+    - 30
+    - 120
+    - 360
+    - 1140
+  can_acknowledge: true
+  skip_first: true
+  notifiers:
+    - ios

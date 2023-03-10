@@ -1,5 +1,0 @@
-- platform: group
-  name: Balcony Lights
-  entities:
-  - light.balcony_sensor_actor_relay_light_1
-  - light.balcony_sensor_actor_relay_light_2

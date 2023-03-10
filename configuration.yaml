@@ -13,14 +13,15 @@ tts:
 alert: !include_dir_merge_named alerts/
 
 automation bedroom: !include bedroom/automations.yaml
+automation bathroom: !include bathroom/automations.yaml
 automation general_shopping: !include general/shopping_automations.yaml
 automation home_server: !include general/home_server_automations.yaml
 automation zigbee2mqtt: !include zigbee2mqtt/automations.yaml
 
 binary_sensor general: !include general/binary_sensors.yaml 
-binary_sensor bathroom: !include bathroom/binary_sensors.yaml
-binary_sensor office: !include office/binary_sensors.yaml
-binary_sensor toilet: !include toilet/binary_sensors.yaml
+binary_sensor bedroom: !include bedroom/binary_sensors.yaml
+
+fan bathroom: !include bathroom/fan.yaml
 
 group: !include_dir_merge_named groups/
 
@@ -34,82 +35,67 @@ influxdb:
       - sensor.active_dhcp_leases
       - sensor.known_devices
       - sensor.wifi_connections_sensor
+
 http:
   ssl_certificate: !secret ssl_certificate_path
   ssl_key: !secret ssl_certificate_key_path
   ip_ban_enabled: true
   login_attempts_threshold: 5
 
+
 homekit:
   - filter:
       include_entities:
       # living room
-        - sensor.living_room_sensor_actor_1_temperature
-        - sensor.living_room_sensor_actor_1_humidity
-        - binary_sensor.living_room_sensor_actor_1_motion_detected
-        - light.living_room_center_1
-        - light.living_room_center_2
-        - light.living_room_center_3
-        - light.living_room_center_4
-        - light.living_room_center_5
-        - light.hue_iris_light
-        - light.living_room_sensor_actor_1_closet_rgb_lights
-        - light.living_room_standing_light
-        - light.living_room_sensor_actor_2_light_strings
+        - binary_sensor.living_room_motion_sensor_occupancy
         - input_boolean.living_room_light_automation_is_enabled
+        - light.living_room_ceiling_light
+        - light.living_room_standing_light_1
+        - light.living_room_standing_light_2
+        - light.living_room_sensor_actor_2_light_strings
+        - light.living_room_hue_light_bulb
+        - light.living_room_globe_light
+        - light.living_room_round_light
+        - sensor.living_room_sensor_actor_2_humidity
+        - sensor.living_room_sensor_actor_2_light_intensity
+        - sensor.living_room_sensor_actor_2_temperature
+      # bathroom & toilet
+        - binary_sensor.bathroom_sensor_actor_motion_detected
+        - fan.bathroom_fan
+        - input_boolean.bathroom_light_automation_is_enabled
+        - light.bathroom_sensor_actor_light
+        - light.bathroom_indirect_light
+        - sensor.bathroom_sensor_actor_humidity
+        - sensor.bathroom_sensor_actor_light_intensity
+        - sensor.bathroom_sensor_actor_temperature
       # bedroom
-        - sensor.bedroom_sensor_humidity
-        - sensor.bedroom_sensor_temperature
         - binary_sensor.bedroom_sensor_motion_detected
-        - light.bedroom_ceiling_1
-        - light.bedroom_ceiling_2
-        - light.bedroom_ceiling_3
-        - light.bedroom_neopixel_light
-        - light.bedroom_closet_led_power_supply_light
-        - light.bedroom_bed_light
+        - cover.bedroom_blind_left
+        - cover.bedroom_blind_right
         - input_boolean.bedroom_light_automation_is_enabled
         - input_boolean.bedroom_blind_automation_is_enabled
-        - cover.bedroom_blind_left
-        - cover.bedroom_blind_center
-        - cover.bedroom_blind_right
+        - light.bedroom_bed_light
+        - light.bedroom_ceiling_light
+        - light.bedroom_neopixel_light
+        - light.bedroom_workdesk_light
+        - sensor.bedroom_sensor_humidity
+        - sensor.bedroom_sensor_light_intensity
+        - sensor.bedroom_sensor_temperature
+        - switch.bedroom_desk_plug_1
+        - switch.bedroom_desk_plug_2
       # kitchen
-        - binary_sensor.kitchen_sensor_motion_detected
-        - binary_sensor.kitchen_sensor_door_sensor
-        - sensor.kitchen_sensor_humidity
-        - sensor.kitchen_sensor_temperature
-        - light.kitchen_ceiling_light_light_switch
-        - light.kitchen_led_spots_light
-        - light.kitchen_light_controller_black_light
-        - light.kitchen_light_controller_light_strip
+        - binary_sensor.kitchen_sensor_actor_motion_detected
         - input_boolean.kitchen_light_automation_is_enabled
-      # bathroom
-        - binary_sensor.bathroom_motion_detector
-        - sensor.bathroom_sensor_actor_humidity
-        - sensor.bathroom_sensor_actor_temperature
-        - light.bathroom_sensor_actor_spots
-        - light.bathroom_sensor_actor_light_strip
-        - input_boolean.bathroom_light_automation_is_enabled
-      # toilet
-        - binary_sensor.toilet_motion_detector
-        - sensor.toilet_temperature
-        - light.toilet_lights
-      # floor
-        - binary_sensor.floor_sensor_actor_motion_detected
-        - sensor.floor_sensor_actor_temperature
-        - sensor.floor_sensor_actor_humidity
-        - light.floor_light
-        - light.floor_neo_pixel_light
-      # balcony
-        - sensor.balcony_sensor_actor_humidity
-        - sensor.balcony_sensor_actor_temperature
-        - light.balcony_sensor_actor_relay_light_1
-        - light.balcony_sensor_actor_relay_light_2
-      # office
-        - light.office_workdesk_light
-        - light.office_ceiling_light_1
-        - light.office_ceiling_light_2
-        - light.office_ceiling_light_3
-        - switch.office_desk_plug
+        - light.kitchen_ceiling_light_light_switch
+        - light.kitchen_entrance_light
+        - light.kitchen_led_spots_light
+        - light.kitchen_shelf_light
+        - light.kitchen_cabinet_light_1
+        - light.kitchen_cabinet_light_2
+        - light.kitchen_neo_pixel_light
+        - sensor.kitchen_sensor_actor_humidity
+        - sensor.kitchen_sensor_actor_light_intensity
+        - sensor.kitchen_sensor_actor_temperature
   - name: HASS Accessory Bridge
     port: 21065
     mode: accessory
@@ -124,13 +110,9 @@ input_text: !include_dir_merge_named input/input_text/
 input_datetime: !include_dir_merge_named input/input_datetime/
 
 light bathroom: !include bathroom/lights.yaml
-light balcony: !include balcony/lights.yaml
-light toilet: !include toilet/lights.yaml
-light floor: !include floor/lights.yaml
-light living_room: !include living_room/lights.yaml
-light kitchen: !include kitchen/lights.yaml
 light bedroom: !include bedroom/lights.yaml
-light office: !include office/lights.yaml
+light kitchen: !include kitchen/lights.yaml
+light living_room: !include living_room/lights.yaml
 
 logger:
   default: warning
@@ -160,12 +142,7 @@ lovelace:
       icon: mdi:account-hard-hat
       show_in_sidebar: true
       filename: dashboards/administration.yaml
-    lovelace-plants:
-      mode: yaml
-      title: Plants
-      icon: mdi:flower-tulip-outline
-      show_in_sidebar: true
-      filename: dashboards/plants.yaml
+
 
 monitor_docker:
   - name: Docker
@@ -250,22 +227,15 @@ remote_homeassistant:
 
 script: !include scripts.yaml
 
-scene: !include scenes.yaml
 scene bathroom: !include bathroom/scenes.yaml
 scene bedroom: !include bedroom/scenes.yaml
-scene balcony: !include balcony/scenes.yaml
-scene floor: !include floor/scenes.yaml
 scene kitchen: !include kitchen/scenes.yaml
 scene living_room: !include living_room/scenes.yaml
-scene office: !include office/scenes.yaml
-scene toilet: !include toilet/scenes.yaml
 
-sensor bathroom: !include bathroom/sensors.yaml
-sensor toilet: !include toilet/sensors.yaml
 sensor kitchen: !include kitchen/sensors.yaml
 sensor general: !include general/sensors.yaml
 
-switch kitchen: !include kitchen/switches.yaml
+switch bedroom: !include bedroom/switches.yaml
 
 spotcast:
   sp_dc: !secret sp_dc
@@ -274,26 +244,20 @@ spotcast:
 template: !include_dir_merge_list templates/
 
 timer:
+  bathroom_fan_turn_off_timer:
+    name: Bathroom Fan Turn Off Timer
   bathroom_light_turn_off_timer:
-    name: Bathroom Light Turnout Timer    
+    name: Bathroom Light Turnout Timer
   bedroom_light_turn_off_timer:
     name: Bedroom Light Turnout Timer    
   living_room_tv_auto_off:
     name: Living Room Auto Off Timer
   workstation_power_control:
     name: Workstation Power Control Timer
-  office_light_turn_off_timer:
-    name: Office Light Turnout Timer
-  toilet_light_turn_off_timer:
-    name: Toilet Light Turnout Timer
-  floor_light_turn_off_timer:
-    name: Floor Light Turnout Timer
   kitchen_light_turn_off_timer:
     name: Kitchen Light Turnout Timer
   living_room_light_turn_off_timer:
     name: Living Room Light Turnout Timer
-  living_touch_screen_back_light_turn_off_timer:
-    name: Living Room Touch Screen Back Light Timer
   zigbee_permit_join:
     name: Time remaining
     duration: 120
@@ -303,7 +267,3 @@ zone:
     latitude: !secret latitude
     longitude: !secret longitude
     radius: 10
-  - name: Shopping
-    latitude: !secret shopping_latitude
-    longitude: !secret shopping_longitude
-    radius: 23

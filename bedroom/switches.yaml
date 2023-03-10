@@ -1,0 +1,5 @@
+- platform: group    
+  name: Work Station Power Switch
+  entities:
+    - switch.bedroom_desk_plug_1
+    - switch.bedroom_desk_plug_2

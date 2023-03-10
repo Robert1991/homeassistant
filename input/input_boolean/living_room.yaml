@@ -4,9 +4,6 @@ living_room_light_automation_is_enabled:
 living_room_automatic_scene_mode_enabled:
   icon: mdi:theater
   initial: true
-touch_screen_back_light_automatic_enabled:
-  icon: mdi:tablet-dashboard
-  initial: true
 living_room_turn_off_tv_when_idle_automation_enabled:
   icon: mdi:television-off
   initial: true

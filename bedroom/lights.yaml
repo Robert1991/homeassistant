@@ -1,14 +1,11 @@
 - platform: group
   name: Bedroom Indirect Lights
   entities:
-    - light.bedroom_closet_led_power_supply_light
-    - light.bedroom_bed_light
-- platform: group
-  name: Bedroom Ceiling Lights
-  entities:
-    - light.bedroom_ceiling_1
-    - light.bedroom_ceiling_2
-    - light.bedroom_ceiling_3
+    - light.bedroom_workdesk_light
+    - light.bedroom_sensor_neopixel_partition_light_1
+    - light.bedroom_sensor_neopixel_partition_light_2
+    - light.bedroom_sensor_neopixel_partition_light_3
+
 - platform: group
   name: Bedroom NeoPixel Light
   entities:
@@ -18,11 +15,9 @@
 - platform: group
   name: All Bedroom Lights
   entities:
-    - light.bedroom_ceiling_1
-    - light.bedroom_ceiling_2
-    - light.bedroom_ceiling_3
+    - light.bedroom_workdesk_light
+    - light.bedroom_ceiling_light
     - light.bedroom_sensor_neopixel_partition_light_1
     - light.bedroom_sensor_neopixel_partition_light_2
     - light.bedroom_sensor_neopixel_partition_light_3
     - light.bedroom_bed_light
-    - light.bedroom_closet_led_power_supply_light

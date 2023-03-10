@@ -1,0 +1,9 @@
+- binary_sensor:
+    - name: Humidity too high in bathroom
+      icon: mdi:thermometer-alert
+      delay_on: >
+        {{ states("input_number.bathroom_humidity_alarm_toggle_timeout") | int * 60 }}
+      delay_off: >
+        {{ states("input_number.bathroom_humidity_alarm_toggle_timeout") | int * 60 }}
+      state: >
+        {{ states("sensor.bathroom_sensor_actor_humidity") | float > states("input_number.bathroom_maximum_humidity") | float }}

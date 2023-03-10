@@ -1,15 +1,31 @@
 bathroom_light_turn_off_timeout:
   name: Bathroom Light Turn Off Automation Timeout
-  initial: 150
   min: 10
   max: 500
   step: 10
   unit_of_measurement: "s"
   icon: 'mdi:clock-in'
-bathroom_smart_button_dim_step_size:
-  name: Bathroom Smart Button Dim Step Size
+
+bathroom_light_toogle_intensity_threshold:
+  name: Bathroom Light Toogle Light Intensity Threshold
   min: 10
-  max: 45
+  max: 100
   step: 5
   unit_of_measurement: "%"
-  icon: 'mdi:brightness-auto'
+  icon: "mdi:brightness-auto"
+
+bathroom_humidity_alarm_toggle_timeout:
+  name: Bathroom Humidity Alarm Toggle Timeout
+  min: 1
+  max: 10
+  step: 1
+  unit_of_measurement: "min"
+  icon: "mdi:alarm"
+
+bathroom_maximum_humidity:
+  name: Bathroom Maximum Humidity
+  min: 1
+  max: 100
+  step: 1
+  unit_of_measurement: "%"
+  icon: "mdi:water-alert"

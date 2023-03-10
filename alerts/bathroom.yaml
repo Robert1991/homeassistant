@@ -1,6 +1,6 @@
 bathroom_sensor_actor_is_offline:
-  name: Bathroom Sensor/Actor offline
-  done_message: Bathroom Sensor/Actor online again
+  name: Bathroom Sensor Actor offline
+  done_message: Bathroom Sensor Actor online again
   entity_id: binary_sensor.bathroom_sensor_actor_connection_status
   state: 'unavailable'
   repeat:       

@@ -1,6 +1,6 @@
 - platform: workday
   country: DE
-  province: BW
+  province: HH
 
 - platform: template
   sensors:

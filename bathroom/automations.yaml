@@ -1,0 +1,42 @@
+- alias: Toggle bathroom fan on button press
+  trigger:
+    platform: state
+    entity_id: sensor.hue_smart_button_1_action
+    to: "press"
+  action:
+    - service: fan.turn_on
+      entity_id: fan.bathroom_fan
+    - service: timer.start
+      target:
+        entity_id: timer.bathroom_fan_turn_off_timer
+      data:
+        duration: "{{ states('input_datetime.bathroom_fan_turn_off_timeout') }}"
+  
+- alias: Turn off bathroom fan on timer elapsed
+  id: "Timerstop"
+  trigger:
+  - platform: event
+    event_type: timer.finished
+    event_data:
+      entity_id: timer.bathroom_fan_turn_off_timer
+  action:
+    - service: fan.turn_off
+      entity_id: fan.bathroom_fan
+
+- alias: Turn on bathroom fan when humditiy is too high
+  trigger:
+    platform: state
+    entity_id: binary_sensor.humidity_too_high_in_bathroom
+    to: "on"
+  action:
+    - service: fan.turn_on
+      entity_id: fan.bathroom_fan
+
+- alias: Turn off bathroom fan when humditiy is too high
+  trigger:
+    platform: state
+    entity_id: binary_sensor.humidity_too_high_in_bathroom
+    to: "off"
+  action:
+    - service: fan.turn_off
+      entity_id: fan.bathroom_fan

@@ -1,43 +1,53 @@
-- alias: Turn on bedroom closet light when door was opened
+- alias: Toggle bedroom bed light on button press
   trigger:
     platform: state
-    entity_id: binary_sensor.bedroom_sensor_door_sensor
-    to: "on"
-  condition:
-    - condition: state
-      entity_id: light.bedroom_closet_led_power_supply_light
-      state: "off"
+    entity_id: sensor.hue_smart_button_4_action
+    to: "press"
   action:
-    - service: light.turn_on
-      entity_id: light.bedroom_closet_led_power_supply_light
-    - service: input_boolean.turn_on
-      entity_id: input_boolean.bedroom_closet_light_was_turned_off_before
+    - service: light.toggle
+      entity_id: light.bedroom_bed_light
 
-- alias: Return to former light state when bedroom closet was closed again
+- alias: Turn on bedroom light automation on button hold
   trigger:
     platform: state
-    entity_id: binary_sensor.bedroom_sensor_door_sensor
-    to: "off"
+    entity_id: sensor.hue_smart_button_4_action
+    to: "hold"
   condition:
-    - condition: state
-      entity_id: input_boolean.bedroom_closet_light_was_turned_off_before
-      state: "on"
+    condition: state
+    entity_id: input_boolean.bedroom_light_automation_is_enabled
+    state: "off"
+  action:
+    - service: input_boolean.turn_on
+      entity_id: input_boolean.bedroom_light_automation_is_enabled
+    - service: pyscript.toggle_scene_from_input_select
+      data:
+        scene_input_select: input_select.bedroom_automatic_light_scene_generated
+        scene_prefix: Bedroom
+
+- alias: Turn off bedroom light automation on button hold
+  trigger:
+    platform: state
+    entity_id: sensor.hue_smart_button_4_action
+    to: "hold"
+  condition:
+    condition: state
+    entity_id: input_boolean.bedroom_light_automation_is_enabled
+    state: "on"
   action:
     - service: input_boolean.turn_off
-      entity_id: input_boolean.bedroom_closet_light_was_turned_off_before
+      entity_id: input_boolean.bedroom_light_automation_is_enabled
     - service: light.turn_off
-      entity_id: light.bedroom_closet_led_power_supply_light
+      entity_id: light.all_bedroom_lights
 
-- alias: Rotate Light Scene On IOS event
+
+- alias: Toggle bedroom workstation on button press
   trigger:
-    platform: event
-    event_type: ios.action_fired
-    event_data:
-      actionID: ED3CF43F-E74C-43C7-A191-3EDF1AFD00A4
-      sourceDeviceID: iphone_von_robert
+    platform: state
+    entity_id: sensor.hue_smart_button_2_action
+    to: "press"
   action:
-    - service: input_select.select_next
-      entity_id: input_select.bedroom_light_scene_generated
+    - service: switch.toggle
+      entity_id: switch.work_station_power_switch
 
 - alias: Open Bedroom Blinds On Button Event
   trigger:
@@ -48,9 +58,6 @@
     - service: cover.open_cover
       target:
         entity_id: cover.bedroom_blind_left
-    - service: cover.open_cover
-      target:
-        entity_id: cover.bedroom_blind_center
     - service: cover.open_cover
       target:
         entity_id: cover.bedroom_blind_right
@@ -64,9 +71,6 @@
     - service: cover.open_cover
       target:
         entity_id: cover.bedroom_blind_left
-    - service: cover.open_cover
-      target:
-        entity_id: cover.bedroom_blind_center
     - service: cover.open_cover
       target:
         entity_id: cover.bedroom_blind_right
@@ -97,9 +101,6 @@
         entity_id: cover.bedroom_blind_left
     - service: cover.close_cover
       target:
-        entity_id: cover.bedroom_blind_center
-    - service: cover.close_cover
-      target:
         entity_id: cover.bedroom_blind_right
 
 - alias: Close Bedroom Blinds When Sun Is Below Horizon
@@ -117,9 +118,6 @@
     - service: cover.close_cover
       target:
         entity_id: cover.bedroom_blind_left
-    - service: cover.close_cover
-      target:
-        entity_id: cover.bedroom_blind_center
     - service: cover.close_cover
       target:
         entity_id: cover.bedroom_blind_right

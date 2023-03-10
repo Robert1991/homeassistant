@@ -1,196 +1,155 @@
-# balcony_sensor_actor
-sensor.balcony_sensor_actor_humidity:
-  friendly_name: "Balcony Humidity"
-sensor.balcony_sensor_actor_temperature:
-  friendly_name: "Balcony Temperature"
-light.balcony_sensor_actor_relay_light_1:
-  friendly_name: "Balcony Small Light"
-  icon: "mdi:string-lights"
-light.balcony_sensor_actor_relay_light_2:
-  friendly_name: "Balcony Ceiling Light"
-  icon: "mdi:string-lights"
-
-# bathroom_sensor_actor
-light.bathroom_sensor_actor_spots:
-  friendly_name: "Bathroom Spot Lights"
+# bathroom
+light.bathroom_sensor_actor_light:
+  friendly_name: "Bathroom Main Light"
   icon: mdi:lightbulb-multiple
-light.bathroom_sensor_actor_light_strip:
-  friendly_name: "Bathroom Light Strip"
-  icon: mdi:led-strip-variant
+
+light.bathroom_indirect_light:
+  icon: mdi:lightbulb-spot
+
 sensor.bathroom_sensor_actor_humidity:
   friendly_name: "Bathroom Humidity"
+
 sensor.bathroom_sensor_actor_temperature:
   friendly_name: "Bathroom Temperature"
 
-# bedroom_sensor
-binary_sensor.bedroom_sensor_door_sensor:
-  friendly_name: "Bedroom Closet Door Sensor"
-sensor.bedroom_sensor_humidity:
-  friendly_name: "Bedroom Humidity"
-sensor.bedroom_sensor_temperature:
-  friendly_name: "Bedroom Temperature"
-sensor.bedroom_sensor_light_intensity:
-  friendly_name: "Bedroom Light Intensity"
-binary_sensor.bedroom_sensor_motion_detected:
-  friendly_name: "Bedroom Motion Detector"
-light.bedroom_sensor_neopixel_partition_light_1:
-  friendly_name: "Bedroom NeoPixel Light Part 1"
-  icon: mdi:led-strip-variant
-light.bedroom_sensor_neopixel_partition_light_2:
-  friendly_name: "Bedroom NeoPixel Light Part 2"
-  icon: mdi:led-strip-variant
-light.bedroom_sensor_neopixel_partition_light_3:
-  friendly_name: "Bedroom NeoPixel Light Part 3"
-  icon: mdi:led-strip-variant
 
-# floor_sensor_actor
-sensor.floor_sensor_actor_humidity:
-  friendly_name: "Floor Humidity"
-sensor.floor_sensor_actor_temperature:
-  friendly_name: "Floor Temperature"
-binary_sensor.floor_sensor_actor_motion_detected:
-  friendly_name: "Floor Motion Detected"
-light.floor_sensor_actor_neopixel_partition_light_1:
-  friendly_name: "Floor Neo Pixel Lightstrip Part 1"
-  icon: mdi:led-strip-variant
-light.floor_sensor_actor_neopixel_partition_light_2:
-  friendly_name: "Floor Neo Pixel Lightstrip Part 2"
-  icon: mdi:led-strip-variant
-light.floor_sensor_actor_neopixel_partition_light_3:
-  friendly_name: "Floor Neo Pixel Lightstrip Part 3"
-  icon: mdi:led-strip-variant
-light.floor_sensor_actor_neopixel_partition_light_4:
-  friendly_name: "Floor Neo Pixel Lightstrip Part 4"
-  icon: mdi:led-strip-variant
+# kitchen 
+light.kitchen_ceiling_light_light_switch:
+ friendly_name: "Kitchen Table Light"
+ icon: mdi:vanity-light
+
+light.kitchen_entrance_light:
+ friendly_name: "Kitchen Entrance Light"
+ icon: mdi:ceiling-light
+
+light.kitchen_led_spots_light:
+ friendly_name: "Kitchen Cooking Lights"
+ icon: mdi:lightbulb-multiple
+
+light.kitchen_shelf_light:
+ friendly_name: "Kitchen Shelf Light"
+ icon: mdi:floor-lamp
+
+light.kitchen_cabinet_light_1:
+ friendly_name: "Kitchen Cabinet Light 1"
+ icon: mdi:track-light
+
+light.kitchen_cabinet_light_2:
+ friendly_name: "Kitchen Cabinet Light 2"
+ icon: mdi:track-light
+
+light.kitchen_sensor_actor_neopixel_partition_light_1:
+ friendly_name: "Kitchen NeoPixel Light Partition 1"
+ icon: mdi:led-strip-variant
+
+light.kitchen_sensor_actor_neopixel_partition_light_2:
+ friendly_name: "Kitchen NeoPixel Light Partition 2"
+ icon: mdi:led-strip-variant
+
+light.kitchen_sensor_actor_neopixel_partition_light_3:
+ friendly_name: "Kitchen NeoPixel Light Partition 3"
+ icon: mdi:led-strip-variant
+
+light.kitchen_sensor_actor_neopixel_partition_light_4:
+ friendly_name: "Kitchen NeoPixel Light Partition 4"
+ icon: mdi:led-strip-variant
+
+light.kitchen_neopixel_light:
+ friendly_name: "Kitchen NeoPixel Light"
+ icon: mdi:led-strip-variant
+
+
+# living room
+light.living_room_ceiling_light:
+ friendly_name: "Living Room Ceiling Light"
+ icon: mdi:ceiling-light
+
+light.living_room_standing_light_1:
+ friendly_name: "Living Room Standing Light 1"
+ icon: mdi:floor-lamp
+
+light.living_room_standing_light_2:
+ friendly_name: "Living Room Standing Light 2"
+ icon: mdi:floor-lamp
+
+light.living_room_hue_light_bulb:
+  friendly_name: "Living Room Hue Light Bulb"
+  icon: mdi:wall-sconce-round-variant
+
+light.living_room_globe_light:
+  friendly_name: "Living Room Globe Light"
+  icon: mdi:earth
+
+light.living_room_round_light:
+  friendly_name: "Living Room Round Light"
+  icon: mdi:latitude
 
 # living_room_sensor_actor_2
 sensor.living_room_sensor_actor_2_light_intensity:
   friendly_name: "Living Room Light Intensity"
+
+sensor.living_room_sensor_actor_2_temperature:
+  friendly_name: "Living Room Temperature"
+
+sensor.living_room_sensor_actor_2_humidity:
+  friendly_name: "Living Room Humidity"
+
 light.living_room_sensor_actor_2_light_strings:
   friendly_name: "Living Room Window Light Strings"
   icon: mdi:string-lights
 
-# kitchen_light_controller
-light.kitchen_light_controller_light_strip:
-  friendly_name: "Kitchen RGB Light Strip"
-  icon: mdi:led-strip-variant
-light.kitchen_light_controller_black_light:
-  friendly_name: "Kitchen Black Light"
-  icon: mdi:desk-lamp
 
-# kitchen_sensor
-binary_sensor.kitchen_sensor_door_sensor:
-  friendly_name: "Fride Door Sensor"
-sensor.kitchen_sensor_humidity:
-  friendly_name: "Kitchen Humidity"
-sensor.kitchen_sensor_temperature:
-  friendly_name: "Kitchen Temperature"
-sensor.kitchen_sensor_light_intensity:
-  friendly_name: "Kitchen Light Intensity"
-  icon: mdi:brightness-4
-binary_sensor.kitchen_sensor_motion_detected:
-  friendly_name: "Kitchen Motion Detector"
-
-# living_room_sensor_actor_1
-sensor.living_room_sensor_actor_1_humidity:
-  friendly_name: "Living Room Humidity"
-sensor.living_room_sensor_actor_1_temperature:
-  friendly_name: "Living Room Temperature"
-binary_sensor.living_room_sensor_actor_1_motion_detected:
-  friendly_name: "Living Room Motion Detector"
-light.living_room_sensor_actor_1_closet_rgb_lights:
-  friendly_name: "Living Room Closet Lights"
-  icon: mdi:lightbulb-multiple
-
-# kitchen_ceiling_light
-light.kitchen_ceiling_light_light_switch:
-  friendly_name: "Kitchen Ceiling Light"
-  icon: mdi:ceiling-light
-
-# kitchen_mqtt_lcd_display
-sensor.kitchen_mqtt_lcd_display_humidity:
-  friendly_name: "Kitchen Plant Closet Humidity"
-sensor.kitchen_mqtt_lcd_display_temperature:
-  friendly_name: "Kitchen Plant Closet Temperature"
-
-# lights
-light.floor_light:
-  friendly_name: "Floor Ceiling Light"
-  icon: mdi:wall-sconce-round
-
-light.living_room_standing_light:
-  friendly_name: "Living Room Standing Light"
-  icon: mdi:floor-lamp
-
-light.hue_iris_light:
-  friendly_name: "TV Philips Hue Bubble Light"
-  icon: mdi:wall-sconce-round-variant
-
-light.hue_portable_light_bulb:
-  icon: mdi:wall-sconce-round-variant
-
-light.floor_neo_pixel_light:
-  friendly_name: "Floor Neo Pixel Lightstrip"
-  icon: mdi:led-strip-variant
-
-light.office_workdesk_light:
-  friendly_name: "Office Workdesk Light"
+# bedroom
+light.bedroom_workdesk_light:
+  friendly_name: "Bedroom Workdesk Light"
   icon: mdi:desk-lamp
 
 light.bedroom_bed_light:
-  icon: mdi:outdoor-lamp
+   icon: mdi:lightbulb-variant-outline
 
-light.bedroom_closet_led_power_supply_light:
-  friendly_name: "Bedroom Closet Light"
-  icon: mdi:led-strip
+# bedroom_sensor
+sensor.bedroom_sensor_humidity:
+  friendly_name: "Bedroom Humidity"
+
+sensor.bedroom_sensor_temperature:
+  friendly_name: "Bedroom Temperature"
+
+sensor.bedroom_sensor_light_intensity:
+  friendly_name: "Bedroom Light Intensity"
+
+binary_sensor.bedroom_sensor_motion_detected:
+  friendly_name: "Bedroom Motion Detector"
+
+light.bedroom_sensor_neopixel_partition_light_1:
+  friendly_name: "Bedroom NeoPixel Light Part 1"
+  icon: mdi:led-strip-variant
+
+light.bedroom_sensor_neopixel_partition_light_2:
+  friendly_name: "Bedroom NeoPixel Light Part 2"
+  icon: mdi:led-strip-variant
+
+light.bedroom_sensor_neopixel_partition_light_3:
+  friendly_name: "Bedroom NeoPixel Light Part 3"
+  icon: mdi:led-strip-variant
 
 light.bedroom_neopixel_light:
   icon: mdi:led-strip-variant
 
-# Robert PC
-binary_sensor.private_laptop_activity:
-  friendly_name: "Robert PC is occupied"
-  icon: mdi:monitor-dashboard
-
-# Robert PC 2
-binary_sensor.lenovo_new_gen_key_was_pressed:
-  friendly_name: "Robert ThinkPad Key Pressed"
-  icon: mdi:monitor-dashboard
-binary_sensor.lenovo_new_gen_mouse_moved:
-  friendly_name: "Robert ThinkPad Mouse Moved"
-  icon: mdi:monitor-dashboard
 
 # Work PC
 binary_sensor.work_laptop_activity:
   friendly_name: "Work PC is occupied"
   icon: mdi:monitor-dashboard
 
-# panel
-light.touch_screen_back_light:
-  friendly_name: "Smart Home Panel Back Light"
-  icon: mdi:tablet-dashboard
-
-# switches
-switch.hue_smart_plug_1:
-  friendly_name: "Kitchen Big Plant Light"
-  icon: mdi:flower-tulip
-
-switch.hue_smart_plug_3:
-  friendly_name: "Kitchen Small Plant Light"
-  icon: mdi:flower-tulip
-
-switch.hue_smart_plug_2:
-  friendly_name: "Kitchen Plant Ventilation"
-  icon: mdi:fan
 
 # general
 sensor.home_server_update_state:
-  friendly_name: "Homeserver Updates"
-  icon: mdi:new-box
+   friendly_name: "Homeserver Updates"
+   icon: mdi:new-box
 
 binary_sensor.home_server_updates_available:
-  friendly_name: "Homeserver Update State"
-  icon: mdi:new-box
+   friendly_name: "Homeserver Update State"
+   icon: mdi:new-box
 
-sensor.plant_closet_harvest:
-  icon: mdi:barley
+light.hue_portable_light_bulb:
+  icon: mdi:wall-sconce-round-variant

@@ -1,13 +1,13 @@
 substitutions:
-  node_name: floor_sensor_actor
+  node_name: kitchen_sensor_actor
   node_board: nodemcuv2
-  node_verbose_name: Floor Sensor Actor
+  node_verbose_name: Kitchen Sensor Actor
   # sensors
   motion_sensor_pin: D7
   dht_pin: D3
   dht_type: DHT11
   light_intensity_sensor_pin: A0
-  light_intensity_sensor_update_interval: 2s
+  light_intensity_sensor_update_interval: 30s
 
 packages:
   mqtt: !include mqtt.yaml

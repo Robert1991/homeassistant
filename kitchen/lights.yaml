@@ -1,18 +1,40 @@
 - platform: group
-  name: Kitchen Dimmable Lights
-  entities:
-    - light.kitchen_light_controller_light_strip
-    - light.kitchen_led_spots_light
-- platform: group
   name: Kitchen Indirect Lights
   entities:
-    - light.kitchen_light_controller_light_strip
     - light.kitchen_led_spots_light
-    - light.kitchen_light_controller_black_light
+    - light.kitchen_shelf_light
+    - light.kitchen_cabinet_light_1
+    - light.kitchen_cabinet_light_2
+    - light.kitchen_sensor_actor_neopixel_partition_light_1
+    - light.kitchen_sensor_actor_neopixel_partition_light_2
+    - light.kitchen_sensor_actor_neopixel_partition_light_3
+    - light.kitchen_sensor_actor_neopixel_partition_light_4
 - platform: group
   name: Kitchen Lights
   entities:
     - light.kitchen_ceiling_light_light_switch
-    - light.kitchen_light_controller_light_strip
     - light.kitchen_led_spots_light
-    - light.kitchen_light_controller_black_light
+    - light.kitchen_entrance_light
+    - light.kitchen_shelf_light
+    - light.kitchen_cabinet_light_1
+    - light.kitchen_cabinet_light_2
+    - light.kitchen_sensor_actor_neopixel_partition_light_1
+    - light.kitchen_sensor_actor_neopixel_partition_light_2
+    - light.kitchen_sensor_actor_neopixel_partition_light_3
+    - light.kitchen_sensor_actor_neopixel_partition_light_4
+- platform: group
+  name: Kitchen Neo Pixel Light
+  entities:
+    - light.kitchen_sensor_actor_neopixel_partition_light_1
+    - light.kitchen_sensor_actor_neopixel_partition_light_2
+    - light.kitchen_sensor_actor_neopixel_partition_light_3
+    - light.kitchen_sensor_actor_neopixel_partition_light_4
+- platform: group
+  name: Kitchen Dimmable Lights
+  entities:
+    - light.kitchen_led_spots_light
+    - light.kitchen_entrance_light
+    - light.kitchen_shelf_light
+    - light.kitchen_cabinet_light_1
+    - light.kitchen_cabinet_light_2
+    - light.kitchen_neopixel_light

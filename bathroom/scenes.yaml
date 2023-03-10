@@ -1,40 +1,55 @@
 - entities:
-    light.bathroom_sensor_actor_light_strip:
+    input_number.bathroom_light_toogle_intensity_threshold: '25'
+    light.bathroom_indirect_light:
+      brightness: 234
+      hs_color:
+      - 0.0
+      - 56.471
+      rgb_color:
+      - 255
+      - 111
+      - 111
+      state: 'on'
+      xy_color:
+      - 0.562
+      - 0.31
+    light.bathroom_sensor_actor_light:
+      state: 'on'
+  name: Bathroom Day Light 1
+- entities:
+    input_number.bathroom_light_toogle_intensity_threshold: '25'
+    light.bathroom_indirect_light:
+      brightness: 188
+      color_temp: 500
+      hs_color:
+      - 30.601
+      - 94.547
+      rgb_color:
+      - 255
+      - 136
+      - 13
+      state: 'on'
+      xy_color:
+      - 0.599
+      - 0.382
+    light.bathroom_sensor_actor_light:
       state: 'off'
-    light.bathroom_sensor_actor_spots:
-      state: 'on'
-  name: Bathroom Night Light 1
+  name: Bathroom Night Light
 - entities:
-    light.bathroom_sensor_actor_light_strip:
+    input_number.bathroom_light_toogle_intensity_threshold: '25'
+    light.bathroom_indirect_light:
       brightness: 255
       hs_color:
-      - 180.0
-      - 100.0
+      - 224.64
+      - 98.039
       rgb_color:
-      - 0
-      - 255
+      - 5
+      - 69
       - 255
       state: 'on'
       xy_color:
-      - 0.151
-      - 0.343
-    light.bathroom_sensor_actor_spots:
+      - 0.137
+      - 0.065
+    light.bathroom_sensor_actor_light:
       state: 'on'
-  name: Bathroom Blue
-- entities:
-    light.bathroom_sensor_actor_light_strip:
-      brightness: 255
-      hs_color:
-      - 120.0
-      - 100.0
-      rgb_color:
-      - 0
-      - 255
-      - 0
-      state: 'on'
-      xy_color:
-      - 0.172
-      - 0.747
-    light.bathroom_sensor_actor_spots:
-      state: 'on'
-  name: Bathroom Green
+  name: Bathroom Day Light Color

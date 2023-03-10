@@ -1,6 +1,6 @@
 - bedroom_light_control:
     entity: light.all_bedroom_lights
-    motion_sensor_entity: binary_sensor.bedroom_sensor_motion_detected
+    motion_sensor_entity: binary_sensor.bedroom_activity_detected
     automation_enabled_entity: input_boolean.bedroom_light_automation_is_enabled
     turn_off_timeout_entity: input_number.bedroom_light_turn_off_timeout
     turn_off_timer_entity: timer.bedroom_light_turn_off_timer
@@ -13,39 +13,11 @@
       threshold_entity: input_number.bedroom_light_toogle_intensity_threshold
       light_sensor_entity: sensor.bedroom_sensor_light_intensity
 
-- floor_light_control:
-    entity: light.floor_lights
-    motion_sensor_entity: binary_sensor.floor_sensor_actor_motion_detected
-    automation_enabled_entity: input_boolean.floor_light_automation_is_enabled
-    turn_off_timeout_entity: input_number.floor_light_turn_off_timeout
-    turn_off_timer_entity: timer.floor_light_turn_off_timer
-    scene_toggle_entity: input_select.floor_automatic_light_scene_generated
-    scene_group_prefix: floor
-    time_based_scene_switch:
-      scene_switch_configuration_entity: input_select.floor_time_based_scenes
-      automation_enabled_entity: input_boolean.floor_automatic_scene_mode_enabled
-    light_intensity_control:
-      threshold_entity: input_number.floor_light_toogle_intensity_threshold
-      light_sensor_entity: sensor.floor_sensor_actor_light_intensity
 
-- living_room_light_control:
-    entity: light.living_room_lights
-    motion_sensor_entity: binary_sensor.activity_detected_in_living_room
-    automation_enabled_entity: input_boolean.living_room_light_automation_is_enabled
-    turn_off_timeout_entity: input_number.living_room_light_turn_off_timeout
-    turn_off_timer_entity: timer.living_room_light_turn_off_timer
-    scene_toggle_entity: input_select.living_room_automatic_light_scene_generated
-    scene_group_prefix: living_room
-    time_based_scene_switch:
-      scene_switch_configuration_entity: input_select.living_room_time_based_scenes
-      automation_enabled_entity: input_boolean.living_room_automatic_scene_mode_enabled
-    light_intensity_control:
-      threshold_entity: input_number.living_room_light_toogle_intensity_threshold
-      light_sensor_entity: sensor.living_room_sensor_actor_2_light_intensity
 
 - kitchen_light_control:
     entity: light.kitchen_lights
-    motion_sensor_entity: binary_sensor.kitchen_sensor_motion_detected
+    motion_sensor_entity: binary_sensor.kitchen_sensor_actor_motion_detected
     automation_enabled_entity: input_boolean.kitchen_light_automation_is_enabled
     turn_off_timeout_entity: input_number.kitchen_light_turn_off_timeout
     turn_off_timer_entity: timer.kitchen_light_turn_off_timer
@@ -56,38 +28,11 @@
       automation_enabled_entity: input_boolean.kitchen_automatic_scene_mode_enabled
     light_intensity_control:
       threshold_entity: input_number.kitchen_light_toogle_intensity_threshold
-      light_sensor_entity: sensor.kitchen_sensor_light_intensity
-
-- office_light_control:
-    entity: light.all_office_lights
-    motion_sensor_entity: binary_sensor.office_activity_detected
-    automation_enabled_entity: input_boolean.office_light_automation_is_enabled
-    turn_off_timeout_entity: input_number.office_light_turn_off_timeout
-    turn_off_timer_entity: timer.office_light_turn_off_timer
-    scene_toggle_entity: input_select.office_automatic_light_scene_generated
-    scene_group_prefix: office
-    time_based_scene_switch:
-      scene_switch_configuration_entity: input_select.office_time_based_scenes
-      automation_enabled_entity: input_boolean.office_automatic_scene_mode_enabled
-    light_intensity_control:
-      threshold_entity: input_number.office_light_toogle_intensity_threshold
-      light_sensor_entity: sensor.office_motion_sensor_illuminance_lux
-
-- toilet_light_control:
-    entity: light.toilet_lights
-    motion_sensor_entity: binary_sensor.toilet_motion_detector
-    automation_enabled_entity: input_boolean.toilet_light_automation_is_enabled
-    turn_off_timeout_entity: input_number.toilet_light_turn_off_timeout
-    turn_off_timer_entity: timer.toilet_light_turn_off_timer
-    scene_toggle_entity: input_select.toilet_automatic_light_scene_generated
-    scene_group_prefix: toilet
-    time_based_scene_switch:
-      scene_switch_configuration_entity: input_select.toilet_time_based_scenes
-      automation_enabled_entity: input_boolean.toilet_automatic_scene_mode_enabled
+      light_sensor_entity: sensor.kitchen_sensor_actor_light_intensity
 
 - bathroom_light_control:
     entity: light.bathroom_lights
-    motion_sensor_entity: binary_sensor.bathroom_motion_detector
+    motion_sensor_entity: binary_sensor.bathroom_sensor_actor_motion_detected
     automation_enabled_entity: input_boolean.bathroom_light_automation_is_enabled
     turn_off_timeout_entity: input_number.bathroom_light_turn_off_timeout
     turn_off_timer_entity: timer.bathroom_light_turn_off_timer
@@ -96,11 +41,7 @@
     time_based_scene_switch:
       scene_switch_configuration_entity: input_select.bathroom_time_based_scenes
       automation_enabled_entity: input_boolean.bathroom_automatic_scene_mode_enabled
+    light_intensity_control:
+      threshold_entity: input_number.bathroom_light_toogle_intensity_threshold
+      light_sensor_entity: sensor.bathroom_sensor_actor_light_intensity
 
-
-- raspberry_panel_back_light_control:
-    entity: light.touch_screen_back_light
-    motion_sensor_entity: binary_sensor.living_room_sensor_actor_1_motion_detected
-    automation_enabled_entity: input_boolean.touch_screen_back_light_automatic_enabled
-    turn_off_timeout_entity: input_number.living_touch_screen_back_light_turn_off_timeout
-    turn_off_timer_entity: timer.living_touch_screen_back_light_turn_off_timer

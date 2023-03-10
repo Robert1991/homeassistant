@@ -1,0 +1,11 @@
+  - platform: template
+    fans:
+      bathroom_fan:
+        friendly_name: "Bathroom fan"
+        value_template: "{{ states('light.bathroom_fan') }}"
+        turn_on:
+          service: light.turn_on
+          entity_id: light.bathroom_fan
+        turn_off:
+          service: light.turn_off
+          entity_id: light.bathroom_fan

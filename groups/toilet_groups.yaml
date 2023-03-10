@@ -1,6 +1,0 @@
-all_toilet_lights:
-  name: "All Toilet Lights"
-  icon: "mdi:lightbulb-group-outline"
-  entities:
-    - light.toilet_light_1
-    - light.toilet_light_2

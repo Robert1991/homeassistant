@@ -1,66 +1,30 @@
 bedroom_automatic_light_scene_generated:
   options:
-  - Colorful 1
-  - Colorful 2
-  - Colorful 3
-  - Eves Light
+  - Concentrate
   - Night Light 1
-  - Night Light 2
-  - Relaxed 1
-  - Relaxed 2
-  - Work 1
+  - Work Colorful
 bedroom_day_light_choosen_scene:
   options:
-  - Colorful 1
-  - Colorful 2
-  - Colorful 3
-  - Eves Light
+  - Concentrate
   - Night Light 1
-  - Night Light 2
-  - Relaxed 1
-  - Relaxed 2
-  - Work 1
+  - Work Colorful
 bedroom_evening_light_choosen_scene:
   options:
-  - Colorful 1
-  - Colorful 2
-  - Colorful 3
-  - Eves Light
+  - Concentrate
   - Night Light 1
-  - Night Light 2
-  - Relaxed 1
-  - Relaxed 2
-  - Work 1
+  - Work Colorful
 bedroom_light_scene_generated:
   options:
-  - Colorful 1
-  - Colorful 2
-  - Colorful 3
-  - Eves Light
+  - Concentrate
   - Night Light 1
-  - Night Light 2
-  - Relaxed 1
-  - Relaxed 2
-  - Work 1
+  - Work Colorful
 bedroom_night_light_choosen_scene:
   options:
-  - Colorful 1
-  - Colorful 2
-  - Colorful 3
-  - Eves Light
+  - Concentrate
   - Night Light 1
-  - Night Light 2
-  - Relaxed 1
-  - Relaxed 2
-  - Work 1
+  - Work Colorful
 bedroom_scene_generator_light_scene_generated:
   options:
-  - Colorful 1
-  - Colorful 2
-  - Colorful 3
-  - Eves Light
+  - Concentrate
   - Night Light 1
-  - Night Light 2
-  - Relaxed 1
-  - Relaxed 2
-  - Work 1
+  - Work Colorful

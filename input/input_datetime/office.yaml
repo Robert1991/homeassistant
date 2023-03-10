@@ -1,9 +1,0 @@
-office_night_light_start_time:
-  name: Night Light Start Time
-  has_date: false
-  has_time: true
-
-office_day_light_start_time:
-  name: Day Light Start Time
-  has_date: false
-  has_time: true

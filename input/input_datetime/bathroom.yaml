@@ -1,5 +1,5 @@
-bathroom_light_automation_reactivation_timeout:
-    name: Reactivation Timeout
+bathroom_fan_turn_off_timeout:
+    name: Bathroom Fan Turnoff Timeout
     has_date: false
     has_time: true
 

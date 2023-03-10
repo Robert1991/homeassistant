@@ -1,5 +1,5 @@
 - platform: group
   name: Bathroom Lights
   entities:
-  - light.bathroom_sensor_actor_spots
-  - light.bathroom_sensor_actor_light_strip
+    - light.bathroom_indirect_light
+    - light.bathroom_sensor_actor_light

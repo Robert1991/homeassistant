@@ -3,18 +3,34 @@ hass_is_global: true
 apps:
   home_server_update:
     update_log: /config/tmp/apt_update.log
-  battery_observer:
-    default_threshold_entity: input_number.default_battery_alert_threshold
-    observed_entities: 
-      - entity: sensor.bedroom_blind_button_1_battery
-    reminder_timeout: 720
+  
+  ikea_button_controller:
+    - kitchen_light_button:
+        entity: light.kitchen_lights
+        switch_sensor: sensor.ikea_kitchen_smart_button_action
+        scene_input_select: input_select.kitchen_automatic_light_scene_generated
+        dim_step_size: input_number.kitchen_smart_button_dim_step_size
+        scene_prefix: Kitchen
+    - bedroom_light_button:
+        entity: light.all_bedroom_lights
+        switch_sensor: sensor.ikea_bedroom_smart_button_action
+        scene_input_select: input_select.bedroom_automatic_light_scene_generated
+        dim_step_size: input_number.bedroom_smart_button_dim_step_size
+        scene_prefix: Bedroom
+    - living_room_light_button:
+        entity: light.living_room_lights
+        switch_sensor: sensor.ikea_living_room_smart_button_action
+        scene_input_select: input_select.living_room_automatic_light_scene_generated
+        dim_step_size: input_number.living_room_smart_button_dim_step_size
+        scene_prefix: Living Room
+
   activity_based_entity_control: 
     - !include light_control.yaml
     - workstation_power_control:
-        entity: switch.office_desk_plug
-        motion_sensor_entity: binary_sensor.office_workstation_power_required
-        automation_enabled_entity: input_boolean.office_workstation_toggle_automatic_enabled
-        turn_off_timeout_entity: input_number.office_workstation_power_turn_off_timeout
+        entity: switch.work_station_power_switch
+        motion_sensor_entity: binary_sensor.bedroom_workstation_power_required
+        automation_enabled_entity: input_boolean.bedroom_workstation_toggle_automatic_enabled
+        turn_off_timeout_entity: input_number.bedroom_workstation_power_turn_off_timeout
         turn_off_timer_entity: timer.workstation_power_control
     - living_room_tv_auto_off:
         entity: media_player.tv_livingroom
@@ -23,88 +39,6 @@ apps:
         turn_off_timeout_entity: input_number.tv_living_room_idle_turn_off_timeout
         turn_off_timer_entity: timer.living_room_tv_auto_off
         skip_turn_on: true
-  time_based_entity_control:
-    - plant_closet_light_control:
-        entity: switch.kitchen_plant_closet_lights
-        interval_start: input_datetime.plant_closet_light_turn_on_time
-        interval_end: input_datetime.plant_closet_light_turn_off_time
-        target_state: "on"
-        automation_enabled_entity: input_boolean.plant_closet_light_automation_enabled
-  state_observer:
-    trigger_alarm_when_fridge_is_open:
-      observed_entity: binary_sensor.kitchen_sensor_door_sensor
-      observed_state: "on"
-      timeout_input_number: input_number.kitchen_frigde_door_open_alarm_timeout
-      actions:
-        - service: notify.mobile_app_iphone_von_robert
-          arguments:
-            title: "Kühlschrank Tür offen!"
-            message: "Tür wurde offen gelassen"
-            data:
-              actions:
-                - action: "URI"
-                  title: "Küchenübersicht öffnen"
-                  uri: "/lovelace/kitchen"
-        - service: pyscript.light_blink
-          arguments:
-            entity: light.kitchen_ceiling_light_light_switch
-            state_entity: binary_sensor.kitchen_sensor_door_sensor
-            target_state: "on"
-      state_resolved_actions:
-        - service: notify.mobile_app_iphone_von_robert
-          arguments:
-            title: "Kühlschrank Tür zu."
-            message: "Wurde wieder geschlossen"
-    trigger_alarm_when_plant_closet_is_too_hot:
-      observed_entity: binary_sensor.temperature_too_hot_in_plant_closet
-      observed_state: "on"
-      actions:
-        - service: notify.mobile_app_iphone_von_robert
-          arguments:
-            title: "Temperatur Alarm"
-            message: "Pflanzenschrank Temperatur checken..."
-            data:
-              actions:
-                - action: "URI"
-                  title: "Küchenübersicht öffnen"
-                  uri: "/lovelace/kitchen"
-      state_resolved_actions:
-        - service: notify.mobile_app_iphone_von_robert
-          arguments:
-            title: "Temperatur Alarm aufgehoben"
-            message: "Temperatur im Pflanzenschrank wieder normal"
-  lcd_display_rotation:
-    display_topic: kitchen_mqtt_lcd_display/show
-    rotate_timeout_entity: input_number.lcd_display_rotation_timeout
-    rotation_enabled_entity: input_boolean.plant_closet_lcd_display_rotation_enabled
-    displayed_entities:
-      - entity: sensor.kitchen_mqtt_lcd_display_humidity
-        name: Humidity
-        unit: "%"
-      - entity: sensor.kitchen_mqtt_lcd_display_temperature
-        name: Temperature
-        unit: "deg. C"
-      - entity: sensor.plant_closet_master_switch_power
-        name: Energy Cons.
-        unit: "W"
-      - entity: sensor.plant_1_age_in_days
-        name_entity: input_text.plant_1_name
-        unit: "days"
-      - entity: sensor.plant_2_age_in_days
-        name_entity: input_text.plant_2_name
-        unit: "days"
-      - entity: sensor.plant_3_age_in_days
-        name_entity: input_text.plant_3_name
-        unit: "days"
-      - entity: sensor.plant_4_age_in_days
-        name_entity: input_text.plant_4_name
-        unit: "days"
-      - entity: sensor.plant_5_age_in_days
-        name_entity: input_text.plant_5_name
-        unit: "days"
-      - entity: sensor.plant_6_age_in_days
-        name_entity: input_text.plant_6_name
-        unit: "days"
 
 global:
   esp_home_automations:
