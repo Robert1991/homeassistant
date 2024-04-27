@@ -7,3 +7,11 @@ zigbee2mqtt_join_minutes:
   mode: slider
   unit_of_measurement: "min"
   icon: 'mdi:clock-in'
+
+zigbee2mqtt_touchlink_channel:
+  name: Zigbee2MQTT Touchlink Channel
+  initial: 2
+  min: 1
+  max: 35
+  step: 1
+  mode: box

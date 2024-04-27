@@ -1,32 +1,51 @@
+zigbee2mqtt_start_touchlink_scan:
+  alias: Zigbee2MQTT Touchlink Scan
+  sequence:
+    service: mqtt.publish
+    data_template:
+      topic: zigbee2mqtt/bridge/request/touchlink/scan
+      payload_template: "{}"
+
+zigbee2mqtt_touchlink_identify:
+  alias: Zigbee2MQTT Touchlink Identify
+  sequence:
+    service: mqtt.publish
+    data_template:
+      topic: zigbee2mqtt/bridge/request/touchlink/identify
+      payload_template: "{\n \"ieee_address\": \"{{ states.input_text.zigbee2mqtt_touchlink_ieee_address.state
+        | string }}\",\n  \"channel\": {{ states.input_number.zigbee2mqtt_touchlink_channel.state }}\n}"
+
+zigbee2mqtt_start_touchlink_factory_reset:
+  alias: Zigbee2MQTT Touchlink Factory Reset
+  sequence:
+    service: mqtt.publish
+    data_template:
+      topic: zigbee2mqtt/bridge/request/touchlink/factory_reset
+      payload_template: "{}"
+
 zigbee2mqtt_rename:
   alias: Zigbee2MQTT Rename
   sequence:
     service: mqtt.publish
     data_template:
       topic: zigbee2mqtt/bridge/request/device/rename
-      payload_template: >-
-          {
-            "from": "{{ states.input_text.zigbee2mqtt_old_name.state | string }}",
-            "to": "{{ states.input_text.zigbee2mqtt_new_name.state | string }}"
-          }
-
+      payload_template: "{\n  \"from\": \"{{ states.input_text.zigbee2mqtt_old_name.state
+        | string }}\",\n  \"to\": \"{{ states.input_text.zigbee2mqtt_new_name.state
+        | string }}\"\n}"
 zigbee2mqtt_update:
   alias: Zigbee2MQTT Update
   sequence:
     service: mqtt.publish
     data_template:
       topic: zigbee2mqtt/bridge/request/device/ota_update/update
-      payload_template: >-
-        {{ states.input_text.zigbee2mqtt_update_name.state | string }}
-
+      payload_template: '{{ states.input_text.zigbee2mqtt_update_name.state | string
+        }}'
 zigbee2mqtt_remove:
   alias: Zigbee2MQTT Remove
   sequence:
     service: mqtt.publish
     data_template:
       topic: zigbee2mqtt/bridge/request/device/remove
-      payload_template: >-
-          { 
-            "id": "{{ states.input_text.zigbee2mqtt_remove.state | string }}", 
-            "force": {% if states.input_boolean.zigbee2mqtt_force_remove.state == "off" %}false{% else %}true{% endif %}
-          }
+      payload_template: "{ \n  \"id\": \"{{ states.input_text.zigbee2mqtt_remove.state
+        | string }}\", \n  \"force\": {% if states.input_boolean.zigbee2mqtt_force_remove.state
+        == \"off\" %}false{% else %}true{% endif %}\n}"

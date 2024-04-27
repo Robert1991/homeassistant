@@ -346,6 +346,12 @@ views:
         - entity: input_number.zigbee2mqtt_join_minutes
         - entity: timer.zigbee_permit_join
         - type: divider
+        - entity: script.zigbee2mqtt_start_touchlink_scan
+        - entity: script.zigbee2mqtt_touchlink_identify
+        - entity: input_text.zigbee2mqtt_touchlink_ieee_address
+        - entity: input_number.zigbee2mqtt_touchlink_channel
+        - entity: script.zigbee2mqtt_start_touchlink_factory_reset
+        - type: divider
         - entity: input_text.zigbee2mqtt_old_name
         - entity: input_text.zigbee2mqtt_new_name
         - entity: script.zigbee2mqtt_rename
