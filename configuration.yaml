@@ -275,7 +275,7 @@ notify ios:
   - name: iOS
     platform: group
     services:
-      - service: mobile_app_iphone_von_robert
+      - service: mobile_app_roberts_iphone
 
 pyscript: !include pyscript_config.yaml
 
