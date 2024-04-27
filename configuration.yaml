@@ -21,6 +21,63 @@ automation zigbee2mqtt: !include zigbee2mqtt/automations.yaml
 binary_sensor general: !include general/binary_sensors.yaml 
 binary_sensor bedroom: !include bedroom/binary_sensors.yaml
 
+command_line:
+  - sensor:
+      name: home_server_update_state
+      command: /config/pyscript/sensors/update_sensor.py
+      value_template: "{{ value_json['total_updates'] }}"
+      json_attributes:
+        - total_updates
+        - security_updates
+  - sensor:
+      name: wifi_connections_sensor
+      command: /config/pyscript/sensors/wifi_connections_sensor.py
+      value_template: "{{ value_json['connection_count'] }}"
+      json_attributes:
+        - connections
+
+  - sensor:
+      name: home_server_diskusage
+      command: /config/pyscript/sensors/prometheus_disk_usage_sensor.py
+      value_template: "{{ value_json['disk_usage'] }}"
+      unit_of_measurement: "%"
+      json_attributes:
+        - available_space
+        - filesystem_size
+
+  - sensor:
+      name: unknown_wifi_devices
+      value_template: "{{ value_json['devices'] | length }}"
+      command: /config/pyscript/sensors/unknown_wifi_connections_sensor.py
+      json_attributes:
+        - devices
+
+  - sensor:
+      name: known_devices
+      value_template: "{{ value_json['count'] }}"
+      command: /config/pyscript/sensors/known_devices_sensor.py
+      json_attributes:
+        - devices
+
+  - sensor:
+      name: active_dhcp_leases
+      value_template: "{{ value_json['count'] }}"
+      command: /config/pyscript/sensors/active_dhcp_leases_sensor.py
+      json_attributes:
+        - leases
+
+  - sensor:
+      name: promethues_up_query_state
+      command: /config/pyscript/sensors/prometheus_up_sensor.py
+
+  - sensor:
+      name: duckdns_token
+      command: /config/pyscript/sensors/secret_sensor.py 'duckdns_token'
+
+  - sensor:
+      name: shopping_list
+      command: /config/pyscript/sensors/shopping_list.py
+
 fan bathroom: !include bathroom/fan.yaml
 
 group: !include_dir_merge_named groups/
