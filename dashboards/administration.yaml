@@ -225,6 +225,8 @@ views:
               name: Upload Speed
             - entity: sensor.speedtest_ping
               name: Ping
+            - entity: binary_sensor.internet_connection
+              name: Internet Connection
         - type: statistics-graph
           entities:
             - sensor.speedtest_download

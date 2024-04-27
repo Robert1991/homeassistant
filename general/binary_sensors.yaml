@@ -7,5 +7,9 @@
     home_server_updates_available:
       value_template: >
         {{ states('sensor.home_server_update_state') | int > 0 or state_attr('sensor.home_server_update_state', 'security_updates') | int > 0}}
-    
-  
+
+- platform: ping
+  name: internet_connection
+  host: 8.8.8.8
+  count: 2
+  scan_interval: 5
