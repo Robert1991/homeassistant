@@ -279,9 +279,6 @@ notify ios:
 
 pyscript: !include pyscript_config.yaml
 
-remote_homeassistant:
-  instances:
-
 script: !include scripts.yaml
 
 scene bathroom: !include bathroom/scenes.yaml
