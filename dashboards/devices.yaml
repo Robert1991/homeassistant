@@ -335,33 +335,64 @@ views:
     badges: []
     cards:
     - type: entities
+      title: Zigbee2MQTT Bridge
       show_header_toggle: false
       entities:
-        - entity: sensor.zigbee2mqtt_bridge_state
-        - entity: sensor.zigbee2mqtt_version
-        - entity: sensor.coordinator_version
-        - entity: input_select.zigbee2mqtt_log_level
+        - name: State
+          entity: sensor.zigbee2mqtt_bridge_state
+        - name: Zigbee2MQTT Version
+          entity: sensor.zigbee2mqtt_version
+        - name: Bridge Coordinator Version
+          entity: sensor.zigbee2mqtt_bridge_coordinator_version
+        - name: Log Level
+          entity: select.zigbee2mqtt_bridge_log_level
+        - name: Restart Bridge
+          entity: button.zigbee2mqtt_bridge_restart
         - type: divider
-        - entity: switch.zigbee2mqtt_main_join
-        - entity: input_number.zigbee2mqtt_join_minutes
-        - entity: timer.zigbee_permit_join
+        - name: Permit Join
+          entity: switch.zigbee2mqtt_bridge_permit_join
+        - name: Time
+          entity: input_number.zigbee2mqtt_join_minutes
+        - name: Remaining
+          entity: timer.zigbee_permit_join
+    - type: entities
+      title: Touchlink
+      show_header_toggle: false
+      entities:
+        - name: Run scan
+          entity: script.zigbee2mqtt_start_touchlink_scan
         - type: divider
-        - entity: script.zigbee2mqtt_start_touchlink_scan
-        - entity: script.zigbee2mqtt_touchlink_identify
-        - entity: input_text.zigbee2mqtt_touchlink_ieee_address
-        - entity: input_number.zigbee2mqtt_touchlink_channel
-        - entity: script.zigbee2mqtt_start_touchlink_factory_reset
+        - name: Run identify
+          entity: script.zigbee2mqtt_touchlink_identify
+        - name: IEE Address
+          entity: input_text.zigbee2mqtt_touchlink_ieee_address
+        - name: Channel
+          entity: input_number.zigbee2mqtt_touchlink_channel
         - type: divider
-        - entity: input_text.zigbee2mqtt_old_name
-        - entity: input_text.zigbee2mqtt_new_name
-        - entity: script.zigbee2mqtt_rename
+        - name: Run factory reset of nearest device
+          entity: script.zigbee2mqtt_start_touchlink_factory_reset
+    - type: entities
+      title: Entity Management
+      show_header_toggle: false
+      entities:
+        - name: Rename
+          entity: script.zigbee2mqtt_rename
+        - name: Old name
+          entity: input_text.zigbee2mqtt_old_name
+        - name: New name
+          entity: input_text.zigbee2mqtt_new_name
         - type: divider
-        - entity: input_text.zigbee2mqtt_update_name
-        - entity: script.zigbee2mqtt_update
+        - name: Run device Update
+          entity: script.zigbee2mqtt_update
+        - name: Device name
+          entity: input_text.zigbee2mqtt_update_name
         - type: divider
-        - entity: input_text.zigbee2mqtt_remove
-        - entity: input_boolean.zigbee2mqtt_force_remove
-        - entity: script.zigbee2mqtt_remove
+        - name: Remove entity
+          entity: script.zigbee2mqtt_remove
+        - name: Device name
+          entity: input_text.zigbee2mqtt_remove
+        - name: Enable force remove
+          entity: input_boolean.zigbee2mqtt_force_remove
   - title: Bedroom
     path: bedroom
     badges: []
